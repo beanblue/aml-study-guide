@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>反洗钱学习手册 · 从零基础到专业能力</title>
+<style>
+@font-face{font-family:'NotoSansCJK';src:url('./_shared/fonts/NotoSansCJKsc-Regular.otf') format('opentype');font-weight:400;}
+@font-face{font-family:'NotoSansCJK';src:url('./_shared/fonts/NotoSansCJKsc-Bold.otf') format('opentype');font-weight:700;}
+:root{--bg:#f8fafc;--bg2:#fff;--ink:#1e293b;--muted:#64748b;--rule:#e2e8f0;--accent:#2563eb;--accent2:#0ea5e9;--warm:#f59e0b;--danger:#ef4444;--success:#22c55e;--font:'NotoSansCJK','Noto Sans CJK SC','PingFang SC','WenQuanYi Micro Hei',sans-serif;--max:960px;--radius:12px;--radius-sm:8px;--radius-lg:20px;--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);--shadow-md:0 4px 12px rgba(0,0,0,0.1);--shadow-lg:0 10px 30px rgba(0,0,0,0.12);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.8;}
+article.page{max-width:var(--max);margin:0 auto;padding:0 1.5rem 4rem;}
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--rule);padding:0 1.5rem;}
+.topnav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;}
+.topnav-brand{font-weight:700;font-size:16px;color:var(--ink);}
+.topnav-brand a{color:inherit;text-decoration:none;}
+.topnav-links{display:flex;gap:20px;}
+.topnav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s;}
+.topnav-links a:hover{color:var(--accent);}
+.hero{text-align:center;padding:3.5rem 1rem 3rem;background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 50%,#0ea5e9 100%);color:#fff;border-radius:0 0 var(--radius-lg) var(--radius-lg);margin-bottom:2.5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 70%);}
+.hero h1{font-size:2rem;font-weight:700;margin-bottom:0.5rem;position:relative;letter-spacing:-0.02em;}
+.hero p{font-size:1rem;opacity:0.9;max-width:600px;margin:0 auto;position:relative;}
+.hero-stats{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;position:relative;}
+.hero-stat{text-align:center;}
+.hero-stat .num{font-size:1.5rem;font-weight:700;}
+.hero-stat .label{font-size:0.75rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.05em;}
+section{margin-bottom:3rem;}
+h2{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.02em;padding-bottom:0.5rem;border-bottom:2px solid var(--rule);}
+h2 .stage-tag{display:inline-block;font-size:0.7rem;font-weight:600;background:var(--accent);color:#fff;padding:2px 10px;border-radius:980px;vertical-align:middle;margin-left:8px;letter-spacing:0;}
+h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 0.5rem;color:var(--ink);}
+h4{font-size:1rem;font-weight:600;margin:1rem 0 0.4rem;color:var(--ink);}
+p{margin-bottom:0.8rem;}
+.hook{background:linear-gradient(135deg,#fef3c7,#fde68a);border-left:4px solid var(--warm);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.2rem;margin:1rem 0 1.5rem;position:relative;}
+.hook-label{font-size:0.75rem;font-weight:600;color:var(--warm);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem;}
+.hook p{margin:0;font-size:0.95rem;color:#78350f;}
+.card{background:var(--bg2);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:var(--shadow);margin-bottom:1rem;border:1px solid var(--rule);}
+.card-accent{border-left:4px solid var(--accent);}
+.card-warn{border-left:4px solid var(--warm);}
+.card-danger{border-left:4px solid var(--danger);}
+.card-success{border-left:4px solid var(--success);}
+.card-title{font-weight:700;margin-bottom:0.4rem;font-size:1rem;}
+.level-tag{display:inline-block;font-size:0.7rem;font-weight:600;padding:2px 8px;border-radius:980px;vertical-align:middle;}
+.tag-l1{background:#22c55e1a;color:#16a34a;}
+.tag-l2{background:#f59e0b1a;color:#d97706;}
+.tag-l3{background:#ef44441a;color:#dc2626;}
+.depth-block{margin-top:0.8rem;border-top:1px dashed var(--rule);padding-top:0.8rem;}
+.depth-toggle{cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--accent);user-select:none;display:inline-flex;align-items:center;gap:4px;}
+.depth-toggle::before{content:'▶';font-size:0.7rem;transition:transform .2s;}
+.depth-toggle.open::before{transform:rotate(90deg);}
+.depth-content{display:none;margin-top:0.6rem;padding:0.8rem 1rem;background:#f1f5f9;border-radius:var(--radius-sm);font-size:0.9rem;}
+.depth-content.show{display:block;}
+.depth-content h5{font-size:0.85rem;font-weight:600;margin-bottom:0.3rem;color:var(--ink);}
+.depth-content p{font-size:0.85rem;margin-bottom:0.4rem;color:var(--muted);}
+.reg-map{background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow);margin:1rem 0;border:1px solid var(--rule);}
+.reg-map-title{font-size:0.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.6rem;}
+.reg-map-list{list-style:none;padding:0;margin:0;}
+.reg-map-item{display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.88rem;}
+.reg-map-item:last-child{border-bottom:none;}
+.reg-link{color:var(--accent);text-decoration:none;font-weight:500;transition:color .15s;}
+.reg-link:hover{text-decoration:underline;}
+.rbadge{display:inline-block;font-size:0.65rem;font-weight:600;padding:1px 6px;border-radius:4px;white-space:nowrap;}
+.table-wrap{overflow-x:auto;margin:1rem 0;border-radius:var(--radius-sm);box-shadow:var(--shadow);border:1px solid var(--rule);}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;background:var(--bg2);}
+th{background:#f8fafc;padding:10px 12px;text-align:left;font-weight:600;color:var(--muted);border-bottom:2px solid var(--rule);white-space:nowrap;}
+td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:#f8fafc;}
+.contrast-table th{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:var(--accent);}
+.contrast-table td:first-child{font-weight:600;background:#f8fafc;}
+.inline-quiz{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);padding:1rem 1.2rem;margin:1rem 0;}
+.inline-quiz-q{font-weight:600;color:#166534;margin-bottom:0.4rem;font-size:0.9rem;}
+.inline-quiz-a{color:#15803d;font-size:0.88rem;display:none;margin-top:0.4rem;padding-top:0.4rem;border-top:1px dashed #bbf7d0;}
+.inline-quiz:hover .inline-quiz-a{display:block;}
+.error-case{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius);padding:1rem 1.2rem;margin:1rem 0;}
+.error-case-title{font-weight:700;color:#dc2626;margin-bottom:0.5rem;display:flex;align-items:center;gap:6px;}
+.error-case-title::before{content:'✕';font-size:1rem;}
+.error-case .wrong{color:#991b1b;font-size:0.88rem;margin-bottom:0.3rem;}
+.error-case .right{color:#166534;font-size:0.88rem;margin-top:0.5rem;padding-top:0.5rem;border-top:1px dashed #fecaca;}
+.example{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);padding:1rem 1.2rem;margin:1rem 0;}
+.example-title{font-weight:700;color:#92400e;margin-bottom:0.5rem;}
+.anchor-ex{font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:var(--radius-sm);margin:0.5rem 0;border-left:3px solid var(--accent2);}
+.anchor-ex strong{color:var(--ink);}
+.checkpoint{background:linear-gradient(135deg,#1e3a8a,#2563eb);border-radius:var(--radius-lg);padding:2rem 1.5rem;color:#fff;margin:2rem 0;}
+.checkpoint h2{color:#fff;border-bottom-color:rgba(255,255,255,0.2);}
+.checkpoint h2 .stage-tag{background:rgba(255,255,255,0.2);}
+.quiz-item{background:rgba(255,255,255,0.1);border-radius:var(--radius-sm);padding:1rem 1.2rem;margin:0.8rem 0;}
+.quiz-item .q{font-weight:600;margin-bottom:0.5rem;}
+.quiz-item .opts{list-style:none;padding:0;}
+.quiz-item .opts li{padding:4px 0;font-size:0.9rem;opacity:0.9;}
+.quiz-item .answer{margin-top:0.5rem;font-size:0.85rem;display:none;background:rgba(255,255,255,0.15);padding:0.5rem 0.8rem;border-radius:var(--radius-sm);}
+.quiz-item:hover .answer{display:block;}
+.diagnosis{background:var(--bg2);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-md);margin:1.5rem 0;border:1px solid var(--rule);}
+.diagnosis h4{color:var(--accent);}
+.diag-q{padding:0.8rem 0;border-bottom:1px solid var(--rule);}
+.diag-q:last-child{border-bottom:none;}
+.diag-q .label{font-weight:600;margin-bottom:0.3rem;}
+.diag-q .opts{display:flex;gap:12px;flex-wrap:wrap;}
+.diag-q .opt{padding:4px 14px;border:1px solid var(--rule);border-radius:980px;font-size:0.85rem;cursor:pointer;transition:all .15s;}
+.diag-q .opt:hover,.diag-q .opt.sel{background:var(--accent);color:#fff;border-color:var(--accent);}
+.diag-result{margin-top:1rem;padding:1rem;background:#f0fdf4;border-radius:var(--radius-sm);font-size:0.9rem;display:none;}
+.diag-result.show{display:block;}
+.toc{background:var(--bg2);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:var(--shadow);margin:1.5rem 0;border:1px solid var(--rule);}
+.toc h2{border-bottom:none;margin-bottom:0.5rem;font-size:1.1rem;}
+.toc ul{list-style:none;padding:0;}
+.toc li{padding:5px 0;font-size:0.9rem;}
+.toc a{color:var(--ink);text-decoration:none;transition:color .15s;}
+.toc a:hover{color:var(--accent);}
+figure.diagram{margin:1.5rem 0;text-align:center;}
+figure.diagram img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow-md);}
+figcaption{font-size:0.8rem;color:var(--muted);margin-top:0.5rem;}
+.callout{background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius);padding:1rem 1.2rem;margin:1rem 0;}
+.callout-title{font-weight:700;color:var(--accent);margin-bottom:0.3rem;}
+.penalty-gradient{display:flex;align-items:stretch;gap:0;margin:1rem 0;border-radius:var(--radius);overflow:hidden;}
+.penalty-step{flex:1;padding:0.8rem 0.5rem;text-align:center;color:#fff;font-size:0.8rem;}
+.penalty-step .level{font-weight:700;font-size:0.85rem;margin-bottom:0.2rem;}
+.penalty-step .desc{font-size:0.75rem;opacity:0.9;}
+ol.steps,ul.steps{padding-left:1.2rem;}
+ol.steps li,ul.steps li{margin-bottom:0.4rem;font-size:0.92rem;}
+mark.key{background:#fef08a;padding:1px 4px;border-radius:3px;font-weight:600;}
+.term{cursor:help;border-bottom:1px dashed var(--accent);position:relative;}
+.term:hover::after{content:attr(data-tip);position:absolute;bottom:100%;left:0;background:#1e293b;color:#fff;padding:0.5rem 0.8rem;border-radius:var(--radius-sm);font-size:0.8rem;white-space:normal;width:300px;max-width:80vw;z-index:200;line-height:1.5;box-shadow:var(--shadow-md);}
+.index-link{color:var(--accent);text-decoration:none;font-size:0.85rem;}
+.index-link:hover{text-decoration:underline;}
+@media(max-width:768px){.hero h1{font-size:1.5rem;}.hero-stats{gap:1rem;}.topnav-links{gap:12px;font-size:13px;}.table-wrap{font-size:0.8rem;}.penalty-gradient{flex-direction:column;}article.page{padding:0 1rem 3rem;}}
+@media print{.topnav{display:none;}.depth-content{display:block!important;}.inline-quiz-a{display:block!important;}}
+/* Reading Progress Bar */
+.read-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#2563eb,#0ea5e9,#06b6d4);z-index:9999;transition:width .1s ease-out;border-radius:0 3px 3px 0;}
+/* Back to Top Button */
+.back-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.9);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 16px rgba(37,99,235,0.3);opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s cubic-bezier(0.4,0,0.2,1);z-index:200;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.back-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.back-top:hover{background:rgba(37,99,235,1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,0.4);}
+/* Click-to-reveal quiz answers */
+.quiz-item{cursor:pointer;transition:background .2s;}
+.quiz-item .answer{display:none;}
+.quiz-item.revealed .answer{display:block;animation:fadeUp .3s ease;}
+.quiz-item:hover .answer{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+/* Section fade-in (progressive enhancement) */
+body.animate section{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+body.animate section.visible{opacity:1;transform:translateY(0);}
+/* Enhanced checkpoint glassmorphism */
+.checkpoint .quiz-item{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);transition:all .2s;}
+.checkpoint .quiz-item:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.2);}
+/* Smooth card hover */
+.card{transition:box-shadow .2s ease,transform .2s ease;}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
+/* Nav link active state */
+.topnav-links a{position:relative;}
+.topnav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .2s;}
+.topnav-links a:hover::after{width:100%;}
+</style>
+</head>
+<body>
+<div class="read-progress" id="readProgress"></div>
+<button class="back-top" id="backTop" title="回到顶部">↑</button>
+<nav class="topnav"><div class="topnav-inner">
+<div class="topnav-brand"><a href="#top">反洗钱学习手册</a></div>
+<div class="topnav-links"><a href="law-library.html">法规索引</a><a href="#checkpoint">能力检验</a></div>
+</div></nav>
+<article class="page" id="top">
+<div class="hero">
+<h1>反洗钱学习手册</h1>
+<p>从零基础到专业能力 · 以《反洗钱法》为纲，40部法规全量挂载</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="num">6</div><div class="label">认知阶段</div></div>
+<div class="hero-stat"><div class="num">3</div><div class="label">学习深度</div></div>
+<div class="hero-stat"><div class="num">40</div><div class="label">法规挂载</div></div>
+<div class="hero-stat"><div class="num">65</div><div class="label">条文映射</div></div>
+</div>
+</div>
+<!-- 导学篇 -->
+<section id="guide">
+<h2>导学篇：学习地图与训练方法</h2>
+<p>本手册以<mark class="key">《中华人民共和国反洗钱法》</mark>（2024年11月8日修订，2025年1月1日起施行，共<strong>7章65条</strong>）为<strong>基本法</strong>，以<strong>40部配套法规</strong>为<strong>细化规则</strong>，为零基础学员搭建"以法为纲、以规为目"的完整学习路径。</p>
+<div class="callout">
+<div class="callout-title">设计理念</div>
+<p>手册讲"为什么懂、怎么用"，规则库讲"具体怎么规定"。手册中不重复条文原文，而是通过链接挂载到<a href="law-library.html" style="color:var(--accent);">规则库</a>对应条文。点击文中蓝色法规链接即可跳转查看原文、释义与关联条款。</p>
+</div>
+<h3>三阶六维学习体系</h3>
+<p>本手册采用<strong>六阶×三阶</strong>交叉架构：<strong>六阶</strong>是"学什么"（内容维度），<strong>三阶</strong>是"学到多深"（深度维度）。</p>
+<div class="card card-accent">
+<div class="card-title">六阶内容维度</div>
+<table style="font-size:0.88rem;">
+<tr><th>阶段</th><th>主题</th><th>解决什么问题</th></tr>
+<tr><td>第一阶</td><td>概念建立</td><td>反洗钱到底在反什么？</td></tr>
+<tr><td>第二阶</td><td>原理理解</td><td>为什么要反洗钱？</td></tr>
+<tr><td>第三阶</td><td>制度认知</td><td>法律体系长什么样？</td></tr>
+<tr><td>第四阶</td><td>责任明确</td><td>谁该做什么？做不好会怎样？</td></tr>
+<tr><td>第五阶</td><td>流程掌握</td><td>核心业务怎么走？</td></tr>
+<tr><td>第六阶</td><td>方法应用</td><td>具体怎么做？</td></tr>
+</table>
+</div>
+<div class="card card-accent" style="margin-top:0.5rem;">
+<div class="card-title">三阶深度维度</div>
+<table style="font-size:0.88rem;">
+<tr><th>深度</th><th>定位</th><th>内容特征</th></tr>
+<tr><td><span class="level-tag tag-l1">L1 认知层</span></td><td>科普级</td><td>一句话定义、生活类比、框架图谱——建立"是什么"的认知</td></tr>
+<tr><td><span class="level-tag tag-l2">L2 精通层</span></td><td>专业级</td><td>构成要件、立法沿革、操作标准——掌握"怎么用"的专业知识</td></tr>
+<tr><td><span class="level-tag tag-l3">L3 能力层</span></td><td>专家级</td><td>争议辨析、跨法比较、复杂场景——培养"遇到难题会判断"的能力</td></tr>
+</table>
+</div>
+<p>L1内容直接写在正文中；L2/L3内容以可展开的折叠块呈现，点击「▶ 深度学习」展开。三个深度都通过链接挂载到规则库的条文上。</p>
+<figure class="diagram">
+<img src="assets/law_hierarchy_v2.png" alt="反洗钱法规层级关系图">
+<figcaption>图0：反洗钱法规层级关系——以《反洗钱法》7章65条为纲，40部配套法规为目的</figcaption>
+</figure>
+<h3>入口诊断：你该从哪里开始？</h3>
+<div class="diagnosis">
+<h4>3个问题，推荐你的学习起点</h4>
+<div class="diag-q"><div class="label">1. 你的角色是？</div><div class="opts">
+<span class="opt">银行柜员/一线操作</span><span class="opt">合规专员/反洗钱岗</span><span class="opt">部门负责人/高管</span><span class="opt">在校学生/其他</span>
+</div></div>
+<div class="diag-q"><div class="label">2. 你对反洗钱的了解程度？</div><div class="opts">
+<span class="opt">完全没听过</span><span class="opt">听说过但不清楚</span><span class="opt">知道基本概念</span><span class="opt">有一定实务经验</span>
+</div></div>
+<div class="diag-q"><div class="label">3. 你的学习目标？</div><div class="opts">
+<span class="opt">应付考试/入职培训</span><span class="opt">日常业务操作</span><span class="opt">搭建合规体系</span><span class="opt">学术研究</span>
+</div></div>
+<div class="diag-result"><strong>推荐路径：</strong>零基础建议从<strong>第一阶→第二阶</strong>顺序学习；有基础者可直接进入<strong>第三阶制度认知</strong>；一线操作人员建议重点学习<strong>第五阶流程+第六阶方法</strong>；高管建议重点阅读<strong>第四阶责任</strong>。所有学习者最终都应完成<strong>能力检验关卡</strong>。</div>
+</div>
+<div class="toc">
+<h2>目录导航</h2>
+<ul>
+<li><a href="#stage1">第一阶 · 概念建立</a> <span class="level-tag tag-l1">L1</span> — 10个核心术语，建立认知闭环</li>
+<li><a href="#stage2">第二阶 · 原理理解</a> <span class="level-tag tag-l1">L1</span> — 为什么要反洗钱？风险为本的底层逻辑</li>
+<li><a href="#stage3">第三阶 · 制度认知</a> <span class="level-tag tag-l1">L1</span> — 7章框架 × 40部法规全量挂载</li>
+<li><a href="#stage4">第四阶 · 责任明确</a> <span class="level-tag tag-l1">L1</span> — 谁负责什么？处罚梯度与案例</li>
+<li><a href="#stage5">第五阶 · 流程掌握</a> <span class="level-tag tag-l1">L1</span> — 四大核心流程图解</li>
+<li><a href="#stage6">第六阶 · 方法应用</a> <span class="level-tag tag-l1">L1</span> — 操作实例 + 错案警示 + 速查表</li>
+<li><a href="#checkpoint">能力检验关卡</a> — 10道场景判断题</li>
+<li><a href="#regulation-library">附：法规库索引</a> — 40部法规速查</li>
+</ul>
+</div>
+</section>
+
+<!-- 第一阶·概念建立 -->
+<section id="stage1">
+<h2>第一阶 · 概念建立 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>第一次接触反洗钱的人，最常问的问题不是"反洗钱是什么"，而是"洗钱到底是怎么洗的？为什么银行要管？"这一阶就用10个核心术语，帮你把这些问题一次说清。</p>
+</div>
+<p>以下10个概念是理解整个反洗钱体系的"钥匙"。每个概念配<strong>一句话定义 + 要点展开 + 认知锚例</strong>，帮你快速建立概念框架。</p>
+
+<div class="card card-accent">
+<div class="card-title">1. 洗钱（Money Laundering）</div>
+<p><strong>一句话：</strong>将犯罪所得及其收益通过各种手段掩饰、隐瞒，使其在形式上合法化的行为。</p>
+<p><strong>要点：</strong>上游犯罪（毒品、走私、贪腐、金融诈骗等）→ 产生非法资金 → 通过分层、整合等手段掩盖来源 → 伪装成合法收入。反洗钱制度就是要在这一链条的各个环节设置障碍。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某毒贩将贩毒获得的500万现金，通过购买奢侈品、投资餐饮店、虚构贸易等方式，让这笔钱"看起来"像是正常生意赚来的——这个过程就是洗钱。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-01.html#art-191" class="reg-link">《刑法》 第191条</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-2" class="reg-link">《反洗钱法》 第2条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>深入理解概念的法律定义边界、构成要件、立法沿革。点击上方法规链接查看规则库中的逐条释义。</p>
+<h5>L3 能力层</h5><p>概念的跨法比较、争议辨析、复杂场景适用。参考规则库中各条文的关联条款。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">2. 恐怖融资（Terrorist Financing）</div>
+<p><strong>一句话：</strong>为恐怖活动组织或个人筹集、转移、使用资金的行为。</p>
+<p><strong>要点：</strong>恐怖融资与洗钱常常交织，但本质不同：洗钱是"洗白"已有犯罪所得，恐怖融资可能是"筹集"合法或非法资金用于恐怖目的。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某人以慈善募捐名义筹集资金，实际将款项转给境外恐怖组织——这就是恐怖融资。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-03.html#art-14" class="reg-link">《反恐怖主义法》 第14条</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-2" class="reg-link">《反洗钱法》 第2条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>恐怖融资的认定标准、资金渠道分类、与反恐法律体系的衔接。</p>
+<h5>L3 能力层</h5><p>非营利组织被恐怖融资利用的风险识别、跨境恐怖融资追踪。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">3. 上游犯罪（Predicate Offense）</div>
+<p><strong>一句话：</strong>产生洗钱所掩饰、隐瞒的犯罪所得的原始犯罪。</p>
+<p><strong>要点：</strong>反洗钱法第2条规定了七类上游犯罪并兜底"其他犯罪"，实质上将上游犯罪范围扩展到所有犯罪。刑法第191条洗钱罪的上游犯罪则限定为七类。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>张三贪污了公款1000万（贪污贿赂犯罪=上游犯罪），李四帮他把这笔钱转到境外账户（洗钱）——张三的贪污就是上游犯罪。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-2" class="reg-link">《反洗钱法》 第2条</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-01.html#art-191" class="reg-link">《刑法》 第191条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>七类上游犯罪的具体范围、兜底条款的适用逻辑、与刑法第191条的衔接差异。</p>
+<h5>L3 能力层</h5><p>上游犯罪尚未判决时能否认定洗钱？跨法比较中的争议焦点。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">4. 客户尽职调查（CDD）</div>
+<p><strong>一句话：</strong>金融机构在与客户建立业务关系或进行交易时，识别客户身份、了解业务目的、评估风险的过程。</p>
+<p><strong>要点：</strong>CDD是反洗钱的基石——不知道客户是谁，就无法判断资金是否可疑。包括初次CDD、持续CDD和强化CDD三个层次。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>小王到银行开户，柜员要求他出示身份证、登记职业和住址、了解开户目的——这套流程就是CDD。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-09.html" class="reg-link">《客户尽职调查管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-27" class="reg-link">《反洗钱法》 第27条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>CDD的三层架构（初次/持续/强化）的操作标准、触发条件、记录要求。</p>
+<h5>L3 能力层</h5><p>代理行CDD、第三方CDD的信赖边界、跨境CDD信息获取难点。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">5. 受益所有人（Beneficial Owner）</div>
+<p><strong>一句话：</strong>最终拥有或控制客户的自然人，或对客户享有最终收益的自然人。</p>
+<p><strong>要点：</strong>受益所有人穿透到"自然人"层面，不限于登记的法定代表人。一般标准：持股超过25%的自然人即为受益所有人。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某公司开户，登记的法定代表人是月薪8000元的张三，但实际控制公司资金的是从未出现在工商登记里的李四。李四就是"受益所有人"。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-13.html" class="reg-link">《受益所有人信息管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-09.html#art-20" class="reg-link">《客户尽职调查管理办法》 第20条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>25%持股标准的适用、多层SPV架构穿透方法、受益所有人信息登记制度。</p>
+<h5>L3 能力层</h5><p>信托架构下的受益所有人识别、跨境股权穿透的法律障碍与解决方案。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">6. 大额交易报告</div>
+<p><strong>一句话：</strong>金融机构对达到规定金额标准的交易，向反洗钱监测分析机构提交的报告。</p>
+<p><strong>要点：</strong>大额交易不等于可疑交易——它只是金额达到了报告门槛，交易本身可能是完全合法的。报告的目的是为监测分析提供数据基础。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某企业账户单日转账200万元到异地账户，银行系统自动生成大额交易报告上报——这笔交易可能是正常的货款支付，也可能暗藏洗钱，需要监测分析。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-10.html" class="reg-link">《大额交易和可疑交易报告管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-35" class="reg-link">《反洗钱法》 第35条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>大额交易的具体金额标准（5万/20万/1万美元等）、报告要素、报送时限。</p>
+<h5>L3 能力层</h5><p>"明显关联的累计交易"判定标准、跨境大额报告的特殊要求。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">7. 可疑交易报告</div>
+<p><strong>一句话：</strong>金融机构对怀疑与洗钱、恐怖融资有关的交易，向反洗钱监测分析机构提交的报告。</p>
+<p><strong>要点：</strong>可疑交易报告是反洗钱最有力的"发现武器"——它不依赖固定金额，而是基于合理怀疑。核心判断标准：交易与客户身份、业务性质、风险等级不符。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>一位退休老人账户突然收到境外汇入的500万元，随后分多笔转出——这明显与退休老人的身份不符，应提交可疑交易报告。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-10.html" class="reg-link">《大额交易和可疑交易报告管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-35" class="reg-link">《反洗钱法》 第35条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>可疑交易监测模型设计、人工甄别流程、报告要素与报送时限。</p>
+<h5>L3 能力层</h5><p>新型洗钱手法（虚拟货币、直播打赏等）的可疑交易识别、误报与漏报的平衡。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">8. 风险为本（Risk-Based Approach）</div>
+<p><strong>一句话：</strong>反洗钱措施应与所面临的洗钱风险相适应，对高风险采取强化措施，对低风险可简化措施。</p>
+<p><strong>要点：</strong>风险为本是现代反洗钱的核心方法论——有限的合规资源应优先投向高风险领域，而不是对所有客户"一刀切"。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>银行对公务员的工资卡开户只需标准CDD，但对一家注册在离岸群岛、无实际经营的贸易公司开户，则需要强化CDD——这就是"风险为本"。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-4" class="reg-link">《反洗钱法》 第4条</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-24.html" class="reg-link">《法人金融机构风险管理指引》</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>风险自评估方法论、客户/产品/渠道/地理四维风险评级体系。</p>
+<h5>L3 能力层</h5><p>FATF互评估中风险为本执行的薄弱环节、如何对标国际标准改进。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">9. 特别预防措施</div>
+<p><strong>一句话：</strong>针对恐怖活动名单、联合国定向制裁名单、其他国家名单，金融机构应立即采取的停止服务、限制资产转移等措施。</p>
+<p><strong>要点：</strong>特别预防措施是反洗钱的"紧急制动"——一旦客户命中名单，必须立即行动，不得事先通知客户。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某银行在季度名单核查中发现客户与联合国制裁名单上的某人同名同证件号，立即冻结其账户资金转移——这就是特别预防措施。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-11.html" class="reg-link">《反洗钱特别预防措施管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-40" class="reg-link">《反洗钱法》 第40条</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>三类名单的发布机制、核查流程、资产冻结的操作标准与解冻程序。</p>
+<h5>L3 能力层</h5><p>善意第三人保护机制、跨境制裁合规冲突的应对策略。</p>
+</div></div>
+</div>
+
+<div class="card card-accent">
+<div class="card-title">10. 反洗钱内控制度</div>
+<p><strong>一句话：</strong>金融机构为履行反洗钱义务而建立的内部管理制度体系，包括组织架构、操作流程、培训审计等。</p>
+<p><strong>要点：</strong>内控制度是反洗钱的"基础设施"——没有制度，再好的员工也不知道该做什么。法规要求建制度、设机构、配人员、做培训、搞审计。</p>
+<div class="anchor-ex"><strong>认知锚例：</strong>某银行设立反洗钱合规部，配备专职人员，每年对全员进行反洗钱培训，定期开展内部审计——这就是内控制度的落地。</div>
+<div class="reg-map"><div class="reg-map-title">法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-27" class="reg-link">《反洗钱法》 第27条</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-24.html" class="reg-link">《法人金融机构风险管理指引》</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>内控制度的构成要素、独立反洗钱部门设置标准、审计频次要求。</p>
+<h5>L3 能力层</h5><p>内控制度有效性评估方法、中小金融机构的合规资源优化配置。</p>
+</div></div>
+</div>
+
+<div class="inline-quiz">
+<div class="inline-quiz-q">检索练习：洗钱和恐怖融资有什么本质区别？受益所有人为什么不能只看工商登记的法定代表人？</div>
+<div class="inline-quiz-a">答案：洗钱是"洗白"已有犯罪所得，恐怖融资可能是"筹集"资金用于恐怖目的。受益所有人要穿透到实际控制的自然人，法定代表人可能只是"挂名"。</div>
+</div>
+</section>
+<!-- 第二阶·原理理解 -->
+<section id="stage2">
+<h2>第二阶 · 原理理解 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>2019年，某城商行因未识别出一家空壳公司的异常资金流转，1.2亿元诈骗资金通过该行洗出。事后调查发现，该行客户经理甚至没有核实公司实际经营场所。最终该行被罚款430万元，3名高管被追责。</p>
+<p>如果当时多问一句"这家公司到底做什么生意"，1.2亿也许就不会流出。这就是反洗钱的意义——不是给业务设障碍，而是守住金融安全的底线。</p>
+</div>
+<h3>2.1 为什么要反洗钱？——三层递进逻辑</h3>
+<div class="card card-accent"><div class="card-title">第一层：国家安全</div>
+<p>洗钱是犯罪链条的"最后一公里"——毒品、贪腐、恐怖融资，最终都要把黑钱洗白。切断洗钱通道，等于掐断了犯罪的"经济血脉"。<a href="regulations/reg-00.html#art-1" class="reg-link">《反洗钱法》 第1条</a>明确将"维护国家安全"写入立法目的。</p>
+</div>
+<div class="card card-accent"><div class="card-title">第二层：金融安全</div>
+<p>大量黑钱涌入金融体系，会扭曲市场信号、扰乱金融秩序。更严重的是，如果一家银行被发现帮人洗钱，公众信任会瞬间崩塌——挤兑、股价暴跌、连锁反应。<a href="regulations/reg-00.html#art-3" class="reg-link">《反洗钱法》 第3条</a>要求坚持"总体国家安全观"，正是从这个高度出发。</p>
+</div>
+<div class="card card-accent"><div class="card-title">第三层：机构合规</div>
+<p>对金融机构而言，反洗钱不是"多做一步"，而是"必须做"的法律义务。不做或做不好，<a href="regulations/reg-00.html#art-52" class="reg-link">《反洗钱法》 第52条</a>到<a href="regulations/reg-00.html#art-56" class="reg-link">第56条</a>规定了从警告到巨额罚款、再到个人追责的完整处罚体系。反洗钱合规已经从"成本中心"变成"生存底线"。</p>
+</div>
+<h3>2.2 风险为本：现代反洗钱的核心方法论</h3>
+<p>"风险为本"（Risk-Based Approach）是<a href="regulations/reg-00.html#art-4" class="reg-link">《反洗钱法》 第4条</a>确立的基本原则，也是FATF（金融行动特别工作组）倡导的全球标准。它的核心思想是：</p>
+<div class="card card-accent">
+<p><strong>不是所有客户都一样危险，所以不能对所有客户用同一套措施。</strong></p>
+<ul class="steps">
+<li><strong>高风险客户</strong> → 强化CDD：实地查访、高层批准、加强监测</li>
+<li><strong>标准风险客户</strong> → 标准CDD：核实身份、了解用途、常规监测</li>
+<li><strong>低风险客户</strong> → 简化CDD：简化流程、减少频次（需有充分依据）</li>
+</ul>
+<p>这样做的目的是把有限的合规资源<strong>投向最需要的地方</strong>，而不是"撒胡椒面"式地平均用力。</p>
+</div>
+<div class="anchor-ex"><strong>认知锚例：</strong>银行对公务员的工资卡开户只需标准CDD（身份明确、收入清晰），但对一家注册在开曼群岛、注册资本1亿却无实际办公地址的贸易公司，则必须执行强化CDD——这就是风险为本的体现。</div>
+<h3>2.3 风险为本 vs 规则为本</h3>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>规则为本（旧模式）</th><th>风险为本（新模式）</th></tr>
+<tr><td>核心逻辑</td><td>按清单逐项执行</td><td>按风险等级配置资源</td></tr>
+<tr><td>客户分类</td><td>不区分或粗略区分</td><td>精细分级，动态调整</td></tr>
+<tr><td>资源分配</td><td>平均用力</td><td>高风险多投入，低风险简化</td></tr>
+<tr><td>判断依据</td><td>是否触发了固定规则</td><td>是否与风险状况相匹配</td></tr>
+<tr><td>灵活性</td><td>低，遇到新型风险反应慢</td><td>高，能动态应对新风险</td></tr>
+</table></div>
+<div class="reg-map"><div class="reg-map-title">本阶法规挂载</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-1" class="reg-link">《反洗钱法》 第1条</a> — 立法目的</div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-3" class="reg-link">《反洗钱法》 第3条</a> — 工作原则</div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html#art-4" class="reg-link">《反洗钱法》 第4条</a> — 风险为本</div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-08.html" class="reg-link">《完善反洗钱监管体制机制的意见》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-24.html" class="reg-link">《法人机构风险管理指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-25.html" class="reg-link">《金融机构洗钱风险自评估指引》</a></div>
+</div></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>风险为本的实操逻辑：如何进行风险自评估？如何划定客户风险等级？低风险简化措施的具体边界在哪？详见<a href="regulations/reg-25.html" class="reg-link">《风险自评估指引》</a>和<a href="regulations/reg-28.html" class="reg-link">《低风险简化措施指引》</a>。</p>
+<h5>L3 能力层</h5><p>风险为本与FATF互评估机制的衔接：我国在FATF互评估中风险为本执行的薄弱环节是什么？如何对标国际标准改进？</p>
+</div></div>
+<div class="inline-quiz">
+<div class="inline-quiz-q">检索练习：风险为本和规则为本有什么本质区别？一个低风险客户是否可以完全不做CDD？</div>
+<div class="inline-quiz-a">答案：规则为本按清单执行不区分风险，风险为本按风险等级配置资源。低风险客户可以简化CDD但不能完全不做——<a href="regulations/reg-00.html#art-30" class="reg-link">《反洗钱法》第30条</a>规定仍需"持续关注"并"采取与其风险状况相适应的管理措施"。</div>
+</div>
+</section>
+
+<!-- 第三阶·制度认知 -->
+<section id="stage3">
+<h2>第三阶 · 制度认知 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>反洗钱不只有一部《反洗钱法》，而是一个由法律、行政法规、部门规章、规范性文件构成的完整体系。40部法规看起来很多，但它们都有各自的"位置"——挂在反洗钱法7章65条的骨架上。这一阶的目标，就是帮你建立这个"骨架+挂载"的整体认知。</p>
+</div>
+<p>本篇以《反洗钱法》<strong>7章65条</strong>为骨架，将<strong>40部法规</strong>全量映射到对应章节。每章给出：认知导入 → 核心制度脉络 → 法规挂载清单 → 易混对比 → 认知检查。</p>
+<div class="card card-accent"><div class="card-title">法规层级速览</div>
+<table style="font-size:0.88rem;">
+<tr><th>层级</th><th>数量</th><th>特点</th><th>代表</th></tr>
+<tr><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td>7部</td><td>全国人大及其常委会制定，效力最高</td><td>反洗钱法、刑法</td></tr>
+<tr><td><span class="rbadge" style="background:#7c3aed1a;color:#7c3aed;">行政法规</span></td><td>1部</td><td>国务院制定</td><td>市场主体登记管理条例</td></tr>
+<tr><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td>14部</td><td>央行/金融监管总局制定，具体操作规范</td><td>CDD办法、报告办法</td></tr>
+<tr><td><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span></td><td>18部</td><td>实施细则、指引、通知</td><td>交易监测指引、风险管理指引</td></tr>
+</table></div>
+
+<h3>3.1 第一章 总则（第1-12条）：定义、原则与适用范围</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>一位老人到银行要求把全部存款转到境外一个陌生账户。柜员觉得不对劲，但说不清"不对"在哪里——是哪个法规赋予了银行询问和拦截的权利？老人如果不配合，银行能怎么办？</p></div>
+<p>本章是整部法律的基石，明确反洗钱的立法目的、基本定义、工作原则与适用范围。核心是确立"风险为本"理念，划定义务主体边界，并首次写入域外适用条款。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html" class="reg-link">《反洗钱法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-01.html" class="reg-link">《刑法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-02.html" class="reg-link">《禁毒法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-03.html" class="reg-link">《反恐怖主义法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-04.html" class="reg-link">《中国人民银行法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-05.html" class="reg-link">《反外国制裁法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-06.html" class="reg-link">《反有组织犯罪法》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>第2条定义涵盖七类上游犯罪并兜底"其他犯罪"；坚持总体国家安全观与风险为本；央行统一监管、各部门配合；金融机构与特定非金融机构均为义务主体；反洗钱信息严格保密；境外洗钱活动危害我国权益可依法追责。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>反洗钱法第2条</th><th>刑法第191条</th></tr>
+<tr><td>上游犯罪范围</td><td>七类+兜底"其他犯罪"</td><td>仅七类上游犯罪</td></tr>
+<tr><td>适用效果</td><td>范围最广，实质涵盖所有犯罪</td><td>范围较窄，刑事处罚的前提</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第一条</span>
+<span style="font-weight:600;font-size:0.9rem;">立法目的</span>
+<a href="regulations/reg-00.html#art-1" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">为了预防洗钱活动，遏制洗钱以及相关犯罪，加强和规范反洗钱工作，维护金融秩序、社会公共利益和国家安全，根据宪法，制定本法。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>明确反洗钱法的立法目的：预防洗钱活动、遏制相关犯罪、加强反洗钱工作、维护金融秩序与国家安全。这是整部法律的价值基点。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二条</span>
+<span style="font-weight:600;font-size:0.9rem;">反洗钱定义</span>
+<a href="regulations/reg-00.html#art-2" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">本法所称反洗钱，是指为了预防通过各种方式掩饰、隐瞒毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪和其他犯罪所得及其收益的来源、性质的洗钱活动，依照本法规定采取相关措施的行为。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">预防恐怖主义融资活动适用本法；其他法律另有规定的，适用其规定。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>核心定义条款。反洗钱是指为预防掩饰、隐瞒七类上游犯罪（毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪）及其他犯罪所得的来源和性质而依法采取的措施。恐怖主义融资活动适用本法。注意「其他犯罪」作为兜底条款，实质上将上游犯罪范围扩展至所有犯罪。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三条</span>
+<span style="font-weight:600;font-size:0.9rem;">工作原则</span>
+<a href="regulations/reg-00.html#art-3" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱工作应当贯彻落实党和国家路线方针政策、决策部署，坚持总体国家安全观，完善监督管理体制机制，健全风险防控体系。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>确立反洗钱工作的基本原则：贯彻总体国家安全观，完善监督管理体制机制，健全风险防控体系。体现了反洗钱从单纯的金融监管上升为国家安全的战略层面。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四条</span>
+<span style="font-weight:600;font-size:0.9rem;">风险为本原则</span>
+<a href="regulations/reg-00.html#art-4" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱工作应当依法进行，确保反洗钱措施与洗钱风险相适应，保障正常金融服务和资金流转顺利进行，维护单位和个人的合法权益。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>确立「风险为本」原则：反洗钱措施应与洗钱风险相适应，同时保障正常金融服务和资金流转，维护单位和个人合法权益。这是金融机构开展反洗钱工作的核心指导原则。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五条</span>
+<span style="font-weight:600;font-size:0.9rem;">监管体制</span>
+<a href="regulations/reg-00.html#art-5" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门负责全国的反洗钱监督管理工作。国务院有关部门在各自的职责范围内履行反洗钱监督管理职责。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门、国务院有关部门、监察机关和司法机关在反洗钱工作中应当相互配合。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>构建反洗钱监管体制：央行（国务院反洗钱行政主管部门）负责全国反洗钱监管，国务院有关部门在各自职责范围内履行监管职责，各部门应相互配合。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六条</span>
+<span style="font-weight:600;font-size:0.9rem;">义务主体</span>
+<a href="regulations/reg-00.html#art-6" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在中华人民共和国境内（以下简称境内）设立的金融机构和依照本法规定应当履行反洗钱义务的特定非金融机构，应当依法采取预防、监控措施，建立健全反洗钱内部控制制度，履行客户尽职调查、客户身份资料和交易记录保存、大额交易和可疑交易报告、反洗钱特别预防措施等反洗钱义务。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>明确反洗钱义务主体：境内设立的金融机构和特定非金融机构。义务内容包括：采取预防监控措施、建立内控制度、履行客户尽职调查、资料保存、大额和可疑交易报告等。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第七条</span>
+<span style="font-weight:600;font-size:0.9rem;">信息保密</span>
+<a href="regulations/reg-00.html#art-7" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">对依法履行反洗钱职责或者义务获得的客户身份资料和交易信息、反洗钱调查信息等反洗钱信息，应当予以保密；非依法律规定，不得向任何单位和个人提供。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门和其他依法负有反洗钱监督管理职责的部门履行反洗钱职责获得的客户身份资料和交易信息，只能用于反洗钱监督管理和行政调查工作。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">司法机关依照本法获得的客户身份资料和交易信息，只能用于反洗钱相关刑事诉讼。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国家有关机关使用反洗钱信息应当依法保护国家秘密、商业秘密和个人隐私、个人信息。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>信息保密义务：反洗钱信息（客户身份资料、交易信息、调查信息等）应予保密，非依法律规定不得向任何单位和个人提供。不同机关获取的信息用途受限不同。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第八条</span>
+<span style="font-weight:600;font-size:0.9rem;">履职保护</span>
+<a href="regulations/reg-00.html#art-8" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">履行反洗钱义务的机构及其工作人员依法开展提交大额交易和可疑交易报告等工作，受法律保护。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>履职保护条款：履行反洗钱义务的机构及工作人员依法开展大额和可疑交易报告等工作受法律保护。这是反洗钱「安全港」条款，保护义务机构免受因依法报告而可能面临的民事责任。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第九条</span>
+<span style="font-weight:600;font-size:0.9rem;">宣传教育</span>
+<a href="regulations/reg-00.html#art-9" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门会同国家有关机关通过多种形式开展反洗钱宣传教育活动，向社会公众宣传洗钱活动的违法性、危害性及其表现形式等，增强社会公众对洗钱活动的防范意识和识别能力。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>宣传教育义务：反洗钱行政主管部门应会同国家有关机关开展反洗钱宣传教育，增强公众防范意识和识别能力。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十条</span>
+<span style="font-weight:600;font-size:0.9rem;">配合义务</span>
+<a href="regulations/reg-00.html#art-10" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">任何单位和个人不得从事洗钱活动或者为洗钱活动提供便利，并应当配合金融机构和特定非金融机构依法开展的客户尽职调查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>配合义务：任何单位和个人不得从事或便利洗钱活动，应配合金融机构和特定非金融机构依法开展的客户尽职调查。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">举报制度</span>
+<a href="regulations/reg-00.html#art-11" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">任何单位和个人发现洗钱活动，有权向反洗钱行政主管部门、公安机关或者其他有关国家机关举报。接受举报的机关应当对举报人和举报内容保密。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">对在反洗钱工作中做出突出贡献的单位和个人，按照国家有关规定给予表彰和奖励。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>举报制度：任何单位和个人发现洗钱活动有权举报，接受举报的机关应对举报人和举报内容保密。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">域外适用</span>
+<a href="regulations/reg-00.html#art-12" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在中华人民共和国境外（以下简称境外）的洗钱和恐怖主义融资活动，危害中华人民共和国主权和安全，侵犯中华人民共和国公民、法人和其他组织合法权益，或者扰乱境内金融秩序的，依照本法以及相关法律规定处理并追究法律责任。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>域外适用条款（新增）：境外洗钱和恐怖融资活动危害我国主权安全、侵犯公民权益或扰乱金融秩序的，依法追究法律责任。这是2024年修订的重要新增条款。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第2条"其他犯罪"作为兜底，如何与刑法第191条洗钱罪的上游犯罪衔接？上游犯罪尚未判决时能否认定洗钱？第12条域外适用的触发条件在司法实践中如何举证与界定？</p>
+<h5>L3 能力层</h5><p>域外适用条款与国际反洗钱管辖权冲突的解决路径、跨境数据取证的法律障碍。</p>
+</div></div>
+
+<h3>3.2 第二章 反洗钱监督管理（第13-26条）：央行职责与监管体制</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>央行来检查反洗钱了——"请出示你们的风险评估报告、内控制度、培训记录"。银行合规专员手忙脚乱：这些到底都是谁要求的？央行有什么权力查？查完能罚吗？</p></div>
+<p>本章构建反洗钱监督管理体制，明确央行主导、各部门分工配合的监管格局。设立反洗钱监测分析机构，建立信息共享、风险评估、监督检查等机制，并引入洗钱高风险国家地区名单管理。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-04.html" class="reg-link">《中国人民银行法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-08.html" class="reg-link">《完善反洗钱监管体制机制的意见》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-12.html" class="reg-link">《监督管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-13.html" class="reg-link">《受益所有人信息管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-21.html" class="reg-link">《落实监管办法有关事项的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-24.html" class="reg-link">《法人机构风险管理指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-25.html" class="reg-link">《风险自评估指引》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>央行组织协调全国反洗钱并负责资金监测；金融管理部门在市场准入落实反洗钱审查；设立监测分析机构接收分析大额可疑交易报告；建立受益所有人信息管理制度；央行可实施风险监测评估、约谈董监高、现场检查；可列名洗钱高风险国家地区。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>第22条 监督检查</th><th>第23条 风险评估</th></tr>
+<tr><td>对象</td><td>对具体机构的现场检查</td><td>对国家/行业层面的宏观评估</td></tr>
+<tr><td>目的</td><td>查你做没做对</td><td>评估整体风险水平</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">央行职责</span>
+<a href="regulations/reg-00.html#art-13" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门组织、协调全国的反洗钱工作，负责反洗钱的资金监测，制定或者会同国务院有关金融管理部门制定金融机构反洗钱管理规定，监督检查金融机构履行反洗钱义务的情况，在职责范围内调查可疑交易活动，履行法律和国务院规定的有关反洗钱的其他职责。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门的派出机构在国务院反洗钱行政主管部门的授权范围内，对金融机构履行反洗钱义务的情况进行监督检查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>央行核心职责：组织协调全国反洗钱工作、资金监测、监督检查、规章制定、国际合作等。央行是反洗钱工作的核心主导机构。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">金融管理部门职责</span>
+<a href="regulations/reg-00.html#art-14" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院有关金融管理部门参与制定所监督管理的金融机构反洗钱管理规定，履行法律和国务院规定的有关反洗钱的其他职责。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">有关金融管理部门应当在金融机构市场准入中落实反洗钱审查要求，在监督管理工作中发现金融机构违反反洗钱规定的，应当将线索移送反洗钱行政主管部门，并配合其进行处理。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>金融管理部门职责：参与制定反洗钱规章，在市场准入中落实反洗钱审查，对金融机构反洗钱工作进行指导监督。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">特定非金融机构主管部门职责</span>
+<a href="regulations/reg-00.html#art-15" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院有关特定非金融机构主管部门制定或者国务院反洗钱行政主管部门会同其制定特定非金融机构反洗钱管理规定。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">有关特定非金融机构主管部门监督检查特定非金融机构履行反洗钱义务的情况，处理反洗钱行政主管部门提出的反洗钱监督管理建议，履行法律和国务院规定的有关反洗钱的其他职责。有关特定非金融机构主管部门根据需要，可以请求反洗钱行政主管部门协助其监督检查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>特定非金融机构主管部门职责：制定本行业反洗钱规章，监督检查本行业义务机构反洗钱工作。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十六条</span>
+<span style="font-weight:600;font-size:0.9rem;">监测分析机构</span>
+<a href="regulations/reg-00.html#art-16" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门设立反洗钱监测分析机构。反洗钱监测分析机构开展反洗钱资金监测，负责接收、分析大额交易和可疑交易报告，移送分析结果，并按照规定向国务院反洗钱行政主管部门报告工作情况，履行国务院反洗钱行政主管部门规定的其他职责。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱监测分析机构根据依法履行职责的需要，可以要求履行反洗钱义务的机构提供与大额交易和可疑交易相关的补充信息。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱监测分析机构应当健全监测分析体系，根据洗钱风险状况有针对性地开展监测分析工作，按照规定向履行反洗钱义务的机构反馈可疑交易报告使用情况，不断提高监测分析水平。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>反洗钱监测分析机构：负责接收、分析大额交易和可疑交易报告，移送分析结果，向央行报告工作情况。这是中国反洗钱情报中心的法律依据。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十七条</span>
+<span style="font-weight:600;font-size:0.9rem;">部门间信息交换</span>
+<a href="regulations/reg-00.html#art-17" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门为履行反洗钱职责，可以从国家有关机关获取所必需的信息，国家有关机关应当依法提供。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门应当向国家有关机关定期通报反洗钱工作情况，依法向履行与反洗钱相关的监督管理、行政调查、监察调查、刑事诉讼等职责的国家有关机关提供所必需的反洗钱信息。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>部门间信息交换：央行与国家机关之间建立反洗钱信息共享机制，央行应向有关机关提供相关信息。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十八条</span>
+<span style="font-weight:600;font-size:0.9rem;">海关现金通报</span>
+<a href="regulations/reg-00.html#art-18" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">出入境人员携带的现金、无记名支付凭证等超过规定金额的，应当按照规定向海关申报。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">海关发现个人出入境携带的现金、无记名支付凭证等超过规定金额的，应当及时向反洗钱行政主管部门通报。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">前款规定的申报范围、金额标准以及通报机制等，由国务院反洗钱行政主管部门、国务院外汇管理部门按照职责分工会同海关总署规定。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>海关通报制度：出入境人员携带超过规定限额的现金应申报，海关应向央行通报相关信息。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第十九条</span>
+<span style="font-weight:600;font-size:0.9rem;">受益所有人信息管理</span>
+<a href="regulations/reg-00.html#art-19" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门会同国务院有关部门建立法人、非法人组织受益所有人信息管理制度。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">法人、非法人组织应当保存并及时更新受益所有人信息，按照规定向登记机关如实提交并及时更新受益所有人信息。反洗钱行政主管部门、登记机关按照规定管理受益所有人信息。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门、国家有关机关为履行职责需要，可以依法使用受益所有人信息。金融机构和特定非金融机构在履行反洗钱义务时依法查询核对受益所有人信息；发现受益所有人信息错误、不一致或者不完整的，应当按照规定进行反馈。使用受益所有人信息应当依法保护信息安全。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">本法所称法人、非法人组织的受益所有人，是指最终拥有或者实际控制法人、非法人组织，或者享有法人、非法人组织最终收益的自然人。具体认定标准由国务院反洗钱行政主管部门会同国务院有关部门制定。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>受益所有人信息管理：央行建立受益所有人信息管理制度，这是提升法人透明度、防范利用空壳公司洗钱的重要制度。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十条</span>
+<span style="font-weight:600;font-size:0.9rem;">线索移送</span>
+<a href="regulations/reg-00.html#art-20" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门和其他依法负有反洗钱监督管理职责的部门发现涉嫌洗钱以及相关违法犯罪的交易活动，应当将线索和相关证据材料移送有管辖权的机关处理。接受移送的机关应当按照有关规定反馈处理结果。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>线索移送：央行发现涉嫌洗钱的线索应移送有管辖权的机关处理。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">风险评估与约谈</span>
+<a href="regulations/reg-00.html#art-21" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门为依法履行监督管理职责，可以要求金融机构报送履行反洗钱义务情况，对金融机构实施风险监测、评估，并就金融机构执行本法以及相关管理规定的情况进行评价。必要时可以按照规定约谈金融机构的董事、监事、高级管理人员以及反洗钱工作直接负责人，要求其就有关事项说明情况；对金融机构履行反洗钱义务存在的问题进行提示。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>风险监测评估与约谈：央行可评估金融机构洗钱风险，对高风险机构可约谈董事、监事、高级管理人员。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">监督检查措施</span>
+<a href="regulations/reg-00.html#art-22" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门进行监督检查时，可以采取下列措施：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）进入金融机构进行检查；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）询问金融机构的工作人员，要求其对有关被检查事项作出说明；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）查阅、复制金融机构与被检查事项有关的文件、资料，对可能被转移、隐匿或者毁损的文件、资料予以封存；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）检查金融机构的计算机网络与信息系统，调取、保存金融机构的计算机网络与信息系统中的有关数据、信息。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">进行前款规定的监督检查，应当经国务院反洗钱行政主管部门或者其设区的市级以上派出机构负责人批准。检查人员不得少于二人，并应当出示执法证件和检查通知书；检查人员少于二人或者未出示执法证件和检查通知书的，金融机构有权拒绝接受检查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>监督检查措施：央行可进入金融机构检查、询问、查阅复制资料、检查信息系统等。检查需经负责人批准、不少于二人、出示执法证件和检查通知书。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">风险评估制度</span>
+<a href="regulations/reg-00.html#art-23" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门会同国家有关机关评估国家、行业面临的洗钱风险，发布洗钱风险指引，加强对履行反洗钱义务的机构指导，支持和鼓励反洗钱领域技术创新，及时监测与新领域、新业态相关的新型洗钱风险，根据洗钱风险状况优化资源配置，完善监督管理措施。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>风险评估制度：央行评估国家、行业洗钱风险，发布风险指引。金融机构应据此开展风险自评估。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">高风险国家地区名单</span>
+<a href="regulations/reg-00.html#art-24" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">对存在严重洗钱风险的国家或者地区，国务院反洗钱行政主管部门可以在征求国家有关机关意见的基础上，经国务院批准，将其列为洗钱高风险国家或者地区，并采取相应措施。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>高风险国家地区名单管理：经批准可将某些国家地区列为洗钱高风险，并采取相应措施。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">行业自律</span>
+<a href="regulations/reg-00.html#art-25" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">履行反洗钱义务的机构可以依法成立反洗钱自律组织。反洗钱自律组织与相关行业自律组织协同开展反洗钱领域的自律管理。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱自律组织接受国务院反洗钱行政主管部门的指导。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>行业自律：履行反洗钱义务的机构可成立行业自律组织，央行予以指导。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十六条</span>
+<span style="font-weight:600;font-size:0.9rem;">行业服务机构管理</span>
+<a href="regulations/reg-00.html#art-26" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">提供反洗钱咨询、技术、专业能力评价等服务的机构及其工作人员，应当勤勉尽责、恪尽职守地提供服务；对于因提供服务获得的数据、信息，应当依法妥善处理，确保数据、信息安全。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门应当加强对上述机构开展反洗钱有关服务工作的指导。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>行业服务机构管理：提供反洗钱咨询、技术服务的机构应勤勉尽责，确保信息安全。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第22条监督检查的程序要求（经负责人批准、不少于二人、出示执法证件和检查通知书），金融机构合法拒绝检查的边界在哪？第24条将某国列为洗钱高风险国家地区与FATF黑灰名单机制如何衔接？</p>
+<h5>L3 能力层</h5><p>央行监管权与金融监管总局行业监管权的边界划分、反洗钱跨部门协调机制的实务运作。</p>
+</div></div>
+
+<h3>3.3 第三章 反洗钱义务（第27-42条）：尽调、保存、报告与特别预防</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>某珠宝店客户单日现金购买黄金300万元，柜员按普通客户流程办理——后来发现这笔钱是贪腐所得。银行被罚、客户经理被追责。如果当时做了强化CDD、报了大额交易，结局可能完全不同。</p></div>
+<p>本章是反洗钱法的核心，系统规定金融机构的反洗钱义务：内部控制、客户尽职调查、资料保存、大额与可疑交易报告、特别预防措施。引入持续尽调、风险分级管理、集团统筹等制度。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-09.html" class="reg-link">《客户尽职调查管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-10.html" class="reg-link">《大额交易和可疑交易报告管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-11.html" class="reg-link">《反洗钱特别预防措施管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-14.html" class="reg-link">《受益所有人识别管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-16.html" class="reg-link">《履职管理通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-19.html" class="reg-link">《交易监测标准建设工作指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-23.html" class="reg-link">《进一步加强反洗钱工作的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-24.html" class="reg-link">《法人机构风险管理指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-26.html" class="reg-link">《客户尽职调查工作指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-27.html" class="reg-link">《落实客户尽职调查有关事项的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-28.html" class="reg-link">《低风险简化措施指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-29.html" class="reg-link">《特别预防措施执行指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-32.html" class="reg-link">《加强客户身份识别工作的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-33.html" class="reg-link">《受益所有人身份识别工作通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-38.html" class="reg-link">《风险评估及客户分类管理指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-39.html" class="reg-link">《开户管理及后续控制措施通知》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>本章是反洗钱义务的"核心战场"：第27条内控制度；第28-33条CDD体系（初次/持续/强化/代理/第三方）；第34条资料保存（至少10年）；第35条大额可疑报告；第36条新领域风险；第37条集团统筹；第40-41条特别预防措施；第42条特定非金融机构参照执行。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>初次CDD(第29条)</th><th>持续CDD(第30条)</th><th>强化CDD(第28条)</th></tr>
+<tr><td>触发时机</td><td>建立业务关系时</td><td>业务存续期间</td><td>高风险客户/情形</td></tr>
+<tr><td>核心动作</td><td>识别+核实身份</td><td>持续关注+风险管理</td><td>加深调查+高层批准</td></tr>
+<tr><td>通俗记忆</td><td>进门查身份证</td><td>定期复查</td><td>重点盯防</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十七条</span>
+<span style="font-weight:600;font-size:0.9rem;">内控制度</span>
+<a href="regulations/reg-00.html#art-27" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当依照本法规定建立健全反洗钱内部控制制度，设立专门机构或者指定内设机构牵头负责反洗钱工作，根据经营规模和洗钱风险状况配备相应的人员，按照要求开展反洗钱培训和宣传。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当定期评估洗钱风险状况并制定相应的风险管理制度和流程，根据需要建立相关信息系统。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当通过内部审计或者社会审计等方式，监督反洗钱内部控制制度的有效实施。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构的负责人对反洗钱内部控制制度的有效实施负责。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>内控制度义务：金融机构应建立健全反洗钱内控制度，设立专门机构或指定内设机构，配备人员，开展培训和内部审计。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十八条</span>
+<span style="font-weight:600;font-size:0.9rem;">客户尽职调查制度</span>
+<a href="regulations/reg-00.html#art-28" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当按照规定建立客户尽职调查制度。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构不得为身份不明的客户提供服务或者与其进行交易，不得为客户开立匿名账户或者假名账户，不得为冒用他人身份的客户开立账户。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>客户尽职调查制度：金融机构应建立客户尽职调查制度，不得为身份不明的客户提供服务或建立业务关系。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第二十九条</span>
+<span style="font-weight:600;font-size:0.9rem;">尽职调查情形</span>
+<a href="regulations/reg-00.html#art-29" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">有下列情形之一的，金融机构应当开展客户尽职调查：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）与客户建立业务关系或者为客户提供规定金额以上的一次性金融服务；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）有合理理由怀疑客户及其交易涉嫌洗钱活动；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）对先前获得的客户身份资料的真实性、有效性、完整性存在疑问。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">客户尽职调查包括识别并采取合理措施核实客户及其受益所有人身份，了解客户建立业务关系和交易的目的，涉及较高洗钱风险的，还应当了解相关资金来源和用途。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构开展客户尽职调查，应当根据客户特征和交易活动的性质、风险状况进行，对于涉及较低洗钱风险的，金融机构应当根据情况简化客户尽职调查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>尽职调查情形：建立业务关系、提供规定金额以上现金交易、发现可疑交易等情形应开展客户尽职调查，识别核实客户身份。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十条</span>
+<span style="font-weight:600;font-size:0.9rem;">持续尽职调查</span>
+<a href="regulations/reg-00.html#art-30" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在业务关系存续期间，金融机构应当持续关注并评估客户整体状况及交易情况，了解客户的洗钱风险。发现客户进行的交易与金融机构所掌握的客户身份、风险状况等不符的，应当进一步核实客户及其交易有关情况；对存在洗钱高风险情形的，必要时可以采取限制交易方式、金额或者频次，限制业务类型，拒绝办理业务，终止业务关系等洗钱风险管理措施。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构采取洗钱风险管理措施，应当在其业务权限范围内按照有关管理规定的要求和程序进行，平衡好管理洗钱风险与优化金融服务的关系，不得采取与洗钱风险状况明显不相匹配的措施，保障与客户依法享有的医疗、社会保障、公用事业服务等相关的基本的、必需的金融服务。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>持续尽职调查：金融机构应持续关注客户及交易情况，根据风险状况采取相应管理措施。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">代理人识别</span>
+<a href="regulations/reg-00.html#art-31" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">客户由他人代理办理业务的，金融机构应当按照规定核实代理关系，识别并核实代理人的身份。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构与客户订立人身保险、信托等合同，合同的受益人不是客户本人的，金融机构应当识别并核实受益人的身份。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>代理人识别：通过代理人办理业务的，应核实代理关系，识别代理人身份，识别受益人身份。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">第三方尽调</span>
+<a href="regulations/reg-00.html#art-32" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构依托第三方开展客户尽职调查的，应当评估第三方的风险状况及其履行反洗钱义务的能力。第三方具有较高风险情形或者不具备履行反洗钱义务能力的，金融机构不得依托其开展客户尽职调查。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当确保第三方已经采取符合本法要求的客户尽职调查措施。第三方未采取符合本法要求的客户尽职调查措施的，由该金融机构承担未履行客户尽职调查义务的法律责任。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">第三方应当向金融机构提供必要的客户尽职调查信息，并配合金融机构持续开展客户尽职调查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>第三方尽调：依托第三方开展客户尽职调查的，应评估第三方能力，第三方应配合。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">跨部门身份核实</span>
+<a href="regulations/reg-00.html#art-33" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构进行客户尽职调查，可以通过反洗钱行政主管部门以及公安、市场监督管理、民政、税务、移民管理、电信管理等部门依法核实客户身份等有关信息，相关部门应当依法予以支持。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门应当协调推动相关部门为金融机构开展客户尽职调查提供必要的便利。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>跨部门身份核实：金融机构可通过公安、市场监管等部门依法核实客户身份信息。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">资料保存</span>
+<a href="regulations/reg-00.html#art-34" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当按照规定建立客户身份资料和交易记录保存制度。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在业务关系存续期间，客户身份信息发生变更的，应当及时更新。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">客户身份资料在业务关系结束后、客户交易信息在交易结束后，应当至少保存十年。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构解散、被撤销或者被宣告破产时，应当将客户身份资料和客户交易信息移交国务院有关部门指定的机构。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>资料保存：金融机构应建立客户身份资料和交易记录保存制度，保存期限至少十年。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">大额和可疑交易报告</span>
+<a href="regulations/reg-00.html#art-35" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>大额和可疑交易报告：金融机构应执行大额交易和可疑交易报告制度，按规定向央行提交报告。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十六条</span>
+<span style="font-weight:600;font-size:0.9rem;">大额交易标准</span>
+<a href="regulations/reg-00.html#art-36" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>大额交易标准：央行规定大额交易报告标准，金融机构应按标准识别和报告大额交易。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十七条</span>
+<span style="font-weight:600;font-size:0.9rem;">可疑交易报告</span>
+<a href="regulations/reg-00.html#art-37" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>可疑交易报告：金融机构发现可疑交易应提交可疑交易报告，央行可要求金融机构提交特定交易的报告。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十八条</span>
+<span style="font-weight:600;font-size:0.9rem;">风险分级管理</span>
+<a href="regulations/reg-00.html#art-38" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">与金融机构存在业务关系的单位和个人应当配合金融机构的客户尽职调查，提供真实有效的身份证件或者其他身份证明文件，准确、完整填报身份信息，如实提供与交易和资金相关的资料。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">单位和个人拒不配合金融机构依照本法采取的合理的客户尽职调查措施的，金融机构按照规定的程序，可以采取限制或者拒绝办理业务、终止业务关系等洗钱风险管理措施，并根据情况提交可疑交易报告。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>风险分级管理：金融机构应根据客户风险状况进行分级管理，对高风险客户采取强化措施。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第三十九条</span>
+<span style="font-weight:600;font-size:0.9rem;">高风险客户措施</span>
+<a href="regulations/reg-00.html#art-39" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">单位和个人对金融机构采取洗钱风险管理措施有异议的，可以向金融机构提出。金融机构应当在十五日内进行处理，并将结果答复当事人；涉及客户基本的、必需的金融服务的，应当及时处理并答复当事人。相关单位和个人逾期未收到答复，或者对处理结果不满意的，可以向反洗钱行政主管部门投诉。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">前款规定的单位和个人对金融机构采取洗钱风险管理措施有异议的，也可以依法直接向人民法院提起诉讼。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>高风险客户措施：对高风险客户应采取强化尽职调查、加强监控等措施；对特定高风险客户可限制或拒绝交易。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十条</span>
+<span style="font-weight:600;font-size:0.9rem;">特别预防措施</span>
+<a href="regulations/reg-00.html#art-40" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">任何单位和个人应当按照国家有关机关要求对下列名单所列对象采取反洗钱特别预防措施：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）国家反恐怖主义工作领导机构认定并由其办事机构公告的恐怖活动组织和人员名单；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）外交部发布的执行联合国安理会决议通知中涉及定向金融制裁的组织和人员名单；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）国务院反洗钱行政主管部门认定或者会同国家有关机关认定的，具有重大洗钱风险、不采取措施可能造成严重后果的组织和人员名单。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">对前款第一项规定的名单有异议的，当事人可以依照《中华人民共和国反恐怖主义法》的规定申请复核。对前款第二项规定的名单有异议的，当事人可以按照有关程序提出从名单中除去的申请。对前款第三项规定的名单有异议的，当事人可以向作出认定的部门申请行政复议；对行政复议决定不服的，可以依法提起行政诉讼。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱特别预防措施包括立即停止向名单所列对象及其代理人、受其指使的组织和人员、其直接或者间接控制的组织提供金融等服务或者资金、资产，立即限制相关资金、资产转移等。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">第一款规定的名单所列对象可以按照规定向国家有关机关申请使用被限制的资金、资产用于单位和个人的基本开支及其他必需支付的费用。采取反洗钱特别预防措施应当保护善意第三人合法权益，善意第三人可以依法进行权利救济。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>特别预防措施：对名单所列对象应立即采取停止服务、限制资金转移等措施。不得事先通知。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">名单管理</span>
+<a href="regulations/reg-00.html#art-41" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构应当识别、评估相关风险并制定相应的制度，及时获取本法第四十条第一款规定的名单，对客户及其交易对象进行核查，采取相应措施，并向反洗钱行政主管部门报告。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>名单管理：央行认定或会同有关机关认定名单，发布后即时生效。名单变更应及时更新。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">特定非金融机构参照</span>
+<a href="regulations/reg-00.html#art-42" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">特定非金融机构在从事规定的特定业务时，参照本章关于金融机构履行反洗钱义务的相关规定，根据行业特点、经营规模、洗钱风险状况履行反洗钱义务。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>特定非金融机构参照：特定非金融机构应参照金融机构履行反洗钱义务，具体办法由主管部门制定。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第30条"不得采取与洗钱风险状况明显不相匹配的措施"如何与基本金融服务保障平衡？第40条三类名单的异议救济路径各不相同，跨境制裁场景下如何选择？</p>
+<h5>L3 能力层</h5><p>集团统筹反洗钱中的跨境数据传输合规、第三方依赖的边界与责任划分。</p>
+</div></div>
+
+<h3>3.4 第四章 反洗钱调查（第43-45条）：调查程序与临时冻结</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>央行发现某银行客户有重大洗钱嫌疑，发来《反洗钱调查通知书》要求配合调查——银行能拒绝吗？调查过程中能冻结客户资金吗？冻结多久？不立案怎么办？</p></div>
+<p>本章规定反洗钱行政调查的启动条件、调查措施和线索移送机制。央行经批准可发调查通知书，金融机构必须配合。涉嫌犯罪的移送管辖机关，可采取临时冻结措施。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html" class="reg-link">《反洗钱法》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>央行经负责人批准可发调查通知书（第43条）；调查措施包括询问、查阅复制、封存资料、检查系统（第44条）；涉嫌犯罪移送管辖机关，可临时冻结（第45条）。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>反洗钱行政调查</th><th>刑事侦查</th></tr>
+<tr><td>发起主体</td><td>央行发起，第43条</td><td>公安机关发起</td></tr>
+<tr><td>程序性质</td><td>行政程序，配合义务</td><td>司法程序，强制力更强</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">内控检查</span>
+<a href="regulations/reg-00.html#art-43" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门或者其设区的市级以上派出机构发现涉嫌洗钱的可疑交易活动或者违反本法规定的其他行为，需要调查核实的，经国务院反洗钱行政主管部门或者其设区的市级以上派出机构负责人批准，可以向金融机构、特定非金融机构发出调查通知书，开展反洗钱调查。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门开展反洗钱调查，涉及特定非金融机构的，必要时可以请求有关特定非金融机构主管部门予以协助。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构、特定非金融机构应当配合反洗钱调查，在规定时限内如实提供有关文件、资料。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">开展反洗钱调查，调查人员不得少于二人，并应当出示执法证件和调查通知书；调查人员少于二人或者未出示执法证件和调查通知书的，金融机构、特定非金融机构有权拒绝接受调查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>内控检查：央行可对金融机构反洗钱内控制度建设执行情况进行检查。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">法律责任一般规定</span>
+<a href="regulations/reg-00.html#art-44" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门或者其设区的市级以上派出机构开展反洗钱调查，可以采取下列措施：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）询问金融机构、特定非金融机构有关人员，要求其说明情况；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）查阅、复制被调查对象的账户信息、交易记录和其他有关资料；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）对可能被转移、隐匿、篡改或者毁损的文件、资料予以封存。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">询问应当制作询问笔录。询问笔录应当交被询问人核对。记载有遗漏或者差错的，被询问人可以要求补充或者更正。被询问人确认笔录无误后，应当签名或者盖章；调查人员也应当在笔录上签名。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">调查人员封存文件、资料，应当会同金融机构、特定非金融机构的工作人员查点清楚，当场开列清单一式二份，由调查人员和金融机构、特定非金融机构的工作人员签名或者盖章，一份交金融机构或者特定非金融机构，一份附卷备查。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>法律责任一般规定：金融机构未按规定履行反洗钱义务的，应承担法律责任。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">处罚标准</span>
+<a href="regulations/reg-00.html#art-45" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">经调查仍不能排除洗钱嫌疑或者发现其他违法犯罪线索的，应当及时向有管辖权的机关移送。接受移送的机关应当按照有关规定反馈处理结果。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">客户转移调查所涉及的账户资金的，国务院反洗钱行政主管部门认为必要时，经其负责人批准，可以采取临时冻结措施。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">接受移送的机关接到线索后，对已依照前款规定临时冻结的资金，应当及时决定是否继续冻结。接受移送的机关认为需要继续冻结的，依照相关法律规定采取冻结措施；认为不需要继续冻结的，应当立即通知国务院反洗钱行政主管部门，国务院反洗钱行政主管部门应当立即通知金融机构解除冻结。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">临时冻结不得超过四十八小时。金融机构在按照国务院反洗钱行政主管部门的要求采取临时冻结措施后四十八小时内，未接到国家有关机关继续冻结通知的，应当立即解除冻结。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>处罚标准：根据违法行为的性质和情节，规定不同的处罚标准。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第43条反洗钱行政调查与刑事诉讼中的侦查权如何区分？调查获取的证据能否直接作为刑事证据？第45条临时冻结措施的期限与衔接如何操作？</p>
+<h5>L3 能力层</h5><p>行政调查中金融机构配合义务的边界、客户知情权与保密义务的冲突解决。</p>
+</div></div>
+
+<h3>3.5 第五章 反洗钱国际合作（第46-50条）：国际协作与境外配合</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>某境外执法机构要求中国银行提供一位客户的交易信息——银行能直接给吗？如果不给会有什么后果？给了会不会违反中国的数据出境规定？</p></div>
+<p>本章建立反洗钱国际合作框架，明确各部门职责、司法协助机制、境外机构配合调查义务和境外执法要求的审查规则。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html" class="reg-link">《反洗钱法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-20.html" class="reg-link">《落实执行联合国安理会决议的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-22.html" class="reg-link">《落实涉及恐怖活动资产冻结管理办法有关事项的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-31.html" class="reg-link">《涉及恐怖活动资产冻结管理办法》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>依法开展反洗钱国际合作（第46条）；各部门在职责范围内开展合作（第47条）；刑事案件相互司法协助（第48条）；境外金融机构应配合我国调查（第49条）；外国要求协助依法办理并审查（第50条）。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>第49条 境外配合</th><th>第50条 境外要求</th></tr>
+<tr><td>方向</td><td>我国向境外提要求</td><td>境外向我国提要求</td></tr>
+<tr><td>要求</td><td>境外机构应配合我国调查</td><td>我国依法审查后决定是否配合</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十六条</span>
+<span style="font-weight:600;font-size:0.9rem;">处罚措施</span>
+<a href="regulations/reg-00.html#art-46" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">中华人民共和国根据缔结或者参加的国际条约，或者按照平等互惠原则，开展反洗钱国际合作。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>处罚措施：包括责令限期改正、罚款、没收违法所得、责令停业整顿、吊销许可证等。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十七条</span>
+<span style="font-weight:600;font-size:0.9rem;">双罚制</span>
+<a href="regulations/reg-00.html#art-47" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门根据国务院授权，负责组织、协调反洗钱国际合作，代表中国政府参与有关国际组织活动，依法与境外相关机构开展反洗钱合作，交换反洗钱信息。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国家有关机关依法在职责范围内开展反洗钱国际合作。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>双罚制：对机构处罚的同时，对直接负责的董事、高级管理人员和其他直接责任人员也予以处罚。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十八条</span>
+<span style="font-weight:600;font-size:0.9rem;">处罚豁免</span>
+<a href="regulations/reg-00.html#art-48" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">涉及追究洗钱犯罪的司法协助，依照《中华人民共和国国际刑事司法协助法》以及有关法律的规定办理。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>处罚豁免：金融机构能证明已勤勉尽责的，可减轻或免除处罚。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第四十九条</span>
+<span style="font-weight:600;font-size:0.9rem;">整改要求</span>
+<a href="regulations/reg-00.html#art-49" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国家有关机关在依法调查洗钱和恐怖主义融资活动过程中，按照对等原则或者经与有关国家协商一致，可以要求在境内开立代理行账户或者与我国存在其他密切金融联系的境外金融机构予以配合。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>整改要求：被处罚机构应按要求整改，央行可验收整改情况。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十条</span>
+<span style="font-weight:600;font-size:0.9rem;">行政强制措施</span>
+<a href="regulations/reg-00.html#art-50" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">外国国家、组织违反对等、协商一致原则直接要求境内金融机构提交客户身份资料、交易信息，扣押、冻结、划转境内资金、资产，或者作出其他行动的，金融机构不得擅自执行，并应当及时向国务院有关金融管理部门报告。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">除前款规定外，外国国家、组织基于合规监管的需要，要求境内金融机构提供概要性合规信息、经营信息等信息的，境内金融机构向国务院有关金融管理部门和国家有关机关报告后可以提供或者予以配合。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">前两款规定的资料、信息涉及重要数据和个人信息的，还应当符合国家数据安全管理、个人信息保护有关规定。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>行政强制措施：对严重违法的机构，央行可采取行政强制措施。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第49条境外金融机构不配合调查被列入第40条名单，对跨境业务合规带来哪些影响？第50条境外执法要求的"审查"标准如何与《数据安全法》衔接？</p>
+<h5>L3 能力层</h5><p>FATF互评估中的国际合作有效性评估标准、跨境数据传输合规的实务难点。</p>
+</div></div>
+
+<h3>3.6 第六章 法律责任（第51-58条）：处罚体系与责任追究</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>某银行因为没做好反洗钱被罚了——但罚了多少？谁被罚了？是罚银行还是罚个人？有没有可能已经尽力了但还是被罚？这些答案都在第六章。</p></div>
+<p>本章规定完整的法律责任体系：从监管人员责任到金融机构违规处罚，从内控制度缺陷到致使洗钱后果发生，处罚力度逐级加重，并引入"尽责免罚"机制。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html" class="reg-link">《反洗钱法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-15.html" class="reg-link">《中国人民银行关于修改和废止部分规章的决定》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>监管人员违法追责（第51条）；内控制度违规警告或罚款（第52条）；核心制度违规（未尽调/保存/报告）处罚加重（第53条）；其他违规罚款（第54条）；致洗钱后果按金额分档加重（第55条）；董监高个人处罚+尽责免罚（第56条）；阻却境外配合处罚（第57条）；特定非金融机构处罚（第58条）。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>第52条 内控制度</th><th>第53条 核心制度</th><th>第55条 致洗钱后果</th></tr>
+<tr><td>违规情形</td><td>未建立/未落实内控制度</td><td>未尽调/保存/报告</td><td>致使犯罪所得通过本机构洗钱</td></tr>
+<tr><td>处罚力度</td><td>警告或罚款（最轻）</td><td>警告+罚款（较重）</td><td>按金额分档巨额罚款（最重）</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">复议诉讼</span>
+<a href="regulations/reg-00.html#art-51" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">反洗钱行政主管部门和其他依法负有反洗钱监督管理职责的部门从事反洗钱工作的人员有下列行为之一的，依法给予处分：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）违反规定进行检查、调查或者采取临时冻结措施；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）泄露因反洗钱知悉的国家秘密、商业秘密或者个人隐私、个人信息；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）违反规定对有关机构和人员实施行政处罚；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）其他不依法履行职责的行为。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">其他国家机关工作人员有前款第二项行为的，依法给予处分。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>复议诉讼：当事人对处罚决定不服的，可依法申请行政复议或提起行政诉讼。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">信用记录</span>
+<a href="regulations/reg-00.html#art-52" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构有下列情形之一的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正；情节较重的，给予警告或者处二十万元以下罚款；情节严重或者逾期未改正的，处二十万元以上二百万元以下罚款，可以根据情形在职责范围内或者建议有关金融管理部门限制或者禁止其开展相关业务：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）未按照规定制定、完善反洗钱内部控制制度规范；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）未按照规定设立专门机构或者指定内设机构牵头负责反洗钱工作；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）未按照规定根据经营规模和洗钱风险状况配备相应人员；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）未按照规定开展洗钱风险评估或者健全相应的风险管理制度；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（五）未按照规定制定、完善可疑交易监测标准；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（六）未按照规定开展反洗钱内部审计或者社会审计；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（七）未按照规定开展反洗钱培训；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（八）应当建立反洗钱相关信息系统而未建立，或者未按照规定完善反洗钱相关信息系统；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（九）金融机构的负责人未能有效履行反洗钱职责。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>信用记录：金融机构的反洗钱违法行为记入信用记录。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">规章制定授权</span>
+<a href="regulations/reg-00.html#art-53" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构有下列行为之一的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正，可以给予警告或者处二十万元以下罚款；情节严重或者逾期未改正的，处二十万元以上二百万元以下罚款：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）未按照规定开展客户尽职调查；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）未按照规定保存客户身份资料和交易记录；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）未按照规定报告大额交易；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）未按照规定报告可疑交易。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>规章制定授权：央行可根据本法制定实施细则。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">与反恐怖主义法衔接</span>
+<a href="regulations/reg-00.html#art-54" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构有下列行为之一的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正，处五十万元以下罚款；情节严重的，处五十万元以上五百万元以下罚款，可以根据情形在职责范围内或者建议有关金融管理部门限制或者禁止其开展相关业务：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）为身份不明的客户提供服务、与其进行交易，为客户开立匿名账户、假名账户，或者为冒用他人身份的客户开立账户；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）未按照规定对洗钱高风险情形采取相应洗钱风险管理措施；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）未按照规定采取反洗钱特别预防措施；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）违反保密规定，查询、泄露有关信息；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（五）拒绝、阻碍反洗钱监督管理、调查，或者故意提供虚假材料；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（六）篡改、伪造或者无正当理由删除客户身份资料、交易记录；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（七）自行或者协助客户以拆分交易等方式故意逃避履行反洗钱义务。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与反恐怖主义法的衔接：反洗钱工作与反恐怖融资工作相互衔接配合。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">与刑法衔接</span>
+<a href="regulations/reg-00.html#art-55" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构有本法第五十三条、第五十四条规定的行为，致使犯罪所得及其收益通过本机构得以掩饰、隐瞒的，或者致使恐怖主义融资后果发生的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正，涉及金额不足一千万元的，处五十万元以上一千万元以下罚款；涉及金额一千万元以上的，处涉及金额百分之二十以上二倍以下罚款；情节严重的，可以根据情形在职责范围内实施或者建议有关金融管理部门实施限制、禁止其开展相关业务，或者责令停业整顿、吊销经营许可证等处罚。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与刑法的衔接：洗钱行为构成犯罪的，依法追究刑事责任。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十六条</span>
+<span style="font-weight:600;font-size:0.9rem;">三反体制机制</span>
+<a href="regulations/reg-00.html#art-56" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门或者其设区的市级以上派出机构依照本法第五十二条至第五十四条规定对金融机构进行处罚的，还可以根据情形对负有责任的董事、监事、高级管理人员或者其他直接责任人员，给予警告或者处二十万元以下罚款；情节严重的，可以根据情形在职责范围内实施或者建议有关金融管理部门实施取消其任职资格、禁止其从事有关金融行业工作等处罚。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门或者其设区的市级以上派出机构依照本法第五十五条规定对金融机构进行处罚的，还可以根据情形对负有责任的董事、监事、高级管理人员或者其他直接责任人员，处二十万元以上一百万元以下罚款；情节严重的，可以根据情形在职责范围内实施或者建议有关金融管理部门实施取消其任职资格、禁止其从事有关金融行业工作等处罚。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">前两款规定的金融机构董事、监事、高级管理人员或者其他直接责任人员能够证明自己已经勤勉尽责采取反洗钱措施的，可以不予处罚。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>三反体制机制：完善反洗钱、反恐怖融资、反逃税监管体制机制。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十七条</span>
+<span style="font-weight:600;font-size:0.9rem;">央行授权</span>
+<a href="regulations/reg-00.html#art-57" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构违反本法第五十条规定擅自采取行动的，由国务院有关金融管理部门处五十万元以下罚款；情节严重的，处五十万元以上五百万元以下罚款；造成损失的，并处所造成直接经济损失一倍以上五倍以下罚款。对负有责任的董事、监事、高级管理人员或者其他直接责任人员，可以由国务院有关金融管理部门给予警告或者处五十万元以下罚款。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">境外金融机构违反本法第四十九条规定，对国家有关机关的调查不予配合的，由国务院反洗钱行政主管部门依照本法第五十四条、第五十六条规定进行处罚，并可以根据情形将其列入本法第四十条第一款第三项规定的名单。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>央行授权：央行可根据需要授权有关机构履行部分反洗钱职责。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十八条</span>
+<span style="font-weight:600;font-size:0.9rem;">与反有组织犯罪法衔接</span>
+<a href="regulations/reg-00.html#art-58" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">特定非金融机构违反本法规定的，由有关特定非金融机构主管部门责令限期改正；情节较重的，给予警告或者处五万元以下罚款；情节严重或者逾期未改正的，处五万元以上五十万元以下罚款；对有关负责人，可以给予警告或者处五万元以下罚款。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与反有组织犯罪法的衔接：反洗钱工作与反有组织犯罪工作相互衔接配合。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第五十九条</span>
+<span style="font-weight:600;font-size:0.9rem;">反恐怖融资衔接</span>
+<a href="regulations/reg-00.html#art-59" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">金融机构、特定非金融机构以外的单位和个人未依照本法第四十条规定履行反洗钱特别预防措施义务的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正；情节严重的，对单位给予警告或者处二十万元以下罚款，对个人给予警告或者处五万元以下罚款。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与反恐怖主义法的衔接：反恐怖融资工作适用反恐怖主义法相关规定。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十条</span>
+<span style="font-weight:600;font-size:0.9rem;">与反外国制裁法衔接</span>
+<a href="regulations/reg-00.html#art-60" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">法人、非法人组织未按照规定向登记机关提交受益所有人信息的，由登记机关责令限期改正；拒不改正的，处五万元以下罚款。向登记机关提交虚假或者不实的受益所有人信息，或者未按照规定及时更新受益所有人信息的，由国务院反洗钱行政主管部门或者其设区的市级以上派出机构责令限期改正；拒不改正的，处五万元以下罚款。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与反外国制裁法的衔接：反洗钱特别预防措施与反制措施相互衔接。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十一条</span>
+<span style="font-weight:600;font-size:0.9rem;">刑事衔接</span>
+<a href="regulations/reg-00.html#art-61" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">国务院反洗钱行政主管部门应当综合考虑金融机构的经营规模、内部控制制度执行情况、勤勉尽责程度、违法行为持续时间、危害程度以及整改情况等因素，制定本法相关行政处罚裁量基准。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>刑事衔接：洗钱犯罪依照刑法追究刑事责任。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十二条</span>
+<span style="font-weight:600;font-size:0.9rem;">与禁毒法衔接</span>
+<a href="regulations/reg-00.html#art-62" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">违反本法规定，构成犯罪的，依法追究刑事责任。</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">利用金融机构、特定非金融机构实施或者通过非法渠道实施洗钱犯罪的，依法追究刑事责任。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与禁毒法的衔接：反洗钱行政主管部门应加强对毒品犯罪资金的监测。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第56条"尽责免罚"的举证责任在谁？董监高需留存哪些履职证据方可免责？第55条与刑法第191条洗钱罪的帮助行为如何区分？</p>
+<h5>L3 能力层</h5><p>行政罚款与刑事罚金的并处问题、"尽责免罚"在司法实践中的适用案例与裁判规则。</p>
+</div></div>
+
+<h3>3.7 第七章 附则（第59-65条）：特定非金融机构、过渡与施行</h3>
+<div class="hook"><div class="hook-label">规则引例</div><p>一家珠宝店、一家律师事务所、一家房地产中介——它们不是金融机构，但也可能被洗钱利用。它们要不要做反洗钱？谁来管？如果不做有什么后果？</p></div>
+<p>本章规定特定非金融机构的范围与义务、新旧法衔接、授权制定配套规定、施行日期等附则事项。</p>
+<div class="reg-map"><div class="reg-map-title">本章法规挂载清单</div><div class="reg-map-list">
+<div class="reg-map-item"><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span> <a href="regulations/reg-00.html" class="reg-link">《反洗钱法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#7c3aed1a;color:#7c3aed;">行政法规</span> <a href="regulations/reg-07.html" class="reg-link">《市场主体登记管理条例》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-30.html" class="reg-link">《保险业反洗钱工作管理办法》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-34.html" class="reg-link">《保险机构风险评估及客户分类管理指引》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-35.html" class="reg-link">《投保人、被保险人、受益人关系确认通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#64748b1a;color:#64748b;">规范性文件</span> <a href="regulations/reg-36.html" class="reg-link">《加强特定非金融机构反洗钱监管工作的通知》</a></div>
+<div class="reg-map-item"><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span> <a href="regulations/reg-37.html" class="reg-link">《支付机构反洗钱和反恐怖融资管理办法》</a></div>
+</div></div>
+<div class="card"><p><strong>本章要点：</strong>特定非金融机构由国务院有关部门确定（第59条）；特定非金融机构参照金融机构履行义务（第42条/第58条）；授权央行制定配套规定（第61-63条）；本法自2025年1月1日起施行（第65条）。</p></div>
+<div class="table-wrap"><table class="contrast-table">
+<tr><th>对比维度</th><th>金融机构</th><th>特定非金融机构</th></tr>
+<tr><td>类型</td><td>银行/证券/保险/支付等</td><td>房地产/珠宝/律师等</td></tr>
+<tr><td>义务</td><td>完整履行反洗钱义务</td><td>参照履行，具体范围由主管部门确定</td></tr>
+</table></div>
+<div class="depth-block">
+<span class="depth-toggle">▶ 逐条解读（本章全部条文）</span>
+<div class="depth-content">
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十三条</span>
+<span style="font-weight:600;font-size:0.9rem;">与市场主体登记管理条例衔接</span>
+<a href="regulations/reg-00.html#art-63" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在境内设立的下列机构，履行本法规定的金融机构反洗钱义务：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）银行业、证券基金期货业、保险业、信托业金融机构；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）非银行支付机构；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）国务院反洗钱行政主管部门确定并公布的其他从事金融业务的机构。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>与市场主体登记管理条例的衔接：反洗钱信息与市场主体登记信息衔接。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十四条</span>
+<span style="font-weight:600;font-size:0.9rem;">过渡安排</span>
+<a href="regulations/reg-00.html#art-64" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">在境内设立的下列机构，履行本法规定的特定非金融机构反洗钱义务：</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（一）提供房屋销售、房屋买卖经纪服务的房地产开发企业或者房地产中介机构；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（二）接受委托为客户办理买卖不动产，代管资金、证券或者其他资产，代管银行账户、证券账户，为成立、运营企业筹措资金以及代理买卖经营性实体业务的会计师事务所、律师事务所、公证机构；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（三）从事规定金额以上贵金属、宝石现货交易的交易商；</p>
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">（四）国务院反洗钱行政主管部门会同国务院有关部门根据洗钱风险状况确定的其他需要履行反洗钱义务的机构。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>过渡安排：本法施行前制定的相关规定与本法不一致的，依照本法执行。</p>
+</div>
+</div>
+<div class="art-item" style="margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px dashed var(--rule);">
+<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+<span style="font-weight:700;color:var(--accent);">第六十五条</span>
+<span style="font-weight:600;font-size:0.9rem;">施行日期</span>
+<a href="regulations/reg-00.html#art-65" class="reg-link" style="margin-left:auto;font-size:0.8rem;">查看完整释义 →</a>
+</div>
+<div style="font-size:0.88rem;color:var(--ink);line-height:1.8;margin-bottom:0.4rem;">
+<p class="art-para" style="color:var(--ink);font-size:0.88rem;line-height:1.8;margin:0 0 0.3rem 0;">本法自 2025 年 1 月 1 日起施行。</p>
+</div>
+<div style="font-size:0.85rem;color:var(--muted);background:#f8fafc;padding:0.5rem 0.8rem;border-radius:8px;border-left:3px solid var(--accent2);">
+<strong>释义：</strong><p>施行日期：本法自2025年1月1日起施行。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>第64条"特定非金融机构"的具体目录由谁确定？房地产、珠宝、律师事务所的义务边界有何差异？新旧法衔接中，2025年1月1日前发生的洗钱行为如何适用法律？</p>
+<h5>L3 能力层</h5><p>特定非金融机构反洗钱义务的执法实践、行业自律与行政监管的协同机制。</p>
+</div></div>
+</section>
+<!-- 第四阶·责任明确 -->
+<section id="stage4">
+<h2>第四阶 · 责任明确 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>某银行因反洗钱违规被罚了430万——但罚款只是冰山一角。客户经理被取消任职资格，合规总监被个人罚款，行长被约谈……反洗钱的责任，远不止"银行罚点钱"那么简单。</p>
+</div>
+<h3>4.1 主体职责矩阵</h3>
+<div class="table-wrap"><table>
+<tr><th>主体</th><th>核心职责</th><th>法规依据</th></tr>
+<tr><td>中国人民银行</td><td>全国反洗钱组织协调、资金监测、监督检查、处罚</td><td><a href="regulations/reg-00.html#art-13" class="reg-link">《反洗钱法》第13条</a>、<a href="regulations/reg-04.html#art-4" class="reg-link">《央行法》第4条</a></td></tr>
+<tr><td>金融监管总局/证监会</td><td>市场准入反洗钱审查、行业监管配合</td><td><a href="regulations/reg-00.html#art-14" class="reg-link">《反洗钱法》第14条</a>、<a href="regulations/reg-12.html" class="reg-link">《监管办法》</a></td></tr>
+<tr><td>特定非金融机构主管部门</td><td>房地产、珠宝、律师等行业反洗钱监管</td><td><a href="regulations/reg-00.html#art-15" class="reg-link">《反洗钱法》第15条</a>、<a href="regulations/reg-36.html" class="reg-link">《特定非金融机构监管通知》</a></td></tr>
+<tr><td>反洗钱监测分析机构</td><td>接收、分析大额和可疑交易报告，移送线索</td><td><a href="regulations/reg-00.html#art-16" class="reg-link">《反洗钱法》第16条</a></td></tr>
+<tr><td>金融机构</td><td>内控制度、CDD、资料保存、大额可疑报告、特别预防</td><td><a href="regulations/reg-00.html#art-27" class="reg-link">第27条</a>至<a href="regulations/reg-00.html#art-42" class="reg-link">第42条</a></td></tr>
+<tr><td>特定非金融机构</td><td>参照金融机构履行反洗钱义务</td><td><a href="regulations/reg-00.html#art-42" class="reg-link">第42条</a>、<a href="regulations/reg-00.html#art-58" class="reg-link">第58条</a></td></tr>
+<tr><td>客户</td><td>配合尽职调查，提供真实资料</td><td><a href="regulations/reg-00.html#art-38" class="reg-link">第38条</a></td></tr>
+</table></div>
+<h3>4.2 处罚梯度图</h3>
+<div class="penalty-gradient">
+<div class="penalty-step" style="background:#22c55e;"><div class="level">第52条</div><div class="desc">内控制度违规<br>警告或罚款</div></div>
+<div class="penalty-step" style="background:#eab308;"><div class="level">第53条</div><div class="desc">核心制度违规<br>警告+罚款</div></div>
+<div class="penalty-step" style="background:#f97316;"><div class="level">第54条</div><div class="desc">与身份不明客户交易<br>罚款</div></div>
+<div class="penalty-step" style="background:#ef4444;"><div class="level">第55条</div><div class="desc">致洗钱后果<br>按金额分档巨额罚款</div></div>
+<div class="penalty-step" style="background:#991b1b;"><div class="level">第56条</div><div class="desc">董监高个人处罚<br>"尽责免罚"抗辩</div></div>
+</div>
+<h3>4.3 罚则案例</h3>
+<div class="card card-warn"><div class="card-title">案例：内控制度缺陷（第52条）</div>
+<p><strong>场景：</strong>2023年，某城商行因反洗钱内控制度不健全、未设独立反洗钱部门、培训记录缺失，被央行警告并罚款50万元。</p>
+<p><strong>要点：</strong>这是最轻的处罚——但如果不整改，后续违规将逐级加重。</p>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-52" class="reg-link">《反洗钱法》第52条</a></p>
+</div>
+<div class="card card-danger"><div class="card-title">案例：致洗钱后果（第55条）</div>
+<p><strong>场景：</strong>某支付公司因未有效监测可疑交易，导致3亿元诈骗资金通过其平台流转。央行依据旧法处以巨额罚款。新法施行后，同等情形罚则显著加重——按涉案金额分档处罚。</p>
+<p><strong>要点：</strong>第55条是最重的处罚——不仅罚机构，还追个人。"致使犯罪所得通过本机构得以掩饰隐瞒"是触发条件。</p>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-55" class="reg-link">《反洗钱法》第55条</a></p>
+</div>
+<div class="card card-accent"><div class="card-title">案例：尽责免罚（第56条）</div>
+<p><strong>场景：</strong>某银行合规总监被个人处罚，但其提供了完整的履职证据：参加反洗钱培训记录、签署的合规承诺书、提交的内控整改报告。最终获得减轻处罚。</p>
+<p><strong>要点：</strong>第56条引入"尽责免罚"——如果董监高能证明已履行合理注意义务，可以减轻或免除个人处罚。关键是<strong>留存履职证据</strong>。</p>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-56" class="reg-link">《反洗钱法》第56条</a>、<a href="regulations/reg-16.html" class="reg-link">《履职管理通知》</a></p>
+</div>
+<h3>4.4 善意第三人保护</h3>
+<div class="card card-accent">
+<p>反洗钱措施可能影响与名单对象有正常经济往来的善意第三人。法规明确：</p>
+<ul class="steps">
+<li>采取特别预防措施应当依法保护<strong>善意第三人</strong>的合法权益</li>
+<li>善意第三人可以依法进行<strong>权利救济</strong></li>
+<li>被采取措施对象认为不符合法律法规要求的，可以向金融机构提出，金融机构应当及时处理</li>
+</ul>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-40" class="reg-link">《反洗钱法》第40条</a>、<a href="regulations/reg-11.html" class="reg-link">《特别预防措施管理办法》</a></p>
+</div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>央行"设区的市级以上分支机构"与县级支行的处罚权限有何区别？哪些处罚只能由总行/省级分行作出？详见<a href="regulations/reg-12.html" class="reg-link">《监管办法》</a>。</p>
+<h5>L3 能力层</h5><p>董监高被个人处罚时，"尽责免罚"的举证责任在谁？抗辩成立的要件有哪些？第55条与刑法第191条洗钱罪的帮助行为如何区分？行政罚款与刑事罚金能否并处？</p>
+</div></div>
+<div class="inline-quiz">
+<div class="inline-quiz-q">检索练习：金融机构未建立反洗钱内控制度，依照哪条处罚？致使洗钱后果发生的，又依照哪条？董监高能免责吗？</div>
+<div class="inline-quiz-a">答案：未建立内控制度→第52条（最轻）；致洗钱后果→第55条（最重）；董监高可依据第56条"尽责免罚"抗辩，但需留存履职证据。</div>
+</div>
+</section>
+
+<!-- 第五阶·流程掌握 -->
+<section id="stage5">
+<h2>第五阶 · 流程掌握 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>反洗钱有四大核心流程：客户尽职调查（CDD）、大额和可疑交易报告、特别预防措施执行、资料保存。它们不是孤立的，而是一条完整的"防线链"——CDD是前端筛查，报告是中端监测，特别预防是紧急制动，资料保存是后端留证。</p>
+</div>
+<h3>5.1 客户尽职调查（CDD）标准流程</h3>
+<figure class="diagram">
+<img src="assets/cdd_flow_v2.png" alt="客户尽职调查流程图">
+<figcaption>图1：客户尽职调查标准流程</figcaption>
+</figure>
+<div class="card card-accent"><div class="card-title">CDD流程决策点</div>
+<ol class="steps">
+<li><strong>识别身份：</strong>要求客户出示有效身份证件 → <span style="color:var(--accent);">决策点：居民还是非居民？</span> → 居民走联网核查，非居民走其他可靠来源</li>
+<li><strong>核实身份：</strong>通过公安/市场监管/联网核查等渠道核实 → <span style="color:var(--accent);">决策点：核实通过吗？</span> → 不通过则拒绝建立业务关系</li>
+<li><strong>了解用途：</strong>了解业务关系目的、交易性质 → <span style="color:var(--accent);">决策点：交易可疑吗？</span> → 可疑则提交可疑交易报告</li>
+<li><strong>风险评级：</strong>根据客户特征评估风险等级 → <span style="color:var(--accent);">决策点：标准还是高风险？</span> → 高风险执行强化CDD</li>
+<li><strong>名单核查：</strong>与恐怖活动名单、制裁名单比对 → <span style="color:var(--accent);">决策点：命中名单吗？</span> → 命中则立即启动特别预防措施</li>
+<li><strong>建档保存：</strong>登记客户信息、留存身份证复印件 → 建立客户档案，至少保存10年</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-29" class="reg-link">《反洗钱法》第29条</a>、<a href="regulations/reg-09.html" class="reg-link">《CDD办法》</a>、<a href="regulations/reg-26.html" class="reg-link">《客户尽职调查指引》</a></p>
+</div>
+<h3>5.2 大额和可疑交易报告流程</h3>
+<div class="card card-accent"><div class="card-title">报告流程：发现 → 判断 → 上报 → 后续</div>
+<ol class="steps">
+<li><strong>系统监测：</strong>交易系统自动捕捉达到大额标准的交易 → 自动生成大额交易报告</li>
+<li><strong>人工分析：</strong>对系统预警的可疑交易进行人工分析 → <span style="color:var(--accent);">决策点：是否怀疑与洗钱/恐融有关？</span></li>
+<li><strong>提交报告：</strong>确认为可疑的，提交可疑交易报告 → 5个工作日内上报反洗钱监测分析机构</li>
+<li><strong>后续控制：</strong>根据风险情况采取后续措施 → 持续监测、限制交易、拒绝服务或报告执法机关</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-35" class="reg-link">《反洗钱法》第35条</a>、<a href="regulations/reg-10.html" class="reg-link">《报告办法》</a>、<a href="regulations/reg-19.html" class="reg-link">《交易监测指引》</a>、<a href="regulations/reg-39.html" class="reg-link">《后续控制措施通知》</a></p>
+</div>
+<h3>5.3 特别预防措施执行流程</h3>
+<figure class="diagram">
+<img src="assets/special_measures_v2.png" alt="特别预防措施执行流程">
+<figcaption>图2：反洗钱特别预防措施执行流程</figcaption>
+</figure>
+<div class="card card-warn"><div class="card-title">特别预防流程：名单 → 核查 → 冻结 → 报告</div>
+<ol class="steps">
+<li><strong>获取名单：</strong>持续关注并获取官方发布的三类名单（恐怖活动名单、联合国制裁名单、其他国家名单）</li>
+<li><strong>全量核查：</strong>名单发布/调整时对所有客户和交易对象进行全量核查</li>
+<li><strong>命中处置：</strong>立即停止为命中客户提供金融服务 → 限制资产转移 → <strong style="color:var(--danger);">不得事先通知客户</strong></li>
+<li><strong>书面报告：</strong>及时书面报告央行或其分支机构（涉恐同时报告公安/国安）</li>
+<li><strong>持续关注：</strong>持续关注名单调整，如客户被除名则立即解除措施并报告</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-40" class="reg-link">《反洗钱法》第40条</a>、<a href="regulations/reg-00.html#art-41" class="reg-link">第41条</a>、<a href="regulations/reg-11.html" class="reg-link">《特别预防措施管理办法》</a>、<a href="regulations/reg-29.html" class="reg-link">《特别预防措施执行指引》</a></p>
+</div>
+<h3>5.4 资料保存流程</h3>
+<div class="card card-accent"><div class="card-title">保存范围与时限</div>
+<ul class="steps">
+<li><strong>保存内容：</strong>客户身份资料、交易记录、CDD记录、风险评级记录、报告记录</li>
+<li><strong>保存时限：</strong>业务关系结束后至少<strong>10年</strong>；一次性交易完成后至少<strong>10年</strong></li>
+<li><strong>保存方式：</strong>确保可追溯、可复原，纸质和电子均可</li>
+<li><strong>保密要求：</strong>反洗钱信息非依法不得提供</li>
+</ul>
+<p><strong>法规依据：</strong><a href="regulations/reg-00.html#art-34" class="reg-link">《反洗钱法》第34条</a>、<a href="regulations/reg-00.html#art-7" class="reg-link">第7条</a>、<a href="regulations/reg-09.html" class="reg-link">《CDD办法》</a></p>
+</div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>大额交易报告的具体金额标准、可疑交易的判断模型、特别预防措施中善意第三人的资产处置。详见各流程挂载的具体法规。</p>
+<h5>L3 能力层</h5><p>复杂场景的穿透判断：多层SPV架构下的受益所有人识别、跨境汇款信息链完整性验证、名单命中后"名单发布前签订的合同应收款"处理。</p>
+</div></div>
+<div class="inline-quiz">
+<div class="inline-quiz-q">检索练习：大额交易报告和可疑交易报告有什么区别？特别预防措施执行后能通知客户吗？资料至少保存多久？</div>
+<div class="inline-quiz-a">答案：大额交易按金额标准自动报告，可疑交易基于合理怀疑；特别预防措施执行后不得事先通知客户；资料至少保存10年。</div>
+</div>
+</section>
+<!-- 第六阶·方法应用 -->
+<section id="stage6">
+<h2>第六阶 · 方法应用 <span class="stage-tag">L1 认知</span></h2>
+<div class="hook"><div class="hook-label">认知钩子</div>
+<p>前面五阶学的是"懂"，这一阶学的是"做"。同样的法规，会做的人三步搞定，不会做的人十步还出错。差别就在于——有没有掌握操作方法。</p>
+</div>
+<h3>6.1 客户身份识别与核实的"五种方式"</h3>
+<p><a href="regulations/reg-00.html#art-33" class="reg-link">《反洗钱法》第33条</a>规定，金融机构可通过一种或多种方式核实客户身份：</p>
+<ul class="steps">
+<li>通过公安、市场监管、民政、税务、移民管理、电信管理等<strong>政府部门公开渠道</strong>获取信息</li>
+<li>通过<strong>外国政府机构、国际组织</strong>等官方认证信息核实</li>
+<li>要求客户<strong>补充其他身份资料</strong>或相关材料</li>
+<li>通过<strong>联网核查公民身份信息系统</strong>（银行业金融机构适用）</li>
+<li>其他来源可靠、独立的信息</li>
+</ul>
+<h3>6.2 强化尽职调查的"五种措施"</h3>
+<p><a href="regulations/reg-00.html#art-28" class="reg-link">《反洗钱法》第28条</a>规定，对高风险客户和情形，可采取一种或多种强化措施：</p>
+<ul class="steps">
+<li>获取业务关系、交易目的和性质、资金来源和用途的相关信息，必要时要求客户提供材料并核实</li>
+<li>通过<strong>实地查访</strong>等方式了解客户的经济状况或经营状况</li>
+<li>加强对客户及其交易的<strong>监测分析</strong></li>
+<li>加强对客户及其受益所有人信息的<strong>审查</strong></li>
+<li>建立/维持业务关系或办理业务需获得<strong>高级管理层批准</strong></li>
+</ul>
+<h3>6.3 操作实例</h3>
+<div class="example"><div class="example-title">实例1：银行开户场景</div>
+<p><strong>场景：</strong>张先生到某商业银行申请开立个人结算账户。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>柜员要求出示有效身份证件（身份证），通过联网核查系统核实证件真实性</li>
+<li>登记客户基本信息：姓名、性别、国籍、职业、住所地、联系方式、证件种类、号码、有效期限</li>
+<li>了解开户目的（工资发放/日常结算/理财等）</li>
+<li>将客户信息与恐怖活动名单、制裁名单进行比对核查</li>
+<li>根据客户特征评估风险等级（一般客户→标准措施）</li>
+<li>留存身份证复印件，建立客户档案</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-09.html#art-9" class="reg-link">《CDD办法》第9条</a>、<a href="regulations/reg-09.html#art-22" class="reg-link">第22条</a>、<a href="regulations/reg-09.html#art-25" class="reg-link">第25条</a></p>
+</div>
+<div class="example"><div class="example-title">实例2：大额现金汇款场景</div>
+<p><strong>场景：</strong>李女士到银行柜台办理现金汇款8万元人民币，收款人为外地个人账户。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>因超过5万元门槛，触发一次性金融服务尽职调查义务</li>
+<li>识别并核实汇款人身份（身份证+联网核查）</li>
+<li>了解汇款目的和性质（购房款/借款/货款等）</li>
+<li>登记汇款人信息和收款人信息</li>
+<li>核查汇款人和收款人是否在风险名单上</li>
+<li>如怀疑交易异常，可要求补充材料或提交可疑交易报告</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-09.html#art-9" class="reg-link">《CDD办法》第9条第2款</a>、<a href="regulations/reg-09.html#art-34" class="reg-link">第34条</a></p>
+</div>
+<div class="example"><div class="example-title">实例3：名单命中应急场景</div>
+<p><strong>场景：</strong>某银行在进行季度名单核查时，发现客户A公司的法定代表人与外交部发布的联合国制裁名单中的某人姓名相同。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>立即对该客户及关联账户采取<strong>限制交易</strong>措施（冻结资金转移）</li>
+<li>向名单发布机关（外交部）申请<strong>协助核实</strong></li>
+<li>确认命中后，立即停止为该客户提供所有金融服务</li>
+<li>书面报告中国人民银行当地分支机构</li>
+<li>如属于恐怖融资名单，同时报告公安/国安部门</li>
+<li>以适当方式告知客户采取的措施和理由（法律法规另有保密要求的除外）</li>
+<li>持续关注名单调整，如客户被除名则立即解除措施并报告</li>
+</ol>
+<p><strong>关键注意：</strong>整个过程<mark class="key">不得事先通知</mark>客户</p>
+<p><strong>法规依据：</strong><a href="regulations/reg-11.html#art-13" class="reg-link">《特别预防措施办法》第13-19条</a>、<a href="regulations/reg-11.html#art-23" class="reg-link">第23条</a></p>
+</div>
+<div class="example"><div class="example-title">实例4：识别受益所有人</div>
+<p><strong>场景：</strong>某企业客户B公司申请开立对公账户，该公司股权结构为：甲持股60%，乙持股30%，丙持股10%。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>了解B公司的业务性质、所有权和控制权结构</li>
+<li>识别直接持股人：甲（60%）、乙（30%）、丙（10%）</li>
+<li>判断控制标准：甲持股超过25%（一般认定标准），属于受益所有人</li>
+<li>通过工商登记信息、公司章程等可靠来源核实甲的身份</li>
+<li>登记甲的姓名、联系方式、证件种类/号码/有效期限</li>
+<li>如甲背后还有其他实际控制人，需继续穿透识别</li>
+</ol>
+<p><strong>法规依据：</strong><a href="regulations/reg-09.html#art-20" class="reg-link">《CDD办法》第20条</a>、<a href="regulations/reg-13.html" class="reg-link">《受益所有人信息管理办法》</a>、<a href="regulations/reg-14.html" class="reg-link">《受益所有人识别管理办法》</a></p>
+</div>
+<h3>6.4 错案警示</h3>
+<div class="error-case"><div class="error-case-title">错案1：把高风险客户当普通客户处理</div>
+<p class="wrong"><strong>场景：</strong>某珠宝店客户单日现金购买黄金300万元，柜员按普通客户流程办理。</p>
+<p class="wrong"><strong>错误：</strong>未识别为高风险情形，未执行强化CDD，未报告大额交易。</p>
+<p class="wrong"><strong>后果：</strong>该资金实为贪腐所得，银行被罚 + 客户经理被追责。</p>
+<p class="right"><strong>正确做法：</strong>应触发强化CDD（<a href="regulations/reg-00.html#art-28" class="reg-link">第28条</a>）→ 了解资金来源用途 → 报告大额交易（<a href="regulations/reg-00.html#art-35" class="reg-link">第35条</a>）</p>
+</div>
+<div class="error-case"><div class="error-case-title">错案2：名单命中后通知了客户</div>
+<p class="wrong"><strong>场景：</strong>柜员发现客户命中制裁名单后，打电话告知客户"你的账户被冻结了"。</p>
+<p class="wrong"><strong>错误：</strong>违反"不得事先通知客户"的规定。</p>
+<p class="wrong"><strong>后果：</strong>客户转移资金，洗钱后果发生，银行被按第55条重罚。</p>
+<p class="right"><strong>正确做法：</strong>先冻结、后报告、最后才以适当方式告知。<a href="regulations/reg-00.html#art-40" class="reg-link">第40条</a>、<a href="regulations/reg-11.html" class="reg-link">《特别预防措施办法》</a></p>
+</div>
+<div class="error-case"><div class="error-case-title">错案3：未做持续CDD导致风险漏判</div>
+<p class="wrong"><strong>场景：</strong>客户开户时是标准风险，但一年后开始频繁大额跨境转账，银行未重新评估。</p>
+<p class="wrong"><strong>错误：</strong>未执行持续CDD（<a href="regulations/reg-00.html#art-30" class="reg-link">第30条</a>），未根据交易变化调整风险等级。</p>
+<p class="wrong"><strong>后果：</strong>客户实为洗钱通道，银行因未持续监测被处罚。</p>
+<p class="right"><strong>正确做法：</strong>持续关注客户交易，发现异常重新评级，触发强化CDD。</p>
+</div>
+<div class="error-case"><div class="error-case-title">错案4：资料保存不足10年</div>
+<p class="wrong"><strong>场景：</strong>某客户销户后，银行为节省存储空间，3年后删除了其身份资料和交易记录。</p>
+<p class="wrong"><strong>错误：</strong>违反<a href="regulations/reg-00.html#art-34" class="reg-link">第34条</a>规定的至少保存10年要求。</p>
+<p class="wrong"><strong>后果：</strong>3年后该客户被查涉嫌洗钱，银行无法提供资料被追责。</p>
+<p class="right"><strong>正确做法：</strong>业务关系结束后至少保存10年，确保可追溯、可复原。</p>
+</div>
+<h3>6.5 关键金额速查表</h3>
+<div class="table-wrap"><table>
+<tr><th>业务场景</th><th>触发金额</th><th>法规依据</th></tr>
+<tr><td>一次性金融服务（现金汇款/兑换等）</td><td>≥5万元人民币 / ≥1万美元</td><td><a href="regulations/reg-09.html#art-9" class="reg-link">《CDD办法》第9条</a></td></tr>
+<tr><td>非银行支付机构出售不记名预付卡</td><td>≥1万元</td><td><a href="regulations/reg-09.html#art-16" class="reg-link">第16条</a></td></tr>
+<tr><td>保险退保/减保/保单贷款</td><td>≥1万元人民币 / ≥1000美元</td><td><a href="regulations/reg-09.html#art-13" class="reg-link">第13条</a></td></tr>
+<tr><td>财产保险/健康意外险订立合同</td><td>保费≥5万元人民币 / ≥1万美元</td><td><a href="regulations/reg-09.html#art-12" class="reg-link">第12条</a></td></tr>
+<tr><td>跨境汇出资金核实汇款人信息</td><td>≥5000元人民币 / ≥1000美元</td><td><a href="regulations/reg-09.html#art-34" class="reg-link">第34条</a></td></tr>
+<tr><td>客户身份资料及交易记录保存期限</td><td>业务关系/交易结束后≥10年</td><td><a href="regulations/reg-00.html#art-34" class="reg-link">《反洗钱法》第34条</a></td></tr>
+<tr><td>高风险客户定期审核频次</td><td>至少每年1次</td><td><a href="regulations/reg-09.html#art-25" class="reg-link">第25条</a></td></tr>
+</table></div>
+<div class="depth-block"><span class="depth-toggle">▶ 深度学习（L2/L3）</span><div class="depth-content">
+<h5>L2 精通层</h5><p>"外币等值1万美元"的折算汇率以何时为准？交易日？申报日？月末中间价？详见<a href="regulations/reg-10.html" class="reg-link">《报告办法》</a>和<a href="regulations/reg-17.html" class="reg-link">《要素及释义通知》</a>。</p>
+<h5>L3 能力层</h5><p>客户同一天分5笔各汇1万元现金（共5万元），是否触发一次性金融服务尽职调查？"明显关联的累计交易"的判定标准是什么？参考<a href="regulations/reg-19.html" class="reg-link">《交易监测指引》</a>。</p>
+</div></div>
+<div class="inline-quiz">
+<div class="inline-quiz-q">检索练习：保险退保触发身份核实的金额门槛是多少？与一次性金融服务的门槛有何不同？</div>
+<div class="inline-quiz-a">答案：退保/减保/保单贷款：≥1万元人民币 / ≥1000美元。一次性金融服务：≥5万元人民币 / ≥1万美元。两者门槛不同，不要混淆。</div>
+</div>
+</section>
+
+<!-- 能力检验关卡 -->
+<section id="checkpoint">
+<div class="checkpoint">
+<h2>能力检验关卡 <span class="stage-tag">通关测试</span></h2>
+<p>10道场景判断题，答对8题以上可进入L2深度学习。hover题目查看答案与复习指引。</p>
+<div class="quiz-item"><div class="q">1. 客户王某到银行办理5万元现金汇款，收款人是境外账户。柜员应当：</div>
+<ul class="opts"><li>A. 正常办理，5万元未达大额报告标准</li><li>B. 先识别核实身份，了解汇款目的，核查名单，再办理</li><li>C. 拒绝办理，境外汇款风险太高</li><li>D. 直接提交可疑交易报告</li></ul>
+<div class="answer">✓ B。5万元达到一次性金融服务CDD门槛（≥5万元），需先执行CDD（识别身份、了解用途、核查名单），再办理。是否提交可疑报告取决于交易是否可疑。复习：第一阶概念6/7、第五阶流程5.1、第六阶实例2。</div></div>
+<div class="quiz-item"><div class="q">2. 某公司开户，法定代表人持股5%，另有三人各持股30%以上但不出现在工商登记。受益所有人是：</div>
+<ul class="opts"><li>A. 法定代表人（持股5%）</li><li>B. 三名持股超过25%的实际控制人</li><li>C. 不需要识别受益所有人</li><li>D. 全体股东都是</li></ul>
+<div class="answer">✓ B。受益所有人要穿透到实际控制的自然人，持股超过25%即为受益所有人，不限于登记的法定代表人。复习：第一阶概念5、第六阶实例4。</div></div>
+<div class="quiz-item"><div class="q">3. 银行发现客户命中联合国制裁名单，第一步应该：</div>
+<ul class="opts"><li>A. 打电话通知客户</li><li>B. 立即限制资产转移，不得事先通知客户</li><li>C. 先调查清楚再决定</li><li>D. 请示上级领导后再处理</li></ul>
+<div class="answer">✓ B。特别预防措施的核心要求是"立即行动，不得事先通知客户"。先冻结、后报告、最后才以适当方式告知。复习：第五阶流程5.3、第六阶错案2。</div></div>
+<div class="quiz-item"><div class="q">4. 某客户开户时是标准风险，一年后开始频繁大额跨境转账。银行应该：</div>
+<ul class="opts"><li>A. 不需要重新评估，开户时已做CDD</li><li>B. 关闭客户账户</li><li>C. 重新评估风险等级，可能需要执行强化CDD</li><li>D. 只提交大额交易报告即可</li></ul>
+<div class="answer">✓ C。持续CDD要求持续关注客户交易，发现异常应重新评级。如果风险升高，需执行强化CDD。复习：第三阶3.3易混对比、第五阶流程5.1、第六阶错案3。</div></div>
+<div class="quiz-item"><div class="q">5. 反洗钱法第55条"致洗钱后果"的处罚对象是：</div>
+<ul class="opts"><li>A. 只罚银行</li><li>B. 只罚个人</li><li>C. 既罚机构也追个人</li><li>D. 只警告不罚款</li></ul>
+<div class="answer">✓ C。第55条是最重处罚，按涉案金额分档处罚机构；第56条同时追究董监高个人责任。复习：第四阶4.2处罚梯度图。</div></div>
+<div class="quiz-item"><div class="q">6. 以下哪种情形可以适用简化CDD？</div>
+<ul class="opts"><li>A. 注册在离岸群岛的贸易公司</li><li>B. 政府公务员的工资卡开户</li><li>C. 大额现金购买黄金的客户</li><li>D. 频繁跨境转账的客户</li></ul>
+<div class="answer">✓ B。低风险客户可简化CDD，如身份明确的公务员工资卡。离岸公司、大额黄金交易、频繁跨境转账均为高风险。复习：第二阶2.2风险为本、第三阶3.3。</div></div>
+<div class="quiz-item"><div class="q">7. 客户身份资料和交易记录的保存期限是：</div>
+<ul class="opts"><li>A. 业务关系结束后5年</li><li>B. 业务关系结束后10年</li><li>C. 业务关系结束后20年</li><li>D. 永久保存</li></ul>
+<div class="answer">✓ B。第34条规定至少保存10年。复习：第五阶流程5.4、第六阶错案4。</div></div>
+<div class="quiz-item"><div class="q">8. 反洗钱法与刑法在"上游犯罪"范围上的区别是：</div>
+<ul class="opts"><li>A. 两者完全相同</li><li>B. 反洗钱法范围更广（兜底"其他犯罪"）</li><li>C. 刑法范围更广</li><li>D. 两者无关</li></ul>
+<div class="answer">✓ B。反洗钱法第2条兜底"其他犯罪"，实质涵盖所有犯罪；刑法第191条洗钱罪仅限七类上游犯罪。复习：第三阶3.1易混对比。</div></div>
+<div class="quiz-item"><div class="q">9. 金融机构董监高被反洗钱处罚时，可以依据什么抗辩？</div>
+<ul class="opts"><li>A. 不知情</li><li>B. 已离职</li><li>C. 已履行合理注意义务（尽责免罚）</li><li>D. 业务量太大忙不过来</li></ul>
+<div class="answer">✓ C。第56条引入"尽责免罚"，但需留存履职证据（培训记录、合规承诺书、整改报告等）。复习：第四阶4.3案例。</div></div>
+<div class="quiz-item"><div class="q">10. 一次性金融服务CDD的触发金额是：</div>
+<ul class="opts"><li>A. ≥1万元人民币</li><li>B. ≥5万元人民币 / ≥1万美元</li><li>C. ≥10万元人民币</li><li>D. 无金额要求</li></ul>
+<div class="answer">✓ B。≥5万元人民币或等值1万美元。注意与保险退保（≥1万元）的门槛不同。复习：第六阶6.5速查表。</div></div>
+</div>
+<p style="text-align:center;margin-top:1.5rem;">
+<span style="font-size:0.9rem;color:var(--muted);">答错的同学，点击答案中的复习指引回到对应章节加深理解。通过后可展开各阶的"L2/L3 深度学习"折叠块，进入专业级学习。</span>
+</p>
+</section>
+
+<!-- 法规库索引 -->
+<section id="regulation-library">
+<h2>附：法规库索引</h2>
+<p>本索引覆盖反洗钱知识技能测验参考范围内的全部40部法律法规文件。点击法规名称可查看逐条原文、释义与关联条款。完整规则库请访问<a href="law-library.html" style="color:var(--accent);font-weight:600;">反洗钱规则库</a>。</p>
+<h3>一、法律（7部）</h3>
+<div class="table-wrap"><table><tr><th>序号</th><th>法规名称</th><th>类型</th><th>链接</th></tr>
+<tr><td>1</td><td>反洗钱法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-00.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>2</td><td>刑法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-01.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>3</td><td>禁毒法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-02.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>4</td><td>反恐怖主义法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-03.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>5</td><td>中国人民银行法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-04.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>6</td><td>反外国制裁法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-05.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>7</td><td>反有组织犯罪法</td><td><span class="rbadge" style="background:#2563eb1a;color:#2563eb;">法律</span></td><td><a href="regulations/reg-06.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+</table></div>
+<h3>二、行政法规（1部）</h3>
+<div class="table-wrap"><table><tr><th>序号</th><th>法规名称</th><th>类型</th><th>链接</th></tr>
+<tr><td>1</td><td>市场主体登记管理条例</td><td><span class="rbadge" style="background:#7c3aed1a;color:#7c3aed;">行政法规</span></td><td><a href="regulations/reg-07.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+</table></div>
+<h3>三、部门规章（14部）</h3>
+<div class="table-wrap"><table><tr><th>序号</th><th>法规名称</th><th>类型</th><th>链接</th></tr>
+<tr><td>1</td><td>金融机构客户尽职调查和客户身份资料及交易记录保存管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-09.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>2</td><td>金融机构大额交易和可疑交易报告管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-10.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>3</td><td>反洗钱特别预防措施管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-11.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>4</td><td>金融机构反洗钱和反恐怖融资监督管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-12.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>5</td><td>受益所有人信息管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-13.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>6</td><td>金融机构客户受益所有人识别管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-14.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>7</td><td>中国人民银行关于修改和废止部分规章的决定</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-15.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>8</td><td>保险业反洗钱工作管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-30.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>9</td><td>涉及恐怖活动资产冻结管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-31.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+<tr><td>10</td><td>支付机构反洗钱和反恐怖融资管理办法</td><td><span class="rbadge" style="background:#0891b21a;color:#0891b2;">部门规章</span></td><td><a href="regulations/reg-37.html" class="index-link" target="_blank">查看全文 →</a></td></tr>
+</table></div>
+<p style="font-size:0.85rem;color:var(--muted);margin-top:0.5rem;">注：部门规章及规范性文件完整清单（含18部规范性文件）请访问<a href="law-library.html" style="color:var(--accent);">反洗钱规则库</a>查看完整目录。</p>
+</section>
+
+<script>
+// L2/L3 depth toggle
+document.querySelectorAll('.depth-toggle').forEach(function(t){
+  t.addEventListener('click',function(){
+    this.classList.toggle('open');
+    var c=this.nextElementSibling;
+    if(c)c.classList.toggle('show');
+  });
+});
+// Entry diagnosis
+document.querySelectorAll('.diag-q').forEach(function(q){
+  q.querySelectorAll('.opt').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      q.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
+      this.classList.add('sel');
+      checkDiagnosis();
+    });
+  });
+});
+function checkDiagnosis(){
+  var sels=document.querySelectorAll('.diag-q .opt.sel');
+  if(sels.length>=3){
+    var r=document.querySelector('.diag-result');
+    if(r){r.classList.add('show');}
+  }
+}
+// Quiz click-to-reveal (for mobile compatibility)
+document.querySelectorAll('.quiz-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    this.classList.toggle('revealed');
+  });
+});
+// Reading progress bar
+var progress=document.getElementById('readProgress');
+var backTop=document.getElementById('backTop');
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var st=h.scrollTop||document.body.scrollTop;
+  var sh=h.scrollHeight-h.clientHeight;
+  var pct=sh>0?(st/sh*100):0;
+  progress.style.width=pct+'%';
+  if(st>400){backTop.classList.add('show');}else{backTop.classList.remove('show');}
+},{passive:true});
+backTop.addEventListener('click',function(){
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+// Section fade-in on scroll (progressive enhancement)
+document.body.classList.add('animate');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');}
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('section').forEach(function(s){io.observe(s);});
+  // Fallback: make all visible after 2s
+  setTimeout(function(){
+    document.querySelectorAll('section:not(.visible)').forEach(function(s){s.classList.add('visible');});
+  },2000);
+}else{
+  document.querySelectorAll('section').forEach(function(s){s.classList.add('visible');});
+}
+</script>
+</article>
+<script>
+// === 环境检测 ===
+var __envInfo = {
+  url: window.location.href,
+  inIframe: (window.self !== window.top),
+  protocol: window.location.protocol,
+  baseURI: document.baseURI
+};
+try { __envInfo.topAccessible = (window.top.location.href !== undefined); } catch(e) { __envInfo.topAccessible = false; }
+
+// === 导航增强：fetch 动态加载 + 多策略后备 ===
+// 在 TRAE 预览的 iframe sandbox 中，原生页面跳转可能被阻止。
+// 此方案先用 fetch 加载目标页面 HTML，再用 document.write 替换当前页面内容，
+// 无需真正的页面跳转，绕过 sandbox 限制。
+document.addEventListener('click', function(e) {
+  var link = e.target.closest && e.target.closest('a[href]');
+  if (!link) return;
+  var rawHref = link.getAttribute('href');
+  if (!rawHref) return;
+  if (/^(https?:|\/\/|#|mailto:|tel:|\/)/.test(rawHref)) return;
+
+  var beforeUrl = window.location.href;
+  // 200ms 后检查原生导航是否成功
+  setTimeout(function() {
+    if (window.location.href === beforeUrl) {
+      // 原生导航失败 → 使用 fetch 动态加载
+      fetchPage(rawHref);
+    }
+  }, 200);
+}, true);
+
+// === fetch 动态加载页面（核心方案）===
+function fetchPage(href) {
+  showLoading();
+  // 用 <a> 元素解析 href 为完整 URL（自动处理相对路径和 <base> 标签）
+  var a = document.createElement('a');
+  a.href = href;
+  var fullUrl = a.href;
+  var dir = a.pathname.substring(0, a.pathname.lastIndexOf('/') + 1);
+  var baseHref = a.protocol + '//' + a.host + dir;
+
+  fetch(href)
+    .then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.text();
+    })
+    .then(function(html) {
+      // 注入 <base> 使用绝对路径，避免相对路径重复
+      html = html.replace(/<head[^>]*>/i, function(match) {
+        return match + '\n<base href="' + baseHref + '">';
+      });
+      // 替换整个页面内容（新页面的 <script> 会自动执行）
+      document.open();
+      document.write(html);
+      document.close();
+      // 尝试更新 URL（sandbox 中可能失败，忽略错误）
+      try { history.pushState({}, '', fullUrl); } catch(e) {}
+    })
+    .catch(function(err) {
+      hideLoading();
+      // fetch 失败 → 尝试 window.open
+      var navigated = false;
+      try {
+        var w = window.open(href, '_blank');
+        if (w) navigated = true;
+      } catch(e2) {}
+      // 尝试 location.href
+      if (!navigated) {
+        try { window.location.href = href; navigated = true; } catch(e3) {}
+      }
+      if (!navigated) showNavError(href, err.message);
+    });
+}
+
+function showLoading() {
+  var l = document.createElement('div');
+  l.id = 'nav-loading';
+  l.style.cssText = 'position:fixed;top:0;left:0;right:0;background:rgba(0,113,227,0.95);color:#fff;text-align:center;padding:10px;font-size:14px;z-index:99999;font-family:sans-serif;';
+  l.textContent = '正在加载...';
+  document.body.appendChild(l);
+}
+function hideLoading() {
+  var l = document.getElementById('nav-loading');
+  if (l) l.remove();
+}
+
+// === 导航失败提示 ===
+function showNavError(href, errMsg) {
+  var existing = document.getElementById('nav-error-toast');
+  if (existing) existing.remove();
+  var toast = document.createElement('div');
+  toast.id = 'nav-error-toast';
+  toast.style.cssText = 'position:fixed;top:60px;left:50%;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:16px 24px;border-radius:12px;font-size:14px;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,0.3);max-width:90vw;';
+  toast.innerHTML = '<div style="font-weight:600;margin-bottom:8px;">\u26a0 \u65e0\u6cd5\u8df3\u8f6c</div>' +
+    '<div style="color:#86868b;font-size:13px;line-height:1.6;">' +
+    '\u76ee\u6807: <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">' + href + '</code><br>' +
+    '\u539f\u56e0: ' + (errMsg || '\u672a\u77e5') + '<br>' +
+    '\u8bf7\u5728\u7f16\u8f91\u5668\u4e2d\u76f4\u63a5\u6253\u5f00\u76ee\u6807\u6587\u4ef6</div>';
+  document.body.appendChild(toast);
+  setTimeout(function() { toast.remove(); }, 10000);
+}
+
+// === 调试信息（右下角，15秒后消失）===
+(function() {
+  var d = document.createElement('div');
+  d.style.cssText = 'position:fixed;bottom:4px;right:4px;background:rgba(0,0,0,0.85);color:#0f0;font:11px monospace;padding:6px 10px;border-radius:6px;z-index:99999;max-width:420px;word-break:break-all;pointer-events:none;line-height:1.6;';
+  d.innerHTML = '<div style="color:#ff0;font-weight:bold;margin-bottom:4px;">[\u5bfc\u822a\u8bca\u65ad]</div>' +
+    '<div>URL: ' + __envInfo.url + '</div>' +
+    '<div>iframe: ' + __envInfo.inIframe + '</div>' +
+    '<div>protocol: ' + __envInfo.protocol + '</div>' +
+    '<div>topOK: ' + __envInfo.topAccessible + '</div>';
+  document.body.appendChild(d);
+  setTimeout(function() {
+    d.style.transition = 'opacity 1s';
+    d.style.opacity = '0';
+    setTimeout(function() { d.remove(); }, 1000);
+  }, 15000);
+})();
+</script>
+</body>
+</html>
