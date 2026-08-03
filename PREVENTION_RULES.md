@@ -1,0 +1,131 @@
+# 防复发机制文档：条文卡片宽度不一致问题
+
+## 问题概述
+
+**问题名称**: 法规页面条文卡片宽度不一致（第一条窄、第二条及之后宽）
+**发现日期**: 2026-08-03
+**影响文件**: reg-00.html, reg-01.html, reg-02.html, reg-05.html
+**复发频率**: 频繁（每次修正后都会重新出现）
+
+## 根本原因
+
+### 技术原因
+
+在法规页面的"知识解析"部分，交互式SVG图表的 `<script>` 标签被放置在 `<div class="analysis-section">` 内部：
+
+```html
+<!-- 错误结构（导致问题） -->
+<div class="analysis-section">
+  <h5>逻辑关系</h5>
+  <div class="ix-diagram-card">...</div>
+  <div class="ix-detail-panel">...</div>
+  <script>
+    (function(){ ... })();
+  </script>
+</div>
+```
+
+浏览器的HTML解析器在处理嵌套在analysis-section内的 `<script>` 标签时，会错误地提前关闭父级div，导致 `.container` 容器在第一条之后提前关闭。这使得第二条及之后的条文卡片逃逸到 `<body>` 元素下，失去了容器的padding约束（22px），表现为更宽。
+
+### DOM结构变化
+
+```
+修复前:
+<body>
+  <div class="container">
+    <div class="article-card" id="art-1">  <!-- 837px (正确) -->
+    </div>  ← container在这里提前关闭！
+  </div>
+  <div class="article-card" id="art-2">    <!-- 881px (错误，在body下) -->
+  <div class="article-card" id="art-3">    <!-- 881px (错误) -->
+  ...
+
+修复后:
+<body>
+  <div class="container">
+    <div class="article-card" id="art-1">  <!-- 730px (正确) -->
+    <div class="article-card" id="art-2">  <!-- 730px (正确) -->
+    <div class="article-card" id="art-3">  <!-- 730px (正确) -->
+    ...
+  </div>
+</body>
+```
+
+## 修复方案
+
+将 `<script>` 标签从 `<div class="analysis-section">` 内部移出到其外部（成为兄弟元素）：
+
+```html
+<!-- 正确结构 -->
+<div class="analysis-section">
+  <h5>逻辑关系</h5>
+  <div class="ix-diagram-card">...</div>
+  <div class="ix-detail-panel">...</div>
+</div>
+<script>
+  (function(){ ... })();
+</script>
+```
+
+## 防复发规则
+
+### 规则1: Script标签放置规范
+**任何 `<script>` 标签不得放置在 `<div class="analysis-section">` 内部。** Script标签应作为analysis-section的兄弟元素，放置在其关闭 `</div>` 之后。
+
+### 规则2: 批量转换脚本检查
+在使用Python脚本批量生成或修改HTML时，生成 `<script>` 标签的代码必须将script标签放置在analysis-section的 `</div>` 之后，而非内部。
+
+### 规则3: 新增条文时的验证
+新增或修改条文后，必须验证所有条文卡片的父元素是否为 `.container`，而非 `<body>`。可通过以下JavaScript验证：
+
+```javascript
+// 验证脚本：在浏览器控制台运行
+var container = document.querySelector('.container');
+var allCards = document.querySelectorAll('.article-card');
+var inContainer = 0;
+allCards.forEach(function(card) {
+    if (card.parentElement === container) inContainer++;
+});
+console.log('In container: ' + inContainer + '/' + allCards.length);
+// 应输出: In container: 65/65 (全部在container内)
+```
+
+### 规则4: 转换脚本模板
+生成交互式图表时，使用以下模板结构：
+
+```python
+# Python生成代码模板
+html = f'''
+<div class="analysis-section">
+  <h5>{title}</h5>
+  <div class="ix-diagram-card" id="ix-card-{art_id}">
+    {diagram_html}
+  </div>
+  <div class="ix-detail-panel empty" id="ix-panel-{art_id}">点击上方节点或箭头，查看详情</div>
+</div>
+<script>
+(function(){{
+  var D = {json_data};
+  var P = document.getElementById("ix-panel-{art_id}");
+  var C = document.getElementById("ix-card-{art_id}");
+  // ... 交互逻辑 ...
+}})();
+</script>
+'''
+# 注意: </script> 必须在 </div> (analysis-section的关闭标签) 之后
+```
+
+## 修复记录
+
+| 日期 | 文件 | 修复数量 | 说明 |
+|------|------|----------|------|
+| 2026-08-03 | reg-00.html | 65个script | 反洗钱法，全部65条条文的图表脚本 |
+| 2026-08-03 | reg-01.html | 6个script | 刑法相关条文 |
+| 2026-08-03 | reg-02.html | 1个script | 单条条文 |
+| 2026-08-03 | reg-05.html | 5个script | 反外国制裁法 |
+
+## 验证方法
+
+1. **浏览器验证**: 打开页面，在控制台运行验证脚本（规则3）
+2. **视觉验证**: 第一条和第二条的卡片宽度应该完全一致
+3. **DOM验证**: 所有 `.article-card` 的 `parentElement` 应为 `.container`

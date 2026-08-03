@@ -180,24 +180,30 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
- margin-bottom:12px;overflow:hidden;scroll-margin-top:64px;
- box-shadow:var(--shadow-sm);transition:box-shadow .2s;}
-.article-card:hover{box-shadow:var(--shadow-md);}
+ margin-bottom:10px;overflow:hidden;scroll-margin-top:64px;
+ box-shadow:var(--shadow-sm);transition:box-shadow .2s,border-color .2s;
+ border-left:3px solid var(--c-border);}
+.article-card:hover{box-shadow:var(--shadow-md);border-left-color:var(--c-blue);}
+.article-card.expanded{border-left-color:var(--c-blue);}
 .article-header{display:flex;align-items:baseline;gap:12px;padding:14px 24px 8px;
  flex-wrap:wrap;}
-.article-num{font-weight:600;color:var(--c-primary);font-size:16px;
+.article-num{font-weight:700;color:var(--c-primary);font-size:16px;
  white-space:nowrap;letter-spacing:-0.01em;}
 .art-summary{font-weight:600;color:var(--c-primary);font-size:15px;
  letter-spacing:-0.01em;}
+.art-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:980px;
+ white-space:nowrap;flex-shrink:0;}
+.art-badge.full{background:rgba(0,113,227,0.1);color:#0058a8;}
+.art-badge.pending{background:rgba(142,142,147,0.12);color:#8e8e93;}
 .art-chapter{font-size:12px;color:var(--c-muted);margin-left:auto;
  background:var(--c-bg);padding:3px 10px;border-radius:980px;}
 .article-text{padding:0 24px 16px;}
 .art-para{font-size:16px;line-height:1.75;color:var(--c-text);
  margin-bottom:6px;letter-spacing:-0.01em;}
 .art-para:last-child{margin-bottom:0;}
-.article-annotation{padding:16px 24px;background:var(--c-bg);
+.article-annotation{padding:16px 0;background:var(--c-bg);
  border-top:1px solid var(--c-border);}
-.ann-block{margin-bottom:16px;}
+.ann-block{margin-bottom:16px;padding:0 24px;}
 .ann-block:last-child{margin-bottom:0;}
 .ann-block h4{font-size:11px;color:var(--c-muted);font-weight:600;
  margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;}
@@ -254,7 +260,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .hero{padding:28px 20px;}
  .hero h1{font-size:24px;}
  .stats-row{grid-template-columns:repeat(3,1fr);}
- .reg-detail-header,.reg-toc-box,.article-text,.article-annotation{padding-left:20px;padding-right:20px;}
+ .reg-detail-header,.reg-toc-box,.article-text{padding-left:20px;padding-right:20px;}
+ .ann-block{padding-left:20px;padding-right:20px;}
  .article-header{padding:14px 20px 8px;}
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
@@ -323,6 +330,23 @@ details.xref-details > summary.xref-summary:hover{
 .ann-toggle-btn .icon{font-size:14px;line-height:1;}
 .ann-toggle-btn.collapsed{background:linear-gradient(135deg,#8E8E93,#636366);box-shadow:0 2px 8px rgba(142,142,147,0.3);}
 .ann-toggle-btn.collapsed:hover{box-shadow:0 4px 12px rgba(142,142,147,0.4);}
+
+/* ===== 章节分隔标记 ===== */
+.chapter-divider{display:flex;align-items:center;gap:12px;margin:24px 0 12px;
+ padding:0 4px;}
+.chapter-divider::before{content:'';width:4px;height:22px;border-radius:2px;
+ background:var(--c-blue);flex-shrink:0;}
+.chapter-divider[data-ch="2"]::before{background:var(--c-amber);}
+.chapter-divider[data-ch="3"]::before{background:var(--c-green);}
+.chapter-divider[data-ch="4"]::before{background:var(--c-purple);}
+.chapter-divider[data-ch="5"]::before{background:var(--c-teal);}
+.chapter-divider[data-ch="6"]::before{background:var(--c-red);}
+.chapter-divider[data-ch="7"]::before{background:#8e8e93;}
+.chapter-divider .ch-label{font-size:18px;font-weight:700;color:var(--c-primary);
+ letter-spacing:-0.02em;}
+.chapter-divider .ch-range{font-size:13px;color:var(--c-muted);font-weight:500;
+ margin-left:auto;background:var(--c-card);padding:3px 12px;border-radius:980px;
+ box-shadow:var(--shadow-sm);}
 
 
 /* ===== 权威释义（书籍） ===== */
@@ -574,6 +598,8 @@ details.xref-details > summary.xref-summary:hover{
 </ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn collapsed" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
+
+<div class="chapter-divider" data-ch="1"><span class="ch-label">第一章 总 则</span><span class="ch-range">第1–12条</span></div>
 <div class="article-card" id="art-1">
 <div class="article-header">
 <span class="article-num">第一条</span>
@@ -739,6 +765,7 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art1">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart1-c": {"icon": "📋", "tag": "核心条款", "title": "第1条（立法目的）", "desc": "第1条（立法目的）的完整规则与实践要点解析。", "sections": [{"h": "完整规则", "items": ["第一层（直接目的）：预防洗钱活动。通过反洗钱法第2条定义洗钱活动范围，第6条确立义务主体，第27-42条规定具体义务（CDD、报告、特别预防措施等），构建预防体系。", "第二层（延伸目的）：遏制洗钱以及相关犯罪。反洗钱法第20条规定线索移送，第43-45条规定反洗钱调查，第62条规定刑事责任衔接，与刑法第191条、312条、349条形成\"预防→发现→移送→惩治\"的完整链条。", "第三层（制度目的）：加强和规范反洗钱工作。第3条规定工作原则，第4条规定风险为本要求，第5条规定监管体制，第7-26条细化监管制度，确保反洗钱工作于法有据、依法进行。", "第四层（价值目的）：维护金融秩序、社会公共利益和国家安全。这是反洗钱法的终极价值目标，也是评价反洗钱工作成效的根本标准。2024年修订时增加\"社会公共利益和国家安全\"，体现了反洗钱从金融监管上升为国家安全的战略提升。"]}, {"h": "实践要点", "items": ["\"预防\"与\"遏制\"是两个层次。预防是事前防范（CDD、报告、内控），遏制是事中事后阻断（调查、冻结、移送）。理解第一条要注意两个词的递进关系。", "\"加强\"与\"规范\"并重。2024年修订增加\"加强和规范反洗钱工作\"，意味着既要提升反洗钱能力（加强），也要约束反洗钱权力（规范），体现比例原则。", "\"根据宪法\"不是宣示性条款。它要求反洗钱法的具体规定和解释适用须与宪法精神一致，特别是保障公民基本权利、维护市场经济秩序。"]}]}, "nart1-b0": {"icon": "→", "tag": "关联条款", "title": "第2条（反洗钱定义）", "desc": "第2条（反洗钱定义）在本条款体系中的定位与规则要点。", "sections": [{"h": "相关规则", "items": ["第一层（直接目的）：预防洗钱活动。通过反洗钱法第2条定义洗钱活动范围，第6条确立义务主体，第27-42条规定具体义务（CDD、报告、特别预防措施等），构建预防体系。"]}, {"h": "实践要点", "items": ["\"预防\"与\"遏制\"是两个层次。预防是事前防范（CDD、报告、内控），遏制是事中事后阻断（调查、冻结、移送）。理解第一条要注意两个词的递进关系。", "\"加强\"与\"规范\"并重。2024年修订增加\"加强和规范反洗钱工作\"，意味着既要提升反洗钱能力（加强），也要约束反洗钱权力（规范），体现比例原则。"]}]}, "nart1-c-nart1-b0": {"icon": "→", "tag": "箭头", "title": "第1条（立法目的） → 第2条（反洗钱定义）", "desc": "第1条（立法目的） → 第2条（反洗钱定义）：两者之间的逻辑递进关系与规则衔接。", "sections": []}, "nart1-b1": {"icon": "→", "tag": "关联条款", "title": "第3条（工作原则）", "desc": "第3条（工作原则）在本条款体系中的定位与规则要点。", "sections": [{"h": "相关规则", "items": ["第三层（制度目的）：加强和规范反洗钱工作。第3条规定工作原则，第4条规定风险为本要求，第5条规定监管体制，第7-26条细化监管制度，确保反洗钱工作于法有据、依法进行。"]}, {"h": "实践要点", "items": ["\"预防\"与\"遏制\"是两个层次。预防是事前防范（CDD、报告、内控），遏制是事中事后阻断（调查、冻结、移送）。理解第一条要注意两个词的递进关系。", "\"加强\"与\"规范\"并重。2024年修订增加\"加强和规范反洗钱工作\"，意味着既要提升反洗钱能力（加强），也要约束反洗钱权力（规范），体现比例原则。"]}]}, "nart1-c-nart1-b1": {"icon": "→", "tag": "箭头", "title": "第1条（立法目的） → 第3条（工作原则）", "desc": "第1条（立法目的） → 第3条（工作原则）：两者之间的逻辑递进关系与规则衔接。", "sections": []}, "nart1-b2": {"icon": "→", "tag": "关联条款", "title": "第5条（监管体制）", "desc": "第5条（监管体制）在本条款体系中的定位与规则要点。", "sections": [{"h": "相关规则", "items": ["第三层（制度目的）：加强和规范反洗钱工作。第3条规定工作原则，第4条规定风险为本要求，第5条规定监管体制，第7-26条细化监管制度，确保反洗钱工作于法有据、依法进行。"]}, {"h": "实践要点", "items": ["\"预防\"与\"遏制\"是两个层次。预防是事前防范（CDD、报告、内控），遏制是事中事后阻断（调查、冻结、移送）。理解第一条要注意两个词的递进关系。", "\"加强\"与\"规范\"并重。2024年修订增加\"加强和规范反洗钱工作\"，意味着既要提升反洗钱能力（加强），也要约束反洗钱权力（规范），体现比例原则。"]}]}, "nart1-c-nart1-b2": {"icon": "→", "tag": "箭头", "title": "第1条（立法目的） → 第5条（监管体制）", "desc": "第1条（立法目的） → 第5条（监管体制）：两者之间的逻辑递进关系与规则衔接。", "sections": []}};
@@ -750,8 +777,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 立法目的的四个层次</h5>
@@ -1134,6 +1159,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art2">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart2-c": {"icon": "📋", "tag": "核心条款", "title": "反洗钱法第2条（定义）", "desc": "反洗钱法第2条（定义）——点击查看完整规则解析与实践要点", "sections": [{"h": "📋 完整规则", "items": ["1. \"什么是洗钱\"的完整定义链：反洗钱法第2条（行政法层面定义）→ 刑法第191条（刑事制裁层面·七类上游犯罪）→ 刑法第312条（兜底·所有犯罪）→ 刑法第349条（毒品犯罪特别规定）。四条组合起来，构成了\"洗钱\"从行政预防到刑事惩治的完整定义体系。", "2. \"恐怖融资\"的完整适用链：反洗钱法第2条第二款（适用声明）→ 反恐怖主义法第3条（恐怖活动定义含提供资金）→ 反恐怖主义法第14条（资产冻结）→ 反恐怖主义法第24条（反洗钱部门监管调查权）→ 反洗钱法第40条（特别预防措施）→ 刑法第120条之一（资助恐怖活动罪）。六条组合，恐怖融资从定义到预防到制裁的完整链条就清楚了。", "3. \"谁来执行\"的完整主体链：反洗钱法第2条\"采取相关措施\"→ 第6条（义务主体总则）→ 第63条（金融机构范围）→ 第64条（特定非金融机构范围）→ 监管办法第2条（金融机构细化）→ 支付机构办法第2条 → 互金办法第2条 → 特非通知（四类特非主体）。从法律到规章到通知，义务主体层层细化。"]}, {"h": "💡 实践要点", "items": ["\"其他犯罪\"不等于\"没有上游犯罪\"。2024年修订将\"等犯罪\"改为\"和其他犯罪\"，意味着上游犯罪范围实质扩展至所有犯罪。实务中，即使上游犯罪不在七类之内（如盗窃罪、诈骗罪），掩饰隐瞒其犯罪所得也属于反洗钱法管辖范围。", "\"等\"与\"和其他犯罪\"的区别不是文字游戏。2006年的\"等\"字在实务中存在争议（是\"等内等\"还是\"等外等\"），2024年修改为\"和其他犯罪\"消除了这一歧义。", "恐怖融资适用本法的\"本法\"指整体适用。不是只适用某几条，而是反洗钱法的全部措施（CDD、报告、特别预防措施等）都适用于预防恐怖融资。", "注意一般法与特别法的适用顺序。当反洗钱法与反恐怖主义法对同一事项都有规定时，需根据具体事项判断适用顺序，不是简单\"新法优于旧法\"。"]}]}, "nart2-b0": {"icon": "→", "tag": "关联条款", "title": "刑法191条（洗钱罪·七类上游犯罪）", "desc": "刑法191条（洗钱罪·七类上游犯罪）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. \"什么是洗钱\"的完整定义链：反洗钱法第2条（行政法层面定义）→ 刑法第191条（刑事制裁层面·七类上游犯罪）→ 刑法第312条（兜底·所有犯罪）→ 刑法第349条（毒品犯罪特别规定）。四条组合起来，构成了\"洗钱\"从行政预防到刑事惩治的完整定义体系。"]}, {"h": "💡 实践要点", "items": ["\"其他犯罪\"不等于\"没有上游犯罪\"。2024年修订将\"等犯罪\"改为\"和其他犯罪\"，意味着上游犯罪范围实质扩展至所有犯罪。实务中，即使上游犯罪不在七类之内（如盗窃罪、诈骗罪），掩饰隐瞒其犯罪所得也属于反洗钱法管辖范围。", "\"等\"与\"和其他犯罪\"的区别不是文字游戏。2006年的\"等\"字在实务中存在争议（是\"等内等\"还是\"等外等\"），2024年修改为\"和其他犯罪\"消除了这一歧义。"]}]}, "nart2-c-nart2-b0": {"icon": "→", "tag": "箭头", "title": "反洗钱法第2条（定义） → 刑法191条（洗钱罪·七类上游犯罪）", "desc": "逻辑关联：反洗钱法第2条（定义） → 刑法191条（洗钱罪·七类上游犯罪）——点击查看两者间的规则衔接关系", "sections": []}, "nart2-b1": {"icon": "→", "tag": "关联条款", "title": "第2条第二款（恐怖融资）", "desc": "第2条第二款（恐怖融资）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["2. \"恐怖融资\"的完整适用链：反洗钱法第2条第二款（适用声明）→ 反恐怖主义法第3条（恐怖活动定义含提供资金）→ 反恐怖主义法第14条（资产冻结）→ 反恐怖主义法第24条（反洗钱部门监管调查权）→ 反洗钱法第40条（特别预防措施）→ 刑法第120条之一（资助恐怖活动罪）。六条组合，恐怖融资从定义到预防到制裁的完整链条就清楚了。"]}, {"h": "💡 实践要点", "items": ["恐怖融资适用本法的\"本法\"指整体适用。不是只适用某几条，而是反洗钱法的全部措施（CDD、报告、特别预防措施等）都适用于预防恐怖融资。"]}]}, "nart2-c-nart2-b1": {"icon": "→", "tag": "箭头", "title": "反洗钱法第2条（定义） → 第2条第二款（恐怖融资）", "desc": "逻辑关联：反洗钱法第2条（定义） → 第2条第二款（恐怖融资）——点击查看两者间的规则衔接关系", "sections": []}};
@@ -1145,8 +1171,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 所有关联条文组合后形成的体系</h5>
@@ -1370,6 +1394,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art3">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart3-0": {"icon": "→", "tag": "条款", "title": "第3条（工作原则）", "desc": "第3条（工作原则）的逻辑关系解析。", "sections": []}, "nart3-1": {"icon": "→", "tag": "条款", "title": "贯彻党和国家路线方针政策", "desc": "贯彻党和国家路线方针政策的逻辑关系解析。", "sections": []}, "nart3-2": {"icon": "→", "tag": "条款", "title": "坚持总体国家安全观", "desc": "坚持总体国家安全观的逻辑关系解析。", "sections": []}, "nart3-3": {"icon": "→", "tag": "条款", "title": "完善监督管理体制机制", "desc": "完善监督管理体制机制的逻辑关系解析。", "sections": []}, "nart3-0-nart3-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart3-1-nart3-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart3-2-nart3-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -1381,8 +1406,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 四项原则如何落地</h5>
@@ -1659,6 +1682,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art4">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart4-c": {"icon": "📋", "tag": "核心条款", "title": "第4条（工作要求）", "desc": "第4条（工作要求）的逻辑关系解析。", "sections": []}, "nart4-b0": {"icon": "→", "tag": "关联条款", "title": "依法进行", "desc": "依法进行与第4条（工作要求）的逻辑关系。", "sections": []}, "nart4-c-nart4-b0": {"icon": "→", "tag": "箭头", "title": "第4条（工作要求） → 依法进行", "desc": "从第4条（工作要求）到依法进行的逻辑关联。", "sections": []}, "nart4-b1": {"icon": "→", "tag": "关联条款", "title": "风险相适应", "desc": "风险相适应与第4条（工作要求）的逻辑关系。", "sections": []}, "nart4-c-nart4-b1": {"icon": "→", "tag": "箭头", "title": "第4条（工作要求） → 风险相适应", "desc": "从第4条（工作要求）到风险相适应的逻辑关联。", "sections": []}, "nart4-b2": {"icon": "→", "tag": "关联条款", "title": "保障正常金融服务", "desc": "保障正常金融服务与第4条（工作要求）的逻辑关系。", "sections": []}, "nart4-c-nart4-b2": {"icon": "→", "tag": "箭头", "title": "第4条（工作要求） → 保障正常金融服务", "desc": "从第4条（工作要求）到保障正常金融服务的逻辑关联。", "sections": []}};
@@ -1670,8 +1694,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — "风险为本"的完整操作链</h5>
@@ -1931,6 +1953,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art5">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart5-c": {"icon": "📋", "tag": "核心条款", "title": "第5条第一款（监管体制）", "desc": "第5条第一款（监管体制）——点击查看完整规则解析与实践要点", "sections": [{"h": "📋 完整规则", "items": ["1. \"谁来管\"的主体链：第5条（体制总则）→ 第13条（央行制定规定）→ 第14条（金融管理部门市场准入审查）→ 第15条（特非主管部门监督检查）→ 第18条（海关现金监管）。从法律到具体部门，监管主体层层明确。", "2. \"怎么管\"的手段链：第5条（体制）→ 第22条（监督检查：进入场所检查、询问、查阅复制资料）→ 第21条（约谈高管）→ 第43-45条（反洗钱调查：查阅复制、询问、临时冻结）。从日常监管到行政调查，手段递进。", "3. \"怎么配合\"的协作链：第5条第二款（配合原则）→ 第17条（信息获取与通报）→ 第20条（线索移送与反馈）→ 第47条（国际合作配合）。信息共享、线索移送、国际协作构成完整的配合体系。", "4. \"监察机关\"的独特作用：2024年新增监察机关参与配合，主要针对反腐败和境外追逃追赃。监察机关在反洗钱工作中的角色是：接收反洗钱线索（涉嫌贪污贿赂等上游犯罪）、利用反洗钱信息开展监察调查、配合境外追逃追赃。"]}, {"h": "💡 实践要点", "items": ["\"国务院反洗钱行政主管部门\"就是中国人民银行。虽然法条没有直接写\"中国人民银行\"，但根据中国人民银行法第4条和长期实践，央行就是反洗钱行政主管部门。不要误认为是其他部门。", "\"国务院有关部门\"的范围很广。包括国家金融监督管理总局、中国证监会（金融管理部门），以及海关总署、国家税务总局、国家市场监督管理总局、财政部、司法部等。不同部门在各自职责范围内履行监管职责。", "2024年新增\"监察机关\"有重要意义。监察体制改革后，监察机关负责反腐败工作，反洗钱与反腐败密切相关（贪污贿赂是七类上游犯罪之一）。增加监察机关有利于反洗钱信息在反腐败领域的运用，也有利于境外追逃追赃。", "\"相互配合\"不是可选项。第二款规定的是\"应当相互配合\"，这是法定义务。第17条规定国家有关机关\"应当依法提供\"信息，第20条规定接受移送的机关\"应当按照规定反馈处理结果\"，都有明确的法定义务要求。"]}]}, "nart5-b0": {"icon": "→", "tag": "关联条款", "title": "中国人民银行（反洗钱行政主管部门）", "desc": "中国人民银行（反洗钱行政主管部门）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. \"谁来管\"的主体链：第5条（体制总则）→ 第13条（央行制定规定）→ 第14条（金融管理部门市场准入审查）→ 第15条（特非主管部门监督检查）→ 第18条（海关现金监管）。从法律到具体部门，监管主体层层明确。", "2. \"怎么管\"的手段链：第5条（体制）→ 第22条（监督检查：进入场所检查、询问、查阅复制资料）→ 第21条（约谈高管）→ 第43-45条（反洗钱调查：查阅复制、询问、临时冻结）。从日常监管到行政调查，手段递进。"]}, {"h": "💡 实践要点", "items": ["\"国务院反洗钱行政主管部门\"就是中国人民银行。虽然法条没有直接写\"中国人民银行\"，但根据中国人民银行法第4条和长期实践，央行就是反洗钱行政主管部门。不要误认为是其他部门。"]}]}, "nart5-c-nart5-b0": {"icon": "→", "tag": "箭头", "title": "第5条第一款（监管体制） → 中国人民银行（反洗钱行政主管部门）", "desc": "逻辑关联：第5条第一款（监管体制） → 中国人民银行（反洗钱行政主管部门）——点击查看两者间的规则衔接关系", "sections": []}, "nart5-b1": {"icon": "→", "tag": "关联条款", "title": "国务院有关部门", "desc": "国务院有关部门——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. \"谁来管\"的主体链：第5条（体制总则）→ 第13条（央行制定规定）→ 第14条（金融管理部门市场准入审查）→ 第15条（特非主管部门监督检查）→ 第18条（海关现金监管）。从法律到具体部门，监管主体层层明确。", "2. \"怎么管\"的手段链：第5条（体制）→ 第22条（监督检查：进入场所检查、询问、查阅复制资料）→ 第21条（约谈高管）→ 第43-45条（反洗钱调查：查阅复制、询问、临时冻结）。从日常监管到行政调查，手段递进。"]}, {"h": "💡 实践要点", "items": ["\"国务院有关部门\"的范围很广。包括国家金融监督管理总局、中国证监会（金融管理部门），以及海关总署、国家税务总局、国家市场监督管理总局、财政部、司法部等。不同部门在各自职责范围内履行监管职责。"]}]}, "nart5-c-nart5-b1": {"icon": "→", "tag": "箭头", "title": "第5条第一款（监管体制） → 国务院有关部门", "desc": "逻辑关联：第5条第一款（监管体制） → 国务院有关部门——点击查看两者间的规则衔接关系", "sections": []}};
@@ -1942,8 +1965,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱监管体制的完整图景</h5>
@@ -2223,6 +2244,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art6">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart6-c": {"icon": "📋", "tag": "核心条款", "title": "第6条（义务主体+义务总则）", "desc": "第6条（义务主体+义务总则）的逻辑关系解析。", "sections": []}, "nart6-b0": {"icon": "→", "tag": "关联条款", "title": "第63条（金融机构）", "desc": "第63条（金融机构）与第6条（义务主体+义务总则）的逻辑关系。", "sections": []}, "nart6-c-nart6-b0": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体+义务总则） → 第63条（金融机构）", "desc": "从第6条（义务主体+义务总则）到第63条（金融机构）的逻辑关联。", "sections": []}, "nart6-b1": {"icon": "→", "tag": "关联条款", "title": "第27条（内控）", "desc": "第27条（内控）与第6条（义务主体+义务总则）的逻辑关系。", "sections": []}, "nart6-c-nart6-b1": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体+义务总则） → 第27条（内控）", "desc": "从第6条（义务主体+义务总则）到第27条（内控）的逻辑关联。", "sections": []}};
@@ -2234,8 +2256,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 义务主体与义务内容的完整体系</h5>
@@ -2480,6 +2500,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art7">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart7-c": {"icon": "📋", "tag": "核心条款", "title": "第6条（义务主体产生信息）", "desc": "第6条（义务主体产生信息）的逻辑关系解析。", "sections": []}, "nart7-b0": {"icon": "→", "tag": "关联条款", "title": "第7条（信息保密与用途限制）", "desc": "第7条（信息保密与用途限制）与第6条（义务主体产生信息）的逻辑关系。", "sections": []}, "nart7-c-nart7-b0": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体产生信息） → 第7条（信息保密与用途限制）", "desc": "从第6条（义务主体产生信息）到第7条（信息保密与用途限制）的逻辑关联。", "sections": []}, "nart7-b1": {"icon": "→", "tag": "关联条款", "title": "第7条第一款", "desc": "第7条第一款与第6条（义务主体产生信息）的逻辑关系。", "sections": []}, "nart7-c-nart7-b1": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体产生信息） → 第7条第一款", "desc": "从第6条（义务主体产生信息）到第7条第一款的逻辑关联。", "sections": []}, "nart7-b2": {"icon": "→", "tag": "关联条款", "title": "第7条第二款", "desc": "第7条第二款与第6条（义务主体产生信息）的逻辑关系。", "sections": []}, "nart7-c-nart7-b2": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体产生信息） → 第7条第二款", "desc": "从第6条（义务主体产生信息）到第7条第二款的逻辑关联。", "sections": []}};
@@ -2491,8 +2512,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱信息保护的完整体系</h5>
@@ -2723,6 +2742,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art8">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart8-c": {"icon": "📋", "tag": "核心条款", "title": "第8条（履职保护/安全港）", "desc": "第8条（履职保护/安全港）的逻辑关系解析。", "sections": []}, "nart8-b0": {"icon": "→", "tag": "关联条款", "title": "第6条（义务内容）", "desc": "第6条（义务内容）与第8条（履职保护/安全港）的逻辑关系。", "sections": []}, "nart8-c-nart8-b0": {"icon": "→", "tag": "箭头", "title": "第8条（履职保护/安全港） → 第6条（义务内容）", "desc": "从第8条（履职保护/安全港）到第6条（义务内容）的逻辑关联。", "sections": []}, "nart8-b1": {"icon": "→", "tag": "关联条款", "title": "第35条（大额/可疑报告）", "desc": "第35条（大额/可疑报告）与第8条（履职保护/安全港）的逻辑关系。", "sections": []}, "nart8-c-nart8-b1": {"icon": "→", "tag": "箭头", "title": "第8条（履职保护/安全港） → 第35条（大额/可疑报告）", "desc": "从第8条（履职保护/安全港）到第35条（大额/可疑报告）的逻辑关联。", "sections": []}};
@@ -2734,8 +2754,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 履职保护的完整体系</h5>
@@ -2935,6 +2953,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art9">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart9-c": {"icon": "📋", "tag": "核心条款", "title": "第9条（宣传教育）", "desc": "第9条（宣传教育）的逻辑关系解析。", "sections": []}, "nart9-b0": {"icon": "→", "tag": "关联条款", "title": "第5条（监管体制）", "desc": "第5条（监管体制）与第9条（宣传教育）的逻辑关系。", "sections": []}, "nart9-c-nart9-b0": {"icon": "→", "tag": "箭头", "title": "第9条（宣传教育） → 第5条（监管体制）", "desc": "从第9条（宣传教育）到第5条（监管体制）的逻辑关联。", "sections": []}, "nart9-b1": {"icon": "→", "tag": "关联条款", "title": "刑法191/312/349条（违法性）", "desc": "刑法191/312/349条（违法性）与第9条（宣传教育）的逻辑关系。", "sections": []}, "nart9-c-nart9-b1": {"icon": "→", "tag": "箭头", "title": "第9条（宣传教育） → 刑法191/312/349条（违法性）", "desc": "从第9条（宣传教育）到刑法191/312/349条（违法性）的逻辑关联。", "sections": []}};
@@ -2946,8 +2965,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱宣传教育的完整体系</h5>
@@ -3152,6 +3169,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art10">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart10-c": {"icon": "📋", "tag": "核心条款", "title": "第10条（社会面义务）", "desc": "第10条（社会面义务）的逻辑关系解析。", "sections": []}, "nart10-b0": {"icon": "→", "tag": "关联条款", "title": "刑法191条（自洗钱+他洗钱）", "desc": "刑法191条（自洗钱+他洗钱）与第10条（社会面义务）的逻辑关系。", "sections": []}, "nart10-c-nart10-b0": {"icon": "→", "tag": "箭头", "title": "第10条（社会面义务） → 刑法191条（自洗钱+他洗钱）", "desc": "从第10条（社会面义务）到刑法191条（自洗钱+他洗钱）的逻辑关联。", "sections": []}, "nart10-b1": {"icon": "→", "tag": "关联条款", "title": "第6条（义务主体）", "desc": "第6条（义务主体）与第10条（社会面义务）的逻辑关系。", "sections": []}, "nart10-c-nart10-b1": {"icon": "→", "tag": "箭头", "title": "第10条（社会面义务） → 第6条（义务主体）", "desc": "从第10条（社会面义务）到第6条（义务主体）的逻辑关联。", "sections": []}};
@@ -3163,8 +3181,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 社会面反洗钱义务的完整体系</h5>
@@ -3376,6 +3392,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art11">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart11-c": {"icon": "📋", "tag": "核心条款", "title": "第11条（举报制度）", "desc": "第11条（举报制度）的逻辑关系解析。", "sections": []}, "nart11-b0": {"icon": "→", "tag": "关联条款", "title": "举报权利", "desc": "举报权利与第11条（举报制度）的逻辑关系。", "sections": []}, "nart11-c-nart11-b0": {"icon": "→", "tag": "箭头", "title": "第11条（举报制度） → 举报权利", "desc": "从第11条（举报制度）到举报权利的逻辑关联。", "sections": []}, "nart11-b1": {"icon": "→", "tag": "关联条款", "title": "第11条第二款", "desc": "第11条第二款与第11条（举报制度）的逻辑关系。", "sections": []}, "nart11-c-nart11-b1": {"icon": "→", "tag": "箭头", "title": "第11条（举报制度） → 第11条第二款", "desc": "从第11条（举报制度）到第11条第二款的逻辑关联。", "sections": []}};
@@ -3387,8 +3404,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 举报制度的完整体系</h5>
@@ -3604,6 +3619,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art12">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart12-c": {"icon": "📋", "tag": "核心条款", "title": "第6条（属地管辖：境内义务主体）", "desc": "第6条（属地管辖：境内义务主体）的逻辑关系解析。", "sections": []}, "nart12-b0": {"icon": "→", "tag": "关联条款", "title": "境内反洗钱监管", "desc": "境内反洗钱监管与第6条（属地管辖：境内义务主体）的逻辑关系。", "sections": []}, "nart12-c-nart12-b0": {"icon": "→", "tag": "箭头", "title": "第6条（属地管辖：境内义务主体） → 境内反洗钱监管", "desc": "从第6条（属地管辖：境内义务主体）到境内反洗钱监管的逻辑关联。", "sections": []}, "nart12-b1": {"icon": "→", "tag": "关联条款", "title": "第12条（保护管辖：境外活动）", "desc": "第12条（保护管辖：境外活动）与第6条（属地管辖：境内义务主体）的逻辑关系。", "sections": []}, "nart12-c-nart12-b1": {"icon": "→", "tag": "箭头", "title": "第6条（属地管辖：境内义务主体） → 第12条（保护管辖：境外活动）", "desc": "从第6条（属地管辖：境内义务主体）到第12条（保护管辖：境外活动）的逻辑关联。", "sections": []}, "nart12-b2": {"icon": "→", "tag": "关联条款", "title": "第12条", "desc": "第12条与第6条（属地管辖：境内义务主体）的逻辑关系。", "sections": []}, "nart12-c-nart12-b2": {"icon": "→", "tag": "箭头", "title": "第6条（属地管辖：境内义务主体） → 第12条", "desc": "从第6条（属地管辖：境内义务主体）到第12条的逻辑关联。", "sections": []}};
@@ -3615,8 +3631,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 域外适用的完整体系</h5>
@@ -3685,7 +3699,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-13">
+</div>
+<div class="chapter-divider" data-ch="2"><span class="ch-label">第二章 反洗钱监督管理</span><span class="ch-range">第13–26条</span></div>
+<div class="article-card" id="art-13">
 <div class="article-header">
 <span class="article-num">第十三条</span>
 <span class="art-summary">央行职责</span>
@@ -3867,6 +3883,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art13">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart13-c": {"icon": "📋", "tag": "核心条款", "title": "第13条（央行职责·总行）", "desc": "第13条（央行职责·总行）的逻辑关系解析。", "sections": []}, "nart13-b0": {"icon": "→", "tag": "关联条款", "title": "第16条（监测分析机构）", "desc": "第16条（监测分析机构）与第13条（央行职责·总行）的逻辑关系。", "sections": []}, "nart13-c-nart13-b0": {"icon": "→", "tag": "箭头", "title": "第13条（央行职责·总行） → 第16条（监测分析机构）", "desc": "从第13条（央行职责·总行）到第16条（监测分析机构）的逻辑关联。", "sections": []}, "nart13-b1": {"icon": "→", "tag": "关联条款", "title": "第14条（金融管理部门）", "desc": "第14条（金融管理部门）与第13条（央行职责·总行）的逻辑关系。", "sections": []}, "nart13-c-nart13-b1": {"icon": "→", "tag": "箭头", "title": "第13条（央行职责·总行） → 第14条（金融管理部门）", "desc": "从第13条（央行职责·总行）到第14条（金融管理部门）的逻辑关联。", "sections": []}, "nart13-b2": {"icon": "→", "tag": "关联条款", "title": "第13条·第一款", "desc": "第13条·第一款与第13条（央行职责·总行）的逻辑关系。", "sections": []}, "nart13-c-nart13-b2": {"icon": "→", "tag": "箭头", "title": "第13条（央行职责·总行） → 第13条·第一款", "desc": "从第13条（央行职责·总行）到第13条·第一款的逻辑关联。", "sections": []}};
@@ -3878,8 +3895,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 央行反洗钱六项职责体系</h5>
@@ -4098,6 +4113,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art14">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart14-c": {"icon": "📋", "tag": "核心条款", "title": "第14条（金融管理部门）", "desc": "第14条（金融管理部门）的逻辑关系解析。", "sections": []}, "nart14-b0": {"icon": "→", "tag": "关联条款", "title": "第13条（央行·主体责任）", "desc": "第13条（央行·主体责任）与第14条（金融管理部门）的逻辑关系。", "sections": []}, "nart14-c-nart14-b0": {"icon": "→", "tag": "箭头", "title": "第14条（金融管理部门） → 第13条（央行·主体责任）", "desc": "从第14条（金融管理部门）到第13条（央行·主体责任）的逻辑关联。", "sections": []}, "nart14-b1": {"icon": "→", "tag": "关联条款", "title": "第14条·第二款", "desc": "第14条·第二款与第14条（金融管理部门）的逻辑关系。", "sections": []}, "nart14-c-nart14-b1": {"icon": "→", "tag": "箭头", "title": "第14条（金融管理部门） → 第14条·第二款", "desc": "从第14条（金融管理部门）到第14条·第二款的逻辑关联。", "sections": []}};
@@ -4109,8 +4125,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 金融管理部门反洗钱职责体系</h5>
@@ -4329,6 +4343,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art31">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart31-t0n0": {"icon": "📋", "tag": "条款", "title": "第15条（特定非金融机构主管部门）", "desc": "第15条（特定非金融机构主管部门）的逻辑关系解析。", "sections": []}, "nart31-t0n1": {"icon": "📋", "tag": "条款", "title": "第64条（特定非金融机构范围）", "desc": "第64条（特定非金融机构范围）的逻辑关系解析。", "sections": []}, "nart31-t0n0-nart31-t0n1": {"icon": "→", "tag": "关联", "title": "第15条（特定非金融机构主管部门） → 第64条（特定非金融机构范围）", "desc": "从第15条（特定非金融机构主管部门）到第64条（特定非金融机构范围）的逻辑关联。", "sections": []}, "nart31-t1n0": {"icon": "📋", "tag": "条款", "title": "第15条·第一款", "desc": "第15条·第一款的逻辑关系解析。", "sections": []}, "nart31-t1n1": {"icon": "📋", "tag": "条款", "title": "主管部门制定 / 央行会同制定 / 央行单独制定（无主管部门时）", "desc": "主管部门制定 / 央行会同制定 / 央行单独制定（无主管部门时）的逻辑关系解析。", "sections": []}, "nart31-t1n0-nart31-t1n1": {"icon": "→", "tag": "关联", "title": "第15条·第一款 → 主管部门制定 / 央行会同制定 / 央行单独制定（无主管部门时）", "desc": "从第15条·第一款到主管部门制定 / 央行会同制定 / 央行单独制定（无主管部门时）的逻辑关联。", "sections": []}, "nart31-t2n0": {"icon": "📋", "tag": "条款", "title": "第15条·第二款", "desc": "第15条·第二款的逻辑关系解析。", "sections": []}, "nart31-t2n1": {"icon": "📋", "tag": "条款", "title": "第6条（义务主体履职）", "desc": "第6条（义务主体履职）的逻辑关系解析。", "sections": []}, "nart31-t2n2": {"icon": "📋", "tag": "条款", "title": "第13条（央行）", "desc": "第13条（央行）的逻辑关系解析。", "sections": []}, "nart31-t2n0-nart31-t2n1": {"icon": "→", "tag": "关联", "title": "第15条·第二款 → 第6条（义务主体履职）", "desc": "从第15条·第二款到第6条（义务主体履职）的逻辑关联。", "sections": []}, "nart31-t2n1-nart31-t2n2": {"icon": "→", "tag": "关联", "title": "第6条（义务主体履职） → 第13条（央行）", "desc": "从第6条（义务主体履职）到第13条（央行）的逻辑关联。", "sections": []}};
@@ -4340,8 +4355,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 特定非金融机构反洗钱监管体系</h5>
@@ -4562,6 +4575,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art32">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart32-t0n0": {"icon": "📋", "tag": "条款", "title": "第13条（央行·资金监测职责）", "desc": "第13条（央行·资金监测职责）的逻辑关系解析。", "sections": []}, "nart32-t0n1": {"icon": "📋", "tag": "条款", "title": "第16条（监测分析机构）", "desc": "第16条（监测分析机构）的逻辑关系解析。", "sections": []}, "nart32-t0n0-nart32-t0n1": {"icon": "→", "tag": "关联", "title": "第13条（央行·资金监测职责） → 第16条（监测分析机构）", "desc": "从第13条（央行·资金监测职责）到第16条（监测分析机构）的逻辑关联。", "sections": []}, "nart32-t1n0": {"icon": "📋", "tag": "条款", "title": "第16条", "desc": "第16条的逻辑关系解析。", "sections": []}, "nart32-t1n1": {"icon": "📋", "tag": "条款", "title": "第35条（大额和可疑交易报告）", "desc": "第35条（大额和可疑交易报告）的逻辑关系解析。", "sections": []}, "nart32-t1n2": {"icon": "📋", "tag": "条款", "title": "第20条（线索移送）", "desc": "第20条（线索移送）的逻辑关系解析。", "sections": []}, "nart32-t1n0-nart32-t1n1": {"icon": "→", "tag": "关联", "title": "第16条 → 第35条（大额和可疑交易报告）", "desc": "从第16条到第35条（大额和可疑交易报告）的逻辑关联。", "sections": []}, "nart32-t1n1-nart32-t1n2": {"icon": "→", "tag": "关联", "title": "第35条（大额和可疑交易报告） → 第20条（线索移送）", "desc": "从第35条（大额和可疑交易报告）到第20条（线索移送）的逻辑关联。", "sections": []}, "nart32-t2n0": {"icon": "📋", "tag": "条款", "title": "第16条·第二款", "desc": "第16条·第二款的逻辑关系解析。", "sections": []}, "nart32-t2n1": {"icon": "📋", "tag": "条款", "title": "义务机构（提供）", "desc": "义务机构（提供）的逻辑关系解析。", "sections": []}, "nart32-t2n0-nart32-t2n1": {"icon": "→", "tag": "关联", "title": "第16条·第二款 → 义务机构（提供）", "desc": "从第16条·第二款到义务机构（提供）的逻辑关联。", "sections": []}, "nart32-t3n0": {"icon": "📋", "tag": "条款", "title": "第16条·第三款", "desc": "第16条·第三款的逻辑关系解析。", "sections": []}, "nart32-t3n1": {"icon": "📋", "tag": "条款", "title": "义务机构（修正模型·提升能力）", "desc": "义务机构（修正模型·提升能力）的逻辑关系解析。", "sections": []}, "nart32-t3n0-nart32-t3n1": {"icon": "→", "tag": "关联", "title": "第16条·第三款 → 义务机构（修正模型·提升能力）", "desc": "从第16条·第三款到义务机构（修正模型·提升能力）的逻辑关联。", "sections": []}};
@@ -4573,8 +4587,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 监测分析机构职责体系</h5>
@@ -4789,6 +4801,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art33">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart33-t0n0": {"icon": "📋", "tag": "条款", "title": "第17条·第一款（信息获取）", "desc": "第17条·第一款（信息获取）的逻辑关系解析。", "sections": []}, "nart33-t0n1": {"icon": "📋", "tag": "条款", "title": "国家有关机关（公安/海关/检察/法院等）", "desc": "国家有关机关（公安/海关/检察/法院等）的逻辑关系解析。", "sections": []}, "nart33-t0n0-nart33-t0n1": {"icon": "→", "tag": "关联", "title": "第17条·第一款（信息获取） → 国家有关机关（公安/海关/检察/法院等）", "desc": "从第17条·第一款（信息获取）到国家有关机关（公安/海关/检察/法院等）的逻辑关联。", "sections": []}, "nart33-t1n0": {"icon": "📋", "tag": "条款", "title": "第17条·第二款（信息提供）", "desc": "第17条·第二款（信息提供）的逻辑关系解析。", "sections": []}, "nart33-t1n1": {"icon": "📋", "tag": "条款", "title": "国家有关机关", "desc": "国家有关机关的逻辑关系解析。", "sections": []}, "nart33-t1n0-nart33-t1n1": {"icon": "→", "tag": "关联", "title": "第17条·第二款（信息提供） → 国家有关机关", "desc": "从第17条·第二款（信息提供）到国家有关机关的逻辑关联。", "sections": []}, "nart33-t2n0": {"icon": "📋", "tag": "条款", "title": "第17条·第二款", "desc": "第17条·第二款的逻辑关系解析。", "sections": []}, "nart33-t2n1": {"icon": "📋", "tag": "条款", "title": "履行反洗钱相关职责的机关（监管/调查/监察/诉讼）", "desc": "履行反洗钱相关职责的机关（监管/调查/监察/诉讼）的逻辑关系解析。", "sections": []}, "nart33-t2n0-nart33-t2n1": {"icon": "→", "tag": "关联", "title": "第17条·第二款 → 履行反洗钱相关职责的机关（监管/调查/监察/诉讼）", "desc": "从第17条·第二款到履行反洗钱相关职责的机关（监管/调查/监察/诉讼）的逻辑关联。", "sections": []}, "nart33-t3n0": {"icon": "📋", "tag": "条款", "title": "第7条（信息保密）", "desc": "第7条（信息保密）的逻辑关系解析。", "sections": []}, "nart33-t3n1": {"icon": "📋", "tag": "条款", "title": "第17条（信息交换全过程）", "desc": "第17条（信息交换全过程）的逻辑关系解析。", "sections": []}, "nart33-t3n0-nart33-t3n1": {"icon": "→", "tag": "关联", "title": "第7条（信息保密） → 第17条（信息交换全过程）", "desc": "从第7条（信息保密）到第17条（信息交换全过程）的逻辑关联。", "sections": []}};
@@ -4800,8 +4813,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 部门间信息交换体系</h5>
@@ -4989,6 +5000,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art19">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart19-c": {"icon": "📋", "tag": "核心条款", "title": "第18条·第一款", "desc": "第18条·第一款——点击查看完整规则解析与实践要点", "sections": [{"h": "📋 完整规则", "items": ["1. 申报义务主体：出入境人员（携带现金、无记名支付凭证等超过规定金额的）。", "2. 申报对象范围：\"现金\"包括人民币现钞、外币现钞；\"无记名支付凭证\"包括无记名票据（支票、本票、汇票等）及其他可跨境携带、使用的不记名、可转让的类现金票据。", "3. 通报义务主体：海关（发现个人超额携带的，应及时向央行通报）。", "4. 制定职责分工：由央行、国务院外汇管理部门按照职责分工会同海关总署规定申报范围、金额标准及通报机制。", "5. 通报机制的地域性：由于央行和海关总署在全国范围内均设有分支机构，通报机制并不限于海关总署与央行之间，各地海关发现超额携带的，也应及时向央行分支机构通报。"]}, {"h": "💡 实践要点", "items": ["\"无记名支付凭证\"是相对较新的概念。由\"无记名\"和\"支付凭证\"两方面构成，\"无记名\"强调不记载权利人或记载虚构收款人、可无限制背书、交付即转让；\"支付凭证\"主要包括支票、本票、汇票。2024年修订将\"无记名有价证券\"改为\"无记名支付凭证\"，范围更广。", "申报义务与现行规定衔接。出入境人员申报要求与《携带外币现钞出入境管理暂行办法》（汇发〔2003〕102号）等现行规定衔接，存在应申报情形的应按规定申报。", "通报机制的地域性。为保证通报时效性，各地海关发现个人超额携带的，也应及时向央行分支机构通报，而非仅限海关总署与央行总行之间。", "三方协同制定规则。新增外汇管理部门参与，与《外汇管理条例》第十五条\"携带、申报外币现钞出入境的限额，由国务院外汇管理部门规定\"衔接。"]}]}, "nart19-b0": {"icon": "→", "tag": "关联条款", "title": "出入境人员（向海关申报）", "desc": "出入境人员（向海关申报）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. 申报义务主体：出入境人员（携带现金、无记名支付凭证等超过规定金额的）。"]}, {"h": "💡 实践要点", "items": ["申报义务与现行规定衔接。出入境人员申报要求与《携带外币现钞出入境管理暂行办法》（汇发〔2003〕102号）等现行规定衔接，存在应申报情形的应按规定申报。"]}]}, "nart19-c-nart19-b0": {"icon": "→", "tag": "箭头", "title": "第18条·第一款 → 出入境人员（向海关申报）", "desc": "逻辑关联：第18条·第一款 → 出入境人员（向海关申报）——点击查看两者间的规则衔接关系", "sections": []}, "nart19-b1": {"icon": "→", "tag": "关联条款", "title": "海关（向央行通报）", "desc": "海关（向央行通报）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["3. 通报义务主体：海关（发现个人超额携带的，应及时向央行通报）。", "4. 制定职责分工：由央行、国务院外汇管理部门按照职责分工会同海关总署规定申报范围、金额标准及通报机制。", "5. 通报机制的地域性：由于央行和海关总署在全国范围内均设有分支机构，通报机制并不限于海关总署与央行之间，各地海关发现超额携带的，也应及时向央行分支机构通报。"]}, {"h": "💡 实践要点", "items": ["通报机制的地域性。为保证通报时效性，各地海关发现个人超额携带的，也应及时向央行分支机构通报，而非仅限海关总署与央行总行之间。"]}]}, "nart19-c-nart19-b1": {"icon": "→", "tag": "箭头", "title": "第18条·第一款 → 海关（向央行通报）", "desc": "逻辑关联：第18条·第一款 → 海关（向央行通报）——点击查看两者间的规则衔接关系", "sections": []}};
@@ -5000,8 +5012,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 跨境现金申报与通报体系</h5>
@@ -5234,6 +5244,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art20">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart20-c": {"icon": "📋", "tag": "核心条款", "title": "第19条·第一款（制度建立）", "desc": "第19条·第一款（制度建立）的逻辑关系解析。", "sections": []}, "nart20-b0": {"icon": "→", "tag": "关联条款", "title": "受益所有人信息管理制度", "desc": "受益所有人信息管理制度与第19条·第一款（制度建立）的逻辑关系。", "sections": []}, "nart20-c-nart20-b0": {"icon": "→", "tag": "箭头", "title": "第19条·第一款（制度建立） → 受益所有人信息管理制度", "desc": "从第19条·第一款（制度建立）到受益所有人信息管理制度的逻辑关联。", "sections": []}, "nart20-b1": {"icon": "→", "tag": "关联条款", "title": "第19条·第二款（信息填报）", "desc": "第19条·第二款（信息填报）与第19条·第一款（制度建立）的逻辑关系。", "sections": []}, "nart20-c-nart20-b1": {"icon": "→", "tag": "箭头", "title": "第19条·第一款（制度建立） → 第19条·第二款（信息填报）", "desc": "从第19条·第一款（制度建立）到第19条·第二款（信息填报）的逻辑关联。", "sections": []}, "nart20-b2": {"icon": "→", "tag": "关联条款", "title": "第19条·第三款（信息使用）", "desc": "第19条·第三款（信息使用）与第19条·第一款（制度建立）的逻辑关系。", "sections": []}, "nart20-c-nart20-b2": {"icon": "→", "tag": "箭头", "title": "第19条·第一款（制度建立） → 第19条·第三款（信息使用）", "desc": "从第19条·第一款（制度建立）到第19条·第三款（信息使用）的逻辑关联。", "sections": []}};
@@ -5245,8 +5256,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 受益所有人信息管理制度体系</h5>
@@ -5474,6 +5483,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art21">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart21-c": {"icon": "📋", "tag": "核心条款", "title": "第20条（线索移送）", "desc": "第20条（线索移送）的逻辑关系解析。", "sections": []}, "nart21-b0": {"icon": "→", "tag": "关联条款", "title": "第21条（日常监管）", "desc": "第21条（日常监管）与第20条（线索移送）的逻辑关系。", "sections": []}, "nart21-c-nart21-b0": {"icon": "→", "tag": "箭头", "title": "第20条（线索移送） → 第21条（日常监管）", "desc": "从第20条（线索移送）到第21条（日常监管）的逻辑关联。", "sections": []}, "nart21-b1": {"icon": "→", "tag": "关联条款", "title": "有管辖权的机关（侦查/监察）", "desc": "有管辖权的机关（侦查/监察）与第20条（线索移送）的逻辑关系。", "sections": []}, "nart21-c-nart21-b1": {"icon": "→", "tag": "箭头", "title": "第20条（线索移送） → 有管辖权的机关（侦查/监察）", "desc": "从第20条（线索移送）到有管辖权的机关（侦查/监察）的逻辑关联。", "sections": []}};
@@ -5485,8 +5495,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 线索移送的完整制度</h5>
@@ -5719,6 +5727,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art34">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart34-t0n0": {"icon": "📋", "tag": "条款", "title": "第21条（日常监管措施）", "desc": "第21条（日常监管措施）的逻辑关系解析。", "sections": []}, "nart34-t1n0": {"icon": "📋", "tag": "条款", "title": "第21条", "desc": "第21条的逻辑关系解析。", "sections": []}, "nart34-t1n1": {"icon": "📋", "tag": "条款", "title": "第22条（监督检查·强制力更强）", "desc": "第22条（监督检查·强制力更强）的逻辑关系解析。", "sections": []}, "nart34-t1n0-nart34-t1n1": {"icon": "→", "tag": "关联", "title": "第21条 → 第22条（监督检查·强制力更强）", "desc": "从第21条到第22条（监督检查·强制力更强）的逻辑关联。", "sections": []}};
@@ -5730,8 +5739,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — "基于风险"监管的完整操作链</h5>
@@ -5991,6 +5998,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art23">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart23-0": {"icon": "→", "tag": "条款", "title": "第22条第一款（授权）", "desc": "第22条第一款（授权）的逻辑关系解析。", "sections": []}, "nart23-1": {"icon": "→", "tag": "条款", "title": "进入检查", "desc": "进入检查的逻辑关系解析。", "sections": []}, "nart23-2": {"icon": "→", "tag": "条款", "title": "询问", "desc": "询问的逻辑关系解析。", "sections": []}, "nart23-3": {"icon": "→", "tag": "条款", "title": "查阅复制封存", "desc": "查阅复制封存的逻辑关系解析。", "sections": []}, "nart23-4": {"icon": "→", "tag": "条款", "title": "检查信息系统", "desc": "检查信息系统的逻辑关系解析。", "sections": []}, "nart23-5": {"icon": "→", "tag": "条款", "title": "第22条第二款（控权）", "desc": "第22条第二款（控权）的逻辑关系解析。", "sections": []}, "nart23-6": {"icon": "→", "tag": "条款", "title": "负责人批准（设区的市级以上）", "desc": "负责人批准（设区的市级以上）的逻辑关系解析。", "sections": []}, "nart23-7": {"icon": "→", "tag": "条款", "title": "不少于二人", "desc": "不少于二人的逻辑关系解析。", "sections": []}, "nart23-8": {"icon": "→", "tag": "条款", "title": "出示执法证件+检查通知书", "desc": "出示执法证件+检查通知书的逻辑关系解析。", "sections": []}, "nart23-0-nart23-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-1-nart23-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-2-nart23-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-3-nart23-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-4-nart23-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-5-nart23-6": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-6-nart23-7": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart23-7-nart23-8": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -6002,8 +6010,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 监督检查的完整制度</h5>
@@ -6223,6 +6229,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art24">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart24-0": {"icon": "→", "tag": "条款", "title": "第23条（基于风险方法）", "desc": "第23条（基于风险方法）的逻辑关系解析。", "sections": []}, "nart24-1": {"icon": "→", "tag": "条款", "title": "评估国家、行业洗钱风险", "desc": "评估国家、行业洗钱风险的逻辑关系解析。", "sections": []}, "nart24-2": {"icon": "→", "tag": "条款", "title": "发布洗钱风险指引", "desc": "发布洗钱风险指引的逻辑关系解析。", "sections": []}, "nart24-3": {"icon": "→", "tag": "条款", "title": "监测新型洗钱风险", "desc": "监测新型洗钱风险的逻辑关系解析。", "sections": []}, "nart24-4": {"icon": "→", "tag": "条款", "title": "加强指导+技术创新", "desc": "加强指导+技术创新的逻辑关系解析。", "sections": []}, "nart24-0-nart24-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart24-1-nart24-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart24-2-nart24-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart24-3-nart24-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -6234,8 +6241,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — "基于风险"方法的完整体系</h5>
@@ -6454,6 +6459,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art25">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart25-c": {"icon": "📋", "tag": "核心条款", "title": "第23条（国家/行业风险评估）", "desc": "第23条（国家/行业风险评估）的逻辑关系解析。", "sections": []}, "nart25-b0": {"icon": "→", "tag": "关联条款", "title": "第24条（高风险国家地区）", "desc": "第24条（高风险国家地区）与第23条（国家/行业风险评估）的逻辑关系。", "sections": []}, "nart25-c-nart25-b0": {"icon": "→", "tag": "箭头", "title": "第23条（国家/行业风险评估） → 第24条（高风险国家地区）", "desc": "从第23条（国家/行业风险评估）到第24条（高风险国家地区）的逻辑关联。", "sections": []}, "nart25-b1": {"icon": "→", "tag": "关联条款", "title": "存在严重洗钱风险的国家/地区", "desc": "存在严重洗钱风险的国家/地区与第23条（国家/行业风险评估）的逻辑关系。", "sections": []}, "nart25-c-nart25-b1": {"icon": "→", "tag": "箭头", "title": "第23条（国家/行业风险评估） → 存在严重洗钱风险的国家/地区", "desc": "从第23条（国家/行业风险评估）到存在严重洗钱风险的国家/地区的逻辑关联。", "sections": []}, "nart25-b2": {"icon": "→", "tag": "关联条款", "title": "指导义务机构关注风险", "desc": "指导义务机构关注风险与第23条（国家/行业风险评估）的逻辑关系。", "sections": []}, "nart25-c-nart25-b2": {"icon": "→", "tag": "箭头", "title": "第23条（国家/行业风险评估） → 指导义务机构关注风险", "desc": "从第23条（国家/行业风险评估）到指导义务机构关注风险的逻辑关联。", "sections": []}};
@@ -6465,8 +6471,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 高风险国家地区管理的完整制度</h5>
@@ -6668,6 +6672,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art26">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart26-0": {"icon": "→", "tag": "条款", "title": "第5条（监管体制）", "desc": "第5条（监管体制）的逻辑关系解析。", "sections": []}, "nart26-1": {"icon": "→", "tag": "条款", "title": "央行+国务院有关部门", "desc": "央行+国务院有关部门的逻辑关系解析。", "sections": []}, "nart26-2": {"icon": "→", "tag": "条款", "title": "第25条（行业自律）", "desc": "第25条（行业自律）的逻辑关系解析。", "sections": []}, "nart26-3": {"icon": "→", "tag": "条款", "title": "反洗钱自律组织", "desc": "反洗钱自律组织的逻辑关系解析。", "sections": []}, "nart26-4": {"icon": "→", "tag": "条款", "title": "行业自律组织", "desc": "行业自律组织的逻辑关系解析。", "sections": []}, "nart26-5": {"icon": "→", "tag": "条款", "title": "反洗钱自律组织聚焦反洗钱义务履行", "desc": "反洗钱自律组织聚焦反洗钱义务履行的逻辑关系解析。", "sections": []}, "nart26-6": {"icon": "→", "tag": "条款", "title": "行业自律组织关注业务规范行业准则", "desc": "行业自律组织关注业务规范行业准则的逻辑关系解析。", "sections": []}, "nart26-0-nart26-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart26-1-nart26-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart26-2-nart26-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart26-3-nart26-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart26-4-nart26-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart26-5-nart26-6": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -6679,8 +6684,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱自律组织的完整制度</h5>
@@ -6880,6 +6883,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art27">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart27-0": {"icon": "→", "tag": "条款", "title": "第26条（行业服务机构管理）", "desc": "第26条（行业服务机构管理）的逻辑关系解析。", "sections": []}, "nart27-1": {"icon": "→", "tag": "条款", "title": "金融机构/特非机构（义务主体）", "desc": "金融机构/特非机构（义务主体）的逻辑关系解析。", "sections": []}, "nart27-2": {"icon": "→", "tag": "条款", "title": "咨询/技术/评价服务机构", "desc": "咨询/技术/评价服务机构的逻辑关系解析。", "sections": []}, "nart27-3": {"icon": "→", "tag": "条款", "title": "接触金融机构核心系统和数据信息", "desc": "接触金融机构核心系统和数据信息的逻辑关系解析。", "sections": []}, "nart27-4": {"icon": "→", "tag": "条款", "title": "数据泄露/滥用风险", "desc": "数据泄露/滥用风险的逻辑关系解析。", "sections": []}, "nart27-5": {"icon": "→", "tag": "条款", "title": "勤勉尽责、恪尽职守（服务质量）", "desc": "勤勉尽责、恪尽职守（服务质量）的逻辑关系解析。", "sections": []}, "nart27-6": {"icon": "→", "tag": "条款", "title": "依法妥善处理数据信息（信息安全）", "desc": "依法妥善处理数据信息（信息安全）的逻辑关系解析。", "sections": []}, "nart27-0-nart27-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart27-1-nart27-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart27-2-nart27-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart27-3-nart27-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart27-4-nart27-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart27-5-nart27-6": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -6891,8 +6895,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 行业服务机构管理的完整制度</h5>
@@ -6961,7 +6963,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-27">
+</div>
+<div class="chapter-divider" data-ch="3"><span class="ch-label">第三章 反洗钱义务</span><span class="ch-range">第27–42条</span></div>
+<div class="article-card" id="art-27">
 <div class="article-header">
 <span class="article-num">第二十七条</span>
 <span class="art-summary">内控制度</span>
@@ -7120,6 +7124,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art28">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart28-0": {"icon": "→", "tag": "条款", "title": "第27条（内控制度）", "desc": "第27条（内控制度）的逻辑关系解析。", "sections": []}, "nart28-1": {"icon": "→", "tag": "条款", "title": "第一款：内控制度+专门机构+人员+培训", "desc": "第一款：内控制度+专门机构+人员+培训的逻辑关系解析。", "sections": []}, "nart28-2": {"icon": "→", "tag": "条款", "title": "第二款：风险评估+管理制度+信息系统", "desc": "第二款：风险评估+管理制度+信息系统的逻辑关系解析。", "sections": []}, "nart28-3": {"icon": "→", "tag": "条款", "title": "第三款：内部审计/社会审计", "desc": "第三款：内部审计/社会审计的逻辑关系解析。", "sections": []}, "nart28-0-nart28-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart28-1-nart28-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart28-2-nart28-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -7131,8 +7136,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 内控制度的完整义务体系</h5>
@@ -7360,6 +7363,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art29">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart29-c": {"icon": "📋", "tag": "核心条款", "title": "第28条（CDD制度·原则性规定）", "desc": "第28条（CDD制度·原则性规定）的逻辑关系解析。", "sections": []}, "nart29-b0": {"icon": "→", "tag": "关联条款", "title": "第29条（CDD情形+措施）", "desc": "第29条（CDD情形+措施）与第28条（CDD制度·原则性规定）的逻辑关系。", "sections": []}, "nart29-c-nart29-b0": {"icon": "→", "tag": "箭头", "title": "第28条（CDD制度·原则性规定） → 第29条（CDD情形+措施）", "desc": "从第28条（CDD制度·原则性规定）到第29条（CDD情形+措施）的逻辑关联。", "sections": []}, "nart29-b1": {"icon": "→", "tag": "关联条款", "title": "身份不明/匿名/假名/冒名", "desc": "身份不明/匿名/假名/冒名与第28条（CDD制度·原则性规定）的逻辑关系。", "sections": []}, "nart29-c-nart29-b1": {"icon": "→", "tag": "箭头", "title": "第28条（CDD制度·原则性规定） → 身份不明/匿名/假名/冒名", "desc": "从第28条（CDD制度·原则性规定）到身份不明/匿名/假名/冒名的逻辑关联。", "sections": []}};
@@ -7371,8 +7375,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 客户尽职调查的完整制度框架</h5>
@@ -7595,6 +7597,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art30">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart30-0": {"icon": "→", "tag": "条款", "title": "第29条（CDD触发+措施+原则）", "desc": "第29条（CDD触发+措施+原则）的逻辑关系解析。", "sections": []}, "nart30-1": {"icon": "→", "tag": "条款", "title": "建立业务关系/规定金额以上", "desc": "建立业务关系/规定金额以上的逻辑关系解析。", "sections": []}, "nart30-2": {"icon": "→", "tag": "条款", "title": "怀疑涉嫌洗钱", "desc": "怀疑涉嫌洗钱的逻辑关系解析。", "sections": []}, "nart30-3": {"icon": "→", "tag": "条款", "title": "身份资料存疑", "desc": "身份资料存疑的逻辑关系解析。", "sections": []}, "nart30-4": {"icon": "→", "tag": "条款", "title": "标准CDD：识别核实身份+受益所有人+了解目的", "desc": "标准CDD：识别核实身份+受益所有人+了解目的的逻辑关系解析。", "sections": []}, "nart30-5": {"icon": "→", "tag": "条款", "title": "强化CDD：+了解资金来源和用途", "desc": "强化CDD：+了解资金来源和用途的逻辑关系解析。", "sections": []}, "nart30-0-nart30-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart30-1-nart30-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart30-2-nart30-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart30-3-nart30-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart30-4-nart30-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -7606,8 +7609,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 客户尽职调查的完整操作链</h5>
@@ -7827,6 +7828,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art35">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart35-c": {"icon": "📋", "tag": "核心条款", "title": "第30条（持续尽调+风险管理措施）", "desc": "第30条（持续尽调+风险管理措施）的逻辑关系解析。", "sections": []}, "nart35-b0": {"icon": "→", "tag": "关联条款", "title": "评估客户整体状况及交易情况", "desc": "评估客户整体状况及交易情况与第30条（持续尽调+风险管理措施）的逻辑关系。", "sections": []}, "nart35-c-nart35-b0": {"icon": "→", "tag": "箭头", "title": "第30条（持续尽调+风险管理措施） → 评估客户整体状况及交易情况", "desc": "从第30条（持续尽调+风险管理措施）到评估客户整体状况及交易情况的逻辑关联。", "sections": []}, "nart35-b1": {"icon": "→", "tag": "关联条款", "title": "交易与身份/风险状况不符", "desc": "交易与身份/风险状况不符与第30条（持续尽调+风险管理措施）的逻辑关系。", "sections": []}, "nart35-c-nart35-b1": {"icon": "→", "tag": "箭头", "title": "第30条（持续尽调+风险管理措施） → 交易与身份/风险状况不符", "desc": "从第30条（持续尽调+风险管理措施）到交易与身份/风险状况不符的逻辑关联。", "sections": []}, "nart35-b2": {"icon": "→", "tag": "关联条款", "title": "限制交易/限制业务/拒绝办理/终止关系", "desc": "限制交易/限制业务/拒绝办理/终止关系与第30条（持续尽调+风险管理措施）的逻辑关系。", "sections": []}, "nart35-c-nart35-b2": {"icon": "→", "tag": "箭头", "title": "第30条（持续尽调+风险管理措施） → 限制交易/限制业务/拒绝办理/终止关系", "desc": "从第30条（持续尽调+风险管理措施）到限制交易/限制业务/拒绝办理/终止关系的逻辑关联。", "sections": []}};
@@ -7838,8 +7840,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 持续尽职调查的完整机制</h5>
@@ -8054,6 +8054,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art36">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart36-c": {"icon": "📋", "tag": "核心条款", "title": "第31条（代理人/受益人识别）", "desc": "第31条（代理人/受益人识别）的逻辑关系解析。", "sections": []}, "nart36-b0": {"icon": "→", "tag": "关联条款", "title": "核实代理关系", "desc": "核实代理关系与第31条（代理人/受益人识别）的逻辑关系。", "sections": []}, "nart36-c-nart36-b0": {"icon": "→", "tag": "箭头", "title": "第31条（代理人/受益人识别） → 核实代理关系", "desc": "从第31条（代理人/受益人识别）到核实代理关系的逻辑关联。", "sections": []}, "nart36-b1": {"icon": "→", "tag": "关联条款", "title": "人身保险/信托合同", "desc": "人身保险/信托合同与第31条（代理人/受益人识别）的逻辑关系。", "sections": []}, "nart36-c-nart36-b1": {"icon": "→", "tag": "箭头", "title": "第31条（代理人/受益人识别） → 人身保险/信托合同", "desc": "从第31条（代理人/受益人识别）到人身保险/信托合同的逻辑关联。", "sections": []}};
@@ -8065,8 +8066,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 代理人与受益人识别的完整要求</h5>
@@ -8268,6 +8267,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art37">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart37-0": {"icon": "→", "tag": "条款", "title": "第32条（依托第三方CDD）", "desc": "第32条（依托第三方CDD）的逻辑关系解析。", "sections": []}, "nart37-1": {"icon": "→", "tag": "条款", "title": "评估第三方风险+履职能力", "desc": "评估第三方风险+履职能力的逻辑关系解析。", "sections": []}, "nart37-2": {"icon": "→", "tag": "条款", "title": "金融机构承担最终责任", "desc": "金融机构承担最终责任的逻辑关系解析。", "sections": []}, "nart37-0-nart37-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart37-1-nart37-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -8279,8 +8279,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 依托第三方CDD的完整规则体系</h5>
@@ -8476,6 +8474,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art38">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart38-0": {"icon": "→", "tag": "条款", "title": "第33条（跨部门身份核实）", "desc": "第33条（跨部门身份核实）的逻辑关系解析。", "sections": []}, "nart38-1": {"icon": "→", "tag": "条款", "title": "7个部门：反洗钱+公安+市场监管+民政+税务+移民管理+电信管理", "desc": "7个部门：反洗钱+公安+市场监管+民政+税务+移民管理+电信管理的逻辑关系解析。", "sections": []}, "nart38-2": {"icon": "→", "tag": "条款", "title": "自然人：公安/移民管理/电信管理", "desc": "自然人：公安/移民管理/电信管理的逻辑关系解析。", "sections": []}, "nart38-3": {"icon": "→", "tag": "条款", "title": "非自然人：市场监管/民政/税务", "desc": "非自然人：市场监管/民政/税务的逻辑关系解析。", "sections": []}, "nart38-0-nart38-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart38-1-nart38-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart38-2-nart38-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -8487,8 +8486,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 跨部门身份核实的完整机制</h5>
@@ -8699,6 +8696,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art39">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart39-0": {"icon": "→", "tag": "条款", "title": "第34条（资料保存·留痕原则）", "desc": "第34条（资料保存·留痕原则）的逻辑关系解析。", "sections": []}, "nart39-1": {"icon": "→", "tag": "条款", "title": "第一款：建立保存制度", "desc": "第一款：建立保存制度的逻辑关系解析。", "sections": []}, "nart39-2": {"icon": "→", "tag": "条款", "title": "第二款：及时更新", "desc": "第二款：及时更新的逻辑关系解析。", "sections": []}, "nart39-3": {"icon": "→", "tag": "条款", "title": "第三款：至少保存十年", "desc": "第三款：至少保存十年的逻辑关系解析。", "sections": []}, "nart39-0-nart39-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart39-1-nart39-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart39-2-nart39-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -8710,8 +8708,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 客户身份资料和交易记录保存的完整体系</h5>
@@ -8954,6 +8950,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art40">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart40-c": {"icon": "📋", "tag": "核心条款", "title": "第35条（大额+可疑交易报告）", "desc": "第35条（大额+可疑交易报告）的逻辑关系解析。", "sections": []}, "nart40-b0": {"icon": "→", "tag": "关联条款", "title": "反洗钱监测分析机构（第16条）", "desc": "反洗钱监测分析机构（第16条）与第35条（大额+可疑交易报告）的逻辑关系。", "sections": []}, "nart40-c-nart40-b0": {"icon": "→", "tag": "箭头", "title": "第35条（大额+可疑交易报告） → 反洗钱监测分析机构（第16条）", "desc": "从第35条（大额+可疑交易报告）到反洗钱监测分析机构（第16条）的逻辑关联。", "sections": []}, "nart40-b1": {"icon": "→", "tag": "关联条款", "title": "交易监测标准 → 人工分析 → 报告", "desc": "交易监测标准 → 人工分析 → 报告与第35条（大额+可疑交易报告）的逻辑关系。", "sections": []}, "nart40-c-nart40-b1": {"icon": "→", "tag": "箭头", "title": "第35条（大额+可疑交易报告） → 交易监测标准 → 人工分析 → 报告", "desc": "从第35条（大额+可疑交易报告）到交易监测标准 → 人工分析 → 报告的逻辑关联。", "sections": []}};
@@ -8965,8 +8962,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 大额与可疑交易报告制度</h5>
@@ -9172,6 +9167,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art41">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart41-c": {"icon": "📋", "tag": "核心条款", "title": "第36条（新技术风险评估）", "desc": "第36条（新技术风险评估）的逻辑关系解析。", "sections": []}, "nart41-b0": {"icon": "→", "tag": "关联条款", "title": "第4条（风险为本原则）", "desc": "第4条（风险为本原则）与第36条（新技术风险评估）的逻辑关系。", "sections": []}, "nart41-c-nart41-b0": {"icon": "→", "tag": "箭头", "title": "第36条（新技术风险评估） → 第4条（风险为本原则）", "desc": "从第36条（新技术风险评估）到第4条（风险为本原则）的逻辑关联。", "sections": []}, "nart41-b1": {"icon": "→", "tag": "关联条款", "title": "风险评估 → 采取防控措施", "desc": "风险评估 → 采取防控措施与第36条（新技术风险评估）的逻辑关系。", "sections": []}, "nart41-c-nart41-b1": {"icon": "→", "tag": "箭头", "title": "第36条（新技术风险评估） → 风险评估 → 采取防控措施", "desc": "从第36条（新技术风险评估）到风险评估 → 采取防控措施的逻辑关联。", "sections": []}};
@@ -9183,8 +9179,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 新技术新产品新业务洗钱风险管理</h5>
@@ -9388,6 +9382,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art42">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart42-c": {"icon": "📋", "tag": "核心条款", "title": "第37条（集团统筹+信息共享）", "desc": "第37条（集团统筹+信息共享）的逻辑关系解析。", "sections": []}, "nart42-b0": {"icon": "→", "tag": "关联条款", "title": "总部/集团层面统一机制", "desc": "总部/集团层面统一机制与第37条（集团统筹+信息共享）的逻辑关系。", "sections": []}, "nart42-c-nart42-b0": {"icon": "→", "tag": "箭头", "title": "第37条（集团统筹+信息共享） → 总部/集团层面统一机制", "desc": "从第37条（集团统筹+信息共享）到总部/集团层面统一机制的逻辑关联。", "sections": []}, "nart42-b1": {"icon": "→", "tag": "关联条款", "title": "最小必要原则", "desc": "最小必要原则与第37条（集团统筹+信息共享）的逻辑关系。", "sections": []}, "nart42-c-nart42-b1": {"icon": "→", "tag": "箭头", "title": "第37条（集团统筹+信息共享） → 最小必要原则", "desc": "从第37条（集团统筹+信息共享）到最小必要原则的逻辑关联。", "sections": []}};
@@ -9399,8 +9394,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 集团反洗钱统筹安排与信息共享</h5>
@@ -9608,6 +9601,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art43">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart43-c": {"icon": "📋", "tag": "核心条款", "title": "第38条（客户配合CDD义务）", "desc": "第38条（客户配合CDD义务）的逻辑关系解析。", "sections": []}, "nart43-b0": {"icon": "→", "tag": "关联条款", "title": "第29条（金融机构CDD义务）", "desc": "第29条（金融机构CDD义务）与第38条（客户配合CDD义务）的逻辑关系。", "sections": []}, "nart43-c-nart43-b0": {"icon": "→", "tag": "箭头", "title": "第38条（客户配合CDD义务） → 第29条（金融机构CDD义务）", "desc": "从第38条（客户配合CDD义务）到第29条（金融机构CDD义务）的逻辑关联。", "sections": []}, "nart43-b1": {"icon": "→", "tag": "关联条款", "title": "提供身份证明+填报信息+提供资料", "desc": "提供身份证明+填报信息+提供资料与第38条（客户配合CDD义务）的逻辑关系。", "sections": []}, "nart43-c-nart43-b1": {"icon": "→", "tag": "箭头", "title": "第38条（客户配合CDD义务） → 提供身份证明+填报信息+提供资料", "desc": "从第38条（客户配合CDD义务）到提供身份证明+填报信息+提供资料的逻辑关联。", "sections": []}, "nart43-b2": {"icon": "→", "tag": "关联条款", "title": "第30条（风险管理措施）", "desc": "第30条（风险管理措施）与第38条（客户配合CDD义务）的逻辑关系。", "sections": []}, "nart43-c-nart43-b2": {"icon": "→", "tag": "箭头", "title": "第38条（客户配合CDD义务） → 第30条（风险管理措施）", "desc": "从第38条（客户配合CDD义务）到第30条（风险管理措施）的逻辑关联。", "sections": []}};
@@ -9619,8 +9613,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 客户配合尽职调查制度</h5>
@@ -9812,6 +9804,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art44">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart44-c": {"icon": "📋", "tag": "核心条款", "title": "第39条（异议救济）", "desc": "第39条（异议救济）的逻辑关系解析。", "sections": []}, "nart44-b0": {"icon": "→", "tag": "关联条款", "title": "第30条+第38条（风险管理措施）", "desc": "第30条+第38条（风险管理措施）与第39条（异议救济）的逻辑关系。", "sections": []}, "nart44-c-nart44-b0": {"icon": "→", "tag": "箭头", "title": "第39条（异议救济） → 第30条+第38条（风险管理措施）", "desc": "从第39条（异议救济）到第30条+第38条（风险管理措施）的逻辑关联。", "sections": []}, "nart44-b1": {"icon": "→", "tag": "关联条款", "title": "第39条第一款", "desc": "第39条第一款与第39条（异议救济）的逻辑关系。", "sections": []}, "nart44-c-nart44-b1": {"icon": "→", "tag": "箭头", "title": "第39条（异议救济） → 第39条第一款", "desc": "从第39条（异议救济）到第39条第一款的逻辑关联。", "sections": []}, "nart44-b2": {"icon": "→", "tag": "关联条款", "title": "第39条第一款", "desc": "第39条第一款与第39条（异议救济）的逻辑关系。", "sections": []}, "nart44-c-nart44-b2": {"icon": "→", "tag": "箭头", "title": "第39条（异议救济） → 第39条第一款", "desc": "从第39条（异议救济）到第39条第一款的逻辑关联。", "sections": []}};
@@ -9823,8 +9816,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 洗钱风险管理措施异议救济制度</h5>
@@ -10076,6 +10067,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art45">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart45-c": {"icon": "📋", "tag": "核心条款", "title": "第40条（特别预防措施）", "desc": "第40条（特别预防措施）——点击查看完整规则解析与实践要点", "sections": [{"h": "📋 完整规则", "items": ["1. 义务主体：任何单位和个人（包括境内和境外的中国公民和机构），不仅限于金融机构和特定非金融机构。", "2. 三类名单：① 恐怖活动组织和人员名单（反恐怖主义工作领导机构认定）；② 联合国安理会制裁名单（外交部发布）；③ 重大洗钱风险名单（国务院反洗钱行政主管部门认定或会同认定）。", "3. 措施对象：名单所列对象及其代理人、受其指使的组织和人员、其直接或间接控制的组织。", "4. 措施内容：立即停止提供金融等服务；立即停止提供资金、资产；立即限制相关资金、资产转移。", "5. 异议处理：第一项申请复核；第二项申请除名；第三项复议前置（先行政复议，不服再行政诉讼）。", "6. 权利救济：名单所列对象可申请使用被限制资金用于基本开支；善意第三人合法权益受保护，可依法进行权利救济。"]}, {"h": "💡 实践要点", "items": ["措施的即时性：\"立即停止\"\"立即限制\"意味着特别预防措施具有即时性，发现名单匹配后应毫不延迟地采取行动。", "第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。", "复议前置的特殊性：对第三项名单异议须先行政复议，不能直接提起行政诉讼。根据行政复议法第二十三条第二款，行政机关在作出认定时应告知被列入名单者先申请行政复议。", "资产范围的广泛性：相关资金、资产不限于与特定行为关联的资产，包括被列名对象以任何方式拥有或控制的所有资产及其衍生资产。"]}]}, "nart45-b0": {"icon": "→", "tag": "关联条款", "title": "① 恐怖活动名单 → 反恐法第12条", "desc": "① 恐怖活动名单 → 反恐法第12条——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. 义务主体：任何单位和个人（包括境内和境外的中国公民和机构），不仅限于金融机构和特定非金融机构。", "2. 三类名单：① 恐怖活动组织和人员名单（反恐怖主义工作领导机构认定）；② 联合国安理会制裁名单（外交部发布）；③ 重大洗钱风险名单（国务院反洗钱行政主管部门认定或会同认定）。"]}, {"h": "💡 实践要点", "items": ["措施的即时性：\"立即停止\"\"立即限制\"意味着特别预防措施具有即时性，发现名单匹配后应毫不延迟地采取行动。", "第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。"]}]}, "nart45-c-nart45-b0": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施） → ① 恐怖活动名单 → 反恐法第12条", "desc": "逻辑关联：第40条（特别预防措施） → ① 恐怖活动名单 → 反恐法第12条——点击查看两者间的规则衔接关系", "sections": []}, "nart45-b1": {"icon": "→", "tag": "关联条款", "title": "② 联合国制裁名单 → 对外关系法第35条", "desc": "② 联合国制裁名单 → 对外关系法第35条——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. 义务主体：任何单位和个人（包括境内和境外的中国公民和机构），不仅限于金融机构和特定非金融机构。", "2. 三类名单：① 恐怖活动组织和人员名单（反恐怖主义工作领导机构认定）；② 联合国安理会制裁名单（外交部发布）；③ 重大洗钱风险名单（国务院反洗钱行政主管部门认定或会同认定）。"]}, {"h": "💡 实践要点", "items": ["措施的即时性：\"立即停止\"\"立即限制\"意味着特别预防措施具有即时性，发现名单匹配后应毫不延迟地采取行动。", "第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。"]}]}, "nart45-c-nart45-b1": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施） → ② 联合国制裁名单 → 对外关系法第35条", "desc": "逻辑关联：第40条（特别预防措施） → ② 联合国制裁名单 → 对外关系法第35条——点击查看两者间的规则衔接关系", "sections": []}, "nart45-b2": {"icon": "→", "tag": "关联条款", "title": "③ 重大洗钱风险名单 → 央行认定（新增）", "desc": "③ 重大洗钱风险名单 → 央行认定（新增）——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["2. 三类名单：① 恐怖活动组织和人员名单（反恐怖主义工作领导机构认定）；② 联合国安理会制裁名单（外交部发布）；③ 重大洗钱风险名单（国务院反洗钱行政主管部门认定或会同认定）。"]}, {"h": "💡 实践要点", "items": ["第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。"]}]}, "nart45-c-nart45-b2": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施） → ③ 重大洗钱风险名单 → 央行认定（新增）", "desc": "逻辑关联：第40条（特别预防措施） → ③ 重大洗钱风险名单 → 央行认定（新增）——点击查看两者间的规则衔接关系", "sections": []}, "nart45-b3": {"icon": "→", "tag": "关联条款", "title": "① 申请复核 ② 申请除名 ③ 复议前置→诉讼", "desc": "① 申请复核 ② 申请除名 ③ 复议前置→诉讼——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["5. 异议处理：第一项申请复核；第二项申请除名；第三项复议前置（先行政复议，不服再行政诉讼）。"]}, {"h": "💡 实践要点", "items": ["措施的即时性：\"立即停止\"\"立即限制\"意味着特别预防措施具有即时性，发现名单匹配后应毫不延迟地采取行动。", "第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。"]}]}, "nart45-c-nart45-b3": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施） → ① 申请复核 ② 申请除名 ③ 复议前置→诉讼", "desc": "逻辑关联：第40条（特别预防措施） → ① 申请复核 ② 申请除名 ③ 复议前置→诉讼——点击查看两者间的规则衔接关系", "sections": []}, "nart45-b4": {"icon": "→", "tag": "关联条款", "title": "停止服务+停止提供资金资产+限制转移", "desc": "停止服务+停止提供资金资产+限制转移——点击查看规则要点与实践指引", "sections": [{"h": "📋 相关规则", "items": ["1. 义务主体：任何单位和个人（包括境内和境外的中国公民和机构），不仅限于金融机构和特定非金融机构。", "2. 三类名单：① 恐怖活动组织和人员名单（反恐怖主义工作领导机构认定）；② 联合国安理会制裁名单（外交部发布）；③ 重大洗钱风险名单（国务院反洗钱行政主管部门认定或会同认定）。"]}, {"h": "💡 实践要点", "items": ["措施的即时性：\"立即停止\"\"立即限制\"意味着特别预防措施具有即时性，发现名单匹配后应毫不延迟地采取行动。", "第三项名单需谨慎：重大洗钱风险名单的认定需十分慎重，只能针对\"具有重大洗钱风险、不采取措施可能造成严重后果\"的组织和人员，后续需要相应规则明确制定的原则性和程序性要求。"]}]}, "nart45-c-nart45-b4": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施） → 停止服务+停止提供资金资产+限制转移", "desc": "逻辑关联：第40条（特别预防措施） → 停止服务+停止提供资金资产+限制转移——点击查看两者间的规则衔接关系", "sections": []}};
@@ -10087,8 +10079,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱特别预防措施制度</h5>
@@ -10297,6 +10287,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art46">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart46-c": {"icon": "📋", "tag": "核心条款", "title": "第40条（一般义务：任何单位和个人）", "desc": "第40条（一般义务：任何单位和个人）的逻辑关系解析。", "sections": []}, "nart46-b0": {"icon": "→", "tag": "关联条款", "title": "第41条（识别评估+制度+核查+措施+报告）", "desc": "第41条（识别评估+制度+核查+措施+报告）与第40条（一般义务：任何单位和个人）的逻辑关系。", "sections": []}, "nart46-c-nart46-b0": {"icon": "→", "tag": "箭头", "title": "第40条（一般义务：任何单位和个人） → 第41条（识别评估+制度+核查+措施+报告）", "desc": "从第40条（一般义务：任何单位和个人）到第41条（识别评估+制度+核查+措施+报告）的逻辑关联。", "sections": []}, "nart46-b1": {"icon": "→", "tag": "关联条款", "title": "第41条", "desc": "第41条与第40条（一般义务：任何单位和个人）的逻辑关系。", "sections": []}, "nart46-c-nart46-b1": {"icon": "→", "tag": "箭头", "title": "第40条（一般义务：任何单位和个人） → 第41条", "desc": "从第40条（一般义务：任何单位和个人）到第41条的逻辑关联。", "sections": []}, "nart46-b2": {"icon": "→", "tag": "关联条款", "title": "第41条", "desc": "第41条与第40条（一般义务：任何单位和个人）的逻辑关系。", "sections": []}, "nart46-c-nart46-b2": {"icon": "→", "tag": "箭头", "title": "第40条（一般义务：任何单位和个人） → 第41条", "desc": "从第40条（一般义务：任何单位和个人）到第41条的逻辑关联。", "sections": []}};
@@ -10308,8 +10299,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 金融机构特别预防措施义务</h5>
@@ -10518,6 +10507,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art47">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart47-c": {"icon": "📋", "tag": "核心条款", "title": "第42条（特定非金融机构参照）", "desc": "第42条（特定非金融机构参照）的逻辑关系解析。", "sections": []}, "nart47-b0": {"icon": "→", "tag": "关联条款", "title": "从事第64条规定的特定业务", "desc": "从事第64条规定的特定业务与第42条（特定非金融机构参照）的逻辑关系。", "sections": []}, "nart47-c-nart47-b0": {"icon": "→", "tag": "箭头", "title": "第42条（特定非金融机构参照） → 从事第64条规定的特定业务", "desc": "从第42条（特定非金融机构参照）到从事第64条规定的特定业务的逻辑关联。", "sections": []}, "nart47-b1": {"icon": "→", "tag": "关联条款", "title": "第27-41条（金融机构义务）", "desc": "第27-41条（金融机构义务）与第42条（特定非金融机构参照）的逻辑关系。", "sections": []}, "nart47-c-nart47-b1": {"icon": "→", "tag": "箭头", "title": "第42条（特定非金融机构参照） → 第27-41条（金融机构义务）", "desc": "从第42条（特定非金融机构参照）到第27-41条（金融机构义务）的逻辑关联。", "sections": []}};
@@ -10529,8 +10519,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 特定非金融机构反洗钱义务</h5>
@@ -10599,7 +10587,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-43">
+</div>
+<div class="chapter-divider" data-ch="4"><span class="ch-label">第四章 反洗钱调查</span><span class="ch-range">第43–45条</span></div>
+<div class="article-card" id="art-43">
 <div class="article-header">
 <span class="article-num">第四十三条</span>
 <span class="art-summary">内控检查</span>
@@ -10796,6 +10786,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art48">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart48-0": {"icon": "→", "tag": "条款", "title": "第43条（调查启动与程序）", "desc": "第43条（调查启动与程序）的逻辑关系解析。", "sections": []}, "nart48-1": {"icon": "→", "tag": "条款", "title": "第44条（调查措施：询问/查阅复制/封存）", "desc": "第44条（调查措施：询问/查阅复制/封存）的逻辑关系解析。", "sections": []}, "nart48-2": {"icon": "→", "tag": "条款", "title": "第45条（线索移送与临时冻结）", "desc": "第45条（线索移送与临时冻结）的逻辑关系解析。", "sections": []}, "nart48-0-nart48-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart48-1-nart48-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -10807,8 +10798,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 反洗钱调查的启动条件与程序要求</h5>
@@ -11048,6 +11037,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art49">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart49-0": {"icon": "→", "tag": "条款", "title": "第44条（调查措施）", "desc": "第44条（调查措施）的逻辑关系解析。", "sections": []}, "nart49-1": {"icon": "→", "tag": "条款", "title": "询问", "desc": "询问的逻辑关系解析。", "sections": []}, "nart49-2": {"icon": "→", "tag": "条款", "title": "查阅、复制", "desc": "查阅、复制的逻辑关系解析。", "sections": []}, "nart49-0-nart49-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart49-1-nart49-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -11059,8 +11049,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 三项调查措施的操作规范</h5>
@@ -11317,6 +11305,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art50">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart50-c": {"icon": "📋", "tag": "核心条款", "title": "第43-44条（反洗钱调查）", "desc": "第43-44条（反洗钱调查）的逻辑关系解析。", "sections": []}, "nart50-b0": {"icon": "→", "tag": "关联条款", "title": "第45条第一款（线索移送）", "desc": "第45条第一款（线索移送）与第43-44条（反洗钱调查）的逻辑关系。", "sections": []}, "nart50-c-nart50-b0": {"icon": "→", "tag": "箭头", "title": "第43-44条（反洗钱调查） → 第45条第一款（线索移送）", "desc": "从第43-44条（反洗钱调查）到第45条第一款（线索移送）的逻辑关联。", "sections": []}, "nart50-b1": {"icon": "→", "tag": "关联条款", "title": "第45条第二款（临时冻结）", "desc": "第45条第二款（临时冻结）与第43-44条（反洗钱调查）的逻辑关系。", "sections": []}, "nart50-c-nart50-b1": {"icon": "→", "tag": "箭头", "title": "第43-44条（反洗钱调查） → 第45条第二款（临时冻结）", "desc": "从第43-44条（反洗钱调查）到第45条第二款（临时冻结）的逻辑关联。", "sections": []}, "nart50-b2": {"icon": "→", "tag": "关联条款", "title": "第45条第三款（机关决定）", "desc": "第45条第三款（机关决定）与第43-44条（反洗钱调查）的逻辑关系。", "sections": []}, "nart50-c-nart50-b2": {"icon": "→", "tag": "箭头", "title": "第43-44条（反洗钱调查） → 第45条第三款（机关决定）", "desc": "从第43-44条（反洗钱调查）到第45条第三款（机关决定）的逻辑关联。", "sections": []}};
@@ -11328,8 +11317,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 临时冻结措施的全流程</h5>
@@ -11399,7 +11386,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-46">
+</div>
+<div class="chapter-divider" data-ch="5"><span class="ch-label">第五章 反洗钱国际合作</span><span class="ch-range">第46–50条</span></div>
+<div class="article-card" id="art-46">
 <div class="article-header">
 <span class="article-num">第四十六条</span>
 <span class="art-summary">处罚措施</span>
@@ -11551,6 +11540,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art51">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart51-0": {"icon": "→", "tag": "条款", "title": "第46条（国际合作原则）", "desc": "第46条（国际合作原则）的逻辑关系解析。", "sections": []}, "nart51-1": {"icon": "→", "tag": "条款", "title": "国际条约（维也纳公约/巴勒莫公约/反腐败公约/反恐融资公约）", "desc": "国际条约（维也纳公约/巴勒莫公约/反腐败公约/反恐融资公约）的逻辑关系解析。", "sections": []}, "nart51-2": {"icon": "→", "tag": "条款", "title": "平等互惠（无条约时的合作基础）", "desc": "平等互惠（无条约时的合作基础）的逻辑关系解析。", "sections": []}, "nart51-3": {"icon": "→", "tag": "条款", "title": "第47条（央行组织协调 + 国家有关机关）", "desc": "第47条（央行组织协调 + 国家有关机关）的逻辑关系解析。", "sections": []}, "nart51-4": {"icon": "→", "tag": "条款", "title": "第48条（国际刑事司法协助法）", "desc": "第48条（国际刑事司法协助法）的逻辑关系解析。", "sections": []}, "nart51-0-nart51-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart51-1-nart51-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart51-2-nart51-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart51-3-nart51-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -11562,8 +11552,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 国际合作的"两条路径"和"四类公约"</h5>
@@ -11779,6 +11767,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art52">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart52-c": {"icon": "📋", "tag": "核心条款", "title": "第46条（合作原则）", "desc": "第46条（合作原则）的逻辑关系解析。", "sections": []}, "nart52-b0": {"icon": "→", "tag": "关联条款", "title": "第47条第一款（央行组织协调）", "desc": "第47条第一款（央行组织协调）与第46条（合作原则）的逻辑关系。", "sections": []}, "nart52-c-nart52-b0": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → 第47条第一款（央行组织协调）", "desc": "从第46条（合作原则）到第47条第一款（央行组织协调）的逻辑关联。", "sections": []}, "nart52-b1": {"icon": "→", "tag": "关联条款", "title": "FATF / EAG / APG / 埃格蒙特组织", "desc": "FATF / EAG / APG / 埃格蒙特组织与第46条（合作原则）的逻辑关系。", "sections": []}, "nart52-c-nart52-b1": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → FATF / EAG / APG / 埃格蒙特组织", "desc": "从第46条（合作原则）到FATF / EAG / APG / 埃格蒙特组织的逻辑关联。", "sections": []}, "nart52-b2": {"icon": "→", "tag": "关联条款", "title": "第47条第二款（国家有关机关）", "desc": "第47条第二款（国家有关机关）与第46条（合作原则）的逻辑关系。", "sections": []}, "nart52-c-nart52-b2": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → 第47条第二款（国家有关机关）", "desc": "从第46条（合作原则）到第47条第二款（国家有关机关）的逻辑关联。", "sections": []}};
@@ -11790,8 +11779,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 国际合作的主体与平台</h5>
@@ -12009,6 +11996,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art53">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart53-c": {"icon": "📋", "tag": "核心条款", "title": "第46条（合作原则）", "desc": "第46条（合作原则）的逻辑关系解析。", "sections": []}, "nart53-b0": {"icon": "→", "tag": "关联条款", "title": "第47条（央行组织协调）", "desc": "第47条（央行组织协调）与第46条（合作原则）的逻辑关系。", "sections": []}, "nart53-c-nart53-b0": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → 第47条（央行组织协调）", "desc": "从第46条（合作原则）到第47条（央行组织协调）的逻辑关联。", "sections": []}, "nart53-b1": {"icon": "→", "tag": "关联条款", "title": "第48条（司法协助）", "desc": "第48条（司法协助）与第46条（合作原则）的逻辑关系。", "sections": []}, "nart53-c-nart53-b1": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → 第48条（司法协助）", "desc": "从第46条（合作原则）到第48条（司法协助）的逻辑关联。", "sections": []}, "nart53-b2": {"icon": "→", "tag": "关联条款", "title": "送达文书 / 调查取证 / 查封扣押冻结 / 没收返还 / 移管被判刑人 / 引渡", "desc": "送达文书 / 调查取证 / 查封扣押冻结 / 没收返还 / 移管被判刑人 / 引渡与第46条（合作原则）的逻辑关系。", "sections": []}, "nart53-c-nart53-b2": {"icon": "→", "tag": "箭头", "title": "第46条（合作原则） → 送达文书 / 调查取证 / 查封扣押冻结 / 没收返还 / 移管被判刑人 / 引渡", "desc": "从第46条（合作原则）到送达文书 / 调查取证 / 查封扣押冻结 / 没收返还 / 移管被判刑人 / 引渡的逻辑关联。", "sections": []}};
@@ -12020,8 +12008,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 司法协助的法律依据与办理机制</h5>
@@ -12247,6 +12233,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art54">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart54-0": {"icon": "→", "tag": "条款", "title": "第49条（境外金融机构配合调查）", "desc": "第49条（境外金融机构配合调查）的逻辑关系解析。", "sections": []}, "nart54-1": {"icon": "→", "tag": "条款", "title": "第46条（对等原则/协商一致）", "desc": "第46条（对等原则/协商一致）的逻辑关系解析。", "sections": []}, "nart54-2": {"icon": "→", "tag": "条款", "title": "第47条（国家有关机关开展国际合作）", "desc": "第47条（国家有关机关开展国际合作）的逻辑关系解析。", "sections": []}, "nart54-3": {"icon": "→", "tag": "条款", "title": "第43条（反洗钱调查）→ 域外金融机构", "desc": "第43条（反洗钱调查）→ 域外金融机构的逻辑关系解析。", "sections": []}, "nart54-0-nart54-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart54-1-nart54-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart54-2-nart54-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -12258,8 +12245,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 境外金融机构配合调查的"三要素"</h5>
@@ -12482,6 +12467,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art55">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart55-0": {"icon": "→", "tag": "条款", "title": "第50条（境外执法阻断与配合）", "desc": "第50条（境外执法阻断与配合）的逻辑关系解析。", "sections": []}, "nart55-1": {"icon": "→", "tag": "条款", "title": "阻断不当执法（不得擅自执行 + 报告）", "desc": "阻断不当执法（不得擅自执行 + 报告）的逻辑关系解析。", "sections": []}, "nart55-2": {"icon": "→", "tag": "条款", "title": "配合合理监管（报告后可配合）", "desc": "配合合理监管（报告后可配合）的逻辑关系解析。", "sections": []}, "nart55-3": {"icon": "→", "tag": "条款", "title": "数据安全衔接（符合数据安全法/个人信息保护法）", "desc": "数据安全衔接（符合数据安全法/个人信息保护法）的逻辑关系解析。", "sections": []}, "nart55-0-nart55-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart55-1-nart55-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart55-2-nart55-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -12493,8 +12479,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 境外执法要求处理的"三层过滤"</h5>
@@ -12562,7 +12546,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-51">
+</div>
+<div class="chapter-divider" data-ch="6"><span class="ch-label">第六章 法律责任</span><span class="ch-range">第51–62条</span></div>
+<div class="article-card" id="art-51">
 <div class="article-header">
 <span class="article-num">第五十一条</span>
 <span class="art-summary">复议诉讼</span>
@@ -12736,6 +12722,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art56">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart56-c": {"icon": "📋", "tag": "核心条款", "title": "第51条（监管人员违规责任）", "desc": "第51条（监管人员违规责任）的逻辑关系解析。", "sections": []}, "nart56-b0": {"icon": "→", "tag": "关联条款", "title": "反洗钱监管工作人员", "desc": "反洗钱监管工作人员与第51条（监管人员违规责任）的逻辑关系。", "sections": []}, "nart56-c-nart56-b0": {"icon": "→", "tag": "箭头", "title": "第51条（监管人员违规责任） → 反洗钱监管工作人员", "desc": "从第51条（监管人员违规责任）到反洗钱监管工作人员的逻辑关联。", "sections": []}, "nart56-b1": {"icon": "→", "tag": "关联条款", "title": "违规检查调查冻结", "desc": "违规检查调查冻结与第51条（监管人员违规责任）的逻辑关系。", "sections": []}, "nart56-c-nart56-b1": {"icon": "→", "tag": "箭头", "title": "第51条（监管人员违规责任） → 违规检查调查冻结", "desc": "从第51条（监管人员违规责任）到违规检查调查冻结的逻辑关联。", "sections": []}};
@@ -12747,8 +12734,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 监管人员违规责任的四个层次</h5>
@@ -12999,6 +12984,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art57">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart57-c": {"icon": "📋", "tag": "核心条款", "title": "第52条（内控制度违规·三档处罚）", "desc": "第52条（内控制度违规·三档处罚）的逻辑关系解析。", "sections": []}, "nart57-b0": {"icon": "→", "tag": "关联条款", "title": "第27条（内控制度）", "desc": "第27条（内控制度）与第52条（内控制度违规·三档处罚）的逻辑关系。", "sections": []}, "nart57-c-nart57-b0": {"icon": "→", "tag": "箭头", "title": "第52条（内控制度违规·三档处罚） → 第27条（内控制度）", "desc": "从第52条（内控制度违规·三档处罚）到第27条（内控制度）的逻辑关联。", "sections": []}, "nart57-b1": {"icon": "→", "tag": "关联条款", "title": "责令限期改正", "desc": "责令限期改正与第52条（内控制度违规·三档处罚）的逻辑关系。", "sections": []}, "nart57-c-nart57-b1": {"icon": "→", "tag": "箭头", "title": "第52条（内控制度违规·三档处罚） → 责令限期改正", "desc": "从第52条（内控制度违规·三档处罚）到责令限期改正的逻辑关联。", "sections": []}};
@@ -13010,8 +12996,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 三档处罚的适用逻辑</h5>
@@ -13283,6 +13267,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art58">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart58-c": {"icon": "📋", "tag": "核心条款", "title": "第53条（核心义务违规·两档处罚）", "desc": "第53条（核心义务违规·两档处罚）的逻辑关系解析。", "sections": []}, "nart58-b0": {"icon": "→", "tag": "关联条款", "title": "第28/29条（CDD）", "desc": "第28/29条（CDD）与第53条（核心义务违规·两档处罚）的逻辑关系。", "sections": []}, "nart58-c-nart58-b0": {"icon": "→", "tag": "箭头", "title": "第53条（核心义务违规·两档处罚） → 第28/29条（CDD）", "desc": "从第53条（核心义务违规·两档处罚）到第28/29条（CDD）的逻辑关联。", "sections": []}, "nart58-b1": {"icon": "→", "tag": "关联条款", "title": "责令改正（可警告/20万以下）", "desc": "责令改正（可警告/20万以下）与第53条（核心义务违规·两档处罚）的逻辑关系。", "sections": []}, "nart58-c-nart58-b1": {"icon": "→", "tag": "箭头", "title": "第53条（核心义务违规·两档处罚） → 责令改正（可警告/20万以下）", "desc": "从第53条（核心义务违规·两档处罚）到责令改正（可警告/20万以下）的逻辑关联。", "sections": []}};
@@ -13294,8 +13279,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 两档处罚与"客户身份识别"到"客户尽职调查"的演进</h5>
@@ -13555,6 +13538,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art59">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart59-c": {"icon": "📋", "tag": "核心条款", "title": "第54条（严重违规·低频高危害·两档处罚）", "desc": "第54条（严重违规·低频高危害·两档处罚）的逻辑关系解析。", "sections": []}, "nart59-b0": {"icon": "→", "tag": "关联条款", "title": "第28条（身份不明客户）", "desc": "第28条（身份不明客户）与第54条（严重违规·低频高危害·两档处罚）的逻辑关系。", "sections": []}, "nart59-c-nart59-b0": {"icon": "→", "tag": "箭头", "title": "第54条（严重违规·低频高危害·两档处罚） → 第28条（身份不明客户）", "desc": "从第54条（严重违规·低频高危害·两档处罚）到第28条（身份不明客户）的逻辑关联。", "sections": []}, "nart59-b1": {"icon": "→", "tag": "关联条款", "title": "责令改正+50万以下", "desc": "责令改正+50万以下与第54条（严重违规·低频高危害·两档处罚）的逻辑关系。", "sections": []}, "nart59-c-nart59-b1": {"icon": "→", "tag": "箭头", "title": "第54条（严重违规·低频高危害·两档处罚） → 责令改正+50万以下", "desc": "从第54条（严重违规·低频高危害·两档处罚）到责令改正+50万以下的逻辑关联。", "sections": []}};
@@ -13566,8 +13550,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 七类"低频高危害"违法行为</h5>
@@ -13805,6 +13787,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art60">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart60-0": {"icon": "→", "tag": "条款", "title": "第55条（致使洗钱/恐融后果·结果加重处罚）", "desc": "第55条（致使洗钱/恐融后果·结果加重处罚）的逻辑关系解析。", "sections": []}, "nart60-1": {"icon": "→", "tag": "条款", "title": "第53条行为（核心义务违规）", "desc": "第53条行为（核心义务违规）的逻辑关系解析。", "sections": []}, "nart60-2": {"icon": "→", "tag": "条款", "title": "第54条行为（严重违规）", "desc": "第54条行为（严重违规）的逻辑关系解析。", "sections": []}, "nart60-3": {"icon": "→", "tag": "条款", "title": "致使犯罪所得得以掩饰隐瞒", "desc": "致使犯罪所得得以掩饰隐瞒的逻辑关系解析。", "sections": []}, "nart60-4": {"icon": "→", "tag": "条款", "title": "致使恐怖融资后果发生", "desc": "致使恐怖融资后果发生的逻辑关系解析。", "sections": []}, "nart60-5": {"icon": "→", "tag": "条款", "title": "1000万以下：50万-1000万罚款", "desc": "1000万以下：50万-1000万罚款的逻辑关系解析。", "sections": []}, "nart60-6": {"icon": "→", "tag": "条款", "title": "涉及金额20%-2倍罚款", "desc": "涉及金额20%-2倍罚款的逻辑关系解析。", "sections": []}, "nart60-7": {"icon": "→", "tag": "条款", "title": "限制业务/停业整顿/吊销许可证", "desc": "限制业务/停业整顿/吊销许可证的逻辑关系解析。", "sections": []}, "nart60-0-nart60-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-1-nart60-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-2-nart60-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-3-nart60-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-4-nart60-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-5-nart60-6": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart60-6-nart60-7": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -13816,8 +13799,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 三要件与双轨罚款</h5>
@@ -14084,6 +14065,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art61">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart61-0": {"icon": "→", "tag": "条款", "title": "第56条（责任人员处罚·双罚制+免责）", "desc": "第56条（责任人员处罚·双罚制+免责）的逻辑关系解析。", "sections": []}, "nart61-1": {"icon": "→", "tag": "条款", "title": "警告或20万以下罚款", "desc": "警告或20万以下罚款的逻辑关系解析。", "sections": []}, "nart61-2": {"icon": "→", "tag": "条款", "title": "取消任职资格/禁止从业", "desc": "取消任职资格/禁止从业的逻辑关系解析。", "sections": []}, "nart61-3": {"icon": "→", "tag": "条款", "title": "20万-100万罚款", "desc": "20万-100万罚款的逻辑关系解析。", "sections": []}, "nart61-4": {"icon": "→", "tag": "条款", "title": "已勤勉尽责采取反洗钱措施", "desc": "已勤勉尽责采取反洗钱措施的逻辑关系解析。", "sections": []}, "nart61-5": {"icon": "→", "tag": "条款", "title": "可以不予处罚", "desc": "可以不予处罚的逻辑关系解析。", "sections": []}, "nart61-0-nart61-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart61-1-nart61-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart61-2-nart61-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart61-3-nart61-4": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart61-4-nart61-5": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -14095,8 +14077,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 双罚制与免责的适用</h5>
@@ -14279,6 +14259,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art62">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart62-0": {"icon": "→", "tag": "条款", "title": "第57条第一款（境内金融机构）", "desc": "第57条第一款（境内金融机构）的逻辑关系解析。", "sections": []}, "nart62-1": {"icon": "→", "tag": "条款", "title": "第50条（阻却外国不当执法）", "desc": "第50条（阻却外国不当执法）的逻辑关系解析。", "sections": []}, "nart62-2": {"icon": "→", "tag": "条款", "title": "国务院有关金融管理部门", "desc": "国务院有关金融管理部门的逻辑关系解析。", "sections": []}, "nart62-0-nart62-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart62-1-nart62-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -14290,8 +14271,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 跨境违法处罚的完整体系</h5>
@@ -14505,6 +14484,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art63">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart63-c": {"icon": "📋", "tag": "核心条款", "title": "第58条（特非违法处罚）", "desc": "第58条（特非违法处罚）的逻辑关系解析。", "sections": []}, "nart63-b0": {"icon": "→", "tag": "关联条款", "title": "第6条（义务主体）+ 第64条（特非范围）", "desc": "第6条（义务主体）+ 第64条（特非范围）与第58条（特非违法处罚）的逻辑关系。", "sections": []}, "nart63-c-nart63-b0": {"icon": "→", "tag": "箭头", "title": "第58条（特非违法处罚） → 第6条（义务主体）+ 第64条（特非范围）", "desc": "从第58条（特非违法处罚）到第6条（义务主体）+ 第64条（特非范围）的逻辑关联。", "sections": []}, "nart63-b1": {"icon": "→", "tag": "关联条款", "title": "第15条（特非主管部门）", "desc": "第15条（特非主管部门）与第58条（特非违法处罚）的逻辑关系。", "sections": []}, "nart63-c-nart63-b1": {"icon": "→", "tag": "箭头", "title": "第58条（特非违法处罚） → 第15条（特非主管部门）", "desc": "从第58条（特非违法处罚）到第15条（特非主管部门）的逻辑关联。", "sections": []}};
@@ -14516,8 +14496,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 特定非金融机构违法处罚的三档体系</h5>
@@ -14712,6 +14690,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art64">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart64-c": {"icon": "📋", "tag": "核心条款", "title": "第40条（特别预防措施义务）", "desc": "第40条（特别预防措施义务）的逻辑关系解析。", "sections": []}, "nart64-b0": {"icon": "→", "tag": "关联条款", "title": "第54条（金融机构处罚）", "desc": "第54条（金融机构处罚）与第40条（特别预防措施义务）的逻辑关系。", "sections": []}, "nart64-c-nart64-b0": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施义务） → 第54条（金融机构处罚）", "desc": "从第40条（特别预防措施义务）到第54条（金融机构处罚）的逻辑关联。", "sections": []}, "nart64-b1": {"icon": "→", "tag": "关联条款", "title": "第58条（特非处罚）", "desc": "第58条（特非处罚）与第40条（特别预防措施义务）的逻辑关系。", "sections": []}, "nart64-c-nart64-b1": {"icon": "→", "tag": "箭头", "title": "第40条（特别预防措施义务） → 第58条（特非处罚）", "desc": "从第40条（特别预防措施义务）到第58条（特非处罚）的逻辑关联。", "sections": []}};
@@ -14723,8 +14702,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 其他单位和个人特别预防措施违法处罚</h5>
@@ -14919,6 +14896,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art65">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart65-c": {"icon": "📋", "tag": "核心条款", "title": "第19条（受益所有人义务）", "desc": "第19条（受益所有人义务）的逻辑关系解析。", "sections": []}, "nart65-b0": {"icon": "→", "tag": "关联条款", "title": "第60条", "desc": "第60条与第19条（受益所有人义务）的逻辑关系。", "sections": []}, "nart65-c-nart65-b0": {"icon": "→", "tag": "箭头", "title": "第19条（受益所有人义务） → 第60条", "desc": "从第19条（受益所有人义务）到第60条的逻辑关联。", "sections": []}, "nart65-b1": {"icon": "→", "tag": "关联条款", "title": "第60条第一款", "desc": "第60条第一款与第19条（受益所有人义务）的逻辑关系。", "sections": []}, "nart65-c-nart65-b1": {"icon": "→", "tag": "箭头", "title": "第19条（受益所有人义务） → 第60条第一款", "desc": "从第19条（受益所有人义务）到第60条第一款的逻辑关联。", "sections": []}};
@@ -14930,8 +14908,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 受益所有人信息违法处罚体系</h5>
@@ -15136,6 +15112,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art66">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart66-0": {"icon": "→", "tag": "条款", "title": "第61条（裁量基准）", "desc": "第61条（裁量基准）的逻辑关系解析。", "sections": []}, "nart66-1": {"icon": "→", "tag": "条款", "title": "第54条（金融机构处罚）", "desc": "第54条（金融机构处罚）的逻辑关系解析。", "sections": []}, "nart66-2": {"icon": "→", "tag": "条款", "title": "第55条（责任人员处罚）", "desc": "第55条（责任人员处罚）的逻辑关系解析。", "sections": []}, "nart66-3": {"icon": "→", "tag": "条款", "title": "第57-60条（其他处罚）", "desc": "第57-60条（其他处罚）的逻辑关系解析。", "sections": []}, "nart66-0-nart66-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart66-1-nart66-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart66-2-nart66-3": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -15147,8 +15124,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 行政处罚裁量基准制度</h5>
@@ -15363,6 +15338,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art67">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart67-c": {"icon": "📋", "tag": "核心条款", "title": "第62条第一款（一般衔接）", "desc": "第62条第一款（一般衔接）的逻辑关系解析。", "sections": []}, "nart67-b0": {"icon": "→", "tag": "关联条款", "title": "刑法（各类罪名）", "desc": "刑法（各类罪名）与第62条第一款（一般衔接）的逻辑关系。", "sections": []}, "nart67-c-nart67-b0": {"icon": "→", "tag": "箭头", "title": "第62条第一款（一般衔接） → 刑法（各类罪名）", "desc": "从第62条第一款（一般衔接）到刑法（各类罪名）的逻辑关联。", "sections": []}, "nart67-b1": {"icon": "→", "tag": "关联条款", "title": "第62条第二款（洗钱犯罪衔接）", "desc": "第62条第二款（洗钱犯罪衔接）与第62条第一款（一般衔接）的逻辑关系。", "sections": []}, "nart67-c-nart67-b1": {"icon": "→", "tag": "箭头", "title": "第62条第一款（一般衔接） → 第62条第二款（洗钱犯罪衔接）", "desc": "从第62条第一款（一般衔接）到第62条第二款（洗钱犯罪衔接）的逻辑关联。", "sections": []}};
@@ -15374,8 +15350,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 刑事责任衔接体系</h5>
@@ -15446,7 +15420,9 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
-</div><div class="article-card" id="art-63">
+</div>
+<div class="chapter-divider" data-ch="7"><span class="ch-label">第七章 附 则</span><span class="ch-range">第63–65条</span></div>
+<div class="article-card" id="art-63">
 <div class="article-header">
 <span class="article-num">第六十三条</span>
 <span class="art-summary">与市场主体登记管理条例衔接</span>
@@ -15609,6 +15585,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art68">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart68-c": {"icon": "📋", "tag": "核心条款", "title": "第6条（义务主体总则）", "desc": "第6条（义务主体总则）的逻辑关系解析。", "sections": []}, "nart68-b0": {"icon": "→", "tag": "关联条款", "title": "第63条（本条）", "desc": "第63条（本条）与第6条（义务主体总则）的逻辑关系。", "sections": []}, "nart68-c-nart68-b0": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体总则） → 第63条（本条）", "desc": "从第6条（义务主体总则）到第63条（本条）的逻辑关联。", "sections": []}, "nart68-b1": {"icon": "→", "tag": "关联条款", "title": "第63条三类机构", "desc": "第63条三类机构与第6条（义务主体总则）的逻辑关系。", "sections": []}, "nart68-c-nart68-b1": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体总则） → 第63条三类机构", "desc": "从第6条（义务主体总则）到第63条三类机构的逻辑关联。", "sections": []}, "nart68-b2": {"icon": "→", "tag": "关联条款", "title": "非银行支付机构（2024年新增）", "desc": "非银行支付机构（2024年新增）与第6条（义务主体总则）的逻辑关系。", "sections": []}, "nart68-c-nart68-b2": {"icon": "→", "tag": "箭头", "title": "第6条（义务主体总则） → 非银行支付机构（2024年新增）", "desc": "从第6条（义务主体总则）到非银行支付机构（2024年新增）的逻辑关联。", "sections": []}};
@@ -15620,8 +15597,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 金融机构反洗钱义务主体范围</h5>
@@ -15834,6 +15809,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art69">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart69-0": {"icon": "→", "tag": "条款", "title": "第6条（义务主体总则）", "desc": "第6条（义务主体总则）的逻辑关系解析。", "sections": []}, "nart69-1": {"icon": "→", "tag": "条款", "title": "第63条（三类机构）", "desc": "第63条（三类机构）的逻辑关系解析。", "sections": []}, "nart69-2": {"icon": "→", "tag": "条款", "title": "第64条（本条·四类机构）", "desc": "第64条（本条·四类机构）的逻辑关系解析。", "sections": []}, "nart69-0-nart69-1": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}, "nart69-1-nart69-2": {"icon": "→", "tag": "箭头", "title": "关联关系", "desc": "条款间的逻辑递进关系。", "sections": []}};
@@ -15845,8 +15821,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 特定非金融机构范围与义务触发</h5>
@@ -16038,6 +16012,7 @@ C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("clic
 <div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
 <div class="ix-detail-panel empty" id="ix-panel-art70">点击上方节点或箭头，查看详情</div>
+</div>
 <script>
 (function(){
 var D={"nart70-c": {"icon": "📋", "tag": "核心条款", "title": "第65条（施行日期）", "desc": "第65条（施行日期）的逻辑关系解析。", "sections": []}, "nart70-b0": {"icon": "→", "tag": "关联条款", "title": "整部反洗钱法（第1-64条）", "desc": "整部反洗钱法（第1-64条）与第65条（施行日期）的逻辑关系。", "sections": []}, "nart70-c-nart70-b0": {"icon": "→", "tag": "箭头", "title": "第65条（施行日期） → 整部反洗钱法（第1-64条）", "desc": "从第65条（施行日期）到整部反洗钱法（第1-64条）的逻辑关联。", "sections": []}, "nart70-b1": {"icon": "→", "tag": "关联条款", "title": "2025年1月1日", "desc": "2025年1月1日与第65条（施行日期）的逻辑关系。", "sections": []}, "nart70-c-nart70-b1": {"icon": "→", "tag": "箭头", "title": "第65条（施行日期） → 2025年1月1日", "desc": "从第65条（施行日期）到2025年1月1日的逻辑关联。", "sections": []}, "nart70-b2": {"icon": "→", "tag": "关联条款", "title": "适用2024年修订反洗钱法", "desc": "适用2024年修订反洗钱法与第65条（施行日期）的逻辑关系。", "sections": []}, "nart70-c-nart70-b2": {"icon": "→", "tag": "箭头", "title": "第65条（施行日期） → 适用2024年修订反洗钱法", "desc": "从第65条（施行日期）到适用2024年修订反洗钱法的逻辑关联。", "sections": []}};
@@ -16049,8 +16024,6 @@ C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e
 C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
 })();
 </script>
-</div>
-</div>
 
 <div class="analysis-section">
 <h5>完整规则 — 施行日期与溯及力</h5>
@@ -16226,6 +16199,43 @@ window.addEventListener('hashchange', function() {
  }, 100);
  }
  }
+})();
+
+// === 自动添加内容状态标记 ===
+(function() {
+ var cards = document.querySelectorAll('.article-card');
+ cards.forEach(function(card) {
+  var ann = card.querySelector('.article-annotation');
+  if (!ann) return;
+  var hasBook = ann.querySelector('.ann-book');
+  var hasAnalysis = ann.querySelector('.ann-analysis');
+  var hasXref = ann.querySelector('.xref-list');
+  var allPending = true;
+  var blocks = ann.querySelectorAll('.ann-block');
+  blocks.forEach(function(b) {
+   if (b.querySelector('.pending')) {
+    // has pending
+   } else if (b.textContent.trim().length > 20) {
+    allPending = false;
+   }
+  });
+  var header = card.querySelector('.article-header');
+  if (!header) return;
+  var chapter = header.querySelector('.art-chapter');
+  var badge = document.createElement('span');
+  if (hasBook || hasAnalysis || hasXref || !allPending) {
+   badge.className = 'art-badge full';
+   badge.textContent = '已完善';
+  } else {
+   badge.className = 'art-badge pending';
+   badge.textContent = '待补充';
+  }
+  if (chapter) {
+   header.insertBefore(badge, chapter);
+  } else {
+   header.appendChild(badge);
+  }
+ });
 })();
 
 </script>

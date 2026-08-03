@@ -373,67 +373,52 @@ details.xref-details > summary.xref-summary:hover{
 .study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
  padding:8px 12px;font-size:13px;color:#248a3d;margin-top:4px;line-height:1.6;}
 
-/* ===== SmartArt 风格逻辑关系图 ===== */
-.sd-container{background:linear-gradient(135deg,#f8f9fb 0%,#eef1f6 100%);
- border-radius:12px;padding:20px 16px;margin-top:10px;
- border:1px solid var(--c-border);font-size:13px;line-height:1.5;}
-.sd-node{display:inline-flex;align-items:center;justify-content:center;
- padding:7px 13px;border-radius:8px;font-weight:600;font-size:12px;
- color:#fff;text-align:center;line-height:1.35;letter-spacing:-0.01em;
- box-shadow:0 2px 6px rgba(0,0,0,0.12);position:relative;z-index:1;
- max-width:220px;word-break:break-word;}
-.sd-core{background:linear-gradient(135deg,#0071e3,#0091ff);}
-.sd-criminal{background:linear-gradient(135deg,#ff3b30,#ff6359);}
-.sd-terror{background:linear-gradient(135deg,#af52de,#bf5af2);}
-.sd-regulate{background:linear-gradient(135deg,#34c759,#30b84c);}
-.sd-amber{background:linear-gradient(135deg,#ff9500,#ff6b00);}
-.sd-muted{background:linear-gradient(135deg,#8e8e93,#636366);}
-.sd-circle{border-radius:50%;min-width:64px;min-height:64px;
- max-width:100px;padding:8px;}
-.sd-conn{display:inline-flex;align-items:center;justify-content:center;
- color:var(--c-muted);font-size:11px;font-weight:500;
- padding:0 2px;white-space:nowrap;}
-.sd-conn-h::before{content:'→';font-size:16px;color:#b0b0b5;}
-.sd-conn-v{display:block;text-align:center;padding:2px 0;}
-.sd-conn-v::before{content:'↓';font-size:16px;color:#b0b0b5;}
-.sd-conn-bi::before{content:'⇄';font-size:16px;color:#b0b0b5;}
-.sd-conn-plus::before{content:'+';font-size:14px;color:#b0b0b5;font-weight:400;}
-.sd-conn-label{font-size:10px;background:var(--c-bg);padding:2px 7px;
- border-radius:980px;color:var(--c-muted);white-space:nowrap;
- border:1px solid var(--c-border);}
-.sd-branch{display:flex;align-items:center;flex-wrap:wrap;gap:3px;
- margin-bottom:10px;padding:6px 10px 6px 14px;
- border-left:3px solid var(--c-border);border-radius:0 8px 8px 0;
- background:rgba(255,255,255,0.5);}
-.sd-branch:last-child{margin-bottom:0;}
-.sd-branch.sd-b-core{border-left-color:var(--c-blue);}
-.sd-branch.sd-b-criminal{border-left-color:#ff3b30;}
-.sd-branch.sd-b-terror{border-left-color:var(--c-purple);}
-.sd-branch.sd-b-regulate{border-left-color:var(--c-green);}
-.sd-branch.sd-b-amber{border-left-color:var(--c-amber);}
-.sd-hub-center{display:flex;justify-content:center;margin-bottom:14px;}
-.sd-hub-center .sd-node{padding:10px 22px;font-size:13px;
- box-shadow:0 4px 14px rgba(0,113,227,0.3);}
-.sd-tree-children{display:flex;flex-direction:column;gap:8px;
- margin-top:8px;padding-left:20px;border-left:2px solid var(--c-border);}
-.sd-tree-row{display:flex;align-items:center;flex-wrap:wrap;gap:4px;
- padding:4px 10px;background:rgba(255,255,255,0.5);
- border-radius:8px;}
-.sd-parallel{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.sd-track{padding:8px 10px;background:rgba(255,255,255,0.5);
- border-radius:8px;border-top:3px solid var(--c-border);}
-.sd-track-label{font-size:10px;color:var(--c-muted);font-weight:600;
- text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
-.sd-track-items{display:flex;align-items:center;flex-wrap:wrap;gap:3px;}
-.sd-desc{margin-top:12px;padding:10px 14px;
- background:rgba(0,113,227,0.04);border-radius:8px;
- font-size:12px;line-height:1.65;color:var(--c-muted);
- border-left:3px solid var(--c-blue);}
-@media(max-width:768px){
- .sd-parallel{grid-template-columns:1fr;}
- .sd-node{font-size:11px;padding:6px 10px;}
- .study-grid{grid-template-columns:1fr;}
-}
+/* ===== 交互式逻辑关系图 ===== */
+.ix-diagram-card{background:linear-gradient(135deg,#f8f9fb 0%,#eef1f6 100%);
+ border:1px solid var(--c-border);border-radius:12px;padding:18px 16px;margin-top:10px;}
+.ix-diagram-wrap{position:relative;width:100%;aspect-ratio:680/425;margin:0 auto;}
+.ix-diagram-wrap svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
+.ix-arrow-path{fill:none;stroke:#a1a1a6;stroke-width:2.5;opacity:0.55;}
+.ix-arrow-hit{fill:none;stroke:transparent;stroke-width:26;cursor:pointer;}
+.ix-arrow-hit:hover + .ix-arrow-path,.ix-arrow-path.active{stroke:var(--c-blue);opacity:1;stroke-width:3.5;}
+.ix-node{position:absolute;transform:translate(-50%,-50%);width:130px;min-height:52px;
+ border-radius:10px;border:1.5px solid var(--c-border);background:var(--c-card);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+ padding:8px 6px;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .2s;
+ user-select:none;z-index:2;
+ box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 10px rgba(0,0,0,0.06),0 0 0 4px rgba(255,255,255,0.95);}
+.ix-node:hover{transform:translate(-50%,-50%) translateY(-2px);
+ box-shadow:0 2px 6px rgba(0,0,0,0.06),0 8px 18px rgba(0,0,0,0.1),0 0 0 4px rgba(255,255,255,0.95);}
+.ix-node.active{border-width:2px;
+ box-shadow:0 2px 8px rgba(0,0,0,0.08),0 8px 22px rgba(0,0,0,0.12),0 0 0 4px rgba(255,255,255,0.95);}
+.ix-node[data-color="blue"].active,.ix-node[data-color="blue"]:hover{border-color:var(--c-blue);background:rgba(0,113,227,0.06);}
+.ix-node[data-color="green"].active,.ix-node[data-color="green"]:hover{border-color:var(--c-green);background:rgba(52,199,89,0.06);}
+.ix-node[data-color="amber"].active,.ix-node[data-color="amber"]:hover{border-color:var(--c-amber);background:rgba(255,149,0,0.06);}
+.ix-node[data-color="red"].active,.ix-node[data-color="red"]:hover{border-color:var(--c-red);background:rgba(255,59,48,0.06);}
+.ix-node[data-color="purple"].active,.ix-node[data-color="purple"]:hover{border-color:var(--c-purple);background:rgba(175,82,222,0.06);}
+.ix-node .ix-title{font-weight:700;font-size:12px;margin-top:2px;}
+.ix-arrow-label{position:absolute;transform:translate(-50%,-50%);font-size:11px;color:#86868b;
+ background:rgba(255,255,255,0.9);padding:2px 7px;border-radius:6px;pointer-events:none;white-space:nowrap;z-index:3;}
+.ix-hint{text-align:center;color:var(--c-muted);font-size:12px;margin-top:12px;}
+.ix-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:12px;padding:8px 12px;background:rgba(255,255,255,0.6);border-radius:8px;}
+.ix-legend-item{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#636366;font-weight:500;}
+.ix-legend-line{display:inline-block;width:20px;height:2.5px;background:#a1a1a6;border-radius:1px;}
+.ix-legend-line.dash{background:repeating-linear-gradient(90deg,#a1a1a6,#a1a1a6 4px,transparent 4px,transparent 7px);height:2px;}
+.ix-legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.ix-detail-panel{margin-top:14px;background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:10px;padding:16px 18px;min-height:60px;transition:opacity .2s;
+ box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+.ix-detail-panel.empty{color:var(--c-muted);display:flex;align-items:center;justify-content:center;font-size:13px;}
+.ix-detail-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.ix-detail-head .ix-badge{font-size:18px;}
+.ix-detail-head h6{font-size:15px;margin:0;font-weight:600;}
+.ix-detail-tag{font-size:11px;color:var(--c-muted);background:var(--c-bg);border-radius:6px;padding:2px 7px;margin-left:auto;}
+.ix-detail-desc{color:var(--c-muted);font-size:13px;margin:3px 0 10px;line-height:1.6;}
+.ix-detail-body ul{margin:0;padding-left:18px;}
+.ix-detail-body li{margin-bottom:6px;font-size:13.5px;line-height:1.7;}
+.ix-detail-body li b{color:var(--c-text);}
+.ix-detail-body .ix-sec2{margin-top:12px;}
+.ix-detail-body h6{font-size:13px;margin:0 0 5px;color:var(--c-muted);font-weight:600;}
 
 </style>
 </head>
@@ -528,27 +513,56 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="analysis-section">
 <h5>逻辑关系 — 禁毒法第29条如何衔接反洗钱与禁毒两大体系</h5>
-<div class="sd-container">
-<div class="sd-hub-center"><span class="sd-node sd-core">禁毒法第29条（反洗钱部门禁毒职责）</span></div>
-<div class="sd-branch sd-b-core">
-<span class="sd-conn-label">定义依据</span><span class="sd-conn sd-conn-h"></span>
-<span class="sd-node sd-core">反洗钱法第2条（毒品犯罪为七类上游犯罪之首）</span>
+<div class="ix-diagram-card" id="ix-card-dp29">
+<div class="ix-legend">
+<div class="ix-legend-item"><span class="ix-legend-line"></span>主要逻辑</div>
+<div class="ix-legend-item"><span class="ix-legend-line dash"></span>辅助关联</div>
+<div class="ix-legend-item"><span class="ix-legend-dot" style="background:var(--c-blue);"></span>核心条款</div>
+<div class="ix-legend-item"><span class="ix-legend-dot" style="background:var(--c-green);"></span>监管/措施</div>
+<div class="ix-legend-item"><span class="ix-legend-dot" style="background:var(--c-red);"></span>刑事/禁止</div>
 </div>
-<div class="sd-branch sd-b-criminal">
-<span class="sd-conn-label">刑事制裁</span><span class="sd-conn sd-conn-h"></span>
-<span class="sd-node sd-criminal">刑法第191条（洗钱罪·毒品上游）</span>
-<span class="sd-conn sd-conn-plus"></span>
-<span class="sd-node sd-criminal">刑法第349条（毒品犯罪特别规定）</span>
+<div class="ix-diagram-wrap">
+<svg id="ix-svg-dp29" viewBox="0 0 680 425" preserveAspectRatio="xMidYMid meet">
+<defs><marker id="ix-ahdp29" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="#86868b"></path></marker></defs>
+<path class="ix-arrow-hit" data-id="ndp29-c-ndp29-b1" d="M340,101 Q220,190 100,274"></path>
+<path class="ix-arrow-path" id="ix-p-ndp29-c-ndp29-b1" d="M340,101 Q220,190 100,274" marker-end="url(#ix-ahdp29)"></path>
+<path class="ix-arrow-hit" data-id="ndp29-c-ndp29-b2a" d="M340,101 Q320,153 300,204"></path>
+<path class="ix-arrow-path" id="ix-p-ndp29-c-ndp29-b2a" d="M340,101 Q320,153 300,204" marker-end="url(#ix-ahdp29)"></path>
+<path class="ix-arrow-hit" data-id="ndp29-c-ndp29-b3a" d="M340,101 Q450,153 560,204"></path>
+<path class="ix-arrow-path" id="ix-p-ndp29-c-ndp29-b3a" d="M340,101 Q450,153 560,204" marker-end="url(#ix-ahdp29)"></path>
+<path class="ix-arrow-hit" data-id="ndp29-b2a-ndp29-b2b" d="M300,296 L300,344"></path>
+<path class="ix-arrow-path" id="ix-p-ndp29-b2a-ndp29-b2b" d="M300,296 L300,344" marker-end="url(#ix-ahdp29)"></path>
+<path class="ix-arrow-hit" data-id="ndp29-b3a-ndp29-b3b" d="M560,296 L560,344"></path>
+<path class="ix-arrow-path" id="ix-p-ndp29-b3a-ndp29-b3b" d="M560,296 L560,344" marker-end="url(#ix-ahdp29)"></path>
+</svg>
+<div class="ix-arrow-label" style="left:32%;top:45%;">定义依据</div>
+<div class="ix-arrow-label" style="left:47%;top:36%;">刑事制裁</div>
+<div class="ix-arrow-label" style="left:66%;top:36%;">操作落地</div>
+<div class="ix-arrow-label" style="left:44%;top:75%;">竞合</div>
+<div class="ix-arrow-label" style="left:82%;top:75%;">程序衔接</div>
+<div class="ix-node" data-id="ndp29-c" data-color="blue" style="left:50%;top:13%;"><div class="ix-title">禁毒法第29条（反洗钱部门禁毒职责）</div></div>
+<div class="ix-node" data-id="ndp29-b1" data-color="blue" style="left:15%;top:75%;"><div class="ix-title">反洗钱法第2条（毒品犯罪为七类上游犯罪之首）</div></div>
+<div class="ix-node" data-id="ndp29-b2a" data-color="red" style="left:44%;top:59%;"><div class="ix-title">刑法第191条（洗钱罪·毒品上游）</div></div>
+<div class="ix-node" data-id="ndp29-b2b" data-color="red" style="left:44%;top:92%;"><div class="ix-title">刑法第349条（毒品犯罪特别规定）</div></div>
+<div class="ix-node" data-id="ndp29-b3a" data-color="green" style="left:82%;top:59%;"><div class="ix-title">反洗钱法第27条（可疑交易报告）</div></div>
+<div class="ix-node" data-id="ndp29-b3b" data-color="green" style="left:82%;top:92%;"><div class="ix-title">反洗钱法第43条（反洗钱调查）</div></div>
 </div>
-<div class="sd-branch sd-b-core">
-<span class="sd-conn-label">操作落地</span><span class="sd-conn sd-conn-h"></span>
-<span class="sd-node sd-core">反洗钱法第27条（可疑交易报告）</span>
-<span class="sd-conn sd-conn-plus"></span>
-<span class="sd-node sd-core">反洗钱法第43条（反洗钱调查）</span>
+<div class="ix-hint">点击任意节点或箭头，查看该环节的详细解析</div>
 </div>
-<div class="sd-desc">上图展示第29条的三个衔接方向：①向反洗钱法第2条辐射——毒品犯罪是反洗钱定义中列举的第一类上游犯罪，这是本条要求监测"毒品犯罪资金"的法律基础；②向刑法辐射——发现涉嫌毒品犯罪资金后，对应的刑事制裁由刑法191条（洗钱罪）和349条（毒品犯罪特别规定）实现；③向反洗钱法操作条款辐射——本条"监测"和"报告配合"的具体程序，由反洗钱法第27条（可疑交易报告）和第43条（反洗钱调查）落地。</div>
-</div>
-</div>
+<div class="ix-detail-panel empty" id="ix-panel-dp29">点击上方节点或箭头，查看详情</div>
+
+<div style="margin-top:10px;padding:10px 14px;background:rgba(0,113,227,0.04);border-radius:8px;font-size:12px;line-height:1.65;color:var(--c-muted);border-left:3px solid var(--c-blue);">上图展示第29条的三个衔接方向：①向反洗钱法第2条辐射——毒品犯罪是反洗钱定义中列举的第一类上游犯罪，这是本条要求监测"毒品犯罪资金"的法律基础；②向刑法辐射——发现涉嫌毒品犯罪资金后，对应的刑事制裁由刑法191条（洗钱罪）和349条（毒品犯罪特别规定）实现；③向反洗钱法操作条款辐射——本条"监测"和"报告配合"的具体程序，由反洗钱法第27条（可疑交易报告）和第43条（反洗钱调查）落地。</div></div>
+<script>
+(function(){
+var D={"ndp29-c": {"icon": "📋", "tag": "核心条款", "title": "禁毒法第29条（反洗钱部门禁毒职责）", "desc": "禁毒法第29条是衔接反洗钱与禁毒两大体系的关键接口条款，确立双重义务。", "sections": [{"h": "📋 完整规则", "items": ["<b>义务主体</b>：反洗钱行政主管部门（中国人民银行）+ 其他依法负有反洗钱监管职责的部门、机构（国家金融监督管理总局、证监会等）。注意：金融机构本身不是本条义务主体。", "<b>第一层义务（监测·主动）</b>：反洗钱行政主管部门"应当依法加强"对可疑毒品犯罪资金的监测。这是主动义务，要求在日常监管中主动识别和跟踪可能与毒品犯罪相关的资金流动。", "<b>第二层义务（报告配合·被动触发）</b>：发现涉嫌毒品犯罪的资金流动情况时，"应当及时向侦查机关报告"并"配合侦查机关做好侦查、调查工作"。报告是法定义务（"应当"非"可以"），要求"及时"（不可拖延）。", "<b>报告对象</b>：侦查机关（主要指公安机关含禁毒部门），不是司法机关或检察机关。"]}, {"h": "💡 实践要点", "items": ["<b>"可疑"标准</b>：监测的是"可疑"资金，即有合理理由怀疑与毒品犯罪有关的资金流动，不是对所有涉毒人员资金进行无差别监控。判断标准与反洗钱可疑交易报告一致。", "<b>"及时报告"无立案标准门槛</b>：基于合理怀疑即可报告，不要求达到刑事立案标准。不能等到证据充分才报告。", "<b>配合的边界</b>：包括提供交易数据、客户身份信息、分析报告等，但不包括代替侦查机关进行刑事侦查。配合是辅助性的。"]}]}, "ndp29-b1": {"icon": "📋", "tag": "定义依据", "title": "反洗钱法第2条（毒品犯罪为七类上游犯罪之首）", "desc": "毒品犯罪是反洗钱法第2条列举的七类上游犯罪中的第一类，是禁毒法第29条要求监测"毒品犯罪资金"的法律基础。", "sections": [{"h": "📋 相关规则", "items": ["反洗钱法第2条规定：本法所称洗钱，是指通过各种方式掩饰、隐瞒毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪所得及其收益的来源和性质的行为。", "毒品犯罪排在七类上游犯罪之首（第一位），体现了立法者对毒品犯罪洗钱风险的高度重视。"]}, {"h": "💡 逻辑关联", "items": ["正因为毒品犯罪是反洗钱法的上游犯罪，反洗钱部门才有法律依据对毒品犯罪相关资金进行监测。禁毒法第29条正是在这一法律基础上，将反洗钱工具（CDD、可疑交易报告、调查权）服务于禁毒目的。"]}]}, "ndp29-b2a": {"icon": "⚖", "tag": "刑事制裁", "title": "刑法第191条（洗钱罪·毒品上游）", "desc": "洗钱罪的一般条款，涵盖七类上游犯罪含毒品犯罪。为毒品犯罪所得洗钱的，构成洗钱罪。", "sections": [{"h": "📋 相关规则", "items": ["刑法第191条：明知是毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪的所得及其产生的收益，为掩饰、隐瞒其来源和性质，实施提供资金账户等行为的，构成洗钱罪。", "刑罚：处五年以下有期徒刑或拘役，并处或单处罚金；情节严重的，处五年以上十年以下有期徒刑，并处罚金。"]}, {"h": "💡 与349条的关系", "items": ["191条是洗钱罪的一般条款（覆盖七类上游犯罪），349条是毒品领域的特别条款（仅针对毒品犯罪分子的窝藏包庇）。", "两罪存在法条竞合：原则上特别条款优先，但根据具体行为方式择一重处。"]}]}, "ndp29-b2b": {"icon": "⚖", "tag": "刑事制裁", "title": "刑法第349条（毒品犯罪特别规定）", "desc": "包庇毒品犯罪分子罪、窝藏转移隐瞒毒品犯罪所得。是毒品领域的特别规定。", "sections": [{"h": "📋 相关规则", "items": ["刑法第349条：包庇走私、贩卖、运输、制造毒品的犯罪分子的，为犯罪分子窝藏、转移、隐瞒毒品或者毒品犯罪所得的财物的，处三年以下有期徒刑、拘役或管制；情节严重的，处三年以上十年以下有期徒刑。", "注意：犯前款罪，事先通谋的，以走私、贩卖、运输、制造毒品罪的共犯论处。"]}, {"h": "💡 与191条的区别", "items": ["行为方式不同：191条是"掩饰、隐瞒"（通过金融手段），349条是"窝藏、转移、隐瞒"（物理性）。", "适用范围不同：191条涵盖七类上游犯罪，349条专门针对毒品犯罪。", "349条是毒品领域的特别规定，针对的是"为毒品犯罪分子"洗钱的行为。"]}]}, "ndp29-b3a": {"icon": "🔧", "tag": "操作落地", "title": "反洗钱法第27条（可疑交易报告）", "desc": "金融机构发现可疑交易应向反洗钱行政主管部门报告。这是禁毒法第29条"监测"的操作落地。", "sections": [{"h": "📋 相关规则", "items": ["反洗钱法第27条规定金融机构应当依法向反洗钱行政主管部门报告大额交易和可疑交易。", "金融机构通过客户尽职调查和交易监测，发现可能与毒品犯罪相关的可疑交易时，应当提交可疑交易报告。"]}, {"h": "💡 程序衔接", "items": ["禁毒法第29条要求反洗钱部门"加强监测"，而金融机构的可疑交易报告是监测的主要信息来源。", "金融机构报告 → 反洗钱监测分析中心分析 → 发现涉嫌毒品犯罪资金 → 依据禁毒法第29条向侦查机关报告。"]}]}, "ndp29-b3b": {"icon": "🔧", "tag": "操作落地", "title": "反洗钱法第43条（反洗钱调查）", "desc": "反洗钱行政主管部门的调查权。发现涉嫌毒品犯罪资金后，通过调查权进一步核查。", "sections": [{"h": "📋 相关规则", "items": ["反洗钱法第43条赋予反洗钱行政主管部门调查权，可以调查可疑交易活动。", "调查权包括：向金融机构查询客户身份信息和交易信息、查阅复制相关资料、询问金融机构工作人员等。"]}, {"h": "💡 程序衔接", "items": ["反洗钱调查是"监测→报告"链条中的关键环节：金融机构报告可疑交易后，反洗钱部门可通过调查权进一步核实是否涉嫌毒品犯罪。", "调查确认涉嫌毒品犯罪后，依据禁毒法第29条向侦查机关报告并配合。"]}]}, "ndp29-c-ndp29-b1": {"icon": "→", "tag": "定义依据", "title": "禁毒法第29条 → 反洗钱法第2条", "desc": "毒品犯罪是反洗钱定义中列举的第一类上游犯罪，这是本条要求监测"毒品犯罪资金"的法律基础。", "sections": [{"h": "逻辑关联", "items": ["反洗钱法第2条将毒品犯罪列为七类上游犯罪之首，为禁毒法第29条要求反洗钱部门监测毒品犯罪资金提供了法律基础。", "没有反洗钱法第2条的定义，禁毒法第29条的监测义务就失去了法律依据。"]}]}, "ndp29-c-ndp29-b2a": {"icon": "→", "tag": "刑事制裁", "title": "禁毒法第29条 → 刑法第191条", "desc": "发现涉嫌毒品犯罪资金后，对应的刑事制裁由刑法191条（洗钱罪）实现。", "sections": [{"h": "逻辑关联", "items": ["反洗钱部门依据禁毒法第29条发现涉嫌毒品犯罪的资金线索后，如查实行为人掩饰隐瞒毒品犯罪所得，则依据刑法第191条追究洗钱罪刑事责任。", "形成"行政监测→刑事制裁"的衔接闭环。"]}]}, "ndp29-c-ndp29-b3a": {"icon": "→", "tag": "操作落地", "title": "禁毒法第29条 → 反洗钱法第27条", "desc": "本条"监测"和"报告配合"的具体程序，由反洗钱法第27条（可疑交易报告）落地。", "sections": [{"h": "逻辑关联", "items": ["禁毒法第29条要求"加强监测"，而反洗钱法第27条规定的金融机构可疑交易报告制度是监测的主要信息来源和操作工具。", "金融机构依据第27条提交可疑交易报告 → 反洗钱部门依据禁毒法第29条分析研判 → 发现涉嫌毒品犯罪资金 → 向侦查机关报告。"]}]}, "ndp29-b2a-ndp29-b2b": {"icon": "⇄", "tag": "竞合关系", "title": "刑法第191条 ↔ 第349条（法条竞合）", "desc": "191条（洗钱罪·一般条款）与349条（毒品犯罪特别规定）存在法条竞合关系。", "sections": [{"h": "逻辑关联", "items": ["191条是洗钱罪的一般条款，涵盖七类上游犯罪含毒品犯罪；349条是毒品领域的特别条款，仅针对毒品犯罪分子的窝藏包庇。", "两罪竞合时，根据具体行为方式择一重处。349条针对的是"为毒品犯罪分子"洗钱的行为，与191条的"掩饰隐瞒犯罪所得"存在法条竞合。"]}]}, "ndp29-b3a-ndp29-b3b": {"icon": "→", "tag": "程序衔接", "title": "反洗钱法第27条 → 第43条（程序衔接）", "desc": "从可疑交易报告到反洗钱调查的程序衔接。", "sections": [{"h": "逻辑关联", "items": ["金融机构依据第27条提交可疑交易报告后，反洗钱部门可依据第43条行使调查权，进一步核实是否涉嫌毒品犯罪。", "形成"金融机构报告→反洗钱部门调查→确认涉嫌毒品犯罪→向侦查机关报告"的完整程序链条。"]]}]};
+var P=document.getElementById("ix-panel-dp29");
+var C=document.getElementById("ix-card-dp29");
+function cls(){C.querySelectorAll(".ix-node,.ix-mnode,.ix-arrow-path").forEach(function(e){e.classList.remove("active")});}
+function show(id){var d=D[id];if(!d)return;cls();C.querySelectorAll('.ix-node[data-id="'+id+'"],.ix-mnode[data-id="'+id+'"]').forEach(function(e){e.classList.add("active")});var ap=document.getElementById("ix-p-"+id);if(ap)ap.classList.add("active");var h='<div class="ix-detail-head"><span class="ix-badge">'+d.icon+'</span><h6>'+d.title+'</h6><span class="ix-detail-tag">'+d.tag+'</span></div>';h+='<p class="ix-detail-desc">'+d.desc+'</p><div class="ix-detail-body">';d.sections.forEach(function(s,i){h+='<div class="'+(i>0?"ix-sec2":"")+'"><h6>'+s.h+'</h6><ul>';s.items.forEach(function(it){h+='<li>'+it+'</li>'});h+='</ul></div>'});h+='</div>';P.className="ix-detail-panel";P.innerHTML=h;P.scrollIntoView({behavior:"smooth",block:"nearest"});}
+C.querySelectorAll(".ix-node[data-id],.ix-mnode[data-id]").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))});e.setAttribute("tabindex","0");e.setAttribute("role","button")});
+C.querySelectorAll(".ix-arrow-hit").forEach(function(e){e.addEventListener("click",function(){show(e.getAttribute("data-id"))})});
+})();
+</script>
 
 <div class="analysis-section">
 <h5>完整规则 — 所有关联条文组合后形成的体系</h5>
