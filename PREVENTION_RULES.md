@@ -129,3 +129,39 @@ html = f'''
 1. **浏览器验证**: 打开页面，在控制台运行验证脚本（规则3）
 2. **视觉验证**: 第一条和第二条的卡片宽度应该完全一致
 3. **DOM验证**: 所有 `.article-card` 的 `parentElement` 应为 `.container`
+4. **脚本验证**: 运行 `python3 proper_div_check.py` 检查所有文件的div平衡、script位置和HTML损坏
+
+---
+
+## 问题2: JSON数据混入HTML结构（新类型）
+
+### 问题概述
+**发现日期**: 2026-08-04
+**影响文件**: reg-01.html（刑法）
+**问题类型**: script中的`D={...}`JSON数据被错误地插入到HTML结构中
+
+### 根本原因
+在生成交互式SVG图表时，script标签内的JSON数据（节点描述数据`D={"nx..."}`）被错误地写入到HTML body中，替代了正常的HTML结构。每处损坏都会：
+1. 引入一个额外的`<div`开标签（浏览器将其解析为div open）
+2. 丢失原本应该存在的HTML内容（legend items、SVG头部、条文过渡等）
+3. 后续结构中出现补偿性的额外`</div>`来平衡
+
+### 检查方法
+使用`proper_div_check.py`脚本检查：
+```python
+# 检查JSON数据混入（<div { 或 <div{" 模式）
+if '<div {' in line or '<div{"' in line:
+    issues.append((li, 'JSON数据混入div标签'))
+```
+
+### 防复发规则5: JSON数据不得出现在HTML body中
+生成script标签内容时，确保`var D={...}`等JSON数据只在`<script>`标签内部，不会泄露到HTML结构中。批量生成脚本应分别处理HTML结构和JavaScript内容，不要将两者混合写入同一行。
+
+### 防复发规则6: 使用正确的div检查脚本
+检查div平衡时，必须跳过`<script>`和`<style>`标签内的内容，否则script中的HTML字符串（如`d.innerHTML='<div>...'`）会导致假阳性。使用`proper_div_check.py`而非简单的正则匹配。
+
+### 修复记录（续）
+
+| 日期 | 文件 | 修复内容 | 说明 |
+|------|------|----------|------|
+| 2026-08-04 | reg-01.html | 4处JSON损坏+4处额外close | art-121/191/312/349的图表区域和条文过渡 |
