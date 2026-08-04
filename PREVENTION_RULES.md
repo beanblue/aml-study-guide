@@ -165,3 +165,95 @@ if '<div {' in line or '<div{"' in line:
 | 日期 | 文件 | 修复内容 | 说明 |
 |------|------|----------|------|
 | 2026-08-04 | reg-01.html | 4处JSON损坏+4处额外close | art-121/191/312/349的图表区域和条文过渡 |
+
+---
+
+## 问题3: 交互式图表三大系统性缺陷（箭头不可见、点击无响应、布局偏移）
+
+### 问题概述
+**发现日期**: 2026-08-04
+**影响文件**: reg-00.html（64个图表）、reg-01.html、reg-02.html、reg-05.html
+**问题类型**: SVG viewBox不匹配、箭头标记过小、JavaScript字符串引号冲突、JS对象结构不完整
+
+### 根本原因（四个子问题）
+
+#### 子问题A: SVG viewBox与CSS aspect-ratio不匹配
+- **现象**: 箭头线段与节点位置偏移，箭头被节点遮挡
+- **根因**: SVG的`viewBox`尺寸（如`680×480`、`680×500`、`680×520`）与CSS`.ix-diagram-wrap{aspect-ratio:680/425}`不一致，导致SVG内部坐标系与HTML百分比定位的节点错位
+- **影响范围**: reg-00.html中3个图表（art51: 680×480, art60: 680×520, art61: 680×480），art27已修复
+
+#### 子问题B: 箭头标记过小不可见
+- **现象**: 连接线段看不到箭头头，用户无法判断方向
+- **根因**: 
+  - marker尺寸仅8×8像素，太小
+  - 未使用`markerUnits="userSpaceOnUse"`，marker随stroke-width缩放后更小
+  - stroke颜色`#a1a1a6`、透明度0.55，过于浅淡
+- **影响范围**: 全部4个文件共63个marker全部为8×8
+
+#### 子问题C: JavaScript字符串引号冲突（★★★★ 最严重）
+- **现象**: 点击节点/箭头无任何反应，详情面板始终空白
+- **根因**: JS数据对象的字符串值中，使用ASCII双引号`"..."`作为中文引号（如`"第27条是反洗钱法第三章"反洗钱义务"的统领性条款"`），JS解析器将第二个`"`视为字符串终止符，导致语法错误，整个IIFE静默失败
+- **影响范围**: reg-00 art27（已修复）、reg-05（存在类似问题）
+
+#### 子问题D: JS对象结构不完整
+- **现象**: 浏览器控制台报`Uncaught SyntaxError: Unexpected token ';'`
+- **根因**: JS数据对象最后一个条目缺少闭合`}`（如`c-b4`对象只有`]`没有`]}`）
+- **影响范围**: reg-00 art27（已修复）
+
+### 防复发规则7: SVG viewBox必须与CSS aspect-ratio一致
+所有交互式SVG图表的`viewBox`必须为`0 0 680 425`，与CSS`.ix-diagram-wrap{aspect-ratio:680/425}`严格一致。生成图表时不得使用其他尺寸。
+
+**验证方法**:
+```python
+# 检查所有viewBox是否为680x425
+import re
+mismatches = re.findall(r'<svg id="ix-svg-[^"]+" viewBox="0 0 (\d+) (\d+)"', content)
+for w, h in mismatches:
+    if w != '680' or h != '425':
+        print(f'MISMATCH: {w}x{h}')
+```
+
+### 防复发规则8: 箭头标记不得小于12×12且必须使用绝对尺寸
+所有`<marker>`元素必须：
+1. `markerWidth`和`markerHeight`不小于12
+2. 添加`markerUnits="userSpaceOnUse"`属性，确保marker尺寸不随stroke-width缩放
+3. fill颜色不浅于`#6e6e73`
+4. 配套的`.ix-arrow-path`的stroke不浅于`#6e6e73`，opacity不低于0.75
+
+**标准marker模板**:
+```html
+<marker id="ix-ah{art_id}" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+  <path d="M0,0 L15,8 L0,16 Z" fill="#6e6e73"></path>
+</marker>
+```
+
+### 防复发规则9: JS字符串内部的中文引号必须使用Unicode弯引号
+在JavaScript双引号字符串值内部，中文引号必须使用Unicode弯引号`\u201c`（"）和`\u201d`（"），**严禁**使用ASCII双引号`"`。
+
+**错误示例**（会导致JS语法错误）:
+```javascript
+"desc": "第27条是反洗钱法第三章"反洗钱义务"的统领性条款"  // ← 第三个"终止了字符串
+```
+
+**正确示例**:
+```javascript
+"desc": "第27条是反洗钱法第三章\u201c反洗钱义务\u201d的统领性条款"
+```
+
+**验证方法**: 在浏览器控制台检查是否有`SyntaxError`。或在Python中检查JS数据块内是否有多于2个ASCII双引号且无Unicode弯引号的行。
+
+### 防复发规则10: 生成JS数据对象后必须验证结构完整性
+使用脚本生成`var D={...}`数据对象后，必须：
+1. 检查每个对象条目是否正确闭合（`}`配对）
+2. 在浏览器控制台确认无`SyntaxError`
+3. 确认`typeof show`不是`undefined`（IIFE正常执行）
+
+### 修复记录（续2）
+
+| 日期 | 文件 | 修复内容 | 说明 |
+|------|------|----------|------|
+| 2026-08-04 | reg-00.html art27 | viewBox 680×500→680×425 | 修复SVG与CSS比例不匹配 |
+| 2026-08-04 | reg-00.html art27 | marker 8×8→16×16 + userSpaceOnUse | 修复箭头不可见 |
+| 2026-08-04 | reg-00.html art27 | ASCII引号→Unicode弯引号 | 修复JS语法错误导致点击无响应 |
+| 2026-08-04 | reg-00.html art27 | 补全c-b4对象闭合`}` | 修复Unexpected token语法错误 |
+| 2026-08-04 | reg-00.html art27 | stroke颜色加深 #a1a1a6→#6e6e73 | 提升箭头可见度 |
