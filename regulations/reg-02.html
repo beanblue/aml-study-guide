@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -405,6 +406,15 @@ details.xref-details > summary.xref-summary:hover{
  margin-top:4px;line-height:1.6;}
 .study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
  padding:8px 12px;font-size:13px;color:#248a3d;margin-top:4px;line-height:1.6;}
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
 
 </style>
 </head>
@@ -511,26 +521,40 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
-<p>本条位于《禁毒法》关于毒品犯罪侦查的章节中，是禁毒法律体系中专门规定反洗钱行政主管部门职责的条款。毒品犯罪是《反洗钱法》第2条规定的七类上游犯罪之首，本条由此成为反洗钱与禁毒资金监测衔接的上位法依据。</p><p>从法律体系定位看，本条向下衔接《反洗钱法》第27条（金融机构可疑交易报告义务）和第43条（反洗钱调查程序），向上对接《刑法》第191条（洗钱罪）和第349条（包庇毒品犯罪分子罪、窝藏转移隐瞒毒品毒赃罪），构成“禁毒—反洗钱—刑事追诉”的完整链条。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
-<p>本条在结构上包含两层递进义务。第一句规定监测义务（主动义务）：反洗钱行政主管部门“应当依法加强”对可疑毒品犯罪资金的监测，属于日常性、主动性的监管职责，其“依法”的依据主要是反洗钱法关于大额和可疑交易报告、客户尽职调查等制度的规定。</p><p>第二句规定报告与配合义务（被动触发义务）：当反洗钱行政主管部门及其他负有反洗钱监管职责的部门、机构“发现涉嫌毒品犯罪的资金流动情况”时，必须“及时向侦查机关报告”并“配合侦查机关做好侦查、调查工作”。该义务以“发现”为触发条件，属于发现线索后的被动响应。两层义务共同构成“日常监测—发现线索—报告配合”的完整闭环。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
+<h5>完整理解</h5>
+<p>本条位于《禁毒法》关于毒品犯罪侦查的章节中，是禁毒法律体系中专门规定反洗钱行政主管部门职责的条款。毒品犯罪是《反洗钱法》第2条规定的七类上游犯罪之首，本条由此成为反洗钱与禁毒资金监测衔接的上位法依据。</p>
+<p>从法律体系定位看，本条向下衔接《反洗钱法》第27条（金融机构可疑交易报告义务）和第43条（反洗钱调查程序），向上对接《刑法》第191条（洗钱罪）和第349条（包庇毒品犯罪分子罪、窝藏转移隐瞒毒品毒赃罪），构成“禁毒—反洗钱—刑事追诉”的完整链条。</p>
+<p>本条在结构上包含两层递进义务。第一句规定监测义务（主动义务）：反洗钱行政主管部门“应当依法加强”对可疑毒品犯罪资金的监测，属于日常性、主动性的监管职责，其“依法”的依据主要是反洗钱法关于大额和可疑交易报告、客户尽职调查等制度的规定。</p>
+<p>第二句规定报告与配合义务（被动触发义务）：当反洗钱行政主管部门及其他负有反洗钱监管职责的部门、机构“发现涉嫌毒品犯罪的资金流动情况”时，必须“及时向侦查机关报告”并“配合侦查机关做好侦查、调查工作”。该义务以“发现”为触发条件，属于发现线索后的被动响应。两层义务共同构成“日常监测—发现线索—报告配合”的完整闭环。</p>
 <ul><li>监测义务为主动义务：反洗钱行政主管部门应当依法加强对可疑毒品犯罪资金的日常监测</li><li>报告与配合义务为被动触发义务：发现涉嫌毒品犯罪资金流动情况时须及时报告并配合侦查</li><li>义务主体不限于反洗钱行政主管部门，还包括“其他依法负有反洗钱监督管理职责的部门、机构”</li><li>报告对象为侦查机关（公安机关），配合内容包括侦查和调查工作</li><li>毒品犯罪系《反洗钱法》第2条规定的七类上游犯罪之首，是本条监测对象的法理基础</li></ul>
+<div class="arrow-chain"><span class="chain-node">第二十九条(反洗钱部门对毒品犯罪资金的监测...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第2条(毒品犯罪是反洗钱七类上游犯罪之首，本条监...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第62条(刑事责任衔接，毒品犯罪洗钱构成犯罪的依法...)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>“依法加强监测”的操作依据是反洗钱法的大额和可疑交易报告制度及客户尽职调查制度</li><li>义务主体范围涵盖国家金融监督管理总局、中国证监会等所有负有反洗钱监管职责的部门</li><li>发现涉嫌毒品犯罪资金线索后，报告义务的履行主体是部门、机构而非个人，须建立内部报告机制</li><li>配合侦查包括提供交易记录、账户信息等，须注意与反洗钱法第43条调查程序的衔接</li><li>毒品犯罪洗钱同时触犯刑法第191条（洗钱罪）和第349条（包庇毒品犯罪分子罪），需关注刑事衔接</li></ul>
+<ul><li>“依法加强监测”的操作依据是反洗钱法的大额和可疑交易报告制度及客户尽职调查制度</li><li>义务主体范围涵盖国家金融监督管理总局、中国证监会等所有负有反洗钱监管职责的部门</li><li><strong>发现涉嫌毒品犯罪资金线索后，</strong>——报告义务的履行主体是部门、机构而非个人，须建立内部报告机制</li><li><strong>配合侦查包括提供交易记录、账户信息等，</strong>——须注意与反洗钱法第43条调查程序的衔接</li><li>毒品犯罪洗钱同时触犯刑法第191条（洗钱罪）和第349条（包庇毒品犯罪分子罪），需关注刑事衔接</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记两层义务结构：监测义务（主动、日常）+ 报告配合义务（被动、触发式）</li><li>易错点：义务主体不限于反洗钱行政主管部门，“其他依法负有反洗钱监督管理职责的部门、机构”同样负有报告配合义务</li><li>毒品犯罪是反洗钱七类上游犯罪之首（《反洗钱法》第2条），本条是其监测依据</li><li>“依法”的“法”主要指反洗钱法，不要忽略该限定</li><li>报告对象是侦查机关（公安机关），不是司法机关或检察机关</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记两层义务结构：监测义务（主动、日常）+ 报告配合义务（被动、触发式）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>“依法”的“法”主要指反洗钱法，不要忽略该限定</li><li>报告对象是侦查机关（公安机关），不是司法机关或检察机关</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>毒品犯罪是反洗钱七类上游犯罪之首（《反洗钱法》第2条），本条是其监测依据</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>易错点：义务主体不限于反洗钱行政主管部门，“其他依法负有反洗钱监督管理职责的部门、机构”同样负有报告配合义务</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="reg-nav">

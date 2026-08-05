@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -424,6 +425,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -484,26 +524,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条确立监测标准建设的风险为本原则，是整个监测标准建设工作指引的基础性条款。该原则要求义务机构建立的监测标准须与其面临的洗钱和恐怖融资风险相匹配，体现了风险为本监管理念在交易监测层面的落实。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条结构简洁，仅规定一个核心原则：义务机构建立的监测标准应当与其面临的洗钱和恐怖融资（以下统称洗钱）风险相匹配。“相匹配”意味着监测标准的敏感度、覆盖范围和复杂程度应与机构实际风险水平相适应，既不能过度也不能不足。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心原则：监测标准须与洗钱和恐怖融资风险相匹配</li><li>“洗钱”在本指引中统称洗钱和恐怖融资</li><li>体现风险为本的监管理念</li><li>监测标准设置过高或过低均不符合本原则</li><li>是后续各项监测标准建设工作的基础性要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应根据自身风险评估结果设置监测标准参数阈值</li><li>高风险业务应设置更敏感的监测标准，低风险业务可适当简化</li><li>监测标准应定期与机构风险状况进行匹配性校验</li><li>避免“一刀切”设置监测标准，应根据风险差异化配置</li><li>风险变化时监测标准应及时调整，保持动态匹配</li></ul>
+<ul><li>金融机构应根据自身风险评估结果设置监测标准参数阈值</li><li><strong>高风险业务应设置更敏感的监测标准，</strong>——低风险业务可适当简化</li><li>监测标准应定期与机构风险状况进行匹配性校验</li><li><strong>避免“一刀切”设置监测标准，</strong>——应根据风险差异化配置</li><li><strong>风险变化时监测标准应及时调整，</strong>——保持动态匹配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：风险为本原则的核心要求（监测标准与风险相匹配）</li><li>重点记忆：“洗钱”在本指引中统称洗钱和恐怖融资</li><li>关键概念：“相匹配”的含义（敏感度、覆盖范围与风险水平相适应）</li><li>风险为本是四项基本原则之首</li><li>常考判断题：监测标准是否越高越好（否，须与风险相匹配）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：“洗钱”在本指引中统称洗钱和恐怖融资</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键概念：“相匹配”的含义（敏感度、覆盖范围与风险水平相适应）</li><li>风险为本是四项基本原则之首</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考判断题：监测标准是否越高越好（否，须与风险相匹配）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：风险为本原则的核心要求（监测标准与风险相匹配）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -521,26 +572,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条确立监测标准建设的全面性原则，要求交易监测覆盖全部客户和业务领域并贯穿业务办理各个环节。该原则确保监测无盲区，是防范洗钱风险漏报的基础保障。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层要求：第一层要求交易监测覆盖全部客户和业务领域，贯穿业务办理的各个环节；第二层要求交易分析全面结合客户的身份特征、交易特征或行为特征，体现多维度综合分析的方法论。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>交易监测须覆盖全部客户和业务领域</li><li>交易监测须贯穿业务办理的各个环节</li><li>交易分析须全面结合客户身份特征、交易特征和行为特征</li><li>三个特征维度构成交易分析的基本框架</li><li>确保监测无盲区，防范洗钱风险漏报</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应排查是否存在未纳入监测的客户群体或业务领域</li><li>业务办理各环节（开户、交易、结算等）均应嵌入监测要求</li><li>交易分析系统应支持身份、交易、行为三维特征的综合分析</li><li>新上线业务应及时纳入监测范围，避免覆盖空白</li><li>关注交叉业务和跨条线业务的监测覆盖问题</li></ul>
+<ul><li>金融机构应排查是否存在未纳入监测的客户群体或业务领域</li><li>业务办理各环节（开户、交易、结算等）均应嵌入监测要求</li><li>交易分析系统应支持身份、交易、行为三维特征的综合分析</li><li><strong>新上线业务应及时纳入监测范围，</strong>——避免覆盖空白</li><li>关注交叉业务和跨条线业务的监测覆盖问题</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：全面性原则的两个层面（监测覆盖和分析结合）</li><li>重点记忆：交易分析的三个特征维度（身份特征、交易特征、行为特征）</li><li>关键要求：覆盖全部客户和业务领域，贯穿各个环节</li><li>全面性原则与风险为本原则共同构成监测标准建设的基础</li><li>常考多选题：交易分析须结合哪些特征（身份、交易、行为）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：交易分析的三个特征维度（身份特征、交易特征、行为特征）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：覆盖全部客户和业务领域，贯穿各个环节</li><li>全面性原则与风险为本原则共同构成监测标准建设的基础</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：交易分析须结合哪些特征（身份、交易、行为）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：全面性原则的两个层面（监测覆盖和分析结合）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -560,26 +622,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条确立监测标准建设的适用性原则、动态管理原则和保密原则，是对前两条原则的补充和完善。该条从实践性、灵活性和安全性三个维度规范监测标准建设工作。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含三项原则：适用性原则要求监测标准立足本行业本机构实践和真实数据，重点参考案例；动态管理原则要求对已建成监测标准及时评估并根据风险变化调整；保密原则要求对监测标准及措施严格保密，建立知悉和使用范围制度。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用性原则：立足本行业本机构实践和真实数据，重点参考洗钱案例</li><li>动态管理原则：及时评估有效性，根据风险变化调整监测标准</li><li>保密原则：对监测标准及措施严格保密，规范知悉和使用范围</li><li>义务机构对监测标准的有效性负责</li><li>三项原则与风险为本、全面性共同构成五项基本原则</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>监测标准设计应基于本机构真实交易数据，避免照搬他行标准</li><li>建立监测标准有效性定期评估机制，确保动态调整</li><li>监测标准文件应定密管理，限制知悉范围</li><li>案例收集应关注本行业和本机构实际发生的洗钱案件</li><li>监测标准调整应及时更新系统参数和操作手册</li></ul>
+<ul><li><strong>监测标准设计应基于本机构真实交易数据，</strong>——避免照搬他行标准</li><li><strong>建立监测标准有效性定期评估机制，</strong>——确保动态调整</li><li><strong>监测标准文件应定密管理，</strong>——限制知悉范围</li><li>案例收集应关注本行业和本机构实际发生的洗钱案件</li><li>监测标准调整应及时更新系统参数和操作手册</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：五项基本原则的完整内容（风险为本、全面性、适用性、动态管理、保密）</li><li>重点记忆：适用性原则要求立足本行业本机构实践和真实数据</li><li>关键要求：保密原则要求对监测标准严格保密</li><li>动态管理原则强调及时评估和调整</li><li>常考多选题：监测标准建设的基本原则包括哪些</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：适用性原则要求立足本行业本机构实践和真实数据</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：保密原则要求对监测标准严格保密</li><li>动态管理原则强调及时评估和调整</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：监测标准建设的基本原则包括哪些</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：五项基本原则的完整内容（风险为本、全面性、适用性、动态管理、保密）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -598,26 +671,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确监测标准建设工作指引的功能定位和适用范围，是指引文件的框架性条款。该条界定了指引的参考性质和适用对象范围。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层说明指引确定的工作流程是义务机构整合内外部资源开展监测标准建设的主要参考，中国人民银行视情发布设计要点；第二层明确指引适用于义务机构自主设计、开发、测试、评估和完善监测标准，特定非金融机构及行业自律组织可参照执行。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>指引定位：监测标准建设的主要参考，非强制性规定</li><li>中国人民银行视情发布监测标准设计关注或参考要点</li><li>适用对象：义务机构依据《管理办法》等法律规章自主建设监测标准</li><li>特定非金融机构（非银行支付机构、汇兑业务、基金销售等）可参照执行</li><li>银行卡清算机构、资金清算中心及行业自律组织可参照执行</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应将指引作为监测标准建设的方法论参考</li><li>关注中国人民银行发布的监测标准设计要点</li><li>特定非金融机构应参照指引提前做好监测标准建设准备</li><li>指引强调自主性，义务机构须对自身监测标准负责</li><li>监测标准建设应结合指引工作流程和机构实际情况</li></ul>
+<ul><li>金融机构应将指引作为监测标准建设的方法论参考</li><li>关注中国人民银行发布的监测标准设计要点</li><li>特定非金融机构应参照指引提前做好监测标准建设准备</li><li><strong>指引强调自主性，</strong>——义务机构须对自身监测标准负责</li><li>监测标准建设应结合指引工作流程和机构实际情况</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：指引的定位（主要参考，非强制）</li><li>重点记忆：指引适用于自主设计、开发、测试、评估和完善监测标准</li><li>关键对象：特定非金融机构可参照执行（非银行支付机构、汇兑业务、基金销售等）</li><li>中国人民银行视情发布设计关注或参考要点</li><li>常考判断题：指引是否为强制性规定（否，为主要参考）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：指引适用于自主设计、开发、测试、评估和完善监测标准</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键对象：特定非金融机构可参照执行（非银行支付机构、汇兑业务、基金销售等）</li><li>中国人民银行视情发布设计关注或参考要点</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考判断题：指引是否为强制性规定（否，为主要参考）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：指引的定位（主要参考，非强制）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -635,26 +719,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条概述监测标准设计的基本流程，是标准设计章节的总纲性条款。该条将监测标准设计分为案例特征化、特征指标化和指标模型化三个阶段。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层定义监测标准设计为依据法律法规、行业指引和风险提示等，对本行业案例特征化、特征指标化和指标模型化的建设过程；第二层明确大额交易及其他依据法律法规和行业惯例可直接制定的监测标准，可采取相对简化的流程。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>监测标准设计三阶段：案例特征化→特征指标化→指标模型化</li><li>设计依据：法律法规、行业指引和风险提示等</li><li>大额交易等可直接制定的监测标准可采取简化流程</li><li>三阶段是递进关系，前一阶段是后一阶段的基础</li><li>设计流程的核心是将案例特征转化为可操作的监测模型</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应按照三阶段流程系统性地建设监测标准</li><li>大额交易标准因有法定阈值，可简化流程直接制定</li><li>案例特征化阶段的质量直接影响后续指标和模型的有效性</li><li>设计过程应形成完整的文档记录</li><li>简化流程不等于省略评估，仍须验证有效性</li></ul>
+<ul><li>金融机构应按照三阶段流程系统性地建设监测标准</li><li><strong>大额交易标准因有法定阈值，</strong>——可简化流程直接制定</li><li>案例特征化阶段的质量直接影响后续指标和模型的有效性</li><li>设计过程应形成完整的文档记录</li><li><strong>简化流程不等于省略评估，</strong>——仍须验证有效性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：监测标准设计的三阶段流程（案例特征化、特征指标化、指标模型化）</li><li>重点记忆：大额交易标准可采取相对简化的流程</li><li>关键概念：三阶段是递进关系</li><li>设计依据包括法律法规、行业指引和风险提示</li><li>常考排序题：三阶段的正确顺序</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：大额交易标准可采取相对简化的流程</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键概念：三阶段是递进关系</li><li>设计依据包括法律法规、行业指引和风险提示</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考排序题：三阶段的正确顺序</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：监测标准设计的三阶段流程（案例特征化、特征指标化、指标模型化）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -674,26 +769,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条详述监测标准设计第一阶段——案例特征化，要求义务机构通过收集和分析案例，归纳洗钱类型并总结洗钱特征。该条是监测标准建设的起点，案例质量决定后续标准质量。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层定义案例特征化为收集行业普遍性、典型特征和机构个性化案例，对案例进行分析、对洗钱类型归纳、对洗钱特征总结的过程；第二层分别规范案例收集（广泛收集、体现主要特征、具有代表性）和特征分析（以客户为监测单位，从身份、行为、资金来源、金额、频率、流向、性质等方面抽象异常特征）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>案例特征化定义：收集案例→分析→归纳洗钱类型→总结洗钱特征</li><li>案例来源：本行业、本区域、本机构发生或发现的洗钱案例</li><li>案例要求：体现主要特征，具有代表性、规律性和普遍性</li><li>案例收集应具有前瞻性，与当前洗钱风险变化相吻合</li><li>特征分析以客户为监测单位，从七个维度抽象异常特征</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立案例库，系统收集和管理洗钱案例</li><li>案例来源应多元化，包括内部发现、监管反馈、媒体报道等</li><li>特征分析应从身份、行为、资金来源、金额、频率、流向、性质七个维度展开</li><li>案例应定期更新，反映最新洗钱手法和趋势</li><li>机构个性化案例是差异化监测标准的重要来源</li></ul>
+<ul><li><strong>金融机构应建立案例库，</strong>——系统收集和管理洗钱案例</li><li><strong>案例来源应多元化，</strong>——包括内部发现、监管反馈、媒体报道等</li><li>特征分析应从身份、行为、资金来源、金额、频率、流向、性质七个维度展开</li><li><strong>案例应定期更新，</strong>——反映最新洗钱手法和趋势</li><li>机构个性化案例是差异化监测标准的重要来源</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：案例特征化的定义和流程</li><li>重点记忆：特征分析的七个维度（身份、行为、资金来源、金额、频率、流向、性质）</li><li>关键要求：案例须具有代表性、规律性和普遍性</li><li>案例收集应具有前瞻性</li><li>常考多选题：特征分析从哪些方面抽象异常特征</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：特征分析的七个维度（身份、行为、资金来源、金额、频率、流向、性质）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>常考多选题：特征分析从哪些方面抽象异常特征</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>关键要求：案例须具有代表性、规律性和普遍性</li><li>案例收集应具有前瞻性</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：案例特征化的定义和流程</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -713,26 +819,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条详述监测标准设计第二阶段——特征指标化，要求义务机构将案例中可识别的特征抽取和量化为具体指标。该条是将定性特征转化为定量监测标准的关键环节。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层定义特征指标化为将案例中可识别特征抽取和量化的过程，设计出可识别、可衡量或可反映异常特征的指标，包括指标代码、指标名称、指标规则、指标阈值等形式要件；第二层分别规范指标要素（客户身份指标要素、客户行为指标要素和交易指标要素）和指标设计（将基础性指标要素组合设计为识别异常特征的指标）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>特征指标化定义：将案例特征抽取和量化为具体指标</li><li>指标形式要件：指标代码、指标名称、指标规则、指标阈值</li><li>指标要素三大类：客户身份指标要素、客户行为指标要素、交易指标要素</li><li>指标设计：将基础性指标要素组合为识别异常特征的指标</li><li>通过指标规则设置、阈值调整和组合使用指向异常特征</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立指标库，规范指标代码和名称的命名规则</li><li>指标阈值设置应基于真实数据分析和案例验证</li><li>指标组合使用应考虑不同指标间的逻辑关系</li><li>指标要素数据来源应覆盖各业务系统的客户身份和交易信息</li><li>指标设计应定期评估有效性，及时调整阈值和规则</li></ul>
+<ul><li><strong>金融机构应建立指标库，</strong>——规范指标代码和名称的命名规则</li><li>指标阈值设置应基于真实数据分析和案例验证</li><li>指标组合使用应考虑不同指标间的逻辑关系</li><li>指标要素数据来源应覆盖各业务系统的客户身份和交易信息</li><li><strong>指标设计应定期评估有效性，</strong>——及时调整阈值和规则</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：特征指标化的定义（抽取和量化过程）</li><li>重点记忆：指标形式要件（代码、名称、规则、阈值）</li><li>关键分类：三大指标要素（客户身份、客户行为、交易指标要素）</li><li>指标设计是将基础要素组合为识别异常特征的指标</li><li>常考多选题：指标的形式要件包括哪些</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：指标形式要件（代码、名称、规则、阈值）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键分类：三大指标要素（客户身份、客户行为、交易指标要素）</li><li>指标设计是将基础要素组合为识别异常特征的指标</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：指标的形式要件包括哪些</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：特征指标化的定义（抽取和量化过程）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -751,26 +868,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条详述监测标准设计第三阶段——指标模型化，要求义务机构将不同指标排列组合形成模型，实现对特定洗钱类型更具指向性的监测。该条是监测标准设计的最终阶段，指标和模型共同构成监测标准。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层定义指标模型化为将反映特定洗钱类型的不同指标排列组合形成模型，实现更具指向性的监测，指标和模型共生构成监测标准；第二层明确设计原则包括体现组合指标的位阶、具有一定灵活度、具备一定时效性。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>指标模型化定义：将不同指标排列组合形成模型</li><li>指标和模型共生构成监测标准，可独立或组合运用</li><li>设计原则一：体现组合指标的位阶（主要特征指标赋予更高位阶和权重）</li><li>设计原则二：具有一定灵活度（给予容错区间避免监测漏洞）</li><li>设计原则三：具备一定时效性（适时调整跟进洗钱类型特征变化）</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应根据洗钱类型特征设计不同的监测模型</li><li>指标位阶设置应合理，主要特征指标权重应更高</li><li>模型应设置容错区间，避免因参数过严导致漏报</li><li>模型应定期更新，跟进洗钱手法的变化</li><li>指标和模型可独立使用也可组合使用，灵活配置</li></ul>
+<ul><li>金融机构应根据洗钱类型特征设计不同的监测模型</li><li><strong>指标位阶设置应合理，</strong>——主要特征指标权重应更高</li><li><strong>模型应设置容错区间，</strong>——避免因参数过严导致漏报</li><li><strong>模型应定期更新，</strong>——跟进洗钱手法的变化</li><li><strong>指标和模型可独立使用也可组合使用，</strong>——灵活配置</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：指标模型化的定义和三项设计原则</li><li>重点记忆：三项设计原则（位阶、灵活度、时效性）</li><li>关键概念：指标和模型共生构成监测标准</li><li>指标的位阶是对反映犯罪类型主要特征的指标赋予更高等级</li><li>常考多选题：模型设计原则包括哪些</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：三项设计原则（位阶、灵活度、时效性）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键概念：指标和模型共生构成监测标准</li><li>指标的位阶是对反映犯罪类型主要特征的指标赋予更高等级</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：模型设计原则包括哪些</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：指标模型化的定义和三项设计原则</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -788,26 +916,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测系统的开发方式选择和建设需求，是系统开发章节的起始条款。该条明确了自主开发、共享开发或市场采购等开发方式选择及系统建设需求的前置要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层明确义务机构可选择自主开发、共享开发或市场采购等方式建设监测系统，但无论何种方式，开发前须提出适合本机构的监测系统建设需求，开发后须能有效满足监测标准运行的数据需求；第二层规定部分业务无法通过系统监测或部分标准无法通过系统运行时，应充分论证并采取人工监测等辅助手段，保留工作记录。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>开发方式三种选择：自主开发、共享开发、市场采购</li><li>无论何种方式，开发前须提出监测系统建设需求</li><li>开发后须能有效满足监测标准运行的数据需求</li><li>部分业务或标准无法系统监测的，应采取人工监测等辅助手段</li><li>人工监测须保留相关工作记录</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应根据自身技术能力和资源选择合适的开发方式</li><li>系统建设需求应与监测标准设计成果相衔接</li><li>无法系统化的监测标准应有人工监测流程作为补充</li><li>人工监测记录应完整可追溯，以备监管检查</li><li>市场采购的系统应进行定制化适配，确保符合本机构需求</li></ul>
+<ul><li>金融机构应根据自身技术能力和资源选择合适的开发方式</li><li>系统建设需求应与监测标准设计成果相衔接</li><li>无法系统化的监测标准应有人工监测流程作为补充</li><li><strong>人工监测记录应完整可追溯，</strong>——以备监管检查</li><li><strong>市场采购的系统应进行定制化适配，</strong>——确保符合本机构需求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：三种开发方式（自主开发、共享开发、市场采购）</li><li>重点记忆：开发前须提出监测系统建设需求</li><li>关键要求：无法系统监测的须采取人工监测并保留记录</li><li>开发方式不影响系统须满足数据需求的基本要求</li><li>常考多选题：监测系统的开发方式包括哪些</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：开发前须提出监测系统建设需求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：无法系统监测的须采取人工监测并保留记录</li><li>开发方式不影响系统须满足数据需求的基本要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：监测系统的开发方式包括哪些</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：三种开发方式（自主开发、共享开发、市场采购）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -825,26 +964,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测系统的数据支持要求，强调以客户为基本单位全面采集数据。该条是监测系统数据基础建设的核心条款，数据质量直接决定监测效果。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层要求以客户为基本单位，全面、完整、准确地采集各业务系统的客户身份信息和交易信息，保障监测标准运行的数据需求；第二层明确反洗钱数据接口规范应成为各业务系统信息采集和数据传输的基础标准之一，数据完整性和逻辑验证应成为基础环节。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>数据采集以客户为基本单位</li><li>采集要求：全面、完整、准确</li><li>采集范围：各业务系统的客户身份信息和交易信息</li><li>反洗钱数据接口规范应成为业务系统信息采集和传输的基础标准</li><li>数据完整性和逻辑验证应成为信息采集和传输流程的基础环节</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立跨业务系统的数据整合机制</li><li>数据接口规范应嵌入各业务系统的设计和开发流程</li><li>建立数据质量监控机制，定期检查数据完整性和准确性</li><li>客户身份信息应与客户身份识别系统保持同步更新</li><li>数据采集应覆盖全部业务系统，避免数据孤岛</li></ul>
+<ul><li>金融机构应建立跨业务系统的数据整合机制</li><li>数据接口规范应嵌入各业务系统的设计和开发流程</li><li><strong>建立数据质量监控机制，</strong>——定期检查数据完整性和准确性</li><li>客户身份信息应与客户身份识别系统保持同步更新</li><li><strong>数据采集应覆盖全部业务系统，</strong>——避免数据孤岛</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：数据采集以客户为基本单位</li><li>重点记忆：数据采集的三个要求（全面、完整、准确）</li><li>关键标准：反洗钱数据接口规范成为基础标准之一</li><li>数据完整性和逻辑验证是数据传输流程的基础环节</li><li>常考判断题：数据采集是否以账户为基本单位（否，以客户为基本单位）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：数据采集的三个要求（全面、完整、准确）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键标准：反洗钱数据接口规范成为基础标准之一</li><li>常考判断题：数据采集是否以账户为基本单位（否，以客户为基本单位）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>数据完整性和逻辑验证是数据传输流程的基础环节</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：数据采集以客户为基本单位</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -862,26 +1012,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测系统的结果反馈机制，明确了实时反馈和定期反馈两种方式及不同监测标准的反馈时限要求。该条是监测系统时效性保障的关键条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层明确监测结果可采取实时和定期两种方式反馈；第二层分别规定涉恐名单监控须实现实时反馈（以自动化干预为基础），其他监测标准原则上须实现系统运行后T+1日内反馈（以自动化干预为主，人工干预为辅）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>结果反馈两种方式：实时反馈和定期反馈</li><li>涉恐名单监控须实现实时反馈，以自动化干预为基础</li><li>其他监测标准原则上须T+1日内反馈</li><li>其他标准反馈以自动化干预为主，人工干预为辅</li><li>反馈时效直接影响可疑交易报告的及时性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>涉恐名单监控应实现系统自动预警和实时阻断</li><li>其他监测标准应在T+1日内完成预警信息推送</li><li>自动化干预应覆盖大部分预警场景，减少人工干预瓶颈</li><li>系统应支持预警结果的实时推送和跟踪管理</li><li>关注反馈时效对后续分析报送流程的影响</li></ul>
+<ul><li>涉恐名单监控应实现系统自动预警和实时阻断</li><li>其他监测标准应在T+1日内完成预警信息推送</li><li><strong>自动化干预应覆盖大部分预警场景，</strong>——减少人工干预瓶颈</li><li>系统应支持预警结果的实时推送和跟踪管理</li><li>关注反馈时效对后续分析报送流程的影响</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：涉恐名单监控须实时反馈</li><li>重点记忆：其他监测标准T+1日内反馈</li><li>关键区分：实时反馈以自动化为基础，T+1反馈以自动化为主人工为辅</li><li>T+1的含义为系统运行后次日内</li><li>常考选择题：涉恐名单监控的反馈方式（实时反馈）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：其他监测标准T+1日内反馈</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键区分：实时反馈以自动化为基础，T+1反馈以自动化为主人工为辅</li><li>T+1的含义为系统运行后次日内</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考选择题：涉恐名单监控的反馈方式（实时反馈）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：涉恐名单监控须实时反馈</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -901,26 +1062,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测系统的功能建设要求和用户权限管理，是系统功能设计的核心条款。该条明确了系统须具备的三类功能模块和可追溯性、保密性等技术要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分三层展开：第一层规定系统须具有交易筛选、甄别分析和人工增补报送三类功能模块，详述各模块功能要求；第二层要求系统具有可追溯性，能与核心业务系统、监控名单库对接；第三层要求用户层级覆盖相关部门和分支机构，支持不同作业模式和保密稽核功能。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>三类功能模块：交易筛选、甄别分析、人工增补报送</li><li>甄别分析模块须至少包括初审、复核、审定意见填写等功能</li><li>系统须具有可追溯性，确保完整准确重现筛选、分析及报送过程</li><li>系统须与核心业务系统、监控名单库等对接或实现信息交互</li><li>用户层级须覆盖相关部门和分支机构，支持不同作业模式权限配置</li><li>系统须具备必要的保密和稽核（审计）功能</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应确保监测系统具备三类功能模块的完整功能</li><li>甄别分析模块的初审、复核、审定流程应系统化</li><li>系统日志应完整记录所有操作，确保可追溯</li><li>系统对接应保障数据传输的实时性和准确性</li><li>用户权限管理应遵循最小权限原则，定期审核</li></ul>
+<ul><li>金融机构应确保监测系统具备三类功能模块的完整功能</li><li>甄别分析模块的初审、复核、审定流程应系统化</li><li><strong>系统日志应完整记录所有操作，</strong>——确保可追溯</li><li>系统对接应保障数据传输的实时性和准确性</li><li><strong>用户权限管理应遵循最小权限原则，</strong>——定期审核</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：三类功能模块（交易筛选、甄别分析、人工增补报送）</li><li>重点记忆：甄别分析模块至少包括初审、复核、审定意见填写</li><li>关键要求：系统须具有可追溯性</li><li>系统须与核心业务系统和监控名单库对接</li><li>常考多选题：监测系统须具备哪些功能模块</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：甄别分析模块至少包括初审、复核、审定意见填写</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：系统须具有可追溯性</li><li>系统须与核心业务系统和监控名单库对接</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：监测系统须具备哪些功能模块</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：三类功能模块（交易筛选、甄别分析、人工增补报送）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -938,26 +1110,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测系统的测试要求，明确了模拟环境建立和测试重点关注的问题和环节。该条是系统上线前质量保障的关键条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层要求建立监测系统与各业务系统运行的模拟环境，通过数据输入输出等方式测试系统运行及监测标准运行情况；第二层明确测试须重点关注数据准备（以真实客户和交易数据为基础）、功能测试（以监测标准运行、流程配套和用户体验为核心）和性能测试（负载测试和压力测试等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须建立监测系统与各业务系统的模拟环境</li><li>测试方式：通过数据输入输出方式测试系统和监测标准运行</li><li>数据准备：尽量以本机构真实客户和交易数据为基础</li><li>功能测试：以监测标准运行、流程配套和用户体验为核心</li><li>性能测试：包括负载测试和压力测试等</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应在系统上线前完成全面的模拟环境测试</li><li>测试数据应尽量使用真实数据，确保测试结果可靠</li><li>功能测试应覆盖三类功能模块的全部操作流程</li><li>性能测试应模拟高峰期交易量，验证系统承载能力</li><li>测试发现的问题应及时修复并回归测试</li></ul>
+<ul><li>金融机构应在系统上线前完成全面的模拟环境测试</li><li><strong>测试数据应尽量使用真实数据，</strong>——确保测试结果可靠</li><li>功能测试应覆盖三类功能模块的全部操作流程</li><li><strong>性能测试应模拟高峰期交易量，</strong>——验证系统承载能力</li><li>测试发现的问题应及时修复并回归测试</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：测试须关注的三个方面（数据准备、功能测试、性能测试）</li><li>重点记忆：数据准备以真实客户和交易数据为基础</li><li>关键概念：功能测试以监测标准运行、流程配套和用户体验为核心</li><li>性能测试包括负载测试和压力测试</li><li>常考多选题：测试工作须重点关注哪些问题和环节</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：数据准备以真实客户和交易数据为基础</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>性能测试包括负载测试和压力测试</li><li>常考多选题：测试工作须重点关注哪些问题和环节</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>关键概念：功能测试以监测标准运行、流程配套和用户体验为核心</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：测试须关注的三个方面（数据准备、功能测试、性能测试）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -975,15 +1158,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测标准的评估要求，要求依据测试结果对监测标准设计和系统功能进行效能评价和效益评估。该条是监测标准有效性验证的条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层要求依据测试结果对监测标准设计和系统功能实际运行效果进行统计分析，实施效能评价和效益评估；第二层明确评估内容包括全面性评估（监测范围和结果的全面性）、准确性评估（系统反馈准确性和标准指向准确性）和灵活性评估（动态调整灵活性和及时回溯灵活性）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>评估依据：测试结果</li><li>评估对象：监测标准设计和系统功能实际运行效果</li><li>评估类型：效能评价和效益评估</li><li>全面性评估：监测范围全面性和监测结果全面性</li><li>准确性评估：系统反馈准确性和标准指向准确性</li><li>灵活性评估：动态调整灵活性和及时回溯灵活性</li></ul>
 </div>
 <div class="analysis-section">
@@ -992,9 +1169,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：评估的三个方面（全面性、准确性、灵活性）</li><li>重点记忆：每个评估方面的两个维度</li><li>关键区分：全面性评估关注覆盖范围，准确性评估关注指向精度</li><li>灵活性评估包括动态调整和及时回溯两个维度</li><li>常考多选题：评估内容包括哪些方面</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：每个评估方面的两个维度</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键区分：全面性评估关注覆盖范围，准确性评估关注指向精度</li><li>灵活性评估包括动态调整和及时回溯两个维度</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：评估内容包括哪些方面</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：评估的三个方面（全面性、准确性、灵活性）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1013,26 +1207,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测标准的动态优化要求，明确了年度全面评估义务和特定情形下的及时评估完善义务。该条是监测标准持续有效性的制度保障。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层要求至少每年对监测标准及其运行效果进行一次全面评估，并根据评估结果完善监测标准；同时规定法律法规修订、推出新产品新业务等情形须及时评估完善；第二层明确时间要求：新产品新业务推出前须完成监测标准评估完善和上线运行，其他情形发生之日起3个月内须完成。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>至少每年对监测标准及运行效果进行一次全面评估</li><li>推出新产品或新业务前须完成监测标准评估、完善和上线运行</li><li>其他情形发生之日起3个月内须完成评估、完善和上线运行</li><li>触发及时评估的情形包括：法规修订、新产品新业务、监管指引和风险提示、洗钱案件等</li><li>本机构系统未能预警的洗钱案件也须触发及时评估</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应将年度评估纳入反洗钱工作计划</li><li>新产品新业务上线前应将监测标准评估作为前置审批环节</li><li>3个月时限是硬性要求，应建立时限跟踪机制</li><li>关注人民银行发布的风险提示和洗钱类型分析报告</li><li>评估完善记录应完整保存以备监管检查</li></ul>
+<ul><li>金融机构应将年度评估纳入反洗钱工作计划</li><li>新产品新业务上线前应将监测标准评估作为前置审批环节</li><li><strong>3个月时限是硬性要求，</strong>——应建立时限跟踪机制</li><li>关注人民银行发布的风险提示和洗钱类型分析报告</li><li>评估完善记录应完整保存以备监管检查</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：年度全面评估频率（至少每年一次）</li><li>重点记忆：新产品新业务推出前须完成监测标准评估</li><li>关键时限：其他情形发生之日起3个月内完成</li><li>触发及时评估的情形包括法规修订、新产品、监管指引、洗钱案件等</li><li>常考计算题：监测标准评估完善的时限要求（3个月）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：新产品新业务推出前须完成监测标准评估</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键时限：其他情形发生之日起3个月内完成</li><li>触发及时评估的情形包括法规修订、新产品、监管指引、洗钱案件等</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考计算题：监测标准评估完善的时限要求（3个月）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：年度全面评估频率（至少每年一次）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1053,26 +1258,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确了监测标准评估的量化指标体系，为义务机构提供自我评估的科学工具。该条是监测标准效果评估的量化指引。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条规定三个核心评估指标：预警率（监测预警交易量/全部交易量，反映敏感度）、报告率（可疑交易报告数/监测预警报告数，反映有效性和风险偏好度）、成案率（被移交或立案的可疑交易报告数/可疑交易报告数，反映有效性和报告质量）。三个指标构成从预警到报告到成案的完整评估链条。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>预警率 = 监测预警交易量 / 全部交易量，反映监测标准敏感度</li><li>报告率 = 可疑交易报告数 / 监测预警报告数，反映有效性和风险偏好度</li><li>成案率 = 被移交或立案的可疑交易报告数 / 可疑交易报告数，反映有效性和报告质量</li><li>三个指标构成从预警→报告→成案的完整评估链条</li><li>义务机构至少可用这三个指标评估监测标准科学性和有效性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应定期计算三个评估指标并分析趋势变化</li><li>预警率过高可能意味着标准过于敏感，误报率高</li><li>报告率过低可能意味着分析排除过多或标准有效性不足</li><li>成案率是衡量可疑交易报告质量的最终指标</li><li>三个指标应结合使用，综合评估监测标准效果</li></ul>
+<ul><li>金融机构应定期计算三个评估指标并分析趋势变化</li><li><strong>预警率过高可能意味着标准过于敏感，</strong>——误报率高</li><li>报告率过低可能意味着分析排除过多或标准有效性不足</li><li>成案率是衡量可疑交易报告质量的最终指标</li><li><strong>三个指标应结合使用，</strong>——综合评估监测标准效果</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：三个评估指标的计算公式</li><li>重点记忆：预警率反映敏感度，报告率反映有效性和风险偏好度，成案率反映有效性</li><li>关键概念：三个指标构成完整评估链条（预警→报告→成案）</li><li>每个指标反映监测标准的不同维度</li><li>常考计算题：三个指标的计算方法</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：预警率反映敏感度，报告率反映有效性和风险偏好度，成案率反映有效性</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键概念：三个指标构成完整评估链条（预警→报告→成案）</li><li>每个指标反映监测标准的不同维度</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考计算题：三个指标的计算方法</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：三个评估指标的计算公式</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1091,15 +1307,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测标准的管理政策，明确了总部统筹建设和分支机构执行的管理架构，以及基于预警结果的风险预警和风险控制措施。该条是监测标准组织管理的政策性条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层要求在总部或集团层面统筹监测标准建设，在各分支机构、各条线执行；同时允许针对局部地区反洗钱状况设定局部标准，或授权分支机构合理调整标准规则和参数阈值；第二层明确基于监测标准预警结果，对有合理理由怀疑洗钱的客户可在内部进行风险预警并采取控制措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>监测标准建设须在总部或集团层面统筹</li><li>在各分支机构、各条线（部门）执行</li><li>可针对局部地区设定局部监测标准</li><li>可授权分支机构合理调整监测标准规则和参数阈值</li><li>基于预警结果可进行内部风险预警并采取控制或化解风险措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -1108,9 +1318,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：监测标准建设须在总部或集团层面统筹</li><li>重点记忆：可授权分支机构合理调整标准规则和参数阈值</li><li>关键制度：基于预警结果的内部风险预警和风险控制</li><li>统筹建设与分支机构执行是管理政策的核心架构</li><li>常考判断题：分支机构是否可自行制定监测标准（否，须总部统筹）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：可授权分支机构合理调整标准规则和参数阈值</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键制度：基于预警结果的内部风险预警和风险控制</li><li>统筹建设与分支机构执行是管理政策的核心架构</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考判断题：分支机构是否可自行制定监测标准（否，须总部统筹）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：监测标准建设须在总部或集团层面统筹</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1129,26 +1356,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测标准建设的组织实施和作业模式，明确了专门人员配备要求和集中作业、分散作业两种模式。该条是监测标准运行组织保障的操作性条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层要求建立并完善反洗钱监测工作流程，指定专门条线（部门）及人员负责监测标准建设、运行和维护，至少组织科技、业务条线专业人员和开发团队技术人员参与；第二层定义集中作业和分散作业两种模式，详述各自的操作方式。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须指定专门的条线（部门）及人员负责监测标准建设、运行和维护</li><li>至少组织科技、业务条线专业人员和开发团队技术人员参与</li><li>集中作业模式：在总部或一定层级以上设置集中作业中心，集中分析、识别和报送</li><li>分散作业模式：以客户为单位由分支机构和业务条线分析识别，逐级审核审批</li><li>两种模式各有特点，机构应根据自身情况选择</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应根据规模和业务特点选择合适的作业模式</li><li>集中作业有利于标准化和质量控制，分散作业有利于贴近业务</li><li>无论何种模式，均须确保初审、复核、审定流程的完整性</li><li>专门人员配备应满足充足性、专业性和稳定性要求</li><li>工作流程应制度化、文档化，避免依赖个人经验</li></ul>
+<ul><li>金融机构应根据规模和业务特点选择合适的作业模式</li><li><strong>集中作业有利于标准化和质量控制，</strong>——分散作业有利于贴近业务</li><li><strong>无论何种模式，</strong>——均须确保初审、复核、审定流程的完整性</li><li>专门人员配备应满足充足性、专业性和稳定性要求</li><li><strong>工作流程应制度化、文档化，</strong>——避免依赖个人经验</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：两种作业模式（集中作业和分散作业）</li><li>重点记忆：集中作业在总部或一定层级以上设置集中作业中心</li><li>关键人员：至少组织科技、业务条线专业人员和开发团队技术人员</li><li>分散作业以客户为基本单位由分支机构和业务条线分析识别</li><li>常考对比题：集中作业与分散作业的区别</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：集中作业在总部或一定层级以上设置集中作业中心</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键人员：至少组织科技、业务条线专业人员和开发团队技术人员</li><li>分散作业以客户为基本单位由分支机构和业务条线分析识别</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考对比题：集中作业与分散作业的区别</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：两种作业模式（集中作业和分散作业）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1167,15 +1405,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范监测标准建设的技术保障和资源保障要求，是监测标准持续运行的物质基础保障条款。该条从技术和资源两个维度明确保障义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层技术保障要求确保监测标准设计、管理、运行、维护的必要技术条件，系统设计应着眼于运用交易监测成果，为可疑交易分析、识别和报告提供信息支撑；第二层资源保障要求设立专职反洗钱岗位，配备专职人员，提供资源保障和信息支持，确保组织、制度、人员和系统配备到位。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>技术保障：确保监测标准设计、管理、运行、维护的必要技术条件</li><li>系统设计应着眼于运用交易监测工作成果</li><li>资源保障：设立专职反洗钱岗位，配备专职人员</li><li>提供必要的资源保障和信息支持</li><li>确保组织、制度、人员和系统配备到位</li></ul>
 </div>
 <div class="analysis-section">
@@ -1184,9 +1416,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：保障措施的两个方面（技术保障和资源保障）</li><li>重点记忆：技术保障确保必要技术条件，资源保障确保组织制度人员系统到位</li><li>关键要求：设立专职反洗钱岗位并配备专职人员</li><li>监测标准建设是基础性、专业性和技术性工作环节</li><li>常考多选题：保障措施包括哪些方面</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：技术保障确保必要技术条件，资源保障确保组织制度人员系统到位</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：设立专职反洗钱岗位并配备专职人员</li><li>监测标准建设是基础性、专业性和技术性工作环节</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：保障措施包括哪些方面</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：保障措施的两个方面（技术保障和资源保障）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1207,26 +1456,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条是附则中的名词解释条款，对交易流量、交易流速、交易流向和指标的位阶四个关键术语进行定义。该条为监测标准建设提供统一的概念基础。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条定义四个术语：交易流量（一定时间段内资金交易量，=收方发生额+付方发生额）、交易流速（单位时间内资金交易量，=(收方总金额+付方总金额)/指定时间段）、交易流向（资金来源和去向）、指标的位阶（模型构成指标重要性的等级排序，对反映犯罪类型主要特征的指标赋予较高等级）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>交易流量 = 收方发生额 + 付方发生额</li><li>交易流速 =（收方总金额 + 付方总金额）/ 指定时间段</li><li>交易流向 = 资金来源和去向</li><li>指标的位阶 = 模型构成指标重要性的等级排序</li><li>指标位阶通过分值配比和预警阈值设置实现</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应在监测标准设计中准确运用四个术语</li><li>交易流量和流速是交易监测指标设计的核心参数</li><li>交易流向分析有助于识别资金链条和洗钱路径</li><li>指标位阶设置应基于案例特征分析，主要特征指标权重更高</li><li>术语定义应在机构内部操作手册中统一引用</li></ul>
+<ul><li>金融机构应在监测标准设计中准确运用四个术语</li><li>交易流量和流速是交易监测指标设计的核心参数</li><li>交易流向分析有助于识别资金链条和洗钱路径</li><li><strong>指标位阶设置应基于案例特征分析，</strong>——主要特征指标权重更高</li><li>术语定义应在机构内部操作手册中统一引用</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：四个术语的定义和计算公式</li><li>重点记忆：交易流量和交易流速的计算公式</li><li>关键概念：指标的位阶是对主要特征指标赋予较高等级</li><li>交易流向包含资金来源和去向两个维度</li><li>常考计算题：交易流量和交易流速的计算</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：交易流量和交易流速的计算公式</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键概念：指标的位阶是对主要特征指标赋予较高等级</li><li>交易流向包含资金来源和去向两个维度</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考计算题：交易流量和交易流速的计算</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：四个术语的定义和计算公式</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>

@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -390,6 +391,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -436,26 +476,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范反洗钱义务机构对涉扩散融资定向金融制裁风险的评估义务，是涉扩散融资定向金融制裁风险管理的起始条款。该条依据《反洗钱法》第四十条明确了两类风险的具体含义。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层明确义务机构应根据《管理办法》第十一条评估涉扩散融资定向金融制裁风险，包括可能违反或不执行制裁的风险和规避制裁的风险；第二层分别定义两类风险：违反或不执行风险是指因转发延迟、要求不明确或未采取措施等导致名单对象获取金融服务或资金资产的风险，规避风险是指名单对象利用各种方式蓄意规避定向金融制裁的风险。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>评估依据：《管理办法》第十一条</li><li>风险类型一：可能违反或不执行涉扩散融资定向金融制裁的风险</li><li>风险类型二：规避涉扩散融资定向金融制裁的风险</li><li>违反风险原因：转发延迟、要求不明确、未采取相应措施</li><li>规避风险特征：名单对象蓄意利用各种方式规避制裁</li><li>法律依据：《反洗钱法》第四十条</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>反洗钱义务机构应建立涉扩散融资定向金融制裁风险评估机制</li><li>关注名单转发时效，避免因延迟导致违反风险</li><li>明确机构内部执行要求，防止因要求不明确产生风险</li><li>关注名单对象规避制裁的新手法和新趋势</li><li>风险评估应覆盖所有业务条线和业务环节</li></ul>
+<ul><li>反洗钱义务机构应建立涉扩散融资定向金融制裁风险评估机制</li><li><strong>关注名单转发时效，</strong>——避免因延迟导致违反风险</li><li><strong>明确机构内部执行要求，</strong>——防止因要求不明确产生风险</li><li>关注名单对象规避制裁的新手法和新趋势</li><li>风险评估应覆盖所有业务条线和业务环节</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：涉扩散融资定向金融制裁的两类风险</li><li>重点记忆：法律依据为《反洗钱法》第四十条</li><li>关键区分：违反/不执行风险vs规避风险</li><li>违反风险的原因包括转发延迟、要求不明确、未采取措施</li><li>常考多选题：涉扩散融资定向金融制裁风险包括哪些类型</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：法律依据为《反洗钱法》第四十条</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键区分：违反/不执行风险vs规避风险</li><li>违反风险的原因包括转发延迟、要求不明确、未采取措施</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考多选题：涉扩散融资定向金融制裁风险包括哪些类型</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：涉扩散融资定向金融制裁的两类风险</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -473,26 +524,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范涉扩散融资定向金融制裁风险的定期评估与报告义务，是风险评估周期性和报告路径的条款。该条明确了3年评估周期和书面报告要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分三层展开：第一层要求定期评估并及时更新，评估周期原则上最长不超过3年；第二层要求评估与经营规模和业务特征相适应，考虑客户、地域、产品或业务、交易渠道等风险因素，形成书面评估报告；第三层明确报告路径：金融机构报送中国人民银行或所在地分支机构，特定非金融机构报送主管部门或行业自律组织。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>评估周期：原则上最长不超过3年</li><li>评估须与本机构经营规模和业务特征相适应</li><li>风险因素：客户、地域、产品或业务、交易渠道</li><li>须形成书面评估报告</li><li>金融机构报告路径：报送中国人民银行或所在地分支机构</li><li>特定非金融机构报告路径：报送主管部门或行业自律组织</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>反洗钱义务机构应制定3年评估周期计划并严格执行</li><li>评估应覆盖客户、地域、产品、交易渠道四个风险因素维度</li><li>书面评估报告应详实完整，反映评估过程和结论</li><li>注意金融机构与特定非金融机构的报告路径不同</li><li>评估应及时更新，非仅每3年一次</li></ul>
+<ul><li>反洗钱义务机构应制定3年评估周期计划并严格执行</li><li>评估应覆盖客户、地域、产品、交易渠道四个风险因素维度</li><li><strong>书面评估报告应详实完整，</strong>——反映评估过程和结论</li><li>注意金融机构与特定非金融机构的报告路径不同</li><li><strong>评估应及时更新，</strong>——非仅每3年一次</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：评估周期原则上最长不超过3年</li><li>重点记忆：四个风险因素（客户、地域、产品或业务、交易渠道）</li><li>关键要求：须形成书面评估报告</li><li>金融机构与特定非金融机构的报告路径不同</li><li>常考选择题：涉扩散融资定向金融制裁风险评估周期</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：四个风险因素（客户、地域、产品或业务、交易渠道）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：须形成书面评估报告</li><li>金融机构与特定非金融机构的报告路径不同</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考选择题：涉扩散融资定向金融制裁风险评估周期</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：评估周期原则上最长不超过3年</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -510,26 +572,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范反洗钱义务机构基于风险评估结果制定内控制度和风险管理政策的义务，是风险防控措施的内控制度条款。该条明确了高级管理层批准和持续监测要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条包含两层内容：第一层要求根据法律法规、管理指引和风险评估结果，经高级管理层批准，制定或完善内部控制制度、风险管理政策和程序；第二层要求监测上述措施实施情况，必要时进一步加强风险防控措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>制定依据：法律法规、有关部门或行业自律组织的管理规定和指引</li><li>结合国家层面或本机构评估出的风险状况</li><li>须经高级管理层批准</li><li>制定或完善内部控制制度、风险管理政策和程序</li><li>须监测措施实施情况，必要时进一步加强</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>反洗钱义务机构应将涉扩散融资风险纳入内控制度体系</li><li>内控制度和政策须经高级管理层批准，体现高层基调</li><li>风险防控措施应与风险评估结果相匹配</li><li>建立措施实施效果的持续监测机制</li><li>发现措施不足时应及时加强，不可一劳永逸</li></ul>
+<ul><li>反洗钱义务机构应将涉扩散融资风险纳入内控制度体系</li><li><strong>内控制度和政策须经高级管理层批准，</strong>——体现高层基调</li><li>风险防控措施应与风险评估结果相匹配</li><li>建立措施实施效果的持续监测机制</li><li><strong>发现措施不足时应及时加强，</strong>——不可一劳永逸</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：内控制度须经高级管理层批准</li><li>重点记忆：制定依据包括法律法规、管理指引和风险评估结果</li><li>关键要求：须监测措施实施情况并必要时加强</li><li>内控制度、风险管理政策和程序三者并重</li><li>常考判断题：内控制度是否须高管层批准（是）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：制定依据包括法律法规、管理指引和风险评估结果</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键要求：须监测措施实施情况并必要时加强</li><li>常考判断题：内控制度是否须高管层批准（是）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>内控制度、风险管理政策和程序三者并重</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：内控制度须经高级管理层批准</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -547,26 +620,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范反洗钱义务机构基于风险分级采取差异化防控措施的义务，是风险为本原则在涉扩散融资领域的具体应用条款。该条明确了较高风险和较低风险的不同应对策略。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分三层展开：第一层要求对较高风险情形采取适当措施管理和降低风险，包括加强风险防控等；第二层要求对较低风险情形采取与风险相适应的措施，同时确保严格执行《反洗钱法》第四十条规定的特别预防措施义务；第三层明确可在现有反洗钱特别预防措施工作框架下开展评估和防控工作。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>较高风险情形：采取适当措施管理和降低风险</li><li>较低风险情形：采取与风险状况相适应的措施</li><li>较低风险情形仍须确保严格执行《反洗钱法》第四十条特别预防措施义务</li><li>可在现有反洗钱特别预防措施工作框架下开展工作</li><li>体现风险分级管理和差异化防控思路</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>反洗钱义务机构应建立风险分级管理机制</li><li>较高风险情形应采取强化措施（如加强监测、强化尽职调查等）</li><li>较低风险情形虽可简化措施，但特别预防措施义务不可免除</li><li>利用现有反洗钱框架开展涉扩散融资工作，避免重复建设</li><li>风险分级应定期复核，确保与实际风险一致</li></ul>
+<ul><li>反洗钱义务机构应建立风险分级管理机制</li><li>较高风险情形应采取强化措施（如加强监测、强化尽职调查等）</li><li><strong>较低风险情形虽可简化措施，</strong>——但特别预防措施义务不可免除</li><li><strong>利用现有反洗钱框架开展涉扩散融资工作，</strong>——避免重复建设</li><li><strong>风险分级应定期复核，</strong>——确保与实际风险一致</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：较低风险情形仍须严格执行特别预防措施义务</li><li>重点记忆：较高风险和较低风险采取差异化措施</li><li>关键法律：《反洗钱法》第四十条特别预防措施</li><li>可在现有反洗钱特别预防措施框架下开展工作</li><li>常考判断题：较低风险是否可免除特别预防措施义务（否）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：较高风险和较低风险采取差异化措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键法律：《反洗钱法》第四十条特别预防措施</li><li>可在现有反洗钱特别预防措施框架下开展工作</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考判断题：较低风险是否可免除特别预防措施义务（否）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：较低风险情形仍须严格执行特别预防措施义务</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -584,26 +668,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范中国人民银行及其分支机构对金融机构执行涉扩散融资定向金融制裁要求的监督管理职责，是金融机构监管的执法依据条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条结构简洁，规定中国人民银行及其分支机构对金融机构执行本通知的情况，依据《管理办法》第七条、第二十六条的规定进行监督和管理。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>监管主体：中国人民银行及其分支机构</li><li>监管对象：金融机构</li><li>监管内容：执行本通知的情况</li><li>法律依据：《管理办法》第七条、第二十六条</li><li>央行及分支机构共同承担监管职责</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应做好执行本通知的内部记录以备监督检查</li><li>关注《管理办法》第七条和第二十六条的具体要求</li><li>央行及分支机构均可开展监督检查</li><li>定期自查执行情况，及时纠正问题</li><li>监督检查结果可能影响机构风险评估和监管措施</li></ul>
+<ul><li>金融机构应做好执行本通知的内部记录以备监督检查</li><li>关注《管理办法》第七条和第二十六条的具体要求</li><li>央行及分支机构均可开展监督检查</li><li><strong>定期自查执行情况，</strong>——及时纠正问题</li><li>监督检查结果可能影响机构风险评估和监管措施</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：金融机构的监管主体为中国人民银行及其分支机构</li><li>重点记忆：监管依据《管理办法》第七条、第二十六条</li><li>关键对象：金融机构的执行情况</li><li>央行及分支机构共同监管</li><li>常考选择题：对金融机构执行情况的监管依据哪些条款</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：监管依据《管理办法》第七条、第二十六条</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键对象：金融机构的执行情况</li><li>央行及分支机构共同监管</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考选择题：对金融机构执行情况的监管依据哪些条款</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：金融机构的监管主体为中国人民银行及其分支机构</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -621,15 +716,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条规范特定非金融机构主管部门和行业自律组织对特定非金融机构的监督管理职责，是特定非金融机构监管的分工条款。该条明确了行政监管和自律管理双重机制。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两层展开：第一层规定特定非金融机构主管部门依据《管理办法》第七条、第二十七条及相关行业管理规定进行监督和管理；第二层规定行业自律组织依据本行业反洗钱自律规定进行自律管理。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>特定非金融机构监管主体：有关特定非金融机构主管部门</li><li>监管依据：《管理办法》第七条、第二十七条及相关行业管理规定</li><li>自律管理主体：有关行业自律组织</li><li>自律管理依据：本行业反洗钱自律规定</li><li>行政监管与自律管理双重机制并行</li></ul>
 </div>
 <div class="analysis-section">
@@ -638,9 +727,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>高频考点：特定非金融机构的双重监管机制（行政监管+自律管理）</li><li>重点记忆：监管依据《管理办法》第七条、第二十七条</li><li>关键区分：金融机构适用第二十六条，特定非金融机构适用第二十七条</li><li>行业自律组织依据本行业反洗钱自律规定进行自律管理</li><li>常考对比题：金融机构与特定非金融机构监管依据的区别</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆：监管依据《管理办法》第七条、第二十七条</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>关键区分：金融机构适用第二十六条，特定非金融机构适用第二十七条</li><li>行业自律组织依据本行业反洗钱自律规定进行自律管理</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>常考对比题：金融机构与特定非金融机构监管依据的区别</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：特定非金融机构的双重监管机制（行政监管+自律管理）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>

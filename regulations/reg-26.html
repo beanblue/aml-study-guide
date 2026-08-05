@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -424,6 +425,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -497,26 +537,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第1.1条，属于第1章"客户尽职调查的目标与原则"，阐明了客户尽职调查的核心目标。条文从正反两面定义了客户尽职调查的价值定位。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用"目标—两面性"结构。核心目标是通过系统性、动态化的识别、评估和管理机制采取适当措施"了解你的客户"。两面性体现为：一方面为合法客户提供正当服务并匹配业务产品服务，另一方面及时发现客户身份交易或行为异常并采取风险管理措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心目标：通过系统性、动态化机制"了解你的客户"</li><li>正面价值：为合法客户提供正当服务，匹配业务产品服务</li><li>正面要求：确保服务交易符合对客户身份背景、业务需求、风险状况的认识</li><li>负面价值：及时发现客户身份、交易或行为异常</li><li>负面行动：采取适当风险管理措施，在防范打击犯罪中发挥积极作用</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>客户尽职调查须同时兼顾服务便利和风险防控双重目标</li><li>"了解你的客户"是核心方法论，须贯穿全生命周期</li><li>必要时包括对客户资金来源的认识，适用于高风险客户</li><li>业务产品服务匹配度须以客户认知和风险水平为基础</li></ul>
+<ul><li>客户尽职调查须同时兼顾服务便利和风险防控双重目标</li><li><strong>"了解你的客户"是核心方法论，</strong>——须贯穿全生命周期</li><li><strong>必要时包括对客户资金来源的认识，</strong>——适用于高风险客户</li><li>业务产品服务匹配度须以客户认知和风险水平为基础</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆客户尽职调查的核心目标和"了解你的客户"的方法论</li><li>理解客户尽职调查的两面性（服务+防控）</li><li>注意"必要时包括资金来源"的适用条件</li><li>考试可能考查客户尽职调查的目标和价值定位</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆客户尽职调查的核心目标和"了解你的客户"的方法论</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解客户尽职调查的两面性（服务+防控）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户尽职调查的目标和价值定位</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意"必要时包括资金来源"的适用条件</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -537,26 +588,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第1.2条，属于第1章"客户尽职调查的目标与原则"，规定了客户尽职调查的四项工作原则。这四项原则是开展客户尽职调查的基本方法论。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用分项列举结构，分别阐述四项原则：基于风险原则（按风险水平确定措施强度）、全生命周期原则（准入+存续期间持续关注）、勤勉尽责原则（合理适度且视为勤勉尽责）、统筹融合原则（一二三道防线协同）。每项原则包含名称和具体要求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原则一：基于风险原则——按风险水平合理确定措施强度、频率和信息范围</li><li>原则二：全生命周期原则——准入尽职调查+存续期间持续关注</li><li>原则三：勤勉尽责原则——措施合理适度，合理范围内视为勤勉尽责</li><li>原则四：统筹融合原则——一二三道防线协同发力</li><li>四项原则分别从风险适配、时间维度、责任界定、组织协同角度规范工作</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>基于风险原则要求高风险强化、低风险简化，但须持续监测</li><li>全生命周期原则要求关注客户身份和交易的时效性和相关性</li><li>勤勉尽责原则为金融机构提供了合理的责任边界</li><li>统筹融合原则要求一二三道防线在理解认识和管理逻辑上保持一致</li></ul>
+<ul><li><strong>基于风险原则要求高风险强化、低风险简化，</strong>——但须持续监测</li><li>全生命周期原则要求关注客户身份和交易的时效性和相关性</li><li>勤勉尽责原则为金融机构提供了合理的责任边界</li><li>统筹融合原则要求一二三道防线在理解认识和管理逻辑上保持一致</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆四项工作原则的名称</li><li>理解基于风险原则中强化与简化的双向运用</li><li>注意勤勉尽责原则中"合理范围内视为勤勉尽责"的责任界定</li><li>考试可能考查四项原则的内容和运用</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆四项工作原则的名称</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查四项原则的内容和运用</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解基于风险原则中强化与简化的双向运用</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意勤勉尽责原则中"合理范围内视为勤勉尽责"的责任界定</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -578,26 +640,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第2.1条，属于第2章"客户尽职调查的定位与框架"，阐述了客户尽职调查的整体定位及与其他反洗钱工作的关系。条文将客户尽职调查置于洗钱风险管理体系中进行定位。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用"总定位+四关系"结构。总定位：客户尽职调查是反洗钱履职的基础与核心。四关系：与洗钱风险自评估的关系（评估为完善尽调提供依据）、与内控机制建设的关系（基于风险制定制度）、与可疑交易报告的关系（发现涉嫌洗钱及时报送）、与反洗钱特别预防措施的关系（名单提供高风险客户发现契机）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>总定位：客户尽职调查是金融机构反洗钱履职的基础与核心</li><li>与自评估关系：自评估识别风险状况和薄弱环节，是完善尽调的重要依据</li><li>与内控机制关系：基于风险制定更有针对性的尽调制度</li><li>与可疑交易报告关系：尽调中发现涉嫌洗钱应及时报送可疑交易报告</li><li>与特别预防措施关系：名单为发现关联高风险客户提供重要契机</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>客户尽职调查不是孤立工作，须与其他四项反洗钱工作协同推进</li><li>自评估结果应指导客户尽职调查制度的完善</li><li>客户尽职调查中发现的可疑线索应及时转化为可疑交易报告</li><li>名单监控与客户尽职调查应建立联动机制</li></ul>
+<ul><li><strong>客户尽职调查不是孤立工作，</strong>——须与其他四项反洗钱工作协同推进</li><li>自评估结果应指导客户尽职调查制度的完善</li><li>客户尽职调查中发现的可疑线索应及时转化为可疑交易报告</li><li>名单监控与客户尽职调查应建立联动机制</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆客户尽职调查的"基础与核心"定位</li><li>理解客户尽职调查与其他四项反洗钱工作的关系</li><li>注意每种关系的具体互动方式</li><li>考试可能考查客户尽职调查的整体定位和协作关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆客户尽职调查的"基础与核心"定位</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解客户尽职调查与其他四项反洗钱工作的关系</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户尽职调查的整体定位和协作关系</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意每种关系的具体互动方式</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -615,26 +688,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第2.2条，属于第2章"客户尽职调查的定位与框架"，概述了客户尽职调查的主要工作流程。条文为后续章节的具体操作提供了流程框架。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用"三阶段+各阶段内容"结构。三阶段：准入尽职调查、持续尽职调查、风险管理措施。准入阶段包括识别核实身份、识别核实受益所有人、了解业务关系目的、核实代理授权、名单筛查、建立风险画像、形成交易预期七项。持续阶段包括持续监测、定期审核、外部事件触发。风险管理措施包括确定调整业务范围、采取进一步风险管理措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>阶段一：准入尽职调查（含七项内容）</li><li>阶段二：持续尽职调查（含持续监测、定期审核、外部事件触发）</li><li>阶段三：风险管理措施（含确定调整业务范围、采取进一步管理措施）</li><li>准入阶段七项：身份核实、受益所有人、业务目的、代理授权、名单筛查、风险画像、交易预期</li><li>三阶段构成客户尽职调查全流程</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>准入尽职调查是客户关系建立的入口，须完成全部七项工作</li><li>持续尽职调查贯穿业务关系存续期间</li><li>风险管理措施是尽调结果的运用环节</li><li>三阶段形成"准入—持续—管理"的闭环</li></ul>
+<ul><li><strong>准入尽职调查是客户关系建立的入口，</strong>——须完成全部七项工作</li><li>持续尽职调查贯穿业务关系存续期间</li><li>风险管理措施是尽调结果的运用环节</li><li>三阶段形成"准入—持续—管理"的闭环</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆客户尽职调查的三个阶段名称</li><li>记忆准入尽职调查的七项工作内容</li><li>理解三阶段之间的逻辑关系</li><li>考试可能考查工作流程的阶段划分和各阶段内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆客户尽职调查的三个阶段名称</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解三阶段之间的逻辑关系</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查工作流程的阶段划分和各阶段内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>记忆准入尽职调查的七项工作内容</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -654,26 +738,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.1条，属于第3章"准入环节的客户尽职调查"，规定了客户身份识别与核实的要求。条文区分自然人和法人等不同客户类型提出差异化核实要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用"总要求+分类核实"结构。总要求：准确识别登记身份基本信息，通过来源可靠独立的信息核实身份，留存证件复印件或影印件。分类要求：自然人客户须开展三方面核实（证件核实、人证同一性核实、信息真实性核验）；法人、非法人组织和个体工商户客户须核实证件、法定代表人或负责人和授权人证件及信息真实性完整性准确性。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>总要求：准确识别登记身份基本信息，来源可靠独立核实，留存证件复印件或影印件</li><li>自然人核实一：客户身份证件或身份证明文件核实（人工核验、联网核查、身份证鉴别仪）</li><li>自然人核实二：人证同一性核实（人工核验相貌特征、人脸识别技术比对）</li><li>自然人核实三：客户身份信息真实性、完整性、准确性核验</li><li>法人等客户：核实证件、法定代表人或负责人和授权人证件及信息真实性完整性准确性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>身份核实须通过来源可靠、独立的材料或信息系统进行</li><li>自然人客户的三方面核实须同时完成，不可遗漏</li><li>联网核查公民身份信息系统是自然人身份核实的重要工具</li><li>法人客户须核实法定代表人或负责人和授权办理业务人员的身份证件</li></ul>
+<ul><li>身份核实须通过来源可靠、独立的材料或信息系统进行</li><li><strong>自然人客户的三方面核实须同时完成，</strong>——不可遗漏</li><li>联网核查公民身份信息系统是自然人身份核实的重要工具</li><li>法人客户须核实法定代表人或负责人和授权办理业务人员的身份证件</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆身份识别的总要求和自然人的三方面核实内容</li><li>理解"来源可靠、独立"的核实标准</li><li>注意区分自然人与法人客户的差异化核实要求</li><li>考试可能考查身份核实的具体措施和分类要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆身份识别的总要求和自然人的三方面核实内容</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"来源可靠、独立"的核实标准</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查身份核实的具体措施和分类要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意区分自然人与法人客户的差异化核实要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -691,15 +786,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.2条，属于第3章"准入环节的客户尽职调查"，规定了客户受益所有人的识别与核实要求。条文将受益所有人识别与专门管理办法相衔接。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定金融机构应按照《金融机构客户受益所有人识别管理办法》规定识别并采取合理措施核实受益所有人；第二层针对法人客户，要求了解股权结构、识别最终拥有或实际控制法人或享有法人最终收益的自然人。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>规范依据：《金融机构客户受益所有人识别管理办法》</li><li>核心要求：识别并采取合理措施核实客户的受益所有人</li><li>法人客户要求一：了解股权结构</li><li>法人客户要求二：识别最终拥有或实际控制法人或享有法人最终收益的自然人</li><li>受益所有人识别须穿透至最终自然人</li></ul>
 </div>
 <div class="analysis-section">
@@ -708,9 +797,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆受益所有人识别的规范依据</li><li>理解法人客户受益所有人的识别路径（股权结构→最终自然人）</li><li>注意"最终拥有或实际控制"和"享有最终收益"两种认定标准</li><li>考试可能考查受益所有人识别的要求和法人客户的特殊规定</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆受益所有人识别的规范依据</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解法人客户受益所有人的识别路径（股权结构→最终自然人）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查受益所有人识别的要求和法人客户的特殊规定</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意"最终拥有或实际控制"和"享有最终收益"两种认定标准</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -728,15 +834,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.3条，属于第3章"准入环节的客户尽职调查"，规定了了解客户建立业务关系或进行交易的目的和性质的要求。条文强调了解深度须与风险相匹配。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定金融机构应了解客户建立业务关系或进行交易的目的和性质；第二层规定对于不同风险等级的客户和业务，了解的深度和广度应与风险状况相匹配。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：了解客户建立业务关系或进行交易的目的和性质</li><li>匹配原则：了解的深度和广度应与风险状况相匹配</li><li>差异化处理：不同风险等级的客户和业务适用不同了解深度</li><li>体现了基于风险原则在准入环节的具体运用</li></ul>
 </div>
 <div class="analysis-section">
@@ -745,9 +845,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆了解业务关系目的和性质的核心要求</li><li>理解了解深度和广度与风险状况相匹配的原则</li><li>注意不同风险等级的差异化处理要求</li><li>考试可能考查了解业务关系目的的匹配原则</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆了解业务关系目的和性质的核心要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解了解深度和广度与风险状况相匹配的原则</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查了解业务关系目的的匹配原则</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意不同风险等级的差异化处理要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -765,15 +882,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.4条，属于第3章"准入环节的客户尽职调查"，规定了核实代理与授权关系的要求。条文区分不同客户类型列举核实内容。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用总述+分类列举结构。总述：金融机构应核实代理与授权关系。分类列举：自然人客户的代理关系核实、非自然人客户的授权关系核实、代理人为非自然人主体的身份核实。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：核实代理与授权关系</li><li>核实类型一：自然人客户的代理关系核实</li><li>核实类型二：非自然人客户的授权关系核实</li><li>核实类型三：代理人为非自然人主体的身份核实</li><li>代理与授权核实是防范冒名操作的重要环节</li></ul>
 </div>
 <div class="analysis-section">
@@ -782,9 +893,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆代理与授权关系核实的三种类型</li><li>理解自然人代理与非自然人授权的区别</li><li>注意代理人为非自然人主体时的双重核实要求</li><li>考试可能考查代理与授权关系核实的内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆代理与授权关系核实的三种类型</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解自然人代理与非自然人授权的区别</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查代理与授权关系核实的内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意代理人为非自然人主体时的双重核实要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -802,26 +930,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.5条，属于第3章"准入环节的客户尽职调查"，规定了准入环节名单筛查的要求。条文将反洗钱特别预防措施与客户准入相衔接。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定金融机构应在准入环节开展反洗钱特别预防措施名单筛查；第二层规定筛查覆盖范围——覆盖所有客户及其相关方，确保不与名单所列对象建立业务关系。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：在准入环节开展反洗钱特别预防措施名单筛查</li><li>覆盖范围：覆盖所有客户及其相关方</li><li>筛查目标：确保不与名单所列对象建立业务关系</li><li>筛查时点：准入环节（业务关系建立前）</li><li>与反洗钱特别预防措施工作衔接</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>名单筛查应在业务关系建立前完成，不得事后补做</li><li>筛查范围须覆盖客户本人及其相关方（受益所有人、代理人等）</li><li>筛查命中后应按照反洗钱特别预防措施要求处理</li><li>应建立名单更新机制，确保使用最新名单</li></ul>
+<ul><li><strong>名单筛查应在业务关系建立前完成，</strong>——不得事后补做</li><li>筛查范围须覆盖客户本人及其相关方（受益所有人、代理人等）</li><li>筛查命中后应按照反洗钱特别预防措施要求处理</li><li><strong>应建立名单更新机制，</strong>——确保使用最新名单</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆名单筛查的时点（准入环节）和覆盖范围</li><li>理解筛查目标是确保不与名单对象建立业务关系</li><li>注意筛查覆盖客户及相关方</li><li>考试可能考查名单筛查的要求和覆盖范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆名单筛查的时点（准入环节）和覆盖范围</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解筛查目标是确保不与名单对象建立业务关系</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查名单筛查的要求和覆盖范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意筛查覆盖客户及相关方</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -839,15 +978,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.6条，属于第3章"准入环节的客户尽职调查"，规定了建立客户风险画像的要求。条文为客户风险等级评定和持续监测奠定基础。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定金融机构应基于获取的客户身份信息、交易预期等信息建立客户风险画像；第二层明确风险画像的用途——为客户洗钱风险等级评定和持续监测提供基础。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：建立客户风险画像</li><li>信息来源：客户身份信息、交易预期等</li><li>用途一：为客户洗钱风险等级评定提供基础</li><li>用途二：为持续监测提供基础</li><li>风险画像是客户风险管理的起点</li></ul>
 </div>
 <div class="analysis-section">
@@ -856,9 +989,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆客户风险画像的信息来源和用途</li><li>理解风险画像在风险等级评定和持续监测中的基础作用</li><li>注意画像应基于多维度信息综合建立</li><li>考试可能考查客户风险画像的建立要求和用途</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆客户风险画像的信息来源和用途</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解风险画像在风险等级评定和持续监测中的基础作用</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户风险画像的建立要求和用途</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意画像应基于多维度信息综合建立</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -876,15 +1026,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.7条，属于第3章"准入环节的客户尽职调查"，规定了形成客户交易预期的要求。条文为持续监测提供参照基准。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定金融机构应根据对客户身份、业务性质、风险状况等的了解形成对客户未来交易的合理预期；第二层明确交易预期的用途——为持续监测提供参照基准。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：形成对客户未来交易的合理预期</li><li>预期依据：对客户身份、业务性质、风险状况的了解</li><li>预期对象：客户未来交易</li><li>核心用途：为持续监测提供参照基准</li><li>交易预期是判断交易异常性的基准</li></ul>
 </div>
 <div class="analysis-section">
@@ -893,9 +1037,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆交易预期的形成依据和用途</li><li>理解交易预期作为持续监测参照基准的作用</li><li>注意预期应基于身份、业务性质、风险状况的综合了解</li><li>考试可能考查客户交易预期的要求和作用</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆交易预期的形成依据和用途</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解交易预期作为持续监测参照基准的作用</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户交易预期的要求和作用</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意预期应基于身份、业务性质、风险状况的综合了解</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -913,15 +1074,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.8条，属于第3章"准入环节的客户尽职调查"，规定了针对高风险情形的强化尽职调查措施。条文列举了常见高风险情形和强化措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层列举需开展强化尽职调查的常见情形（高风险国家或地区客户、外国政要、客户行为或交易异常等）；第二层列举强化尽职调查措施（获取更多信息了解身份和交易背景、获取资金来源和财富来源信息、获取高级管理层批准建立或维持业务关系等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>高风险情形一：客户来自高风险国家或地区</li><li>高风险情形二：客户为外国政要</li><li>高风险情形三：客户行为或交易存在异常</li><li>强化措施一：获取更多信息了解客户身份和交易背景</li><li>强化措施二：获取客户资金来源和财富来源信息</li></ul>
 </div>
 <div class="analysis-section">
@@ -930,9 +1085,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆需开展强化尽职调查的三类常见情形</li><li>记忆强化尽职调查的具体措施</li><li>理解资金来源和财富来源信息的重要性</li><li>考试可能考查强化尽职调查的触发情形和措施内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆需开展强化尽职调查的三类常见情形</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解资金来源和财富来源信息的重要性</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记忆强化尽职调查的具体措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试可能考查强化尽职调查的触发情形和措施内容</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -950,26 +1122,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第3.9条，属于第3章"准入环节的客户尽职调查"，规定了针对低风险情形采取简化尽职调查措施的要求和限制。条文与强化尽调形成对照。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三个层次：第一层规定简化前提（经风险评估且有充足理由判断洗钱风险较低）；第二层规定简化措施（可采取简化的尽职调查措施但须持续监测风险变化）；第三层规定禁止情形（怀疑客户或交易涉嫌洗钱等高风险情形时不得采取简化措施）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>简化前提：经过风险评估且具有充足理由判断洗钱风险较低</li><li>简化措施：可采取简化的尽职调查措施</li><li>持续监测：应持续监测其风险状况的变化</li><li>禁止情形：怀疑客户或交易涉嫌洗钱等高风险情形时不得采取简化措施</li><li>简化与强化形成基于风险的差异化尽调体系</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>简化措施须以风险评估和充足理由为前提，不可随意简化</li><li>即使简化，持续监测义务不可免除</li><li>一旦出现涉嫌洗钱情形，应立即停止简化并采取强化措施</li><li>简化措施的适用应定期审查</li></ul>
+<ul><li><strong>简化措施须以风险评估和充足理由为前提，</strong>——不可随意简化</li><li><strong>即使简化，</strong>——持续监测义务不可免除</li><li><strong>一旦出现涉嫌洗钱情形，</strong>——应立即停止简化并采取强化措施</li><li>简化措施的适用应定期审查</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆简化尽调的前提条件</li><li>理解简化措施中持续监测的不可免除性</li><li>注意涉嫌洗钱时的禁止简化要求</li><li>考试可能考查简化尽调的适用条件和限制</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆简化尽调的前提条件</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解简化措施中持续监测的不可免除性</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查简化尽调的适用条件和限制</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意涉嫌洗钱时的禁止简化要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -987,15 +1170,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第4.1条，属于第4章"客户洗钱风险等级评定与调整"，规定了客户洗钱风险等级评定的要求。条文为客户分类管理提供基础。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定评定依据——根据客户特征、地域、业务、渠道等风险因素进行评定；第二层规定评定方法——基于风险评估方法，综合考虑客户身份特征、交易特征和行为特征等因素。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>评定依据：客户特征、地域、业务、渠道等风险因素</li><li>评定方法：基于风险评估方法</li><li>综合考量：客户身份特征、交易特征和行为特征</li><li>评定目标：对客户进行洗钱风险等级评定</li><li>风险等级是客户分类管理的基础</li></ul>
 </div>
 <div class="analysis-section">
@@ -1004,9 +1181,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆风险等级评定的依据（四维度风险因素）</li><li>理解评定的三大综合考量因素</li><li>注意评定方法须基于风险评估方法</li><li>考试可能考查客户风险等级评定的依据和方法</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆风险等级评定的依据（四维度风险因素）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解评定的三大综合考量因素</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户风险等级评定的依据和方法</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意评定方法须基于风险评估方法</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1024,26 +1218,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第4.2条，属于第4章"客户洗钱风险等级评定与调整"，规定了客户洗钱风险等级调整的要求。条文强调风险等级的动态性。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定调整要求——根据客户风险状况变化及时调整风险等级；第二层列举风险状况变化情形（客户身份信息变更、交易行为异常、涉及司法调查、名单匹配等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：根据客户风险状况变化及时调整洗钱风险等级</li><li>变化情形一：客户身份信息变更</li><li>变化情形二：交易行为异常</li><li>变化情形三：涉及司法调查</li><li>变化情形四：名单匹配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>风险等级调整应及时，不应等待定期审核</li><li>应建立风险状况变化的监测和触发机制</li><li>调整后的风险等级应及时通知相关业务条线</li><li>调整记录应留存，便于追溯</li></ul>
+<ul><li><strong>风险等级调整应及时，</strong>——不应等待定期审核</li><li>应建立风险状况变化的监测和触发机制</li><li>调整后的风险等级应及时通知相关业务条线</li><li><strong>调整记录应留存，</strong>——便于追溯</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆风险等级调整的核心要求</li><li>记忆风险状况变化的四类情形</li><li>理解"及时调整"的动态性要求</li><li>考试可能考查风险等级调整的触发情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆风险等级调整的核心要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"及时调整"的动态性要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记忆风险状况变化的四类情形</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试可能考查风险等级调整的触发情形</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1061,26 +1266,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第4.3条，属于第4章"客户洗钱风险等级评定与调整"，规定了风险隔离情况下的客户风险等级管理。条文为差异化风险管理提供灵活性。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文简洁，规定金融机构在实施风险隔离的情况下，可对不同业务条线或产品的同一客户采取差异化的风险等级管理措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>前提条件：实施风险隔离</li><li>管理方式：对不同业务条线或产品的同一客户采取差异化风险等级</li><li>适用对象：同一客户在不同业务条线或产品</li><li>核心特点：差异化风险等级管理</li><li>体现了风险隔离与差异化管理的结合</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>风险隔离是差异化风险等级管理的前提条件</li><li>同一客户在不同业务条线可有不同风险等级</li><li>风险隔离措施应确保不同业务条线之间的风险不传染</li><li>差异化等级管理应记录在案，便于管理追溯</li></ul>
+<ul><li>风险隔离是差异化风险等级管理的前提条件</li><li>同一客户在不同业务条线可有不同风险等级</li><li>风险隔离措施应确保不同业务条线之间的风险不传染</li><li><strong>差异化等级管理应记录在案，</strong>——便于管理追溯</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆差异化风险等级管理的前提（风险隔离）</li><li>理解同一客户在不同业务条线可有不同等级</li><li>注意风险隔离与差异化管理的逻辑关系</li><li>考试可能考查风险隔离下的风险等级管理要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆差异化风险等级管理的前提（风险隔离）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解同一客户在不同业务条线可有不同等级</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查风险隔离下的风险等级管理要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意风险隔离与差异化管理的逻辑关系</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1098,26 +1314,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第4.4条，属于第4章"客户洗钱风险等级评定与调整"，规定了客户洗钱风险等级指标体系的建立要求。条文为风险等级评定提供指标支撑。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定建立要求——金融机构应建立客户洗钱风险等级指标体系；第二层列举指标维度——包括客户维度、地域维度、产品或业务维度、渠道维度等风险指标；第三层规定维护要求——定期评估和更新指标体系。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>建立要求：建立客户洗钱风险等级指标体系</li><li>指标维度一：客户维度</li><li>指标维度二：地域维度</li><li>指标维度三：产品或业务维度</li><li>指标维度四：渠道维度</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>指标体系应覆盖四个维度的风险指标</li><li>指标设计应具有可计量性和可操作性</li><li>指标体系须定期评估和更新，保持有效性</li><li>指标权重设置应反映各维度风险的重要程度</li></ul>
+<ul><li>指标体系应覆盖四个维度的风险指标</li><li>指标设计应具有可计量性和可操作性</li><li><strong>指标体系须定期评估和更新，</strong>——保持有效性</li><li>指标权重设置应反映各维度风险的重要程度</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆指标体系的四个维度</li><li>理解定期评估和更新的维护要求</li><li>注意指标体系是风险等级评定的工具基础</li><li>考试可能考查指标体系的维度和维护要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆指标体系的四个维度</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解定期评估和更新的维护要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查指标体系的维度和维护要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意指标体系是风险等级评定的工具基础</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1135,15 +1362,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.1条，属于第5章"持续尽职调查"，概述了持续尽职调查的主要措施。条文为持续尽职调查的具体实施提供框架。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用分项列举结构，列举四项措施：持续关注客户身份信息变化、持续监测客户交易情况、定期审核客户身份资料和风险状况、在外部事件发生时触发尽职调查。四项措施覆盖被动监测和主动审核两种模式。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>措施一：持续关注客户身份信息变化</li><li>措施二：持续监测客户交易情况</li><li>措施三：定期审核客户身份资料和风险状况</li><li>措施四：在外部事件发生时触发尽职调查</li><li>四项措施覆盖被动监测和主动审核两种模式</li></ul>
 </div>
 <div class="analysis-section">
@@ -1152,9 +1373,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆持续尽职调查的四项措施</li><li>理解被动监测（关注、监测）与主动审核（定期审核）的区别</li><li>注意外部事件触发的及时性要求</li><li>考试可能考查持续尽职调查的措施内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆持续尽职调查的四项措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解被动监测（关注、监测）与主动审核（定期审核）的区别</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查持续尽职调查的措施内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意外部事件触发的及时性要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1172,26 +1410,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.2条，属于第5章"持续尽职调查"，规定了一般情形下持续尽职调查的具体内容。条文列举了五种触发持续尽调的情形。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用分项列举结构，列举五项内容：依客户申请变更重要信息或更新证件时开展尽调、持续监测触发（交易异常预警等）、对先前获得的客户身份资料存疑时核实、定期审核（按风险等级确定周期）、外部事件触发（名单调整、监管要求等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>触发情形一：依客户申请变更重要信息或更新证件时</li><li>触发情形二：持续监测触发（交易异常预警等）</li><li>触发情形三：对先前获得的客户身份资料真实性有效性完整性存疑时</li><li>触发情形四：定期审核（按客户风险等级确定审核周期）</li><li>触发情形五：外部事件触发（名单调整、监管要求等）</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>客户信息变更时应同步更新身份资料和风险等级</li><li>交易异常预警应及时排查并采取相应措施</li><li>身份资料存疑时应及时核实，不可放任不管</li><li>定期审核周期应与风险等级挂钩，高风险客户缩短周期</li></ul>
+<ul><li>客户信息变更时应同步更新身份资料和风险等级</li><li>交易异常预警应及时排查并采取相应措施</li><li><strong>身份资料存疑时应及时核实，</strong>——不可放任不管</li><li><strong>定期审核周期应与风险等级挂钩，</strong>——高风险客户缩短周期</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆一般情形下持续尽调的五种触发情形</li><li>理解定期审核周期与风险等级的关联</li><li>注意身份资料存疑时的核实义务</li><li>考试可能考查持续尽调的触发情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆一般情形下持续尽调的五种触发情形</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解定期审核周期与风险等级的关联</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查持续尽调的触发情形</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意身份资料存疑时的核实义务</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1209,26 +1458,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.3条，属于第5章"持续尽职调查"，规定了针对风险较高情形的强化持续尽职调查措施。条文与准入环节强化尽调相呼应。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定适用条件（风险较高的情形）；第二层列举强化措施（缩短定期审核周期、提高交易监测频率和强度、获取更多信息了解客户交易背景和资金来源等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用条件：风险较高的情形</li><li>强化措施一：缩短定期审核周期</li><li>强化措施二：提高交易监测频率和强度</li><li>强化措施三：获取更多信息了解客户交易背景和资金来源</li><li>强化持续尽调是动态风险管理的重要手段</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>高风险客户应缩短审核周期，增加审核频次</li><li>交易监测频率和强度应随风险等级提升而加强</li><li>交易背景和资金来源信息是高风险客户的核心关注</li><li>强化措施应与客户风险等级相匹配</li></ul>
+<ul><li><strong>高风险客户应缩短审核周期，</strong>——增加审核频次</li><li>交易监测频率和强度应随风险等级提升而加强</li><li>交易背景和资金来源信息是高风险客户的核心关注</li><li>强化措施应与客户风险等级相匹配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆强化持续尽调的三项措施</li><li>理解缩短审核周期和提高监测频率的作用</li><li>注意获取交易背景和资金来源信息的重要性</li><li>考试可能考查强化持续尽调的措施内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆强化持续尽调的三项措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解缩短审核周期和提高监测频率的作用</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查强化持续尽调的措施内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意获取交易背景和资金来源信息的重要性</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1246,26 +1506,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.4条，属于第5章"持续尽职调查"，规定了针对风险较低情形的简化持续尽职调查措施。条文与强化持续尽调形成对照。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定适用条件（风险较低的情形）和简化措施（延长定期审核周期、降低交易监测频率和强度等）；第二层规定持续监测义务（应持续监测风险状况变化）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用条件：风险较低的情形</li><li>简化措施一：延长定期审核周期</li><li>简化措施二：降低交易监测频率和强度</li><li>持续义务：应持续监测风险状况变化</li><li>简化不等于免除，持续监测义务不可免除</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>简化措施应与低风险状况相匹配，不可过度简化</li><li>即使降低监测频率，仍须保持对风险变化的敏感度</li><li>风险状况变化时应及时恢复常态或强化措施</li><li>简化措施的适用应定期审查</li></ul>
+<ul><li><strong>简化措施应与低风险状况相匹配，</strong>——不可过度简化</li><li><strong>即使降低监测频率，</strong>——仍须保持对风险变化的敏感度</li><li>风险状况变化时应及时恢复常态或强化措施</li><li>简化措施的适用应定期审查</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆简化持续尽调的两项措施</li><li>理解简化后持续监测义务的不可免除性</li><li>注意风险变化时恢复常态的要求</li><li>考试可能考查简化持续尽调的措施和限制</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆简化持续尽调的两项措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解简化后持续监测义务的不可免除性</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查简化持续尽调的措施和限制</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意风险变化时恢复常态的要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1283,26 +1554,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.5条，属于第5章"持续尽职调查"，规定了持续尽职调查中的注意事项。条文为持续尽调的规范执行提供警示性指引。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用分项列举结构，列举三项注意事项：不得仅以客户未配合为由终止业务关系而不采取其他措施、对持续监测中发现的异常应及时处理、应完整保存持续尽职调查工作记录。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>注意一：不得仅以客户未配合为由终止业务关系而不采取其他措施</li><li>注意二：对持续监测中发现的异常应及时处理</li><li>注意三：应完整保存持续尽职调查工作记录</li><li>三项注意事项分别涉及终止限制、异常处理和记录保存</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>客户不配合时应先采取其他管理措施（如限制业务等），不可直接终止</li><li>异常发现后应及时排查和处置，不可拖延</li><li>工作记录是证明勤勉尽责的重要依据，须完整保存</li><li>三项注意事项共同保障持续尽调的规范性和有效性</li></ul>
+<ul><li><strong>客户不配合时应先采取其他管理措施（如限制业务等），</strong>——不可直接终止</li><li><strong>异常发现后应及时排查和处置，</strong>——不可拖延</li><li><strong>工作记录是证明勤勉尽责的重要依据，</strong>——须完整保存</li><li>三项注意事项共同保障持续尽调的规范性和有效性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆三项注意事项的内容</li><li>理解"不得仅以未配合为由终止"的限制</li><li>注意工作记录保存的重要性</li><li>考试可能考查持续尽调的注意事项</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>考试可能考查持续尽调的注意事项</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"不得仅以未配合为由终止"的限制</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>注意工作记录保存的重要性</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>重点记忆三项注意事项的内容</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1320,26 +1602,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第5.6条，属于第5章"持续尽职调查"，规定了金融机构在客户尽职调查中的相互配合要求。条文为跨机构信息共享提供规范。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定相互配合要求——金融机构在客户尽职调查中应相互配合；第二层规定配合方式——在法律法规允许范围内共享客户身份信息和风险评估结果，提高尽职调查的有效性和效率。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：金融机构在客户尽职调查中应相互配合</li><li>配合方式：在法律法规允许的范围内共享客户身份信息和风险评估结果</li><li>配合目的：提高尽职调查的有效性和效率</li><li>配合边界：须在法律法规允许范围内</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>信息共享须严格遵守法律法规的限制，不得违规共享</li><li>共享内容应限于客户身份信息和风险评估结果</li><li>信息共享应有保密措施和记录</li><li>相互配合有助于降低重复尽调成本，提高效率</li></ul>
+<ul><li><strong>信息共享须严格遵守法律法规的限制，</strong>——不得违规共享</li><li>共享内容应限于客户身份信息和风险评估结果</li><li>信息共享应有保密措施和记录</li><li><strong>相互配合有助于降低重复尽调成本，</strong>——提高效率</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆相互配合的核心要求和方式</li><li>理解"法律法规允许范围内"的边界限制</li><li>注意共享内容限于身份信息和风险评估结果</li><li>考试可能考查金融机构相互配合的要求和限制</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆相互配合的核心要求和方式</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"法律法规允许范围内"的边界限制</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查金融机构相互配合的要求和限制</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意共享内容限于身份信息和风险评估结果</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1357,26 +1650,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第6.1条，属于第6章"特殊情形下的客户尽职调查要求"，规定了对外国政要和国际组织高级管理人员的强化尽职调查要求。条文是特殊客户类型的重点条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定适用对象（外国政要和国际组织高级管理人员，无论作为客户还是受益所有人）；第二层列举强化措施（获取高级管理层批准建立业务关系、了解财富来源和资金来源、持续加强交易监测等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用对象：外国政要和国际组织高级管理人员（无论作为客户还是受益所有人）</li><li>强化措施一：获取高级管理层批准建立业务关系</li><li>强化措施二：了解财富来源和资金来源</li><li>强化措施三：持续加强交易监测</li><li>外国政要尽调是FATF建议的重点内容</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>外国政要尽调须覆盖其作为客户和作为受益所有人两种情形</li><li>高级管理层批准是建立关系的必要前置程序</li><li>财富来源和资金来源是核心关注点</li><li>交易监测应持续加强，不可仅限于准入环节</li></ul>
+<ul><li>外国政要尽调须覆盖其作为客户和作为受益所有人两种情形</li><li>高级管理层批准是建立关系的必要前置程序</li><li>财富来源和资金来源是核心关注点</li><li><strong>交易监测应持续加强，</strong>——不可仅限于准入环节</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆外国政要的适用范围（客户或受益所有人）</li><li>记忆三项强化措施</li><li>理解高级管理层批准程序的重要性</li><li>考试可能考查外国政要尽调的适用对象和措施</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆外国政要的适用范围（客户或受益所有人）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查外国政要尽调的适用对象和措施</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解高级管理层批准程序的重要性</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>记忆三项强化措施</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1394,15 +1698,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第6.2条，属于第6章"特殊情形下的客户尽职调查要求"，规定了对来自或涉及高风险国家（地区）客户的强化尽职调查要求。条文将地域风险与客户尽调相衔接。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定适用对象（来自或涉及高风险国家或地区的客户）；第二层列举强化措施（了解客户与高风险国家或地区的关联关系、获取更多信息评估洗钱风险等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用对象：来自或涉及高风险国家（地区）的客户</li><li>强化措施一：了解客户与高风险国家（地区）的关联关系</li><li>强化措施二：获取更多信息评估洗钱风险</li><li>地域风险是客户风险评估的重要维度</li><li>高风险国家认定应以FATF等国际组织公布名单为参考</li></ul>
 </div>
 <div class="analysis-section">
@@ -1411,9 +1709,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆高风险国家客户的适用对象</li><li>理解关联关系了解和信息获取两项强化措施</li><li>注意高风险国家认定应参考国际组织名单</li><li>考试可能考查高风险国家客户尽调的要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆高风险国家客户的适用对象</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解关联关系了解和信息获取两项强化措施</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查高风险国家客户尽调的要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意高风险国家认定应参考国际组织名单</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1431,15 +1746,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第6.3条，属于第6章"特殊情形下的客户尽职调查要求"，规定了建立代理行或类似业务关系前的尽职调查要求。条文为同业业务的风险管理提供规范。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分项列举四项要求：收集并充分了解代理行相关信息、评估代理行的反洗钱内控有效性、获取高级管理层批准、持续关注代理行的风险状况。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>要求一：收集并充分了解代理行相关信息</li><li>要求二：评估代理行的反洗钱内控有效性</li><li>要求三：获取高级管理层批准</li><li>要求四：持续关注代理行的风险状况</li><li>代理行业务关系建立前须完成全部四项工作</li></ul>
 </div>
 <div class="analysis-section">
@@ -1448,9 +1757,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆代理行尽调的四项要求</li><li>理解内控有效性评估的重要性</li><li>注意高级管理层批准的前置性</li><li>考试可能考查代理行业务关系建立前的尽调要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆代理行尽调的四项要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解内控有效性评估的重要性</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查代理行业务关系建立前的尽调要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意高级管理层批准的前置性</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1468,26 +1794,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第6.4条，属于第6章"特殊情形下的客户尽职调查要求"，规定了汇款业务中各机构的尽职调查和信息处理要求。条文区分汇款机构、中间机构和收款机构规定差异化要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层分项规定三类机构的要求（汇款机构收集和保存汇款人信息、中间机构检查汇款信息完整性并采取措施、收款机构检查汇款信息完整性并采取措施）；第二层规定总体要求——确保汇款人信息、收款人信息等要素的完整性和准确性。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>汇款机构要求：按要求收集和保存汇款人信息</li><li>中间机构要求：检查汇款信息是否完整并采取相应措施</li><li>收款机构要求：检查汇款信息是否完整并采取相应措施</li><li>总体要求：确保汇款人信息、收款人信息等要素的完整性和准确性</li><li>三类机构在汇款链条中各有明确职责</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>汇款机构是信息收集的源头，须确保信息完整</li><li>中间机构应检查信息完整性，缺失时应采取补全或报告措施</li><li>收款机构应核验汇款信息，发现问题及时处理</li><li>信息完整性是汇款业务风险防控的核心</li></ul>
+<ul><li><strong>汇款机构是信息收集的源头，</strong>——须确保信息完整</li><li><strong>中间机构应检查信息完整性，</strong>——缺失时应采取补全或报告措施</li><li><strong>收款机构应核验汇款信息，</strong>——发现问题及时处理</li><li>信息完整性是汇款业务风险防控的核心</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆汇款业务中三类机构的不同要求</li><li>理解信息完整性在汇款业务中的核心地位</li><li>注意汇款人和收款人信息要素的完整性要求</li><li>考试可能考查汇款业务各机构的职责</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆汇款业务中三类机构的不同要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解信息完整性在汇款业务中的核心地位</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查汇款业务各机构的职责</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意汇款人和收款人信息要素的完整性要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1505,26 +1842,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第6.5条，属于第6章"特殊情形下的客户尽职调查要求"，规定了依托第三方履行客户尽职调查义务的要求和限制。条文为第三方尽调提供规范框架。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三个层次：第一层规定可依托第三方履行尽调义务；第二层规定责任归属——确保第三方措施符合要求并对第三方结果承担最终责任；第三层规定管理要求——评估第三方可靠性并获取必要的尽调信息。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>允许依托：金融机构可以依托第三方履行客户尽职调查义务</li><li>责任归属：对第三方尽职调查结果承担最终责任</li><li>管理要求一：确保第三方采取的尽职调查措施符合要求</li><li>管理要求二：评估第三方的可靠性</li><li>管理要求三：获取必要的尽职调查信息</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>依托第三方不转移最终责任，金融机构仍负最终责任</li><li>第三方可靠性评估应在合作前和合作中持续进行</li><li>须获取第三方尽调的原始信息或工作底稿</li><li>第三方尽调措施标准应与本机构要求一致</li></ul>
+<ul><li><strong>依托第三方不转移最终责任，</strong>——金融机构仍负最终责任</li><li>第三方可靠性评估应在合作前和合作中持续进行</li><li>须获取第三方尽调的原始信息或工作底稿</li><li>第三方尽调措施标准应与本机构要求一致</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆依托第三方的三个层次要求</li><li>理解"最终责任"不因依托第三方而转移</li><li>注意第三方可靠性评估和必要信息获取的要求</li><li>考试可能考查依托第三方尽调的责任归属和管理要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆依托第三方的三个层次要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"最终责任"不因依托第三方而转移</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查依托第三方尽调的责任归属和管理要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意第三方可靠性评估和必要信息获取的要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1542,26 +1890,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第7.1条，属于第7章"客户尽职调查后的风险缓释"，规定了根据尽调结果确定或调整业务范围的要求。条文将尽调结果与业务管理相衔接。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定核心要求——根据尽调结果确定或调整与客户签订的业务范围或提供的金融服务类型；第二层规定风险缓释措施——对风险较高的客户限制其业务范围或服务类型。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核心要求：根据尽调结果确定或调整业务范围或服务类型</li><li>风险缓释：对风险较高的客户限制其业务范围或服务类型</li><li>决策依据：客户尽职调查结果</li><li>调整方向：高风险客户做减法（限制），低风险客户做加法（放开）</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>业务范围和服务类型应与客户风险等级挂钩</li><li>高风险客户应限制高风险业务或服务类型</li><li>限制措施应明确具体，便于业务条线执行</li><li>尽调结果变化时应及时调整业务范围</li></ul>
+<ul><li>业务范围和服务类型应与客户风险等级挂钩</li><li>高风险客户应限制高风险业务或服务类型</li><li><strong>限制措施应明确具体，</strong>——便于业务条线执行</li><li>尽调结果变化时应及时调整业务范围</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆根据尽调结果确定或调整业务范围的要求</li><li>理解对高风险客户限制业务范围的缓释逻辑</li><li>注意业务范围与风险等级的挂钩关系</li><li>考试可能考查尽调后风险缓释的业务范围调整要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆根据尽调结果确定或调整业务范围的要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解对高风险客户限制业务范围的缓释逻辑</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查尽调后风险缓释的业务范围调整要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意业务范围与风险等级的挂钩关系</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1579,15 +1938,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第7.2条，属于第7章"客户尽职调查后的风险缓释"，规定了对高风险客户采取进一步洗钱风险管理措施的要求。条文列举了多种风险管理手段。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定适用条件（风险较高的客户）；第二层列举进一步管理措施（调高风险等级、限制交易、加强监测、拒绝建立或维持业务关系、向有关部门报告等）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用条件：风险较高的客户</li><li>措施一：调高风险等级</li><li>措施二：限制交易</li><li>措施三：加强监测</li><li>措施四和五：拒绝建立或维持业务关系、向有关部门报告</li></ul>
 </div>
 <div class="analysis-section">
@@ -1596,9 +1949,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆五项进一步风险管理措施</li><li>理解各项措施的适用层级（从调高等级到拒绝关系递进）</li><li>注意向有关部门报告的情形</li><li>考试可能考查高风险客户的管理措施</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆五项进一步风险管理措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解各项措施的适用层级（从调高等级到拒绝关系递进）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查高风险客户的管理措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意向有关部门报告的情形</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1616,15 +1986,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第8.1条，属于第8章"保障客户尽职调查工作有效开展的内控机制"，规定了客户尽职调查工作管理体系的建立要求。条文从高层重视、协同配合和统筹管理三个维度构建管理体系。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三个层次：第一层规定高级管理层的重视和资源保障；第二层规定各条线各部门的职责明晰和协同配合；第三层规定总部对分支机构的统筹管理和监督指导。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>维度一：高级管理层的充分重视和资源保障</li><li>维度二：各条线各部门明晰职责、协同配合</li><li>维度三：总部对分支机构的统筹管理和监督指导</li><li>管理体系特征：自上而下的统筹管理</li><li>三个维度构成完整的客户尽职调查工作管理体系</li></ul>
 </div>
 <div class="analysis-section">
@@ -1633,9 +1997,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆管理体系的三个维度</li><li>理解高级管理层重视在管理体系中的引领作用</li><li>注意总部对分支机构统筹管理和监督指导的要求</li><li>考试可能考查客户尽职调查工作管理体系的构成</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆管理体系的三个维度</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解高级管理层重视在管理体系中的引领作用</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户尽职调查工作管理体系的构成</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意总部对分支机构统筹管理和监督指导的要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1653,26 +2034,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第8.2条，属于第8章"保障客户尽职调查工作有效开展的内控机制"，规定了客户尽职调查信息系统的建立要求。条文为尽调工作提供技术支撑规范。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定建立要求——建立便捷高效的客户尽职调查信息系统；第二层列举系统功能——支持客户身份信息管理、风险评级、持续监测、名单筛查等功能，确保信息的完整性、准确性和时效性。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>建立要求：建立便捷高效的客户尽职调查信息系统</li><li>功能一：客户身份信息管理</li><li>功能二：风险评级</li><li>功能三：持续监测</li><li>功能四：名单筛查</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>信息系统应整合身份管理、风险评级、监测和筛查功能</li><li>系统设计应确保信息的完整性、准确性和时效性</li><li>系统应支持便捷高效的操作，降低尽调成本</li><li>系统数据应与其他反洗钱系统互联互通</li></ul>
+<ul><li>信息系统应整合身份管理、风险评级、监测和筛查功能</li><li>系统设计应确保信息的完整性、准确性和时效性</li><li><strong>系统应支持便捷高效的操作，</strong>——降低尽调成本</li><li>系统数据应与其他反洗钱系统互联互通</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆信息系统的四项功能</li><li>理解信息完整性、准确性和时效性的质量要求</li><li>注意"便捷高效"是系统建设的核心目标</li><li>考试可能考查信息系统功能和数据质量要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆信息系统的四项功能</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解信息完整性、准确性和时效性的质量要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查信息系统功能和数据质量要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意"便捷高效"是系统建设的核心目标</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1690,26 +2082,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为客户尽职调查指引第8.3条，属于第8章"保障客户尽职调查工作有效开展的内控机制"，规定了客户尽职调查队伍建设与监督评价体系的建立要求。条文从人员和能力保障及监督评价两个维度提出要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个层次：第一层规定队伍建设——建立具备专业能力的尽调队伍，配备充足人员，开展持续有效培训，提高履职能力；第二层规定监督评价——建立科学有效的监督评价体系，对尽调有效性持续监督评价，及时发现和纠正问题。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>队伍建设要求一：建立具备专业能力的客户尽职调查队伍</li><li>队伍建设要求二：配备充足的人员</li><li>队伍建设要求三：开展持续有效的培训</li><li>监督评价要求：建立科学有效的监督评价体系</li><li>监督目标：持续监督评价尽调有效性，及时发现和纠正问题</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>尽调人员应具备反洗钱专业知识和业务能力</li><li>人员配备应与机构业务规模和客户数量相匹配</li><li>培训应持续有效，覆盖新政策和新风险类型</li><li>监督评价应形成闭环，发现问题及时纠正</li></ul>
+<ul><li>尽调人员应具备反洗钱专业知识和业务能力</li><li>人员配备应与机构业务规模和客户数量相匹配</li><li><strong>培训应持续有效，</strong>——覆盖新政策和新风险类型</li><li><strong>监督评价应形成闭环，</strong>——发现问题及时纠正</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆队伍建设的三项要求和监督评价体系</li><li>理解"持续有效培训"的内涵</li><li>注意监督评价的闭环管理（发现→纠正）</li><li>考试可能考查队伍建设和监督评价的要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆队伍建设的三项要求和监督评价体系</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解"持续有效培训"的内涵</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查队伍建设和监督评价的要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意监督评价的闭环管理（发现→纠正）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>

@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -423,6 +424,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -482,26 +522,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为《中国人民银行办公厅关于进一步加强反洗钱和反恐怖融资工作的通知》第一部分，主题为加强客户身份识别管理，是通知的核心要求之一。原文内容详见原始文件，主要涉及客户身份识别的强化措施和具体操作要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以“加强客户身份识别管理”为主题，围绕客户尽职调查的强化要求展开。内容涵盖客户身份识别的时机、方式、深度和持续管理等方面，是反洗钱基础工作中的核心环节。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>主题为加强客户身份识别管理，是反洗钱三大核心义务之一</li><li>客户身份识别是预防洗钱的第一道防线</li><li>通知要求在客户身份识别方面采取更严格的措施</li><li>涉及客户身份识别的建立、持续和重新识别等环节</li></ul>
+<div class="arrow-chain"><span class="chain-node">一、加强客户身份识别管理</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立完善的客户身份识别制度和操作流程</li><li>关注高风险客户的强化尽职调查要求</li><li>客户身份识别应贯穿业务关系全过程，非仅开户环节</li><li>建议建立客户身份信息的定期更新和核查机制</li></ul>
+<ul><li>金融机构应建立完善的客户身份识别制度和操作流程</li><li>关注高风险客户的强化尽职调查要求</li><li><strong>客户身份识别应贯穿业务关系全过程，</strong>——非仅开户环节</li><li>建议建立客户身份信息的定期更新和核查机制</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点理解客户身份识别在反洗钱体系中的基础性地位</li><li>注意通知对客户身份识别“加强”的要求，体现从严监管导向</li><li>考试可能考查客户身份识别的具体环节和要求</li><li>关联理解客户身份识别与客户风险分类管理的关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>关联理解客户身份识别与客户风险分类管理的关系</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点理解客户身份识别在反洗钱体系中的基础性地位</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查客户身份识别的具体环节和要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意通知对客户身份识别“加强”的要求，体现从严监管导向</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-2">
@@ -532,26 +584,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为通知第二部分，主题为加强洗钱或恐怖融资高风险领域的管理，要求金融机构针对高风险领域采取更严格的风险管控措施。原文内容详见原始文件。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文聚焦高风险领域的特殊管理要求，涵盖高风险业务类型、高风险客户群体和高风险交易模式的识别与管控。要求金融机构在风险为本方法指导下，对高风险领域投入更多资源。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>主题为加强高风险领域的洗钱和恐怖融资风险管理</li><li>高风险领域包括高风险业务、高风险客户和高风险交易等维度</li><li>要求采取比一般领域更严格的风险管控措施</li><li>体现风险为本方法中“高风险强化、低风险简化”的差异化原则</li></ul>
+<div class="arrow-chain"><span class="chain-node">二、加强洗钱或恐怖融资高风险领域的管理</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立高风险领域的识别标准和动态调整机制</li><li>对高风险领域应增加资源配置，包括人员和系统投入</li><li>建议定期评估高风险领域的风险变化，及时调整管控措施</li><li>关注监管机构发布的高风险领域风险提示</li></ul>
+<ul><li>金融机构应建立高风险领域的识别标准和动态调整机制</li><li><strong>对高风险领域应增加资源配置，</strong>——包括人员和系统投入</li><li><strong>建议定期评估高风险领域的风险变化，</strong>——及时调整管控措施</li><li>关注监管机构发布的高风险领域风险提示</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点理解“高风险领域”的范畴和特征</li><li>注意高风险领域管理与风险为本方法的关联</li><li>考试可能考查高风险领域应采取何种管控措施</li><li>关联理解高风险领域管理与客户身份识别、交易监测的关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>关联理解高风险领域管理与客户身份识别、交易监测的关系</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点理解“高风险领域”的范畴和特征</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查高风险领域应采取何种管控措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意高风险领域管理与风险为本方法的关联</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-3">
@@ -582,26 +646,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为通知第三部分，主题为加强跨境汇款业务的风险防控和管理，针对跨境汇款这一洗钱高风险业务提出专门管控要求。原文内容详见原始文件。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文聚焦跨境汇款业务的风险特征和管理要求，涵盖汇款信息传递、代理行关系管理、跨境交易监测等方面。跨境汇款因涉及不同法域、资金链条长，是洗钱风险的高发领域。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>主题为加强跨境汇款业务的风险防控和管理</li><li>跨境汇款是洗钱高风险业务，因涉及不同法域和复杂资金链条</li><li>管理要求涵盖汇款信息完整性、代理行管理和交易监测等方面</li><li>通知强调对跨境汇款业务的专门风险防控</li></ul>
+<div class="arrow-chain"><span class="chain-node">三、加强跨境汇款业务的风险防控和管理</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立跨境汇款业务的专项风险管理制度</li><li>确保汇款信息的完整传递，包括汇款人和收款人信息</li><li>加强代理行关系的管理和尽职调查</li><li>建议建立跨境交易的专项监测规则和预警机制</li></ul>
+<ul><li>金融机构应建立跨境汇款业务的专项风险管理制度</li><li><strong>确保汇款信息的完整传递，</strong>——包括汇款人和收款人信息</li><li>加强代理行关系的管理和尽职调查</li><li>建议建立跨境交易的专项监测规则和预警机制</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点理解跨境汇款业务的高风险特征</li><li>注意跨境汇款管理与其他反洗钱措施的区别</li><li>考试可能考查跨境汇款业务的具体管控要求</li><li>关联理解FATF关于电汇的建议要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>关联理解FATF关于电汇的建议要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点理解跨境汇款业务的高风险特征</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查跨境汇款业务的具体管控要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意跨境汇款管理与其他反洗钱措施的区别</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-4">
@@ -632,16 +708,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为通知第四部分，主题为加强预付卡代理销售机构的风险管理，针对预付卡业务这一洗钱风险较高的领域提出管控要求。原文内容详见原始文件。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文聚焦预付卡代理销售机构的风险管理，涵盖预付卡发行、销售、充值和赎回等环节的反洗钱要求。预付卡因具有匿名性、便携性和快速流转等特点，容易被洗钱活动利用。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>主题为加强预付卡代理销售机构的风险管理</li><li>预付卡具有匿名性和便携性，存在较高的洗钱风险</li><li>管理要求覆盖预付卡发行、销售、充值和赎回等全流程</li><li>通知针对代理销售机构这一特定主体提出专门要求</li></ul>
+<div class="arrow-chain"><span class="chain-node">四、加强预付卡代理销售机构的风险管理</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
@@ -649,9 +720,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点理解预付卡业务的洗钱风险特征（匿名性、便携性）</li><li>注意本条针对的是“代理销售机构”这一特定主体</li><li>考试可能考查预付卡业务的风险管控要求</li><li>关联理解预付卡管理与客户身份识别、交易监测的关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>关联理解预付卡管理与客户身份识别、交易监测的关系</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点理解预付卡业务的洗钱风险特征（匿名性、便携性）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查预付卡业务的风险管控要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意本条针对的是“代理销售机构”这一特定主体</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-5">
@@ -685,26 +773,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为通知第五部分，主题为加强交易记录保存和及时报送可疑交易报告，并规定了符合特定情形的可疑交易报告应立即报送的要求。通知还要求各央行分支机构将本通知转发至辖区内义务机构。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文包含两部分内容：一是对符合《金融机构大额交易和可疑交易报告管理办法》第十七条规定情形的可疑交易报告，要求义务机构立即向中国反洗钱监测分析中心和中国人民银行或当地分支机构报送；二是要求央行上海总部、各分行、营业管理部等机构将本通知转发至辖区内义务机构。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>主题为加强交易记录保存和及时报送可疑交易报告</li><li>对符合第十七条规定情形的可疑交易报告须“立即”报送</li><li>报送对象为中国反洗钱监测分析中心和中国人民银行或当地分支机构</li><li>央行各分支机构负有将通知转发至辖区内义务机构的职责</li><li>交易记录保存是可疑交易报告的基础和支撑</li></ul>
+<div class="arrow-chain"><span class="chain-node">五、加强交易记录保存，及时报送可疑交易报告</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立可疑交易报告的快速报送通道，确保“立即”报送</li><li>重点关注第十七条规定情形的识别标准</li><li>交易记录保存应满足完整性和可追溯性要求</li><li>央行分支机构应及时将通知转发并督促辖区内机构落实</li></ul>
+<ul><li><strong>金融机构应建立可疑交易报告的快速报送通道，</strong>——确保“立即”报送</li><li>重点关注第十七条规定情形的识别标准</li><li>交易记录保存应满足完整性和可追溯性要求</li><li>央行分支机构应及时将通知转发并督促辖区内机构落实</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆“立即报送”的要求和报送对象（反洗钱监测分析中心+央行）</li><li>注意第十七条情形的特殊性：需要立即而非按期报送</li><li>理解交易记录保存与可疑交易报告的支撑关系</li><li>考试可能考查符合何种情形的可疑交易报告须立即报送</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆“立即报送”的要求和报送对象（反洗钱监测分析中心+央行）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解交易记录保存与可疑交易报告的支撑关系</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查符合何种情形的可疑交易报告须立即报送</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意第十七条情形的特殊性：需要立即而非按期报送</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="reg-nav">

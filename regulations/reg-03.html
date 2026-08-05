@@ -404,6 +404,15 @@ details.xref-details > summary.xref-summary:hover{
  margin-top:4px;line-height:1.6;}
 .study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
  padding:8px 12px;font-size:13px;color:#248a3d;margin-top:4px;line-height:1.6;}
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
 /* ===== SmartArt 风格逻辑关系图 ===== */
 .sd-container{background:linear-gradient(135deg,#f8f9fb 0%,#eef1f6 100%);
  border-radius:12px;padding:20px 16px;margin-top:10px;
@@ -566,39 +575,43 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第一章总则，是整部反恐怖主义法的核心定义条款，为全法适用提供概念基础。本条界定了恐怖主义、恐怖活动、恐怖活动组织、恐怖活动人员、恐怖事件五个核心概念，是理解和适用本法的前提。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分五层定义：第一层界定“恐怖主义”——通过暴力、破坏、恐吓等手段，制造社会恐慌、危害公共安全、侵犯人身财产，或者胁迫国家机关、国际组织，以实现其政治、意识形态等目的的主张和行为；第二层以列举方式界定“恐怖活动”的五类行为，其中第（四）项明确将“为恐怖活动组织、恐怖活动人员、实施恐怖活动或者恐怖活动培训提供信息、资金、物资、劳务、技术、场所等支持、协助、便利”纳入恐怖活动范畴；第三层界定“恐怖活动组织”为三人以上为实施恐怖活动而组成的犯罪组织；第四层界定“恐怖活动人员”为实施恐怖活动的人和恐怖活动组织的成员；第五层界定“恐怖事件”为正在发生或已经发生的造成或可能造成重大社会危害的恐怖活动。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>恐怖活动的五类行为中，第（四）项“提供资金等支持、协助、便利”直接将资助恐怖活动定义为恐怖活动，这是反恐融资的核心法律依据</li>
 <li>恐怖活动组织的构成要件：三人以上、以实施恐怖活动为目的、属于犯罪组织</li>
 <li>恐怖主义定义包含双重目的要件：手段目的（暴力、破坏、恐吓）和最终目的（政治、意识形态等），缺一不可</li>
 <li>恐怖事件强调“正在发生或者已经发生”，区别于尚未实施的恐怖活动嫌疑</li>
 </ul>
+<div class="arrow-chain"><span class="chain-node">第三条(定义)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第24条(高风险国家地区名单)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第54条(恐怖融资衔接)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>第（四）项中的“资金”资助是金融机构反恐融资的直接法律依据。金融机构通过客户身份识别、交易监测等反洗钱措施，发现并向有关部门报告涉嫌资助恐怖活动的资金交易</li>
-<li>资助行为的范围极广，除资金外还包括信息、物资、劳务、技术、场所等，金融机构需关注非资金类金融服务是否构成“便利”提供</li>
-<li>本条与反洗钱法的上游犯罪界定形成衔接——恐怖活动犯罪是洗钱上游犯罪之一，金融机构应将涉恐资金交易作为重点监测对象</li>
-</ul>
+<ul><li>第（四）项中的“资金”资助是金融机构反恐融资的直接法律依据。金融机构通过客户身份识别、交易监测等反洗钱措施，发现并向有关部门报告涉嫌资助恐怖活动的资金交易</li><li><strong>资助行为的范围极广，</strong>——除资金外还包括信息、物资、劳务、技术、场所等，金融机构需关注非资金类金融服务是否构成“便利”提供</li><li><strong>本条与反洗钱法的上游犯罪界定形成衔接——</strong>恐怖活动犯罪是洗钱上游犯罪之一，金融机构应将涉恐资金交易作为重点监测对象</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：恐怖活动的五类行为必须完整记忆，尤其第（四）项资助行为是反洗钱考试高频考点</li>
-<li>注意区分“恐怖主义”（主张和行为）与“恐怖活动”（具体行为）的概念层级关系</li>
-<li>恐怖活动组织的“三人以上”要件是认定标准的关键数字</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>恐怖活动组织的“三人以上”要件是认定标准的关键数字</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>注意区分“恐怖主义”（主张和行为）与“恐怖活动”（具体行为）的概念层级关系</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>易考点：恐怖活动的五类行为必须完整记忆，尤其第（四）项资助行为是反洗钱考试高频考点</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
@@ -654,40 +667,43 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第二章恐怖活动组织和人员的认定，是金融机构反恐融资义务的核心条款，直接关联反洗钱特别预防措施。本条将行政认定与金融冻结措施衔接，构成涉恐资产冻结的法律闭环。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条规定金融机构和特定非金融机构的三项核心义务：第一，冻结义务——对国家反恐怖主义工作领导机构的办事机构公告的恐怖活动组织和人员的资金或者其他资产，应当“立即”予以冻结；第二，报告义务——按照规定“及时”向国务院公安部门、国家安全部门和反洗钱行政主管部门报告；第三，冻结的触发依据是公告，即以公告名单为准。义务主体明确为“金融机构和特定非金融机构”。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>“立即予以冻结”——金融机构无自由裁量权，公告发布后必须即时执行冻结，不得延误</li>
 <li>报告对象为三个部门：国务院公安部门、国家安全部门、反洗钱行政主管部门，体现了行政认定与金融监管的联动</li>
 <li>冻结对象不仅包括“资金”，还包括“其他资产”，范围覆盖全部涉恐财产</li>
 <li>冻结的依据是“公告”而非认定决定本身，金融机构以公告名单为操作依据</li>
 </ul>
+<div class="arrow-chain"><span class="chain-node">第十四条(金融机构和特定非金融机构的涉恐...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第24条(高风险国家地区名单)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第54条(恐怖融资衔接)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条是金融机构涉恐资产冻结的直接法律依据，与反洗钱法的特别预防措施条款形成衔接。金融机构应建立名单监控机制，实时比对国家反恐领导机构公告的恐怖活动组织和人员名单</li>
-<li>实务操作要点：金融机构应在业务系统中部署涉恐名单实时监控，对公告名单发布后的涉恐资产立即采取冻结措施，同时向三个部门报告冻结情况</li>
-<li>未履行冻结义务的法律后果见第84条——金融机构未立即冻结的，处二十万元以上五十万元以下罚款，情节严重的处五十万元以上罚款，直接责任人员可被拘留</li>
-<li>注意冻结与本法第24条临时冻结措施的区别：本条是行政认定后的强制冻结，第24条是反洗钱行政主管部门在调查中的临时冻结</li>
-</ul>
+<ul><li><strong>本条是金融机构涉恐资产冻结的直接法律依据，</strong>——与反洗钱法的特别预防措施条款形成衔接。金融机构应建立名单监控机制，实时比对国家反恐领导机构公告的恐怖活动组织和人员名单</li><li><strong>实务操作要点：</strong>——金融机构应在业务系统中部署涉恐名单实时监控，对公告名单发布后的涉恐资产立即采取冻结措施，同时向三个部门报告冻结情况</li><li><strong>未履行冻结义务的法律后果见第84条——</strong>金融机构未立即冻结的，处二十万元以上五十万元以下罚款，情节严重的处五十万元以上罚款，直接责任人员可被拘留</li><li><strong>注意冻结与本法第24条临时冻结措施的区别：</strong>——本条是行政认定后的强制冻结，第24条是反洗钱行政主管部门在调查中的临时冻结</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>高频考点：本条是反恐融资与反洗钱交叉领域的核心条款，务必掌握冻结义务的“即时性”和报告义务的“三部门”要求</li>
-<li>对比记忆：第14条（行政认定后冻结）vs 第24条（调查中临时冻结）vs 第53条（调查中查封扣押冻结）——三种冻结措施的适用条件不同</li>
-<li>注意义务主体为“金融机构和特定非金融机构”，与反洗钱法的义务主体范围一致</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>对比记忆：第14条（行政认定后冻结）vs 第24条（调查中临时冻结）vs 第53条（调查中查封扣押冻结）——三种冻结措施的适用条件不同</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>注意义务主体为“金融机构和特定非金融机构”，与反洗钱法的义务主体范围一致</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：本条是反恐融资与反洗钱交叉领域的核心条款，务必掌握冻结义务的“即时性”和报告义务的“三部门”要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
@@ -724,15 +740,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第二章 恐怖活动组织和人员的认定，是认定章节的复审条款，规定认定后的复核程序。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文主要内容：“被认定的恐怖活动组织和人员对认定不服的，可以通过国家反恐怖主义工作领导机构的办事机构申请复核”。涉及主体：反恐怖主义工作领导机构。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>核心义务/要求：及时进行复核</li>
 <li>授权性规定：可以通过国家反恐怖主义工作领导机构的办事机构申请复核</li>
@@ -742,20 +752,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条涉及资金、资产或金融相关内容，金融机构应关注与反洗钱/反恐融资义务的衔接</li>
-<li>建议金融机构将本条要求纳入合规风险管理体系，确保相关业务操作符合法律规定</li>
-</ul>
+<ul><li><strong>本条涉及资金、资产或金融相关内容，</strong>——金融机构应关注与反洗钱/反恐融资义务的衔接</li><li><strong>建议金融机构将本条要求纳入合规风险管理体系，</strong>——确保相关业务操作符合法律规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：本条的义务性规定</li>
-<li>注意：时限要求（及时）</li>
-<li>注意：适用主体范围（反恐怖主义工作领导机构）</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>注意：适用主体范围（反恐怖主义工作领导机构）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>易考点：本条的义务性规定</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：时限要求（及时）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -811,15 +831,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第三章 安 全 防 范，是安全防范章节的身份查验条款，规定特定行业的客户身份查验义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定：“电信、互联网、金融、住宿、长途客运、机动车租赁等业务经营者、服务提供者，应当对客户身份进行查验。对身份不明或者拒绝身份查验的，不得提供服务。”。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>核心义务/要求：对客户身份进行查验</li>
 <li>禁止性要求：不得提供服务</li>
@@ -827,19 +841,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条涉及资金、资产或金融相关内容，金融机构应关注与反洗钱/反恐融资义务的衔接</li>
-<li>建议金融机构将本条要求纳入合规风险管理体系，确保相关业务操作符合法律规定</li>
-</ul>
+<ul><li><strong>本条涉及资金、资产或金融相关内容，</strong>——金融机构应关注与反洗钱/反恐融资义务的衔接</li><li><strong>建议金融机构将本条要求纳入合规风险管理体系，</strong>——确保相关业务操作符合法律规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：本条的义务性规定和禁止性规定</li>
-<li>注意核心义务：对客户身份进行查验</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>易考点：本条的义务性规定和禁止性规定</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意核心义务：对客户身份进行查验</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -916,40 +941,43 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第三章安全防范，是金融领域反恐融资的专门条款，确立了反洗钱行政主管部门在反恐怖主义融资中的监督管理地位和调查权。本条将反恐融资纳入反洗钱监管框架，是反洗钱与反恐法律衔接的关键条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>本条分两款：第一款规定监管主体和监管内容——国务院反洗钱行政主管部门、国务院有关部门和机构依法对金融机构和特定非金融机构履行反恐怖主义融资义务的情况进行监督管理；第二款赋予反洗钱行政主管部门调查权和临时冻结权——发现涉嫌恐怖主义融资的，可以依法进行调查，采取临时冻结措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>监管主体明确为“国务院反洗钱行政主管部门”（即中国人民银行）及其他有关部门，确立了反洗钱主管部门在反恐融资监管中的核心地位</li>
 <li>监管对象为“金融机构和特定非金融机构”履行“反恐怖主义融资义务”的情况，将反恐融资义务与反洗钱义务衔接</li>
 <li>反洗钱行政主管部门拥有独立的调查权和临时冻结权——“发现涉嫌恐怖主义融资的，可以依法进行调查，采取临时冻结措施”，这是行政调查权与行政强制措施的结合</li>
 <li>临时冻结措施是预防性措施，区别于第14条的公告后强制冻结</li>
 </ul>
+<div class="arrow-chain"><span class="chain-node">第二十四条(反洗钱行政主管部门的反恐融资监...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第24条(高风险国家地区名单)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》第54条(恐怖融资衔接)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条是中国反恐融资监管体系的核心条款，确立了人民银行作为反洗钱行政主管部门在反恐融资监管中的主导地位。金融机构的反恐融资义务通过反洗钱监管框架落实</li>
-<li>实务建议：金融机构应将反恐融资纳入反洗钱风险管理体系，建立涉恐资产监测、名单筛查、可疑交易报告等内控机制，接受反洗钱行政主管部门的监督检查</li>
-<li>反洗钱行政主管部门的临时冻结权是重要的行政强制措施，金融机构应配合执行，不得以商业利益为由拒绝</li>
-<li>本条与第14条形成衔接：第24条规定的临时冻结是调查阶段的措施，第14条规定的冻结是认定后的强制措施，两者在反恐融资监管链中处于不同环节</li>
-</ul>
+<ul><li><strong>本条是中国反恐融资监管体系的核心条款，</strong>——确立了人民银行作为反洗钱行政主管部门在反恐融资监管中的主导地位。金融机构的反恐融资义务通过反洗钱监管框架落实</li><li><strong>实务建议：</strong>——金融机构应将反恐融资纳入反洗钱风险管理体系，建立涉恐资产监测、名单筛查、可疑交易报告等内控机制，接受反洗钱行政主管部门的监督检查</li><li><strong>反洗钱行政主管部门的临时冻结权是重要的行政强制措施，</strong>——金融机构应配合执行，不得以商业利益为由拒绝</li><li><strong>本条与第14条形成衔接：</strong>——第24条规定的临时冻结是调查阶段的措施，第14条规定的冻结是认定后的强制措施，两者在反恐融资监管链中处于不同环节</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>高频考点：反洗钱行政主管部门在反恐融资中的双重职权——监督管理权和调查/临时冻结权</li>
-<li>对比第14条与第24条的冻结：第14条是公告后“立即冻结”（强制义务），第24条是调查中“临时冻结”（行政措施）</li>
-<li>注意监管对象的表述：“金融机构和特定非金融机构”，与反洗钱法的义务主体范围一致</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>对比第14条与第24条的冻结：第14条是公告后“立即冻结”（强制义务），第24条是调查中“临时冻结”（行政措施）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>注意监管对象的表述：“金融机构和特定非金融机构”，与反洗钱法的义务主体范围一致</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>高频考点：反洗钱行政主管部门在反恐融资中的双重职权——监督管理权和调查/临时冻结权</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
@@ -985,15 +1013,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第三章 安 全 防 范，是安全防范章节的海关监管条款，规定海关在涉恐融资监管中的职责。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定：“海关在对进出境人员携带现金和无记名有价证券实施监管的过程中，发现涉嫌恐怖主义融资的，应当立即通报国务院反洗钱行政主管部门和有管辖权的公安机关。”。涉及主体：公安机关、国务院反洗钱行政主管部门、海关。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>核心义务/要求：立即通报国务院反洗钱行政主管部门和有管辖权的公安机关</li>
 <li>适用主体：公安机关、国务院反洗钱行政主管部门、海关</li>
@@ -1002,20 +1024,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>海关对进出境人员携带现金和无记名有价证券实施监管时发现涉嫌恐怖融资的，应通报反洗钱行政主管部门和公安机关</li>
-<li>金融机构应关注跨境现金和无记名有价证券的异常流动，配合反洗钱行政主管部门的调查</li>
-</ul>
+<ul><li>海关对进出境人员携带现金和无记名有价证券实施监管时发现涉嫌恐怖融资的，应通报反洗钱行政主管部门和公安机关</li><li><strong>金融机构应关注跨境现金和无记名有价证券的异常流动，</strong>——配合反洗钱行政主管部门的调查</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：本条的义务性规定</li>
-<li>注意：时限要求（立即）</li>
-<li>注意：适用主体范围（公安机关）</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>注意：适用主体范围（公安机关）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>易考点：本条的义务性规定</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：时限要求（立即）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -1069,15 +1101,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第七章 国 际 合 作，是国际合作章节的合作原则条款，确立反恐怖主义国际合作的基本原则。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定：“中华人民共和国根据缔结或者参加的国际条约，或者按照平等互惠原则，与其他国家、地区、国际组织开展反恐怖主义合作。”。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>本条核心内容：中华人民共和国根据缔结或者参加的国际条约，或者按照平等互惠原则，与其他国家、地区、国际组织开展反恐怖主义合作</li>
 <li>条文要点：中华人民共和国根据缔结或者参加的国际条约，或者按照平等互惠原则，与其他国家、地区、国际组织开展反恐怖主义合作；</li>
@@ -1085,19 +1111,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>反恐国际合作中的资金监管合作与金融机构跨境业务合规相关，金融机构应关注国际合作动态</li>
-<li>金融机构在跨境业务中应配合反恐融资国际监管合作要求</li>
-</ul>
+<ul><li>反恐国际合作中的资金监管合作与金融机构跨境业务合规相关，金融机构应关注国际合作动态</li><li>金融机构在跨境业务中应配合反恐融资国际监管合作要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：本条的核心内容和适用条件</li>
-<li>注意：条文的关键表述和适用范围</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>易考点：本条的核心内容和适用条件</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：条文的关键表述和适用范围</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -1153,15 +1190,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第九章 法 律 责 任，是法律责任章节的窝藏包庇处罚条款，规定窝藏包庇和拒绝提供的处罚。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定：“明知他人有恐怖活动犯罪、极端主义犯罪行为，窝藏、包庇，情节轻微，尚不构成犯罪的，或者在司法机关向其调查有关情况、收集有关证据时，拒绝提供的，由公安机关处十日以上十五日以下拘留，可以并处一万元以下罚款。”。涉及主体：公安机关。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>授权性规定：可以并处一万元以下罚款</li>
 <li>适用主体：公安机关</li>
@@ -1169,19 +1200,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条规定的行为涉及资金支持时，与金融机构的反恐融资监测义务相关</li>
-<li>金融机构应将本条列明的违法行为纳入客户风险评级和交易监测模型</li>
-</ul>
+<ul><li><strong>本条规定的行为涉及资金支持时，</strong>——与金融机构的反恐融资监测义务相关</li><li>金融机构应将本条列明的违法行为纳入客户风险评级和交易监测模型</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>注意：适用主体范围（公安机关）</li>
-<li>注意处罚标准：十日以上十五日以下的处罚措施</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>注意处罚标准：十日以上十五日以下的处罚措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：适用主体范围（公安机关）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -1238,15 +1280,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第九章 法 律 责 任，是法律责任章节的物流违法处罚条款，规定物流运营单位违法的处罚。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文主要内容：“铁路、公路、水上、航空的货运和邮政、快递等物流运营单位有下列情形之一的，由主管部门处十万元以上五十万元以下罚款，并对其直接负责的主管人员和其他直接责任人员处十万元以下罚款： （一）未实行安全查验制度，……”。具体列举了以下事项：未实行安全查验制度，对客户身份进行查验，或者未依照规定对运输、寄递物品进行安全检查或者开封验视的、对禁止运输、寄递，存在重大安全隐患，或者客户拒绝安全查验的物品予以运输、寄递的、未实行运输、寄递客户身份、物品信息登记制度的。涉及主体：物流运营单位。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>适用主体：物流运营单位</li>
 <li>本条核心内容：铁路、公路、水上、航空的货运和邮政、快递等物流运营单位有下列情形之一的，由主管部门处十万元以上五十万元以下罚款</li>
@@ -1254,19 +1290,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条涉及资金、资产或金融相关内容，金融机构应关注与反洗钱/反恐融资义务的衔接</li>
-<li>建议金融机构将本条要求纳入合规风险管理体系，确保相关业务操作符合法律规定</li>
-</ul>
+<ul><li><strong>本条涉及资金、资产或金融相关内容，</strong>——金融机构应关注与反洗钱/反恐融资义务的衔接</li><li><strong>建议金融机构将本条要求纳入合规风险管理体系，</strong>——确保相关业务操作符合法律规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>易考点：条文列举的3项具体情形</li>
-<li>注意：适用主体范围（物流运营单位）</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>易考点：条文列举的3项具体情形</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：适用主体范围（物流运营单位）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -1323,15 +1370,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第九章 法 律 责 任，是法律责任章节的虚假信息处罚条款，规定编造传播虚假恐怖信息的处罚。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文主要内容：“新闻媒体等单位编造、传播虚假恐怖事件信息，报道、传播可能引起模仿的恐怖活动的实施细节，发布恐怖事件中残忍、不人道的场景，或者未经批准，……”。涉及主体：公安机关。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>授权性规定：可以并处五万元以下罚款</li>
 <li>适用主体：公安机关</li>
@@ -1339,19 +1380,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条涉及资金、资产或金融相关内容，金融机构应关注与反洗钱/反恐融资义务的衔接</li>
-<li>建议金融机构将本条要求纳入合规风险管理体系，确保相关业务操作符合法律规定</li>
-</ul>
+<ul><li><strong>本条涉及资金、资产或金融相关内容，</strong>——金融机构应关注与反洗钱/反恐融资义务的衔接</li><li><strong>建议金融机构将本条要求纳入合规风险管理体系，</strong>——确保相关业务操作符合法律规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>注意：适用主体范围（公安机关）</li>
-<li>注意处罚标准：置的工作人员、人质身份信息和应对处置行动情况的，由公安机关处二十万元以下的处罚措施</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>注意处罚标准：置的工作人员、人质身份信息和应对处置行动情况的，由公安机关处二十万元以下的处罚措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：适用主体范围（公安机关）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
@@ -1407,15 +1459,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条位于第九章 法 律 责 任，是法律责任章节的阻碍工作处罚条款，规定阻碍反恐工作的处罚。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定：“阻碍有关部门开展反恐怖主义工作的，由公安机关处五日以上十五日以下拘留，可以并处五万元以下罚款。 单位有前款规定行为的，由公安机关处二十万元以下罚款，并对其直接负责的主管人员和其他直接责任人员依照前款规定处罚。……”。涉及主体：公安机关。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul>
 <li>授权性规定：可以并处五万元以下罚款</li>
 <li>适用主体：公安机关</li>
@@ -1423,19 +1469,30 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul>
-<li>本条涉及资金、资产或金融相关内容，金融机构应关注与反洗钱/反恐融资义务的衔接</li>
-<li>建议金融机构将本条要求纳入合规风险管理体系，确保相关业务操作符合法律规定</li>
-</ul>
+<ul><li><strong>本条涉及资金、资产或金融相关内容，</strong>——金融机构应关注与反洗钱/反恐融资义务的衔接</li><li><strong>建议金融机构将本条要求纳入合规风险管理体系，</strong>——确保相关业务操作符合法律规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul>
-<li>注意：适用主体范围（公安机关）</li>
-<li>注意处罚标准：五日以上十五日以下的处罚措施</li>
-</ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>注意处罚标准：五日以上十五日以下的处罚措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意：适用主体范围（公安机关）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 
 
 <div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">

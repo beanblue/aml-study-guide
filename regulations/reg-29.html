@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -424,6 +425,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -508,15 +548,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为《反洗钱特别预防措施指引》第一条，阐明制定指引的目的和法律依据，是指引的总则性条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用“目的+依据”结构：目的是指导金融机构有效履行反洗钱特别预防措施义务；依据列举《反洗钱法》《反恐怖主义法》《对外关系法》《反洗钱特别预防措施管理办法》及相关监管规定。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>制定目的是进一步指导金融机构有效履行反洗钱特别预防措施义务</li><li>法律依据含《反洗钱法》《反恐怖主义法》《对外关系法》</li><li>规章依据含《反洗钱特别预防措施管理办法》及相关监管规定</li><li>指引属于反洗钱特别预防措施领域的操作指引</li><li>适用对象为金融机构</li></ul>
 </div>
 <div class="analysis-section">
@@ -525,9 +559,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住四部法律法规规章名称</li><li>理解特别预防措施义务的内涵</li><li>考试可能考查指引制定目的与依据</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住四部法律法规规章名称</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解特别预防措施义务的内涵</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查指引制定目的与依据</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -548,15 +599,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确指引的适用主体范围，界定哪些金融机构适用本指引。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层明确适用于依照中国法律设立的金融机构及其境内外分支机构，以及外国金融机构法人在中国设立的分支机构；第二层明确金融机构的控股附属机构可以参照执行。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>适用主体包括依照中国法律设立的金融机构及其境内外分支机构</li><li>适用外国金融机构法人在中国设立的分支机构</li><li>金融机构的控股附属机构可参照执行</li><li>适用范围覆盖中资机构境外分支机构</li><li>参照执行体现了适用的灵活性</li></ul>
 </div>
 <div class="analysis-section">
@@ -565,9 +610,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住适用主体的三类情形</li><li>区分“适用”与“参照执行”</li><li>考试易考境内外分支机构的适用范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住适用主体的三类情形</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>区分“适用”与“参照执行”</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考境内外分支机构的适用范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -587,15 +649,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条界定反洗钱特别预防措施的核心内容，明确金融机构应根据法律法规要求立即停止向名单所列对象提供服务或资金资产、限制资金资产转移。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以“立即停止+立即限制+其他措施”展开：立即停止向名单所列对象及其代理人、受指使组织人员、直接间接控制组织提供金融服务或资金资产；立即限制相关资金资产转移；并依规采取其他措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>特别预防措施核心是立即停止向名单对象提供金融服务或资金资产</li><li>停止对象包括名单所列对象及其代理人、受指使组织和人员、直接间接控制的组织</li><li>须立即限制相关资金资产转移</li><li>限制转移不意味着资金资产所有权发生变化</li><li>须依规采取其他措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -604,9 +660,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握特别预防措施的两项核心动作(停止服务、限制转移)</li><li>记住停止对象的四类范围</li><li>理解限制转移与所有权的关系</li><li>考试易考特别预防措施内容界定</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住停止对象的四类范围</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握特别预防措施的两项核心动作(停止服务、限制转移)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考特别预防措施内容界定</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解限制转移与所有权的关系</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -628,15 +701,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条承上条进一步阐明限制资金资产转移的法律性质，明确限制转移不改变资金资产所有权，并界定停止服务与资金资产的内涵外延。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文承接第三条，强调限制资金资产转移不意味着所有权发生改变，体现资产冻结而非没收的法律性质。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>限制资金资产转移不意味着所有权发生变化</li><li>措施性质为限制而非没收</li><li>停止服务的范围涵盖各类金融服务</li><li>资金资产包括任何形式的资金或资产</li><li>限制对象涵盖名单所列对象直接间接所有或控制的资金资产</li></ul>
 </div>
 <div class="analysis-section">
@@ -645,9 +712,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握限制转移不改变所有权的法律性质</li><li>理解措施为限制而非没收</li><li>考试易考限制转移与所有权关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>考试易考限制转移与所有权关系</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握限制转移不改变所有权的法律性质</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解措施为限制而非没收</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -682,15 +766,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条确立金融机构采取反洗钱特别预防措施应遵循的五项工作原则，是指引的核心原则条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以“总—分”结构展开：总述应遵循原则，分述全面性、基于风险、合规性、毫不迟延、审慎尽职五项原则，并补充无法确认时实施与风险相适应的控制措施不得放任风险敞口。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>全面性原则：履约应覆盖全量客户、产品业务(含服务)、渠道</li><li>基于风险原则：识别评估风险并基于评估结果采取相匹配控制措施</li><li>合规性原则：任何风险情形下均完全执行不得缩小范围降低标准</li><li>毫不迟延原则：名单发布或调整后立即行动含更新名单库筛查预警核查等</li><li>审慎尽职原则：采取合理必要核查手段审慎尽职调查确认是否属名单对象</li></ul>
 </div>
 <div class="analysis-section">
@@ -699,9 +777,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记五项原则名称及含义</li><li>重点掌握合规性原则“不得缩小范围降低标准”</li><li>记住毫不迟延原则的具体行动内容</li><li>考试易考五项原则的辨析</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记五项原则名称及含义</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握合规性原则“不得缩小范围降低标准”</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住毫不迟延原则的具体行动内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试易考五项原则的辨析</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -722,15 +817,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构建立健全反洗钱特别预防措施内部控制制度，是落实特别预防措施义务的制度保障条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文要求结合经营规模及特别预防措施相关风险状况，建立健全内控制度，明确管理架构、职责分工、工作流程和工作要求四项要素。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须结合经营规模和特别预防措施相关风险状况建立内控制度</li><li>内控制度须明确管理架构</li><li>须明确职责分工</li><li>须明确工作流程</li><li>须明确工作要求</li></ul>
 </div>
 <div class="analysis-section">
@@ -739,9 +828,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住内控制度四项要素(管理架构、职责分工、工作流程、工作要求)</li><li>理解建立内控制度须结合经营规模与风险状况</li><li>考试可能考查内控制度内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住内控制度四项要素(管理架构、职责分工、工作流程、工作要求)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解建立内控制度须结合经营规模与风险状况</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查内控制度内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -767,15 +873,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构开展反洗钱特别预防措施相关风险评估，确保评估流程可追溯并定期审查优化。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求按相关通知及《金融机构洗钱风险自评估指引》识别评估特别预防措施相关风险，确保流程可追溯、定期审查优化；第二层要求新业务新技术前或风险显著变化时开展风险评估。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须按相关通知和《金融机构洗钱风险自评估指引》识别评估特别预防措施相关风险</li><li>评估流程须具有可追溯性</li><li>须定期审查和不断优化评估方法流程</li><li>推出新业务或运用新技术前须开展风险评估</li><li>风险发生显著变化时须开展风险评估</li></ul>
 </div>
 <div class="analysis-section">
@@ -784,9 +884,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住风险评估的两类触发情形(新业务新技术前、风险显著变化时)</li><li>重点掌握评估流程可追溯性要求</li><li>考试易考风险评估触发条件</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住风险评估的两类触发情形(新业务新技术前、风险显著变化时)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考风险评估触发条件</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>重点掌握评估流程可追溯性要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -810,15 +927,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构制定实施与风险相适应的风险管理制度，并针对较高风险采取强化措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求据经营规模和风险状况制定实施风险管理制度并及时调整；第二层要求针对较高风险采取强化措施管理降低风险，并强调任何风险情形下都须完全执行特别预防措施要求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须据经营规模和特别预防措施风险状况制定实施风险管理制度</li><li>须根据风险变化和控制执行情况及时调整</li><li>针对较高风险情形应采取强化措施</li><li>强化措施目的是管理和降低风险</li><li>任何风险情形下都须完全执行特别预防措施要求</li></ul>
 </div>
 <div class="analysis-section">
@@ -827,9 +938,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握较高风险采取强化措施的要求</li><li>牢记任何风险情形下须完全执行特别预防措施</li><li>考试易考风险管理制度与强化措施关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记任何风险情形下须完全执行特别预防措施</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握较高风险采取强化措施的要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考风险管理制度与强化措施关系</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -850,15 +978,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构设立或指定内设部门牵头开展特别预防措施管理工作，并配备充足人员开展培训。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文从组织保障角度展开：设立或指定内设部门牵头；据经营规模和风险状况配备充足人员；开展持续有效培训提高履职能力。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须设立或指定内设部门牵头开展特别预防措施管理</li><li>须据经营规模和风险状况配备充足人员</li><li>须开展持续有效的培训</li><li>培训目的是不断提高履职能力</li><li>组织保障是落实义务的基础</li></ul>
 </div>
 <div class="analysis-section">
@@ -867,9 +989,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住组织保障三要素(牵头部门、人员配备、培训)</li><li>理解配备须与经营规模风险状况相称</li><li>考试可能考查内设部门及人员要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住组织保障三要素(牵头部门、人员配备、培训)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解配备须与经营规模风险状况相称</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查内设部门及人员要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -889,15 +1028,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构建立完善名单筛查系统，保障名单筛查的数据需求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文要求根据需要建立完善名单筛查系统，系统须覆盖各业务条线涉及的客户身份信息和交易信息，保障筛查数据需求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须根据需要建立和完善名单筛查系统</li><li>系统应覆盖各业务条线涉及的客户身份信息</li><li>系统应覆盖各业务条线涉及的交易信息</li><li>系统须保障名单筛查的数据需求</li><li>信息系统是筛查有效性的技术保障</li></ul>
 </div>
 <div class="analysis-section">
@@ -906,9 +1039,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住筛查系统覆盖范围(客户身份信息和交易信息)</li><li>理解系统须保障数据需求</li><li>考试易考信息系统覆盖范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住筛查系统覆盖范围(客户身份信息和交易信息)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解系统须保障数据需求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考信息系统覆盖范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -928,15 +1078,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构对特别预防措施内控制度制定和执行情况开展审计，并明确审计报告报送对象。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文要求开展内部审计或社会审计，审计对象为内控制度制定和执行情况，审计报告须向董事会或其授权的专门委员会提交。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须对特别预防措施内控制度制定和执行情况开展审计</li><li>审计可为内部审计或社会审计</li><li>审计报告须向董事会或其授权的专门委员会提交</li><li>审计覆盖制度制定与执行两端</li><li>审计是内控有效性的监督保障</li></ul>
 </div>
 <div class="analysis-section">
@@ -945,9 +1089,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住审计两种形式(内部审计、社会审计)</li><li>重点掌握审计报告报送对象(董事会或授权专门委员会)</li><li>考试可能考查审计要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住审计两种形式(内部审计、社会审计)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握审计报告报送对象(董事会或授权专门委员会)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查审计要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -971,15 +1132,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构在集团层面统一部署反洗钱特别预防措施工作，并处理境外分支机构适用冲突。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求集团层面统一部署安排确保工作有效开展；第二层处理法律冲突——本指引比驻在国家地区更严格但当地法律禁止或限制时，应采取适当措施应对风险并向监管行报告。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须在集团层面对特别预防措施工作统一部署或安排</li><li>集团管理旨在确保工作有效开展</li><li>本指引比驻在国家地区更严格时原则上适用本指引</li><li>驻在国家地区法律禁止或限制时须采取适当措施应对风险</li><li>上述情形须向监管行报告</li></ul>
 </div>
 <div class="analysis-section">
@@ -988,9 +1143,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握法律冲突处理规则(更严格适用本指引、禁止限制时采取措施并报告)</li><li>记住集团统一部署要求</li><li>考试易考境外分支机构适用冲突</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住集团统一部署要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考境外分支机构适用冲突</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>重点掌握法律冲突处理规则(更严格适用本指引、禁止限制时采取措施并报告)</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1019,15 +1191,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构建立维护完整准确的反洗钱特别预防措施名单库，并明确三类名单来源。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文先总述建立维护名单库并持续关注发布调整及时更新，再分列三类名单：公安部恐怖活动组织和人员名单；外交部执行联合国安理会决议通知涉及的定向金融制裁名单(含伊黎伊斯兰国、基地组织、1988、1718、1737制裁名单等)；中国人民银行认定或会同认定的重大洗钱风险名单。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须建立并维护完整准确的特别预防措施名单库</li><li>名单一：公安部发布的恐怖活动组织和人员名单</li><li>名单二：外交部执行联合国安理会决议通知涉及的定向金融制裁名单(含伊黎伊斯兰国、基地组织、1988、1718、1737等制裁名单)</li><li>名单三：中国人民银行认定或会同国家有关机关认定的重大洗钱风险名单</li><li>名单发布或调整后须及时更新名单库</li></ul>
 </div>
 <div class="analysis-section">
@@ -1036,9 +1202,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记三类名单及其发布机关(公安部、外交部、中国人民银行)</li><li>重点掌握联合国制裁名单类型</li><li>考试易考三类名单分类及发布机关</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记三类名单及其发布机关(公安部、外交部、中国人民银行)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握联合国制裁名单类型</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考三类名单分类及发布机关</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1064,15 +1247,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构获取名单的渠道，包括官方渠道与外部供应商补充渠道。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层列举官方渠道(公安部外交部中国人民银行官方网站、联合国安理会等权威官网)；第二层允许选择具备资质技术能力的外部供应商作补充渠道，但须验证数据并对及时性准确性完整性负责，外部供应商标准由人民银行反洗钱局另行制定。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>官方渠道一：公安部外交部中国人民银行等三类名单发布机关官方网站</li><li>官方渠道二：联合国安理会等其他权威官方网站</li><li>可选择具备资质技术能力的外部供应商作为补充渠道</li><li>使用外部供应商须对名单数据验证并对及时性准确性完整性负责</li><li>外部供应商资质及技术能力标准由人民银行反洗钱局另行制定</li></ul>
 </div>
 <div class="analysis-section">
@@ -1081,9 +1258,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住两类官方获取渠道</li><li>重点掌握外部供应商的责任归属(机构负责及时性准确性完整性)</li><li>考试易考获取名单渠道及责任</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住两类官方获取渠道</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握外部供应商的责任归属(机构负责及时性准确性完整性)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考获取名单渠道及责任</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1102,15 +1296,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构对客户及其交易对象开展名单筛查，并覆盖所有业务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文简明要求对客户及交易对象开展名单筛查，筛查须覆盖所有业务，体现全面性原则。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须对客户开展名单筛查</li><li>须对交易对象开展名单筛查</li><li>筛查须覆盖所有业务</li><li>筛查对象含客户与交易对象两端</li><li>全面覆盖是筛查基本要求</li></ul>
 </div>
 <div class="analysis-section">
@@ -1119,9 +1307,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住筛查对象(客户及其交易对象)</li><li>重点掌握筛查须覆盖所有业务</li><li>考试可能考查筛查范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住筛查对象(客户及其交易对象)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握筛查须覆盖所有业务</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查筛查范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1146,15 +1351,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条细化客户名单筛查要求，明确筛查覆盖客户及相关方，并确定筛查信息要素。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求筛查覆盖客户及相关方(代理人、控股股东和投资人、受益所有人等)以确认是否为名单对象；第二层要求据风险状况和业务情况确定筛查信息要素(姓名名称、国籍、住所、身份证件号码、法定代表人或负责人及授权办理人员姓名等)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>客户筛查应覆盖客户及其相关方</li><li>客户相关方包括代理人、控股股东和投资人、受益所有人等</li><li>须根据风险状况和业务情况确定筛查信息要素</li><li>信息要素含姓名或名称、国籍、住所</li><li>信息要素含身份证件或其他身份证明文件号码及法定代表人或负责人、授权办理业务人员姓名</li></ul>
 </div>
 <div class="analysis-section">
@@ -1163,9 +1362,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住客户相关方范围(代理人、控股股东投资人、受益所有人)</li><li>重点掌握筛查信息要素清单</li><li>考试易考相关方范围与信息要素</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住客户相关方范围(代理人、控股股东投资人、受益所有人)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握筛查信息要素清单</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考相关方范围与信息要素</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1197,15 +1413,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确客户名单筛查的时间节点要求，覆盖建立业务关系前、信息补充采集时、信息变化时及存疑时等多时点。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分四个时点展开：建立业务关系或提供一次性金融服务前完成筛查核查；后期补充采集相关方信息时开展筛查；业务存续期间相关信息变化时及时筛查；对身份资料真实性存疑或有合理理由怀疑时核实后筛查；并要求据风险原则确定其他筛查情形。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>建立业务关系或提供一次性金融服务前须完成客户及相关方筛查核查</li><li>补充采集相关方信息时须开展筛查</li><li>业务存续期间客户相关方信息变化时须及时筛查</li><li>对身份资料真实性存疑或怀疑与名单相关时须核实后筛查</li><li>须据基于风险原则确定其他筛查情形</li></ul>
 </div>
 <div class="analysis-section">
@@ -1214,9 +1424,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记四个筛查时间点</li><li>重点掌握建立业务关系前的筛查要求</li><li>理解信息变化触发再筛查</li><li>考试易考客户筛查时间节点</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记四个筛查时间点</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握建立业务关系前的筛查要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考客户筛查时间节点</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解信息变化触发再筛查</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1241,15 +1468,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确交易及交易对象筛查要求，区分跨境交易实时筛查与境内交易灵活筛查。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求跨境交易时对客户交易对手、参与交易其他主体开展实时筛查，必要时对运输载体、关键地理信息及交易物项实时筛查，并界定跨境交易范围；第二层允许境内交易据风险状况确定筛查场景时点及信息要素。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>跨境交易须对客户交易对手及参与交易其他主体开展实时筛查</li><li>必要时须对运输载体、关键地理信息及交易物项实时筛查</li><li>跨境交易指境内外机构个人在跨境本外币收支、境内外汇经营及其他跨境因素经营活动中的交易</li><li>境内交易可据风险状况确定筛查场景时点信息要素</li><li>跨境与境内交易筛查要求不同</li></ul>
 </div>
 <div class="analysis-section">
@@ -1258,9 +1479,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握跨境交易实时筛查要求</li><li>记住跨境交易的界定</li><li>理解境内交易的灵活筛查安排</li><li>考试易考跨境与境内交易筛查差异</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住跨境交易的界定</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握跨境交易实时筛查要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考跨境与境内交易筛查差异</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解境内交易的灵活筛查安排</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1292,15 +1530,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条细化跨境交易筛查信息要素，区分跨境汇款业务与跨境单证贸易融资业务两类场景。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两个场景：跨境汇款业务须在汇出转汇汇入环节筛查，范围含收付款双方、最终收付款双方、收发报银行、收付款银行、中转银行、报文附言等；跨境单证与贸易融资业务须在信用证保函托收等环节筛查，范围覆盖相关方、运输工具、地理位置等交易要素。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>跨境汇款须在汇出、转汇、汇入环节开展筛查</li><li>汇款筛查范围含收付款双方、最终收付款双方、收发报银行、收付款银行、中转银行、报文附言等</li><li>跨境单证与贸易融资须在信用证、保函、托收等业务环节筛查</li><li>单证贸易融资筛查范围覆盖相关方、运输工具、起运港转运港目的港原产地等关键地理信息</li><li>两类场景筛查范围不同</li></ul>
 </div>
 <div class="analysis-section">
@@ -1309,9 +1541,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住跨境汇款三个环节(汇出转汇汇入)</li><li>重点掌握汇款筛查信息要素</li><li>记住单证贸易融资业务环节</li><li>考试易考两类场景筛查范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住跨境汇款三个环节(汇出转汇汇入)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握汇款筛查信息要素</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考两类场景筛查范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>记住单证贸易融资业务环节</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1333,15 +1582,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求名单发布或调整后开展回溯性筛查，覆盖存量客户及上溯三年内跨境交易。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求名单发布或调整后立即对存量客户及上溯三年内跨境交易开展回溯性筛查；第二层允许境内交易据风险状况确定回溯性筛查交易范围。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>名单发布或调整后须立即开展回溯性筛查</li><li>回溯性筛查覆盖本机构所有存量客户</li><li>回溯性筛查覆盖上溯三年内的跨境交易</li><li>境内交易可据风险状况确定回溯性筛查范围</li><li>回溯性筛查须立即开展</li></ul>
 </div>
 <div class="analysis-section">
@@ -1350,9 +1593,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记回溯性筛查的覆盖范围(存量客户、三年内跨境交易)</li><li>重点掌握三年回溯期</li><li>理解境内交易灵活安排</li><li>考试易考回溯性筛查范围与期限</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记回溯性筛查的覆盖范围(存量客户、三年内跨境交易)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握三年回溯期</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考回溯性筛查范围与期限</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解境内交易灵活安排</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1374,15 +1634,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构确定名单筛查的方式方法，并对系统筛查提出优化要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求据经营规模、风险状况、业务性质等因素确定筛查方式方法；第二层针对系统筛查要求合理设置预警规则、定期评估并持续优化筛查机制提升有效性。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须据经营规模风险状况业务性质等因素确定筛查方式方法</li><li>使用系统筛查须合理设置名单预警规则</li><li>须定期评估并持续优化筛查机制</li><li>优化目的是持续提升筛查有效性</li><li>筛查方式方法应与机构实际相匹配</li></ul>
 </div>
 <div class="analysis-section">
@@ -1391,9 +1645,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住确定筛查方式的三类因素(经营规模、风险状况、业务性质)</li><li>重点掌握系统筛查的优化要求</li><li>考试可能考查筛查方式方法</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住确定筛查方式的三类因素(经营规模、风险状况、业务性质)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握系统筛查的优化要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查筛查方式方法</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1425,15 +1696,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构对名单预警信息及时核查，判断真实命中或错误命中，并列举信息不足时的进一步尽调措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求及时核查预警信息，开展分析识别并记录处理结论及原因分析，审慎判断真实命中或错误命中；第二层针对信息不足列举三类进一步尽调措施——关联性审查(所有权控制权结构)、业务目的性审查(经营交易模式历史行为)、历史行为验证(过往交易合作文件)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须及时对名单预警信息核查开展分析识别</li><li>须记录处理结论及必要原因分析</li><li>须审慎判断真实命中或错误命中</li><li>信息不足时须进一步尽调</li><li>进一步措施含关联性审查、业务目的性审查、历史行为验证三类</li></ul>
 </div>
 <div class="analysis-section">
@@ -1442,9 +1707,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记三类进一步尽调措施(关联性审查、业务目的性审查、历史行为验证)</li><li>重点掌握真实命中与错误命中判断</li><li>考试易考三类核查措施</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记三类进一步尽调措施(关联性审查、业务目的性审查、历史行为验证)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握真实命中与错误命中判断</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考三类核查措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1476,15 +1758,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确核查无法确认时的协助核实机制，包括向交易对手账户所在机构申请协助及向相关部门申请协助。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层允许向交易对手账户所在金融机构申请协助核查并要求相互配合、符合数据安全与个人信息保护规定；第二层允许区分名单类型由总部向相关部门申请协助——涉公安部名单向公安部、涉联合国制裁名单向外交部、涉人民银行认定名单通过监管行向人民银行。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>充分运用核查措施仍无法核实的可向交易对手账户所在金融机构申请协助核查</li><li>协助核查须相互配合并符合数据安全个人信息保护规定</li><li>区分名单类型由总部向相关部门申请协助</li><li>涉公安部恐怖活动名单向公安部、涉联合国制裁名单向外交部提出协助核实申请</li><li>涉人民银行认定名单通过监管行向人民银行提出核实</li></ul>
 </div>
 <div class="analysis-section">
@@ -1493,9 +1769,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住三类名单的对口协助部门(公安部、外交部、中国人民银行)</li><li>重点掌握协助核查的合规要求</li><li>考试易考对口部门对应关系</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住三类名单的对口协助部门(公安部、外交部、中国人民银行)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握协助核查的合规要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考对口部门对应关系</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1520,15 +1813,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构发现或怀疑涉嫌规避特别预防措施时及时报告并继续核查，并界定规避行为的含义。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求发现或有合理理由怀疑涉嫌规避时经尽调仍不能合理排除的，由总部及时向监管行报告并继续核查；第二层界定规避行为指名单所列对象及其代理人、受指使组织人员、直接间接控制组织利用各种方式蓄意规避资金资产限制转移等措施、获取金融服务等。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>发现或合理怀疑涉嫌规避特别预防措施经尽调仍不能合理排除的须及时报告</li><li>报告由总部向监管行提出并继续核查</li><li>规避行为主体为名单所列对象及其代理人、受指使组织人员、直接间接控制组织</li><li>规避方式为利用各种方式蓄意规避资金资产限制转移等措施</li><li>规避目的包括获取金融服务等</li></ul>
 </div>
 <div class="analysis-section">
@@ -1537,9 +1824,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握报告主体(总部)与报告对象(监管行)</li><li>记住规避行为的主体与方式界定</li><li>考试易考规避行为认定与报告要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住规避行为的主体与方式界定</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握报告主体(总部)与报告对象(监管行)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考规避行为认定与报告要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1562,15 +1866,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确核查过程中应基于风险采取相应风险管理措施，并规定核查确认结果的处置。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层要求核查过程中基于风险采取风险管理措施(暂停金融服务、暂时限制资金资产转移等)；第二层规定确认结果处置——确认是名单对象的立即采取特别预防措施，确认不是的立即终止因核查采取的风险管理措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>核查过程中须基于风险采取相应风险管理措施</li><li>风险管理措施包括暂停金融服务、暂时限制资金资产转移等</li><li>核查确认是名单对象或相关组织的须立即采取特别预防措施</li><li>核查确认不是的须立即终止因核查采取的风险管理措施</li><li>措施与核查结果联动</li></ul>
 </div>
 <div class="analysis-section">
@@ -1579,9 +1877,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住两类风险管理措施(暂停金融服务、暂时限制资金资产转移)</li><li>重点掌握核查确认结果的差异化处置</li><li>考试易考确认命中与未命中的处置</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住两类风险管理措施(暂停金融服务、暂时限制资金资产转移)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考确认命中与未命中的处置</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>重点掌握核查确认结果的差异化处置</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1621,15 +1936,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构对名单所列对象及相关组织应在不事先通知情况下立即采取特别预防措施，并界定停止金融服务及资金资产的范围。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分四层：第一层要求不事先通知立即采取特别预防措施(停止服务、限制转移、其他措施)；第二层界定停止金融服务范围(账户开立变更撤销使用、暂停交易、拒绝转换资产、停止出口信贷担保保险等)；第三层界定资金资产范围(任何形式有形无形动产不动产、银行存款票据保单提单仓单信用证股票债券、房屋土地车辆船舶货物石油等)；第四层界定限制转移的资金资产(名单对象直接间接所有控制的所有资金资产及其孳息收益、代理人受指使组织人员的资金资产)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须在不事先通知情况下立即采取特别预防措施</li><li>措施包括停止提供金融服务、限制资金资产转移、采取其他措施</li><li>停止金融服务含停止账户开立变更撤销使用、暂停交易、拒绝转换资产、停止出口信贷担保保险等</li><li>资金资产包括任何形式有形无形动产不动产</li><li>限制转移的资金资产含名单对象直接间接所有控制的所有资金资产及其孳息收益、代理人受指使组织人员的资金资产</li></ul>
 </div>
 <div class="analysis-section">
@@ -1638,9 +1947,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握不事先通知立即采取的要求</li><li>记住停止金融服务与资金资产的范围界定</li><li>理解限制转移资产的三类范围</li><li>考试易考措施范围与资产界定</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住停止金融服务与资金资产的范围界定</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握不事先通知立即采取的要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考措施范围与资产界定</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解限制转移资产的三类范围</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1660,15 +1986,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确资金资产无法分割或确定份额时金融机构应一并采取特别预防措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文针对资金资产无法分割或确定份额的特殊情形，要求一并采取措施，避免因资产混同而规避限制。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>资金资产无法分割或确定份额时须一并采取措施</li><li>一并采取措施针对资产混同情形</li><li>措施目的是避免规避限制</li><li>适用前提为无法分割或确定份额</li></ul>
 </div>
 <div class="analysis-section">
@@ -1677,9 +1997,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住一并采取措施的适用前提(无法分割或确定份额)</li><li>理解措施防范规避的目的</li><li>考试可能考查一并采取措施情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住一并采取措施的适用前提(无法分割或确定份额)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解措施防范规避的目的</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查一并采取措施情形</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1701,15 +2038,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构采取特别预防措施后可告知被采取措施对象，并规定主动询问时的告知义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层允许以适当方式告知被采取措施对象说明措施和理由；第二层规定被采取措施对象主动询问时应当告知，并受法律法规及监管规定约束。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>采取措施后可以适当方式告知被采取措施对象</li><li>告知内容须说明采取的措施和理由</li><li>被采取措施对象主动询问的应当告知</li><li>告知须符合法律法规和监管规定</li><li>告知是权利保障的体现</li></ul>
 </div>
 <div class="analysis-section">
@@ -1718,9 +2049,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>区分“可以告知”与“应当告知”两种情形</li><li>重点掌握主动询问时的告知义务</li><li>考试易考告知的两种情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>考试易考告知的两种情形</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>区分“可以告知”与“应当告知”两种情形</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>重点掌握主动询问时的告知义务</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1741,15 +2089,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确采取特别预防措施应依法保护善意第三人合法权益，并赋予善意第三人权利救济途径。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层确立保护善意第三人合法权益原则；第二层明确善意第三人对被采取措施资金资产存在所有权债权担保权等合法权益的可依法进行权利救济。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>采取特别预防措施应依法保护善意第三人合法权益</li><li>善意第三人对被采取措施资金资产存在所有权债权担保权等合法权益的可依法权利救济</li><li>保护原则平衡了制裁与权益</li><li>权利救济须依法进行</li></ul>
 </div>
 <div class="analysis-section">
@@ -1758,9 +2100,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握保护善意第三人合法权益原则</li><li>记住可救济的权益类型(所有权债权担保权)</li><li>考试易考善意第三人保护</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住可救济的权益类型(所有权债权担保权)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握保护善意第三人合法权益原则</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考善意第三人保护</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1786,15 +2145,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确采取措施期间金融机构可通过有关账户收取款项的两种情形，并要求对收取款项受让资产一并采取措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层列举可收取款项的两类情形(收取受让被限制资金资产所产生的孳息及其他收益、收取名单发布前签订合同协议应收的款项及其他收入)；第二层要求对收取的款项和受让的资产一并采取特别预防措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>采取措施期间符合情形可通过有关账户收取款项</li><li>情形一：收取或受让被限制转移资金资产所产生的孳息及其他收益</li><li>情形二：收取名单所列对象根据名单发布前签订合同协议应收的款项及其他收入</li><li>对收取的款项和受让资产须一并采取特别预防措施</li><li>收取后须纳入限制范围</li></ul>
 </div>
 <div class="analysis-section">
@@ -1803,9 +2156,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住可收取款项的两类情形</li><li>重点掌握收取后一并采取措施的要求</li><li>考试易考款项收取情形与处置</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住可收取款项的两类情形</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握收取后一并采取措施的要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考款项收取情形与处置</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1830,15 +2200,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构不得擅自解除特别预防措施，并规定应立即解除的三类情形。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层禁止擅自解除特别预防措施；第二层列举应立即解除的三类情形(名单调整不再属于名单范围、经核实采取措施有误、经相关部门法定程序认定需解除)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>金融机构不得擅自解除特别预防措施</li><li>情形一：名单调整相关组织或个人不再属于名单范围</li><li>情形二：经核实采取特别预防措施有误</li><li>情形三：经相关部门通过法定程序认定需要解除</li><li>符合情形须立即解除</li></ul>
 </div>
 <div class="analysis-section">
@@ -1847,9 +2211,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记不得擅自解除的原则</li><li>记住应立即解除的三类情形</li><li>考试易考解除措施的情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记不得擅自解除的原则</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考解除措施的情形</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住应立即解除的三类情形</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1878,15 +2259,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构发生特定情形时须在5个工作日内由总部书面报告监管行并抄报反洗钱中心，并列举六类报告情形。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三层：第一层规定报告时限(5个工作日)、报告主体(总部)、报告对象(监管行)并抄报中国反洗钱监测分析中心；第二层列举六类情形(采取解除措施、协助动用资金资产、核实发现注销或死亡、回溯筛查发现交易对象与名单相关、有权机关认定其他情形)；第三层补充涉公安部名单还须向公安部门国家安全部门报告。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>发生特定情形须在5个工作日内由总部向监管行书面报告并抄报中国反洗钱监测分析中心</li><li>情形含采取特别预防措施、解除特别预防措施、协助动用相关资金资产</li><li>情形含核实发现相关组织注销或人员死亡、回溯性筛查发现交易对象与名单相关、有权机关认定其他情形</li><li>涉公安部恐怖活动名单还须同时向公安部门国家安全部门报告</li><li>报告时限为5个工作日</li></ul>
 </div>
 <div class="analysis-section">
@@ -1895,9 +2270,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记报告时限(5个工作日)与抄报对象(中国反洗钱监测分析中心)</li><li>记住六类报告情形</li><li>重点掌握涉公安部名单的双报要求</li><li>考试易考报告时限情形与对象</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记报告时限(5个工作日)与抄报对象(中国反洗钱监测分析中心)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握涉公安部名单的双报要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住六类报告情形</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试易考报告时限情形与对象</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1917,15 +2309,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条要求金融机构每年由总部向监管行书面报告所持有管理控制的被采取措施资金资产情况。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文要求每年由总部向监管行书面报告被采取措施的资金资产情况，包括变动情况。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须每年由总部向监管行书面报告</li><li>报告内容为所持有管理控制的被采取措施的资金资产情况</li><li>报告须包括变动情况</li><li>年度报告是常态化报告义务</li><li>报告主体为总部</li></ul>
 </div>
 <div class="analysis-section">
@@ -1934,9 +2320,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住年度报告的主体(总部)与对象(监管行)</li><li>重点掌握报告内容含变动情况</li><li>考试可能考查年度报告要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住年度报告的主体(总部)与对象(监管行)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握报告内容含变动情况</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查年度报告要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -1963,15 +2366,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确单位和个人对特别预防措施提出异议的处理要求，规定处理时限与不同情形的处置。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三层：第一层要求15个工作日内处理异议并答复当事人，涉及基本必需金融服务的及时处理答复；第二层对认为不应纳入名单的告知依法向相关机关申请；第三层对认为不是名单对象采取措施有误的予以核实，确认有误立即解除。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>异议须在15个工作日内处理并答复当事人</li><li>涉及客户基本必需金融服务的应及时处理异议并答复</li><li>认为不应纳入名单的告知依法向相关机关提出申请</li><li>认为不是名单对象采取措施有误的应予以核实</li><li>经核实确认采取措施有误的应立即解除措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -1980,9 +2377,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记异议处理时限(15个工作日)</li><li>区分三类异议的不同处置</li><li>重点掌握基本必需金融服务及时处理</li><li>考试易考异议处理时限与处置</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记异议处理时限(15个工作日)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考异议处理时限与处置</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>区分三类异议的不同处置</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>重点掌握基本必需金融服务及时处理</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -2002,15 +2416,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确名单所列对象为支付基本开支及其他必需费用寻求动用资金资产时的申请途径。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层告知客户按《反洗钱特别预防措施管理办法》定向有关机关申请；第二层针对联合国1737制裁名单所列对象支付名单前签订符合决议要求合同款项可向外交部申请。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>为支付基本开支及其他必需费用名单所列对象可寻求动用资金资产</li><li>金融机构可告知客户按《反洗钱特别预防措施管理办法》定向有关机关申请</li><li>联合国1737制裁名单所列对象支付名单前签订符合决议要求合同款项可向外交部申请</li><li>申请须定向提出</li><li>申请须符合决议要求</li></ul>
 </div>
 <div class="analysis-section">
@@ -2019,9 +2427,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住申请动用的两类情形与对口机关</li><li>重点掌握1737名单向外交部申请</li><li>考试易考申请动用途径</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住申请动用的两类情形与对口机关</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握1737名单向外交部申请</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考申请动用途径</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -2042,15 +2467,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条承上条进一步明确联合国1737制裁名单所列对象支付名单前合同款项的申请路径，可向外交部提出申请。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文承接申请动用条款，针对1737制裁名单特殊情形，明确支付名单前签订且符合联合国安理会决议要求合同款项可向外交部申请。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>1737制裁名单所列对象可申请动用支付名单前签订的合同款项</li><li>申请前提为合同符合联合国安理会相关决议要求</li><li>申请向外交部提出</li><li>申请须定向</li><li>合同须签订于名单列入前</li></ul>
 </div>
 <div class="analysis-section">
@@ -2059,9 +2478,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住1737名单申请对口机关(外交部)</li><li>重点掌握申请前提(名单前签订、符合决议要求)</li><li>考试易考1737名单动用申请</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住1737名单申请对口机关(外交部)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握申请前提(名单前签订、符合决议要求)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考1737名单动用申请</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -2081,15 +2517,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构收到批准动用被限制资金资产的正式文书时应及时协助客户处理有关资金资产。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文要求收到公安部外交部人民银行批准动用正式文书时及时协助客户按文书要求处理资金资产。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>收到公安部外交部中国人民银行批准动用正式文书时须及时协助</li><li>协助须按相关文书要求处理有关资金资产</li><li>批准文书是协助动用的依据</li><li>协助主体为金融机构</li><li>协助须及时</li></ul>
 </div>
 <div class="analysis-section">
@@ -2098,9 +2528,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住协助动用的依据(批准正式文书)</li><li>重点掌握三家批准机关</li><li>考试可能考查协助动用要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住协助动用的依据(批准正式文书)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握三家批准机关</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查协助动用要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -2121,15 +2568,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确金融机构履行特别预防措施义务相关信息资料的保存要求，规定保存原则与期限。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层：第一层确立安全准确完整保密的保存原则；第二层规定业务关系或交易结束后依法至少保存10年。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>须按安全准确完整保密原则保存相关信息资料</li><li>相关信息资料在业务关系结束后依法至少保存10年</li><li>相关信息资料在交易结束后依法至少保存10年</li><li>保存义务覆盖履行特别预防措施义务全过程</li><li>保存期限为至少10年</li></ul>
 </div>
 <div class="analysis-section">
@@ -2138,9 +2579,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记保存四项原则(安全准确完整保密)</li><li>记住保存期限(至少10年)</li><li>考试易考保存原则与期限</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记保存四项原则(安全准确完整保密)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考保存原则与期限</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住保存期限(至少10年)</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -2173,15 +2631,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条对指引中“受其指使的组织和人员”及“直接或者间接控制的组织”等关键概念进行解释，是指引的附则性定义条款。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两层解释：第一层定义“受其指使的组织和人员”为按名单所列对象意思行事的法人或其他组织；第二层定义“直接或者间接控制的组织”并列举三种控制情形(50%及以上股权股份合伙权益、50%及以上收益权表决权、实际控制含人事任免重大决策财务收支资产支配等)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>“受其指使的组织和人员”指按名单所列对象指示意思行事的法人或其他组织</li><li>“直接或者间接控制的组织”指通过股权股份合伙权益收益权表决权或协议关系密切的人等方式直接间接控制的法人非法人组织</li><li>控制情形一：直接间接最终拥有50%及以上股权股份或合伙权益</li><li>控制情形二：最终拥有50%及以上收益权表决权</li><li>控制情形三：单独或联合实际控制含决定人事任免重大决策财务收支长期支配重要资产或主要资金</li></ul>
 </div>
 <div class="analysis-section">
@@ -2190,9 +2642,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记两个关键概念定义</li><li>重点掌握三种控制情形(股权、收益权表决权、实际控制)</li><li>记住50%量化标准</li><li>考试易考控制情形判定</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记两个关键概念定义</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握三种控制情形(股权、收益权表决权、实际控制)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住50%量化标准</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试易考控制情形判定</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>

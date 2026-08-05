@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -390,6 +391,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -445,26 +485,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为《低风险情形下适用反洗钱简化措施指引》的前言部分，阐明指引的制定背景、依据与总体目的。指引源于FATF于2025年2月修订建议1及2025年6月更新的《金融包容性与反洗钱及反恐怖融资措施指南》，结合我国基于风险的反洗钱工作原则而制定。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>前言分为两个层次：第一段交代国际背景，列举FATF修订建议1及金融包容性指南两项国际动向；第二段转入国内定位，说明我国法律制度已确立基于风险原则，并明确本指引的梳理思路——系统梳理法律依据、结合国家风险评估、细化行业低风险情形、明确简化措施适用要求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>制定背景为FATF于2025年2月修订建议1，要求各国识别较低风险领域</li><li>2025年6月金融包容性指南强调简化措施与金融普惠、避免“去风险化”密切相关</li><li>我国已确立基于风险的反洗钱工作原则，低风险情形可采取简化措施</li><li>指引目的是引导金融机构合理配置反洗钱资源</li><li>指引结合国家层面洗钱和恐怖融资风险评估报告细化行业低风险情形</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>机构应理解简化措施与金融普惠、避免“去风险化”的关联</li><li>实务中应将国家行业风险评估结果作为低风险情形识别依据</li><li>指引要求细化行业低风险情形，机构需对照落实</li><li>简化措施适用须建立在基于风险原则之上</li><li>合理配置反洗钱资源是落实简化措施的落脚点</li></ul>
+<ul><li>机构应理解简化措施与金融普惠、避免“去风险化”的关联</li><li>实务中应将国家行业风险评估结果作为低风险情形识别依据</li><li><strong>指引要求细化行业低风险情形，</strong>——机构需对照落实</li><li>简化措施适用须建立在基于风险原则之上</li><li>合理配置反洗钱资源是落实简化措施的落脚点</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆FATF修订建议1的时间(2025年2月)及内容</li><li>理解“去风险化”概念及简化措施的普惠意义</li><li>把握指引“梳理依据—细化情形—明确要求”的逻辑主线</li><li>考试可能考查指引制定的国际与国内双重背景</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆FATF修订建议1的时间(2025年2月)及内容</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“去风险化”概念及简化措施的普惠意义</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查指引制定的国际与国内双重背景</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>把握指引“梳理依据—细化情形—明确要求”的逻辑主线</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -483,26 +534,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条对应指引第一部分“关于简化措施的法律规定”的总体要求，以《反洗钱法》第二十九条和第四十二条为上位法依据，确立客户尽职调查与风险状况相匹配、低风险情形简化尽调的总体要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以两部法律条款并列展开：第二十九条聚焦金融机构，确立尽调与风险匹配及低风险简化尽调；第四十二条扩展至特定非金融机构，要求参照金融机构规定并结合行业特点、经营规模、风险状况履行义务。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>《反洗钱法》第二十九条确立尽调与风险状况匹配的基本要求</li><li>对涉及较低洗钱风险的应简化客户尽职调查</li><li>第四十二条明确特定非金融机构参照金融机构规定履行义务</li><li>特定非金融机构须结合行业特点、经营规模、洗钱风险状况</li><li>金融机构与特定非金融机构均适用简化措施</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应据第二十九条建立尽调与风险匹配机制</li><li>特定非金融机构不能简单套用金融机构标准，须结合自身行业特点</li><li>简化尽调的前提是“涉及较低洗钱风险”</li><li>经营规模和风险状况是衡量简化措施适用的重要维度</li><li>本条是后续行业细化规定的总纲</li></ul>
+<ul><li>金融机构应据第二十九条建立尽调与风险匹配机制</li><li><strong>特定非金融机构不能简单套用金融机构标准，</strong>——须结合自身行业特点</li><li>简化尽调的前提是“涉及较低洗钱风险”</li><li>经营规模和风险状况是衡量简化措施适用的重要维度</li><li>本条是后续行业细化规定的总纲</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记第二十九条(尽调与风险匹配)、第四十二条(特定非金融机构参照)的条款序号</li><li>区分金融机构与特定非金融机构的适用逻辑</li><li>考试常考简化尽调的法定前提“较低洗钱风险”</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记第二十九条(尽调与风险匹配)、第四十二条(特定非金融机构参照)的条款序号</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>区分金融机构与特定非金融机构的适用逻辑</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试常考简化尽调的法定前提“较低洗钱风险”</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -522,26 +584,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条梳理金融行业层面关于简化措施的具体监管规定，涉及《金融机构反洗钱和反恐怖融资监督管理办法》第八条、《金融机构客户尽职调查和客户身份资料及交易记录保存管理办法》第二十九条及《金融机构客户受益所有人识别管理办法》，明确金融行业简化措施的可操作要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文按三个规章递进展开：监督办法第八条从制度层面要求经董事会或高管层批准制定风险管理制度并针对低风险采取简化措施；尽调办法第二十九条从操作层面给出简化尽调的具体方式；受益所有人办法从特定识别环节允许简化识别。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>监督办法第八条要求经董事会或高管层批准制定风险管理制度</li><li>尽调办法第二十九条要求经风险评估且有充足理由判断低风险方可简化</li><li>简化方式包括合理期限内完成身份核实、延长定期审查周期、降低尽调与交易监测频率强度</li><li>受益所有人办法允许对特定法人、非法人组织简化识别</li><li>简化措施须与风险状况相匹配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构制定风险管理制度须经董事会或高管层批准</li><li>简化尽调须留存“风险评估+充足理由”的判断依据</li><li>延长审查周期、降低监测频率等是常见简化手段</li><li>受益所有人简化识别仅限特定法人、非法人组织</li><li>简化不等于不调查，须保持与风险相称的措施</li></ul>
+<ul><li>金融机构制定风险管理制度须经董事会或高管层批准</li><li>简化尽调须留存“风险评估+充足理由”的判断依据</li><li>延长审查周期、降低监测频率等是常见简化手段</li><li>受益所有人简化识别仅限特定法人、非法人组织</li><li><strong>简化不等于不调查，</strong>——须保持与风险相称的措施</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住三个规章名称及对应条款(监督办法第八条、尽调办法第二十九条)</li><li>重点掌握尽调办法第二十九条列举的简化方式</li><li>注意“经风险评估且具有充足理由”是简化尽调的双重前提</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住三个规章名称及对应条款(监督办法第八条、尽调办法第二十九条)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握尽调办法第二十九条列举的简化方式</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“经风险评估且具有充足理由”是简化尽调的双重前提</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -564,26 +637,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条系统列举贵金属和宝石、房地产、会计师、律师、公证、登记代理六大特定非金融行业关于简化措施的法律规定，体现简化措施在不同行业的差异化适用。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文按行业分列六段，每段先述行业再述对应办法的简化要求：贵金属宝石、房地产、会计师、律师行业强调“经风险评估或有充足理由判断低风险”后采取简化尽调；公证行业以“较低洗钱风险且当事人不属于高风险”为前提；登记代理行业以“洗钱风险较低”为前提简化反洗钱义务。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>贵金属和宝石行业可简化监管措施或豁免监管措施</li><li>房地产行业对低风险从业机构简化监管、中介机构对低风险客户简化身份识别</li><li>会计师、律师行业经评估或充足理由判断低风险后采取相匹配简化尽调</li><li>公证行业对较低洗钱风险且当事人非高风险的业务开展简化尽调</li><li>登记代理行业对低风险登记业务可简化反洗钱义务</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>各行业简化措施的前提均为“低风险”判断，须留存评估或判断依据</li><li>贵金属宝石行业享有豁免监管措施的特殊安排</li><li>房地产中介可对低风险客户简化身份识别</li><li>律师行业强调结合当事人特征、委托关系、委托事项性质综合判断</li><li>登记代理行业简化的是“反洗钱义务”整体而非单一环节</li></ul>
+<ul><li><strong>各行业简化措施的前提均为“低风险”判断，</strong>——须留存评估或判断依据</li><li>贵金属宝石行业享有豁免监管措施的特殊安排</li><li>房地产中介可对低风险客户简化身份识别</li><li>律师行业强调结合当事人特征、委托关系、委托事项性质综合判断</li><li>登记代理行业简化的是“反洗钱义务”整体而非单一环节</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住六大特定非金融行业名称及对应办法</li><li>区分各行业简化措施的触发条件差异</li><li>注意公证行业“且当事人不属于高风险情形”的附加条件</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住六大特定非金融行业名称及对应办法</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>区分各行业简化措施的触发条件差异</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意公证行业“且当事人不属于高风险情形”的附加条件</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -605,26 +689,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条阐述国家层面识别、评估低风险情形的机制，是指引第二部分的核心，明确国家和行业洗钱和恐怖融资风险评估从客户、产品或业务、渠道、地域四个维度综合识别低风险情形，并定期更新。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文先总述四维评估机制及定期更新要求，再分四个维度逐一展开：客户维度列举政府部门、事业单位、持牌金融机构类客户；产品或业务维度从资金关联度、交易额度、流动性、变现能力描述；渠道维度强调受监管交易场所与集中清算；地域维度明确跨境及高风险国家地区不宜评估为低风险。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>评估四维度为客户、产品或业务、渠道、地域</li><li>客户维度：党政机关、权力机关、预算管理事业单位、正规持牌金融机构类客户风险较低</li><li>产品维度：与资金交易无关或关联低、额度受限、流动性低、变现弱的产品风险较低</li><li>渠道维度：受监管专业交易场所、集中清算、高透明度渠道风险较低</li><li>地域维度：跨境资金流动或高风险国家地区不宜评估为低风险</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>机构应将国家行业风险评估结果纳入自身风险评估</li><li>四维评估是低风险情形识别的基本框架，须逐维度分析</li><li>客户维度须关注资金来源用途是否受严格监管审计</li><li>产品维度须评估资金流动性与变现能力</li><li>涉及跨境或高风险地区的业务不得简单认定为低风险</li></ul>
+<ul><li>机构应将国家行业风险评估结果纳入自身风险评估</li><li><strong>四维评估是低风险情形识别的基本框架，</strong>——须逐维度分析</li><li>客户维度须关注资金来源用途是否受严格监管审计</li><li>产品维度须评估资金流动性与变现能力</li><li>涉及跨境或高风险地区的业务不得简单认定为低风险</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记四维度名称(客户、产品或业务、渠道、地域)</li><li>重点掌握各维度低风险判断的具体要素</li><li>注意地域维度是“不宜评估为低风险”的反向排除</li><li>考试易考四维度分类及典型低风险客户类型</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记四维度名称(客户、产品或业务、渠道、地域)</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握各维度低风险判断的具体要素</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考四维度分类及典型低风险客户类型</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意地域维度是“不宜评估为低风险”的反向排除</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -642,15 +737,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条对应指引第三部分金融行业低风险情形中的银行业，列举银行业资金封闭运行、用途明确的低风险业务场景。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以“资金封闭运行、用途明确”为总特征，分三类场景展开：金融市场业务(债券、同业拆借，交易对手为持牌机构或公共部门)；养老金及企业年金业务(社保账户、托管业务，专户闭环、支取严格)；疏解主体业务(服务国家重大战略的疏解企业、高校、医院)。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>银行业低风险情形集中于资金封闭运行、用途明确的场景</li><li>金融市场业务含债券市场交易、同业拆借交易，交易对手为持牌金融机构或政府等公共部门</li><li>养老金及企业年金业务实行专户闭环管理，支取条件严格限定</li><li>疏解主体指服务国家重大战略实施疏解的企业、高校、医院</li><li>风险较低情形下可适当采取简化措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -659,9 +748,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住银行业三类低风险场景</li><li>重点掌握金融市场业务交易对手范围</li><li>理解“专户闭环管理”是养老金年金业务低风险的关键</li><li>考试可能考查疏解主体的范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住银行业三类低风险场景</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握金融市场业务交易对手范围</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查疏解主体的范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解“专户闭环管理”是养老金年金业务低风险的关键</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -679,26 +785,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条列举证券业低风险情形，包括自营业务、投资顾问业务及个人养老金社保年金类投资基金三类场景。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文按三类业务分述：自营业务强调资金为自有资金并与客户交易结算资金分户管理；投资顾问业务强调仅提供建议不参与资金管理或交易执行；养老金类投资基金强调资金来源明确合法且在专门账户封闭运行。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>证券业低风险情形包括自营业务、投资顾问业务、养老金社保年金类投资基金</li><li>自营业务资金为机构自有资金，与客户交易结算资金分户管理</li><li>投资顾问业务仅提供投资策略、分析报告等建议</li><li>投资顾问业务不直接参与客户资金管理或交易执行</li><li>养老金类投资基金资金来源明确合法，专门账户封闭运行</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>证券业自营业务须确认自有资金与客户资金分户管理</li><li>投资顾问业务须界定服务边界，确保不触及资金管理</li><li>养老金类投资基金须核实专门账户封闭运行</li><li>三类业务共同特征是资金来源明确或与客户资金隔离</li><li>机构应据业务实质判断是否符合低风险情形</li></ul>
+<ul><li>证券业自营业务须确认自有资金与客户资金分户管理</li><li><strong>投资顾问业务须界定服务边界，</strong>——确保不触及资金管理</li><li>养老金类投资基金须核实专门账户封闭运行</li><li>三类业务共同特征是资金来源明确或与客户资金隔离</li><li>机构应据业务实质判断是否符合低风险情形</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住证券业三类低风险业务</li><li>重点掌握自营业务“分户管理”要求</li><li>理解投资顾问业务低风险的边界(不参与资金管理交易执行)</li><li>考试易考三类业务低风险判断要素</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住证券业三类低风险业务</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握自营业务“分户管理”要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考三类业务低风险判断要素</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解投资顾问业务低风险的边界(不参与资金管理交易执行)</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -716,15 +833,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条列举保险业低风险情形，包括意外险及健康险、养老保险、普惠金融类保险、相互保险四类场景。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文按四类险种分述：意外健康险强调纯保障型无储蓄投资功能现金价值、保费低；养老保险强调资金来源明确、个人养老金账户规范缴存、领取需特定情形；普惠金融类保险强调政府主导；相互保险强调成员缴保费形成互助基金、透明度高。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>意外险及健康险为纯保障型消费型险种，无储蓄投资功能和现金价值，保费金额很低</li><li>养老保险资金来源明确，通过个人养老金资金账户规范缴存，领取需达退休等特定情形</li><li>普惠金融类保险如政策性农业保险、大病补充医疗保险，通常政府主导</li><li>相互保险由成员缴纳保费形成互助基金，成员彼此了解透明度高</li></ul>
 </div>
 <div class="analysis-section">
@@ -733,9 +844,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住保险业四类低风险险种</li><li>重点掌握意外健康险“无储蓄投资功能和现金价值”特征</li><li>理解养老保险低风险的资金来源与领取条件</li><li>考试可能考查四类险种低风险判断要素</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住保险业四类低风险险种</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握意外健康险“无储蓄投资功能和现金价值”特征</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查四类险种低风险判断要素</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解养老保险低风险的资金来源与领取条件</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -754,15 +882,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条列举非银行支付业与信托业的低风险情形，分两个子行业展开。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两段：非银行支付业以政府类支付业务为低风险情形，强调发起主体为政府机关事业单位及公共服务机构、专款专用、资金闭环可控；信托业以公益慈善信托、行政管理服务信托、风险处置服务信托三类为低风险情形，分别强调受益人不特定、财产用途固定、法律程序严格。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>非银行支付业低风险情形为政府类支付业务</li><li>政府类支付业务发起主体为各级政府机关、事业单位及公共服务机构</li><li>政府类支付业务遵循“专款专用”原则，资金闭环可控</li><li>信托业低风险情形含公益慈善信托、行政管理服务信托、风险处置服务信托</li><li>公益慈善信托不能指定特定受益人，行政管理服务信托财产用途固定，风险处置服务信托法律程序严格</li></ul>
 </div>
 <div class="analysis-section">
@@ -771,9 +893,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住非银行支付业政府类支付业务的发起主体范围</li><li>重点掌握信托业三类低风险信托及其低风险原因</li><li>理解“专款专用”与“资金闭环可控”是支付业务低风险关键</li><li>考试易考信托业三类业务区分</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住非银行支付业政府类支付业务的发起主体范围</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握信托业三类低风险信托及其低风险原因</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考信托业三类业务区分</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解“专款专用”与“资金闭环可控”是支付业务低风险关键</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -792,26 +931,37 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条列举七类非银行金融机构及网络小贷行业的低风险情形，涵盖企业集团财务公司、金融租赁公司、金融资产管理公司、货币经纪公司、汽车金融公司、理财公司、消费金融公司及网络小贷。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两段：七类非银机构低风险情形集中于特定客户或特定用途业务(如财务公司面向集团内部成员、金融租赁直接租赁、汽车金融购车贷款)；网络小贷以受托支付类小额贷款为低风险情形，强调资金直接支付给真实交易对手、不经借款人自由支配。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>七类非银机构含企业集团财务公司、金融租赁公司、金融资产管理公司、货币经纪公司、汽车金融公司、理财公司、消费金融公司</li><li>非银机构低风险情形集中于特定对象或特定用途业务</li><li>财务公司面向集团内部成员开展业务为低风险</li><li>金融租赁直接租赁业务、汽车金融购车贷款为特定用途低风险业务</li><li>网络小贷受托支付类业务资金直接支付给真实交易对手，不经借款人自由支配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>七类非银机构识别低风险应聚焦特定客户或特定用途</li><li>财务公司须确认面向集团内部成员</li><li>金融租赁、汽车金融须确认特定用途</li><li>网络小贷须落实受托支付，资金直接付给真实交易对手</li><li>受托支付的核心是资金不经借款人自由支配</li></ul>
+<ul><li>七类非银机构识别低风险应聚焦特定客户或特定用途</li><li>财务公司须确认面向集团内部成员</li><li>金融租赁、汽车金融须确认特定用途</li><li><strong>网络小贷须落实受托支付，</strong>——资金直接付给真实交易对手</li><li>受托支付的核心是资金不经借款人自由支配</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住七类非银行金融机构名称</li><li>重点掌握“特定对象”与“特定用途”两类低风险业务</li><li>理解网络小贷受托支付的低风险逻辑</li><li>考试可能考查七类机构范围及受托支付特征</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住七类非银行金融机构名称</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握“特定对象”与“特定用途”两类低风险业务</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查七类机构范围及受托支付特征</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解网络小贷受托支付的低风险逻辑</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -834,15 +984,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条列举特定非金融行业的低风险情形，涵盖贵金属和宝石、房地产、律师、公证、注册会计师、登记代理六个行业的具体低风险业务场景。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文按行业分列六段：贵金属宝石按开采加工中间交易环节及金伯利进程证书区分；房地产按首次置业公积金贷款及保障性政策性住房；律师按不动产买卖辅助法律服务；公证按遗嘱及声明证书签名公证(排除境外账户跨境流转)；注册会计师按代管资金证券账户业务；登记代理按政府集中登记地入驻业务。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>贵金属宝石行业低风险含黄金、钻石(需申报金伯利进程证书)、玉石的开采加工及中间交易环节</li><li>房地产行业低风险含首次置业公积金贷款交易及保障性政策性住房交易</li><li>律师行业不动产买卖辅助性法律服务风险较低</li><li>公证行业遗嘱公证、声明证书签名印鉴公证风险较低(境外账户跨境流转除外)</li><li>注册会计师代管资金证券及账户业务、登记代理政府集中登记地入驻业务风险较低</li></ul>
 </div>
 <div class="analysis-section">
@@ -851,9 +995,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>记住六大特定非金融行业低风险业务场景</li><li>重点掌握公证行业的排除情形(境外账户跨境流转)</li><li>理解钻石金伯利进程证书的特殊要求</li><li>考试易考各行业低风险业务的具体界定</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住六大特定非金融行业低风险业务场景</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握公证行业的排除情形(境外账户跨境流转)</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试易考各行业低风险业务的具体界定</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>理解钻石金伯利进程证书的特殊要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -872,15 +1033,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条对应指引第四部分简化措施的适用，明确机构如何确定可采取简化措施的低风险情形，是简化措施适用的入口环节。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两段：第一段阐述确定路径——吸收国家行业风险评估及监管自律指引，开展机构洗钱风险自评估，基于自评估结果确定低风险客户类群、业务类型、渠道和地域，或进一步细分业务场景；第二段阐述例外与禁止——高风险客户办理政策性民生性低风险业务经判断交易背景合理可适用简化，但怀疑涉嫌洗钱恐怖融资的高风险情形不得采取简化措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>确定低风险情形须吸收国家行业风险评估报告及监管自律指引</li><li>须开展机构洗钱风险自评估并基于结果确定低风险客户类群、业务类型、渠道、地域</li><li>可进一步细分业务场景对低风险场景采取简化措施</li><li>高风险客户办理政策性民生性低风险业务经判断交易背景合理可适用简化</li><li>怀疑客户或交易涉嫌洗钱恐怖融资的高风险情形不得采取简化措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -889,9 +1044,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握确定低风险情形的两条路径(自评估结果确定、细分业务场景)</li><li>记住高风险客户办理低风险业务可适用简化的条件</li><li>牢记“怀疑涉嫌洗钱恐怖融资”不得简化的禁止性规定</li><li>考试易考简化措施的适用与禁止情形</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住高风险客户办理低风险业务可适用简化的条件</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试易考简化措施的适用与禁止情形</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>重点掌握确定低风险情形的两条路径(自评估结果确定、细分业务场景)</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>牢记“怀疑涉嫌洗钱恐怖融资”不得简化的禁止性规定</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -910,15 +1082,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确机构可采取的简化措施类型及简化措施的边界，强调简化不等于豁免尽调。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两段：第一段列举五类简化措施类型(减少身份信息类型、简化受益所有人识别、合理期限内完成身份核实、延长风险评估及审核频次、其他降低尽调与监测频率强度措施)；第二段强调简化尽职调查不等于豁免尽调，须采取必要且与风险相称的措施，且不得免除特别预防措施名单筛查要求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>简化措施类型一：减少获取和登记的客户身份信息类型</li><li>简化措施类型二：按规定采取简化措施识别受益所有人</li><li>简化措施类型三：建立业务关系后合理期限内完成客户及受益所有人身份核实</li><li>简化措施类型四：延长风险评估和初次风险等级划分时间、降低定期审核频次</li><li>简化措施类型五：其他降低尽调交易监测频率强度的措施；简化不等于豁免尽调，不得免除特别预防措施名单筛查要求</li></ul>
 </div>
 <div class="analysis-section">
@@ -927,9 +1093,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>牢记五类简化措施类型</li><li>重点掌握“简化不等于豁免尽调”的边界</li><li>记住简化措施不得免除名单筛查要求</li><li>考试易考五类简化措施及禁止免除事项</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>牢记五类简化措施类型</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握“简化不等于豁免尽调”的边界</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>记住简化措施不得免除名单筛查要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试易考五类简化措施及禁止免除事项</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>
@@ -948,15 +1131,9 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条明确低风险情形的持续监测与动态调整要求，强调低风险情形非静态，须纳入洗钱风险管理流程持续监测评估。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两段：第一段阐述持续监测总要求——将低风险情形持续监测纳入洗钱风险管理流程，通过持续监测评估动态调整确保简化措施建立在有效低风险判断之上；第二段阐述具体调整机制——定期回溯低风险业务场景，风险变化时及时调整简化措施范围，不再符合低风险的停止简化并改采一般或强化措施。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>低风险情形非静态一成不变，须纳入洗钱风险管理流程持续监测</li><li>须通过持续监测评估和动态调整确保简化措施建立在有效低风险判断之上</li><li>对采取简化措施的低风险业务场景需定期回溯</li><li>风险状况变化时应及时调整简化措施适用范围和要求</li><li>不再符合低风险情形的应停止简化，改采一般措施或强化措施</li></ul>
 </div>
 <div class="analysis-section">
@@ -965,9 +1142,26 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点掌握低风险情形“非静态”的动态管理理念</li><li>记住定期回溯与动态调整两项机制</li><li>牢记不再符合低风险须停止简化并改采一般或强化措施</li><li>考试易考持续监测与调整的触发条件</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>记住定期回溯与动态调整两项机制</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>重点掌握低风险情形“非静态”的动态管理理念</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>牢记不再符合低风险须停止简化并改采一般或强化措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>考试易考持续监测与调整的触发条件</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 </div>

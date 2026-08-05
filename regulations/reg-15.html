@@ -259,7 +259,8 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  .art-para{font-size:15px;}
  .reg-card{padding:14px 16px;gap:12px;}
  .reg-card-name{font-size:14px;}
-}
+
+ .study-grid{grid-template-columns:1fr;}}
 
 /* 可折叠关联条款原文 - 按钮在同行右侧 */
 .xref-item{position:relative;padding-right:64px;}
@@ -423,6 +424,45 @@ details.xref-details > summary.xref-summary:hover{
  font-size:12px;line-height:1.65;color:var(--c-muted);
  border-left:3px solid var(--c-blue);}
 
+
+/* 箭头链条 */
+.arrow-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+ margin:10px 0;padding:10px 14px;background:rgba(0,113,227,0.04);
+ border-radius:8px;}
+.chain-node{background:var(--c-card);border:1px solid var(--c-border);
+ border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500;
+ color:var(--c-text);}
+.chain-arrow{color:var(--c-blue);font-size:16px;font-weight:700;}
+
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
+ border:1px solid var(--c-border);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'\8BB0';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(255,59,48,0.1);border-radius:6px;font-size:11px;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'\89E3';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(0,113,227,0.1);border-radius:6px;font-size:11px;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'\7528';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(52,199,89,0.1);border-radius:6px;font-size:11px;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'\8003';display:inline-flex;
+ align-items:center;justify-content:center;width:20px;height:20px;
+ background:rgba(175,82,222,0.1);border-radius:6px;font-size:11px;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 10px;margin-top:6px;font-size:12px;color:var(--c-muted);}
 </style>
 </head>
 <body>
@@ -511,26 +551,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为《中国人民银行关于修改和废止部分规章的决定》（中国人民银行令〔2025〕第10号）的引言部分，明确了该决定的制定机关、发布日期、生效日期及核心内容。该决定于2025年9月16日经中国人民银行2025年第13次行务会议审议通过，由行长潘功胜签署，自2025年12月1日起施行。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>引言部分包含两个层次：第一段为发文信息，载明发文机关（中国人民银行）、发布日期（2025.09.30）、生效日期（2025.12.01）和文号（中国人民银行令〔2025〕第10号）；第二段为决定主旨，说明为贯彻落实《中华人民共和国反洗钱法》，对涉及反洗钱的规章进行清理，决定修改2件规章的部分条款并废止1件规章。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>发文字号为中国人民银行令〔2025〕第10号，由行长潘功胜于2025年9月30日签署发布</li><li>审议程序为2025年9月16日中国人民银行2025年第13次行务会议审议通过</li><li>施行日期为2025年12月1日，体现了“审议通过→发布→施行”的规范立法流程</li><li>制定目的是贯彻落实《中华人民共和国反洗钱法》，对涉及反洗钱的规章进行清理</li><li>核心内容为修改2件规章的部分条款、废止1件规章</li></ul>
+<div class="arrow-chain"><span class="chain-node">引言(修改和废止部分规章的决定)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>实务中需注意该决定的施行日期（2025年12月1日），在此日期之后相关规章按修改后内容执行</li><li>被修改的2件规章分别为《金融机构大额交易和可疑交易报告管理办法》和《金融机构反洗钱和反恐怖融资监督管理办法》</li><li>被废止的1件规章为《金融机构反洗钱规定》</li><li>金融机构应在施行日期前完成内部制度修订和人员培训，确保过渡期合规衔接</li></ul>
+<ul><li>实务中需注意该决定的施行日期（2025年12月1日），在此日期之后相关规章按修改后内容执行</li><li>被修改的2件规章分别为《金融机构大额交易和可疑交易报告管理办法》和《金融机构反洗钱和反恐怖融资监督管理办法》</li><li>被废止的1件规章为《金融机构反洗钱规定》</li><li><strong>金融机构应在施行日期前完成内部制度修订和人员培训，</strong>——确保过渡期合规衔接</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆文号〔2025〕第10号、审议日期9月16日、施行日期12月1日三个时间节点</li><li>理解“清理”的含义：既包括修改（部分条款调整），也包括废止（整件废止）</li><li>注意该决定与《反洗钱法》的衔接关系，系为落实新修订《反洗钱法》而进行的配套规章清理</li><li>考试可能考查被修改和被废止的规章名称及数量（2件修改、1件废止）</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆文号〔2025〕第10号、审议日期9月16日、施行日期12月1日三个时间节点</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“清理”的含义：既包括修改（部分条款调整），也包括废止（整件废止）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查被修改和被废止的规章名称及数量（2件修改、1件废止）</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意该决定与《反洗钱法》的衔接关系，系为落实新修订《反洗钱法》而进行的配套规章清理</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-2">
@@ -570,26 +622,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第一项，修改《金融机构大额交易和可疑交易报告管理办法》（中国人民银行令〔2016〕第3号）第二条，重新界定了履行大额交易和可疑交易报告义务的金融机构范围，将理财公司、网络小额贷款公司等机构纳入报告义务主体。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用“总—分”结构：先概括规定在境内设立的六类机构履行报告义务，再以列举方式明确各类机构的具体范围。第六项为兜底条款，将中国人民银行确定并公布的其他机构纳入。最后一段单独规定从事汇兑、基金销售、保险专业代理和保险经纪业务的机构以及网络小额贷款公司适用本办法。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为《金融机构大额交易和可疑交易报告管理办法》第二条，原办法文号中国人民银行令〔2016〕第3号</li><li>报告义务主体扩展至六类机构：银行类、证券类、保险类、信托及非银金融类、非银行支付机构、兜底类</li><li>第四类机构新增了理财公司，体现对新型金融业态的监管覆盖</li><li>从事汇兑、基金销售、保险专业代理和保险经纪业务的机构以及网络小额贷款公司明确适用本办法</li><li>第六项兜底条款授权中国人民银行确定并公布其他从事金融业务的机构</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-一(将第二条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构需对照修改后的主体范围，确认本机构是否属于报告义务主体</li><li>理财公司需在施行日期前建立大额交易和可疑交易报告机制</li><li>网络小额贷款公司首次被明确纳入报告义务范围，需做好系统对接和人员配备</li><li>从事汇兑、基金销售等业务的机构应关注自身适用本办法的具体要求</li></ul>
+<ul><li><strong>金融机构需对照修改后的主体范围，</strong>——确认本机构是否属于报告义务主体</li><li>理财公司需在施行日期前建立大额交易和可疑交易报告机制</li><li><strong>网络小额贷款公司首次被明确纳入报告义务范围，</strong>——需做好系统对接和人员配备</li><li>从事汇兑、基金销售等业务的机构应关注自身适用本办法的具体要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆六类机构的分类和具体包含的机构类型，尤其注意新增的理财公司</li><li>注意区分“在境内设立”的限定条件，境外机构不在适用范围内</li><li>考试可能考查网络小额贷款公司是否适用本办法（答案：适用）</li><li>理解兜底条款的功能：为未来新增金融机构类型预留制度空间</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>理解兜底条款的功能：为未来新增金融机构类型预留制度空间</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查网络小额贷款公司是否适用本办法（答案：适用）</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>注意区分“在境内设立”的限定条件，境外机构不在适用范围内</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>重点记忆六类机构的分类和具体包含的机构类型，尤其注意新增的理财公司</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-3">
@@ -625,26 +689,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第二项，修改《金融机构大额交易和可疑交易报告管理办法》第九条，规定了非银行金融机构与客户进行金融交易并通过银行账户划转款项时，由银行机构代为提交大额交易报告的情形。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以列举方式规定了四类非银行金融机构通过银行账户划转款项的交易由银行机构提交大额交易报告：证券类机构、保险类机构、信托及非银金融类机构、从事特定业务的机构。这一规定明确了银行机构在这些交易中的报告义务。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第九条，涉及非银行金融机构通过银行账户划转款项的大额交易报告责任归属</li><li>四类机构通过银行账户划转款项的，由银行机构按规定提交大额交易报告</li><li>前三类与第二条修改后的机构分类一致，第四类为从事汇兑、基金销售、保险专业代理和保险经纪业务的机构以及网络小额贷款公司</li><li>核心原则是“谁持有银行账户、谁提交报告”，避免报告义务的重复或遗漏</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-二(将第九条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(大额交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>银行机构需识别交易对手是否属于规定的四类机构，确保代为提交大额交易报告</li><li>非银行金融机构应注意自身通过银行账户划转款项的交易由银行方负责报告</li><li>实务中银行与非银行金融机构应建立信息沟通机制，确保报告的准确性和完整性</li><li>网络小额贷款公司通过银行账户划转款项的交易同样适用本条规定</li></ul>
+<ul><li><strong>银行机构需识别交易对手是否属于规定的四类机构，</strong>——确保代为提交大额交易报告</li><li>非银行金融机构应注意自身通过银行账户划转款项的交易由银行方负责报告</li><li><strong>实务中银行与非银行金融机构应建立信息沟通机制，</strong>——确保报告的准确性和完整性</li><li>网络小额贷款公司通过银行账户划转款项的交易同样适用本条规定</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆四类机构的范围，与第二条修改后的主体范围对应理解</li><li>理解“由银行机构按照本办法规定提交大额交易报告”的责任分配逻辑</li><li>考试可能考查某类非银行金融机构通过银行账户划转款项时由谁提交报告</li><li>注意与第二条的主体范围对比：第二条是自身报告义务，第九条是代为报告义务</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆四类机构的范围，与第二条修改后的主体范围对应理解</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“由银行机构按照本办法规定提交大额交易报告”的责任分配逻辑</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查某类非银行金融机构通过银行账户划转款项时由谁提交报告</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意与第二条的主体范围对比：第二条是自身报告义务，第九条是代为报告义务</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-4">
@@ -676,26 +752,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第三项，修改《金融机构大额交易和可疑交易报告管理办法》第十四条，完善了金融机构对交易监测标准筛选出交易的人工分析、识别和记录要求，并增加第二款规定了人工分析过程中可采取的进一步措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两款：第一款修改原第十四条，要求金融机构对交易监测标准筛选出的交易进行人工分析、识别并记录分析过程，不作为可疑交易报告的需记录排除理由，确认为可疑交易的需在报告中完整记录分析过程，并设置合理时限。第二款为新增条款，规定必要时可通过客户尽职调查等方式进一步核实客户及交易情况。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第十四条，核心是人工分析、识别和记录的可溯源性要求</li><li>三种处理结果均需记录：确认可疑（记录分析过程）、排除可疑（记录排除理由）、进一步核实</li><li>新增第二款允许在人工分析过程中通过客户尽职调查等方式进一步核实</li><li>要求对人工分析、识别、排除或确认工作设置合理时限</li><li>记录内容须涵盖客户身份特征、交易特征或行为特征的分析过程</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-三(将第十四条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(客户尽职调查义务)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立标准化的人工分析工作流程和记录模板，确保分析过程可追溯</li><li>排除可疑交易的记录应包含充分的排除理由，避免简单排除导致漏报</li><li>合理时限的设置应结合机构业务量和风险状况，避免时限过短导致分析不充分或过长导致延误</li><li>第二款新增的进一步核实措施为实务中处理疑点交易提供了制度依据</li></ul>
+<ul><li><strong>金融机构应建立标准化的人工分析工作流程和记录模板，</strong>——确保分析过程可追溯</li><li><strong>排除可疑交易的记录应包含充分的排除理由，</strong>——避免简单排除导致漏报</li><li><strong>合理时限的设置应结合机构业务量和风险状况，</strong>——避免时限过短导致分析不充分或过长导致延误</li><li>第二款新增的进一步核实措施为实务中处理疑点交易提供了制度依据</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆三种处理结果及其对应的记录要求</li><li>注意第二款为新增内容，赋予金融机构在分析过程中采取进一步核实措施的权利</li><li>考试可能考查“记录分析排除的合理理由”的具体要求</li><li>理解“合理时限”的设定原则：与业务量和风险状况相匹配</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆三种处理结果及其对应的记录要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查“记录分析排除的合理理由”的具体要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解“合理时限”的设定原则：与业务量和风险状况相匹配</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意第二款为新增内容，赋予金融机构在分析过程中采取进一步核实措施的权利</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-5">
@@ -728,26 +816,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第四项，修改《金融机构大额交易和可疑交易报告管理办法》第十七条，将原“以电子形式或书面形式向所在地中国人民银行或者其分支机构报告”修改为“抄报所在地中国人民银行或者其分支机构”。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文为措辞修改，将原条文中金融机构向所在地人民银行“报告”的表述调整为“抄报”，体现了报送层级和性质的变化：从主动报告义务变更为抄报备查义务。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第十七条，仅涉及措辞调整</li><li>将“以电子形式或书面形式向所在地中国人民银行或者其分支机构报告”修改为“抄报所在地中国人民银行或者其分支机构”</li><li>修改核心是将“报告”变更为“抄报”，简化了报送形式要求</li><li>取消了“以电子形式或书面形式”的限定，不再限定报送方式</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-四(将第十七条中)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应理解“抄报”与“报告”的区别：抄报侧重于信息同步，报告侧重于主动汇报</li><li>实务中抄报可采取更灵活的方式，但仍需确保信息及时、准确送达所在地人民银行</li><li>修改后不再限定电子或书面形式，金融机构可根据实际情况选择适当的抄报方式</li></ul>
+<ul><li><strong>金融机构应理解“抄报”与“报告”的区别：</strong>——抄报侧重于信息同步，报告侧重于主动汇报</li><li><strong>实务中抄报可采取更灵活的方式，</strong>——但仍需确保信息及时、准确送达所在地人民银行</li><li><strong>修改后不再限定电子或书面形式，</strong>——金融机构可根据实际情况选择适当的抄报方式</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆修改前后的措辞对比：“报告”→“抄报”</li><li>理解措辞修改的立法意图：简化报送形式，减轻机构负担</li><li>考试可能考查第十七条修改的具体内容</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆修改前后的措辞对比：“报告”→“抄报”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解措辞修改的立法意图：简化报送形式，减轻机构负担</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查第十七条修改的具体内容</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>—</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-6">
@@ -779,26 +879,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第五项，删除《金融机构大额交易和可疑交易报告管理办法》第十八条。删除该条后，原第十八条规定的相关内容不再执行，后续条文序号作相应调整。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文内容简明，仅规定“删除第十八条”。删除的原因与《反洗钱法》修订后的制度调整有关，原第十八条的内容已被新制度覆盖或不再适用。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改方式为整条删除，删除对象为第十八条</li><li>删除后后续条文序号作相应调整</li><li>删除原第十八条是规章清理工作的一部分，与新修订《反洗钱法》衔接</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-五(删除第十八条)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构需关注删除第十八条后对自身业务流程的影响</li><li>原第十八条涉及的相关工作要求如已被其他条文覆盖，应按新条文执行</li><li>实务中需更新内部制度文件，删除引用原第十八条的条款</li></ul>
+<ul><li>金融机构需关注删除第十八条后对自身业务流程的影响</li><li><strong>原第十八条涉及的相关工作要求如已被其他条文覆盖，</strong>——应按新条文执行</li><li><strong>实务中需更新内部制度文件，</strong>——删除引用原第十八条的条款</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆删除的对象是第十八条</li><li>注意删除后条文序号会相应调整，后续条文编号可能变化</li><li>考试可能考查被删除的条文序号</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆删除的对象是第十八条</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查被删除的条文序号</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意删除后条文序号会相应调整，后续条文编号可能变化</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-7">
@@ -830,26 +942,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第六项，将原第二十一条改为第二十条并修改内容，要求金融机构建立健全大额交易和可疑交易监测系统，以客户为基本单位开展资金交易的监测分析。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文为修改条文，核心变化在于强调“以客户为基本单位”开展监测分析，并要求全面、完整、准确地采集各业务系统的客户身份信息和交易信息，确保交易监测覆盖所有客户及各项金融业务。条文序号由第二十一条调整为第二十条。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第二十一条改为第二十条，条文序号前移一位（因第十八条被删除）</li><li>核心要求是建立健全大额交易和可疑交易监测系统</li><li>监测分析以客户为基本单位，而非以单笔交易为单位</li><li>数据采集要求为“全面、完整、准确”，覆盖各业务系统</li><li>交易监测须覆盖所有客户及各项金融业务</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-六(将第二十一条改为第二十条，修改...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应以客户维度整合交易数据，建立客户级别的监测分析体系</li><li>需打通各业务系统的数据孤岛，实现客户身份信息和交易信息的全面采集</li><li>监测系统的覆盖范围应包括所有客户和全部金融业务，不得存在盲区</li><li>建议定期评估监测系统的数据完整性和准确性</li></ul>
+<ul><li><strong>金融机构应以客户维度整合交易数据，</strong>——建立客户级别的监测分析体系</li><li><strong>需打通各业务系统的数据孤岛，</strong>——实现客户身份信息和交易信息的全面采集</li><li><strong>监测系统的覆盖范围应包括所有客户和全部金融业务，</strong>——不得存在盲区</li><li>建议定期评估监测系统的数据完整性和准确性</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆“以客户为基本单位”这一核心要求</li><li>注意条文序号变化：第二十一条→第二十条</li><li>理解数据采集“全面、完整、准确”三个维度的要求</li><li>考试可能考查监测系统覆盖范围的具体要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆“以客户为基本单位”这一核心要求</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解数据采集“全面、完整、准确”三个维度的要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查监测系统覆盖范围的具体要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意条文序号变化：第二十一条→第二十条</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-8">
@@ -881,26 +1005,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第七项，将原第二十二条改为第二十一条并将第一款修改为关于大额交易和可疑交易报告资料保存期限的规定，要求自生成之日起至少保存10年。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文修改了原第一款内容，明确了保存原则为“完整准确、安全保密”，保存对象包括大额交易和可疑交易报告、反映交易分析和内部处理情况的工作记录等资料，保存期限为自生成之日起至少10年。条文序号由第二十二条调整为第二十一条。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第二十二条改为第二十一条，仅修改第一款</li><li>保存原则为“完整准确、安全保密”两个维度</li><li>保存对象包括大额交易和可疑交易报告及反映交易分析和内部处理情况的工作记录</li><li>保存期限为自生成之日起至少10年</li><li>保存起算点为“自生成之日起”，而非自报告之日起</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-七(将第二十二条改为第二十一条，将...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立完善的资料保存制度，确保保存期限不少于10年</li><li>保存范围不限于报告本身，还包括交易分析过程记录和内部处理工作记录</li><li>保存方式应同时满足“完整准确”和“安全保密”两个要求</li><li>建议建立自动化保存机制，避免人为遗漏或超期删除</li></ul>
+<ul><li><strong>金融机构应建立完善的资料保存制度，</strong>——确保保存期限不少于10年</li><li><strong>保存范围不限于报告本身，</strong>——还包括交易分析过程记录和内部处理工作记录</li><li>保存方式应同时满足“完整准确”和“安全保密”两个要求</li><li><strong>建议建立自动化保存机制，</strong>——避免人为遗漏或超期删除</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆保存期限“至少10年”和起算点“自生成之日起”</li><li>注意保存对象包括三类资料：报告、分析记录、内部处理记录</li><li>条文序号变化：第二十二条→第二十一条</li><li>考试可能考查保存原则和保存期限的具体数值</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆保存期限“至少10年”和起算点“自生成之日起”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>条文序号变化：第二十二条→第二十一条</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查保存原则和保存期限的具体数值</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意保存对象包括三类资料：报告、分析记录、内部处理记录</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-9">
@@ -932,26 +1068,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第八项，新增一条作为第二十三条，赋予中国反洗钱监测分析中心要求金融机构提供大额交易和可疑交易相关补充信息的权力，金融机构负有及时提交补充信息的义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文为新增条款，规定了反洗钱监测分析中心的补充信息索取权和金融机构的配合义务。条文结构简洁，主体为反洗钱监测分析中心，行为是要求提供补充信息，条件是“根据依法履行职责的需要”。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>新增条款，编为第二十三条</li><li>权利主体为中国反洗钱监测分析中心</li><li>权利行使条件为“根据依法履行职责的需要”</li><li>金融机构的义务是“及时提交补充信息”</li><li>补充信息的范围为大额交易和可疑交易相关信息</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-八(增加一条，作为第二十三条)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立补充信息快速响应机制，确保在收到要求后及时提交</li><li>建议预留与反洗钱监测分析中心的沟通渠道，明确对接人员和流程</li><li>补充信息的提交应注意保密要求，防止信息泄露</li><li>实务中应建立补充信息提供的内部审批流程</li></ul>
+<ul><li><strong>金融机构应建立补充信息快速响应机制，</strong>——确保在收到要求后及时提交</li><li><strong>建议预留与反洗钱监测分析中心的沟通渠道，</strong>——明确对接人员和流程</li><li><strong>补充信息的提交应注意保密要求，</strong>——防止信息泄露</li><li>实务中应建立补充信息提供的内部审批流程</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆新增条款的编号（第二十三条）和权利主体（中国反洗钱监测分析中心）</li><li>注意金融机构的义务是“及时提交”，非“按期提交”</li><li>理解“补充信息”的含义：在已提交报告基础上的追加信息</li><li>考试可能考查该新增条款的权利主体和义务主体</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆新增条款的编号（第二十三条）和权利主体（中国反洗钱监测分析中心）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“补充信息”的含义：在已提交报告基础上的追加信息</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查该新增条款的权利主体和义务主体</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意金融机构的义务是“及时提交”，非“按期提交”</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-10">
@@ -983,26 +1131,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第九项，修改《金融机构大额交易和可疑交易报告管理办法》第二十四条，明确了金融机构违反本办法的处罚依据，将处罚主体调整为中国人民银行或其地市分行以上分支机构。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文修改了处罚条款，处罚依据为《中华人民共和国反洗钱法》第五十二条至第五十六条规定，处罚主体由原“中国人民银行或其分支机构”调整为“中国人民银行或者其地市分行以上分支机构”，体现了处罚权限的层级化管理。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第二十四条，涉及违法处罚条款</li><li>处罚主体为中国人民银行或者其地市分行以上分支机构</li><li>处罚依据为《中华人民共和国反洗钱法》第五十二条至第五十六条规定</li><li>处罚主体层级从“分支机构”调整为“地市分行以上分支机构”，提升了处罚层级</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-九(将第二十四条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(法律责任)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应了解处罚主体和处罚依据的变化，评估合规风险</li><li>地市分行以下分支机构不再具有处罚权，处罚权限向上集中</li><li>实务中应注意《反洗钱法》第五十二条至五十六条的具体处罚情形和力度</li><li>建议将处罚条款纳入内部合规培训内容</li></ul>
+<ul><li><strong>金融机构应了解处罚主体和处罚依据的变化，</strong>——评估合规风险</li><li><strong>地市分行以下分支机构不再具有处罚权，</strong>——处罚权限向上集中</li><li>实务中应注意《反洗钱法》第五十二条至五十六条的具体处罚情形和力度</li><li>建议将处罚条款纳入内部合规培训内容</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆处罚主体“地市分行以上分支机构”和处罚依据“第五十二条至第五十六条”</li><li>注意处罚主体的变化：从“分支机构”到“地市分行以上分支机构”</li><li>考试可能考查处罚依据的具体法条范围</li><li>理解处罚层级提升的立法意图：规范处罚行为，防止基层滥用处罚权</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆处罚主体“地市分行以上分支机构”和处罚依据“第五十二条至第五十六条”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查处罚依据的具体法条范围</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解处罚层级提升的立法意图：规范处罚行为，防止基层滥用处罚权</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意处罚主体的变化：从“分支机构”到“地市分行以上分支机构”</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-11">
@@ -1034,26 +1194,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第一部分第十项，修改《金融机构大额交易和可疑交易报告管理办法》第二十五条，将银行卡清算机构、网络支付清算机构及其他从事支付清算业务的机构纳入交易监测分析和报告范围，并明确数字人民币大额交易和可疑交易报告工作按照有关规定执行。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文扩展了交易监测分析和报告的主体范围，新增了支付清算机构的义务，同时以“按照有关规定执行”的方式为数字人民币报告制度预留空间。此外，对条文序号作了相应调整。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第二十五条，扩展了报告义务主体</li><li>新增义务主体：银行卡清算机构、网络支付清算机构及其他从事支付清算业务的机构</li><li>新增义务内容：按照中国人民银行有关规定开展交易监测分析、报告工作</li><li>数字人民币的大额交易和可疑交易报告工作按照有关规定执行</li><li>对条文序号作了相应调整</li></ul>
+<div class="arrow-chain"><span class="chain-node">一-十(将第二十五条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(可疑交易报告)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>支付清算机构需按照中国人民银行规定建立交易监测分析和报告机制</li><li>数字人民币相关的报告工作应关注后续出台的具体规定</li><li>金融机构应关注条文序号调整后的对应关系，避免引用错误</li><li>支付清算机构应评估自身监测分析能力，必要时进行系统升级</li></ul>
+<ul><li>支付清算机构需按照中国人民银行规定建立交易监测分析和报告机制</li><li>数字人民币相关的报告工作应关注后续出台的具体规定</li><li><strong>金融机构应关注条文序号调整后的对应关系，</strong>——避免引用错误</li><li><strong>支付清算机构应评估自身监测分析能力，</strong>——必要时进行系统升级</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆新增的三类义务主体：银行卡清算机构、网络支付清算机构、其他支付清算机构</li><li>注意数字人民币报告工作的“按照有关规定执行”的授权性表述</li><li>考试可能考查哪些机构被新增纳入交易监测分析和报告范围</li><li>理解将支付清算机构纳入监管的制度意义：覆盖支付链条全环节</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆新增的三类义务主体：银行卡清算机构、网络支付清算机构、其他支付清算机构</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查哪些机构被新增纳入交易监测分析和报告范围</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解将支付清算机构纳入监管的制度意义：覆盖支付链条全环节</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意数字人民币报告工作的“按照有关规定执行”的授权性表述</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-12">
@@ -1093,26 +1265,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第一项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第二条，重新界定了履行反洗钱和反恐怖融资义务的金融机构范围，与《金融机构大额交易和可疑交易报告管理办法》第二条修改保持一致。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用与第一大项第一条相同的“总—分”结构，列举六类机构履行反洗钱和反恐怖融资义务，并在末段将银行卡清算机构、网络支付清算机构、从事汇兑和基金销售等业务的机构以及网络小额贷款公司纳入适用范围。与第一条相比，末段表述增加了“适用本办法关于金融机构反洗钱和反恐怖融资监督管理规定”的限定。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为《金融机构反洗钱和反恐怖融资监督管理办法》第二条</li><li>义务主体范围与第一大项第一条修改保持一致，均扩展至六类机构</li><li>末段将支付清算机构、汇兑和基金销售机构、保险代理和经纪机构、网络小额贷款公司纳入适用范围</li><li>末段表述与第一大项第一条略有不同：强调“适用本办法关于监督管理规定”</li><li>体现了两部规章在主体范围上的协调统一</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-一(将第二条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(监管体制)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应同时关注两部规章的主体范围修改，确保合规义务全面覆盖</li><li>新增适用机构应同时履行反洗钱义务和接受监督管理</li><li>注意两部规章末段表述的差异：报告办法为“适用本办法”，监督办法为“适用监督管理规定”</li><li>建议建立跨部门协调机制，统一落实两部规章的合规要求</li></ul>
+<ul><li><strong>金融机构应同时关注两部规章的主体范围修改，</strong>——确保合规义务全面覆盖</li><li>新增适用机构应同时履行反洗钱义务和接受监督管理</li><li><strong>注意两部规章末段表述的差异：</strong>——报告办法为“适用本办法”，监督办法为“适用监督管理规定”</li><li><strong>建议建立跨部门协调机制，</strong>——统一落实两部规章的合规要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆本条与第一大项第一条的主体范围一致但适用表述不同</li><li>理解两部规章的协调关系：报告办法管报告义务，监督办法管全面反洗钱义务</li><li>考试可能比较两部规章第二条修改的异同</li><li>注意“适用本办法关于金融机构反洗钱和反恐怖融资监督管理规定”的限定含义</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆本条与第一大项第一条的主体范围一致但适用表述不同</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解两部规章的协调关系：报告办法管报告义务，监督办法管全面反洗钱义务</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能比较两部规章第二条修改的异同</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“适用本办法关于金融机构反洗钱和反恐怖融资监督管理规定”的限定含义</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-13">
@@ -1144,26 +1328,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第二项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第三条，明确中国人民银行为国务院反洗钱行政主管部门，由中国人民银行及其分支机构依法对金融机构反洗钱和反恐怖融资工作进行监督管理。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文明确了监管主体的法律地位和职责：中国人民银行是国务院反洗钱行政主管部门，中国人民银行及其分支机构依法行使监督管理权。条文简洁，核心是确认央行的反洗钱监管主体地位。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第三条，明确监管主体地位</li><li>中国人民银行的定位：国务院反洗钱行政主管部门</li><li>监管职责由中国人民银行及其分支机构共同行使</li><li>监管对象为金融机构的反洗钱和反恐怖融资工作</li><li>监管依据为“依法”，即依据相关法律法规行使监督管理权</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-二(将第三条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(监管体制)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应明确其反洗钱监管的主管部门为中国人民银行及其分支机构</li><li>实务中与央行对接监管事项时应注意总部与分支机构的职责分工</li><li>理解“国务院反洗钱行政主管部门”的法律地位，与其他金融监管部门的协调关系</li><li>建议关注央行发布的反洗钱监管政策和指引，及时落实监管要求</li></ul>
+<ul><li>金融机构应明确其反洗钱监管的主管部门为中国人民银行及其分支机构</li><li>实务中与央行对接监管事项时应注意总部与分支机构的职责分工</li><li><strong>理解“国务院反洗钱行政主管部门”的法律地位，</strong>——与其他金融监管部门的协调关系</li><li><strong>建议关注央行发布的反洗钱监管政策和指引，</strong>——及时落实监管要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆“中国人民银行是国务院反洗钱行政主管部门”这一核心定位</li><li>注意监管主体包括中国人民银行“及其分支机构”两个层级</li><li>考试可能考查反洗钱行政主管部门的名称和定位</li><li>理解“依法”的含义：监管权的行使须有法律依据</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆“中国人民银行是国务院反洗钱行政主管部门”这一核心定位</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查反洗钱行政主管部门的名称和定位</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解“依法”的含义：监管权的行使须有法律依据</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意监管主体包括中国人民银行“及其分支机构”两个层级</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-14">
@@ -1195,26 +1391,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第三项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第四条，完善了金融机构反洗钱和反恐怖融资内控制度建设要求，涵盖风险评估、风险管理制度、信息系统、牵头部门、人员配备、审计监督和负责人责任等方面。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文采用列举方式规定了金融机构内控制度建设的七项核心要素：建立内控制度、评估风险、建立风险管理制度、搭建信息系统、设立牵头部门、配备人员、审计监督。最后强调金融机构及其分支机构负责人对反洗钱和反恐怖融资内部控制制度的有效实施负责。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第四条，涉及内控制度建设的全面要求</li><li>七项核心要素：内控制度、风险评估、风险管理制度、信息系统、牵头部门、人员配备、审计监督</li><li>审计方式明确为“内部审计或者社会审计等方式”，将原“独立审计”修改为“社会审计”</li><li>金融机构及其分支机构的负责人对内控制度的有效实施负责</li><li>风险管理制度须与风险状况和经营规模相适应</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-三(将第四条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(内部控制制度)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应对照七项要素逐项检查内控制度建设情况</li><li>注意“社会审计”的表述变化，可委托外部审计机构开展反洗钱审计</li><li>负责人责任条款要求高管层切实承担反洗钱内控责任，非仅形式上的签字</li><li>信息系统建设应根据需要搭建，非强制要求所有机构统一标准</li></ul>
+<ul><li>金融机构应对照七项要素逐项检查内控制度建设情况</li><li><strong>注意“社会审计”的表述变化，</strong>——可委托外部审计机构开展反洗钱审计</li><li><strong>负责人责任条款要求高管层切实承担反洗钱内控责任，</strong>——非仅形式上的签字</li><li><strong>信息系统建设应根据需要搭建，</strong>——非强制要求所有机构统一标准</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆七项核心要素的完整内容</li><li>注意“独立审计”修改为“社会审计”的措辞变化</li><li>理解负责人责任条款的含义：反洗钱内控的有效实施由负责人负责</li><li>考试可能考查内控制度建设的具体要素清单</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆七项核心要素的完整内容</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解负责人责任条款的含义：反洗钱内控的有效实施由负责人负责</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查内控制度建设的具体要素清单</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“独立审计”修改为“社会审计”的措辞变化</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-15">
@@ -1247,26 +1455,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第四项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第八条，完善了金融机构风险管理制度的要求，明确了针对较高风险和较低风险情形的差异化控制措施，并要求将洗钱和恐怖融资风险管理纳入全面风险管理体系。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两款：第一款规定风险管理制度须经董事会或高级管理层批准，根据风险状况变化及时调整，对较高风险采取强化措施、对较低风险采取简化措施；第二款要求将洗钱和恐怖融资风险管理纳入全面风险管理体系，确保覆盖各项产品及业务活动和管理流程。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第八条，涉及风险管理制度的具体要求</li><li>风险管理制度须经董事会或者高级管理层批准</li><li>差异化控制：较高风险→强化措施，较低风险→简化措施</li><li>风险管理须纳入全面风险管理体系，实现全覆盖</li><li>覆盖范围包括各项产品及业务活动和管理流程</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-四(将第八条修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义（含恐怖融资）)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立风险分级管理机制，针对不同风险等级采取差异化措施</li><li>风险管理制度须经董事会或高管层审批，不可仅由部门层面决定</li><li>强化措施和简化措施应有明确的操作指引和判断标准</li><li>洗钱风险管理应与机构全面风险管理体系深度融合，非独立运行</li></ul>
+<ul><li><strong>金融机构应建立风险分级管理机制，</strong>——针对不同风险等级采取差异化措施</li><li><strong>风险管理制度须经董事会或高管层审批，</strong>——不可仅由部门层面决定</li><li>强化措施和简化措施应有明确的操作指引和判断标准</li><li><strong>洗钱风险管理应与机构全面风险管理体系深度融合，</strong>——非独立运行</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆差异化控制措施：较高风险→强化，较低风险→简化</li><li>注意风险管理制度的审批层级：董事会或高级管理层</li><li>理解“纳入全面风险管理体系”的制度意义</li><li>考试可能考查对不同风险情形应采取何种措施</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆差异化控制措施：较高风险→强化，较低风险→简化</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“纳入全面风险管理体系”的制度意义</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查对不同风险情形应采取何种措施</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意风险管理制度的审批层级：董事会或高级管理层</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-16">
@@ -1298,26 +1518,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第五项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第九条第四款，完善了反洗钱和反恐怖融资岗位人员的配备、资质和培训要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文从三个维度规定了人员管理要求：配备充足的人员（根据经营规模、风险状况和业务发展趋势）、确保人员资质（资质、经验、专业素质及职业道德）、制定持续培训计划（通过培训、考核确保准确掌握内控制度要求）。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第九条第四款，涉及反洗钱岗位人员管理</li><li>人员配备依据：经营规模、洗钱和恐怖融资风险状况、业务发展趋势</li><li>人员资质要求：资质、经验、专业素质及职业道德四个维度</li><li>培训要求：制定持续培训计划，通过培训和考核确保人员掌握内控制度</li><li>培训覆盖范围：各部门、各级机构和业务条线的反洗钱岗位人员</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-五(将第九条第四款修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(内部控制制度)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应根据三个因素动态调整反洗钱人员配备数量</li><li>人员招聘时应建立资质评估标准，涵盖四个维度的考察</li><li>培训计划应持续开展而非一次性，并通过考核验证培训效果</li><li>培训内容应覆盖本机构具体的内控制度要求，而非仅通用知识</li></ul>
+<ul><li>金融机构应根据三个因素动态调整反洗钱人员配备数量</li><li><strong>人员招聘时应建立资质评估标准，</strong>——涵盖四个维度的考察</li><li><strong>培训计划应持续开展而非一次性，</strong>——并通过考核验证培训效果</li><li><strong>培训内容应覆盖本机构具体的内控制度要求，</strong>——而非仅通用知识</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆人员配备的三个依据：经营规模、风险状况、业务发展趋势</li><li>注意人员资质的四个维度：资质、经验、专业素质、职业道德</li><li>理解“持续培训计划”的要求：非一次性培训</li><li>考试可能考查反洗钱岗位人员配备和资质的具体要求</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆人员配备的三个依据：经营规模、风险状况、业务发展趋势</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“持续培训计划”的要求：非一次性培训</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查反洗钱岗位人员配备和资质的具体要求</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意人员资质的四个维度：资质、经验、专业素质、职业道德</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-17">
@@ -1351,26 +1583,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第六项，新增一条作为第十条，规定了金融机构反洗钱和反恐怖融资牵头部门的协调机制职责、相关部门的职责分工以及业务部门的直接责任。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分三款：第一款规定牵头部门应会同相关部门建立工作协调机制，承担识别、监测、评估风险等职责；第二款要求明确相关部门职责分工，发挥业务部门在识别风险、了解客户等方面的基础作用；第三款规定业务部门承担风险管理的直接责任，需做好人员资源安排、将反洗钱要求嵌入业务流程、开展持续监测等。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>新增条款，编为第十条</li><li>牵头部门职责：建立协调机制、识别监测评估风险、建立健全内控制度、指导相关部门、推动落实工作</li><li>相关部门职责：明确职责分工，发挥识别风险、了解客户、了解业务的基础作用</li><li>业务部门承担风险管理的直接责任，需将反洗钱要求嵌入业务流程</li><li>业务部门需结合风险信息针对不同场景完善客户尽职调查要求</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-六(增加一条，作为第十条)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(内部控制制度)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应参照本条建立三层职责体系：牵头部门→相关部门→业务部门</li><li>业务部门应将反洗钱要求嵌入产品研发、流程设计和日常操作中</li><li>建议建立风险信息内部通报机制，将风险提示、洗钱案例等信息及时传达业务部门</li><li>业务部门应以人工或系统方式开展持续监测，必要时采取风险管理措施</li></ul>
+<ul><li><strong>金融机构应参照本条建立三层职责体系：</strong>——牵头部门→相关部门→业务部门</li><li>业务部门应将反洗钱要求嵌入产品研发、流程设计和日常操作中</li><li><strong>建议建立风险信息内部通报机制，</strong>——将风险提示、洗钱案例等信息及时传达业务部门</li><li><strong>业务部门应以人工或系统方式开展持续监测，</strong>——必要时采取风险管理措施</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆三层职责体系：牵头部门（协调）→相关部门（配合）→业务部门（直接责任）</li><li>注意业务部门“直接责任”的定位，非仅配合责任</li><li>理解“将反洗钱要求嵌入业务流程”的实务含义</li><li>考试可能考查新增第十条的三款内容及其职责分工</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆三层职责体系：牵头部门（协调）→相关部门（配合）→业务部门（直接责任）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查新增第十条的三款内容及其职责分工</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解“将反洗钱要求嵌入业务流程”的实务含义</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意业务部门“直接责任”的定位，非仅配合责任</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-18">
@@ -1402,26 +1646,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第七项，将原第十条改为第十一条并修改，规定了金融机构反洗钱和反恐怖融资信息系统建设和完善的要求，强调系统应覆盖各类业务活动并充分运用数字化、智能化手段。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文从信息系统建设、数据获取、技术手段运用和功能支持四个方面提出要求：建立和完善相关信息系统、覆盖各类业务活动、及时准确全面获取客户和交易信息、运用数字化智能化手段优化功能、支持履行反洗钱义务和配合反洗钱监管。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第十条改为第十一条，条文序号因新增第十条而后移</li><li>信息系统建设要求：覆盖本机构各类业务活动</li><li>数据获取要求：及时、准确、全面获取相关客户和交易信息</li><li>技术手段：充分、合理运用数字化、智能化等手段优化系统功能</li><li>系统功能须支持客户尽职调查、资料保存、报告、特别预防措施等反洗钱义务</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-七(将第十条改为第十一条，修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(客户尽职调查义务)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应评估现有信息系统的覆盖范围，确保无业务盲区</li><li>建议制定信息系统升级规划，逐步引入数字化和智能化技术</li><li>系统建设应与反洗钱义务的履行需求相匹配，避免功能缺失</li><li>注意系统须支持配合反洗钱监管和调查工作</li></ul>
+<ul><li><strong>金融机构应评估现有信息系统的覆盖范围，</strong>——确保无业务盲区</li><li><strong>建议制定信息系统升级规划，</strong>——逐步引入数字化和智能化技术</li><li><strong>系统建设应与反洗钱义务的履行需求相匹配，</strong>——避免功能缺失</li><li>注意系统须支持配合反洗钱监管和调查工作</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆信息系统的覆盖要求：“覆盖本机构各类业务活动”</li><li>注意“数字化、智能化”的技术手段要求</li><li>理解系统功能须支持的五类反洗钱义务</li><li>条文序号变化：原第十条→第十一条</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆信息系统的覆盖要求：“覆盖本机构各类业务活动”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解系统功能须支持的五类反洗钱义务</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>条文序号变化：原第十条→第十一条</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“数字化、智能化”的技术手段要求</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-19">
@@ -1454,26 +1710,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第八项，将原第十二条改为第十三条并修改，规定了金融机构在总部和分支机构间共享反洗钱和反恐怖融资信息的机制和程序要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文分两款：第一款规定信息共享须明确机制和程序，确保分支机构有效执行；第二款要求在共享和使用信息时依法提供信息并防止信息泄露。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第十二条改为第十三条，涉及信息共享制度</li><li>信息共享前提：为履行客户尽职调查等反洗钱义务</li><li>共享范围：总部和分支机构间共享必要的客户、账户、交易等信息</li><li>共享要求：明确机制和程序，确保分支机构有效执行</li><li>信息保护：依法提供信息并防止信息泄露</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-八(将第十二条改为第十三条，修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(客户尽职调查义务)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立总部与分支机构间的信息共享制度和操作流程</li><li>共享信息范围应以“必要”为限，避免过度共享导致信息泄露风险</li><li>应建立信息共享的审批和记录机制，确保可追溯</li><li>信息保护须同时满足“依法提供”和“防止泄露”两个要求</li></ul>
+<ul><li>金融机构应建立总部与分支机构间的信息共享制度和操作流程</li><li><strong>共享信息范围应以“必要”为限，</strong>——避免过度共享导致信息泄露风险</li><li><strong>应建立信息共享的审批和记录机制，</strong>——确保可追溯</li><li>信息保护须同时满足“依法提供”和“防止泄露”两个要求</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆信息共享的前提：“为履行反洗钱义务”</li><li>注意共享范围的限定词：“必要的”信息</li><li>理解信息保护的双重要求：依法提供 + 防止泄露</li><li>条文序号变化：原第十二条→第十三条</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆信息共享的前提：“为履行反洗钱义务”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解信息保护的双重要求：依法提供 + 防止泄露</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>条文序号变化：原第十二条→第十三条</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意共享范围的限定词：“必要的”信息</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-20">
@@ -1505,26 +1773,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第九项，将原第十四条改为第十五条并修改，规定了金融机构应按照规定结合风险管理等内控制度要求，履行客户尽职调查、资料保存、大额和可疑交易报告、反洗钱特别预防措施等义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以列举方式规定了金融机构应履行的四项核心反洗钱义务，并强调这些义务的履行应结合风险管理等内控制度要求。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第十四条改为第十五条，涉及反洗钱核心义务</li><li>四项核心义务：客户尽职调查、客户身份资料和交易记录保存、大额交易和可疑交易报告、反洗钱特别预防措施</li><li>义务履行须结合风险管理等内控制度要求</li><li>条文强调“按照规定”履行，即依据相关法律法规和监管要求</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-九(将第十四条改为第十五条，修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(客户尽职调查义务)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立四项核心义务的制度和流程，确保全面履行</li><li>注意“反洗钱特别预防措施”是新增表述，关注其具体内涵</li><li>义务履行应与风险管理内控制度相结合，非孤立执行</li><li>建议建立四项义务的协调机制，确保信息互通和流程衔接</li></ul>
+<ul><li><strong>金融机构应建立四项核心义务的制度和流程，</strong>——确保全面履行</li><li><strong>注意“反洗钱特别预防措施”是新增表述，</strong>——关注其具体内涵</li><li><strong>义务履行应与风险管理内控制度相结合，</strong>——非孤立执行</li><li><strong>建议建立四项义务的协调机制，</strong>——确保信息互通和流程衔接</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆四项核心义务的完整名称</li><li>注意“反洗钱特别预防措施”的表述，理解其与普通预防措施的区别</li><li>理解“结合风险管理等内控制度要求”的含义</li><li>条文序号变化：原第十四条→第十五条</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆四项核心义务的完整名称</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“结合风险管理等内控制度要求”的含义</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>条文序号变化：原第十四条→第十五条</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“反洗钱特别预防措施”的表述，理解其与普通预防措施的区别</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-21">
@@ -1556,26 +1836,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十项，将原第二十二条改为第二十三条并增加两款，分别规定了中国人民银行及其分支机构通过非现场方式开展执法检查的权力和金融机构配合执法检查的义务。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文新增第二款和第三款：第二款赋予央行通过非现场方式开展反洗钱执法检查的权力；第三款规定金融机构应配合执法检查，及时准确提供所需电子数据、文件和资料等信息，并对信息的真实性、完整性、准确性负责。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第二十二条改为第二十三条，新增两款</li><li>第二款：央行可通过非现场方式开展反洗钱执法检查</li><li>第三款：金融机构应配合执法检查，及时准确提供信息</li><li>金融机构对提供信息的真实性、完整性、准确性负责</li><li>需提供的信息包括电子数据、文件和资料等</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十(将第二十二条改为第二十三条，增...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义（含恐怖融资）)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立非现场检查的配合机制，确保能及时提供电子数据</li><li>注意对提供信息“三性”（真实性、完整性、准确性）的责任承担</li><li>建议建立数据报送的内部审核机制，确保数据质量</li><li>非现场检查方式降低了监管成本，金融机构应适应常态化非现场监管</li></ul>
+<ul><li><strong>金融机构应建立非现场检查的配合机制，</strong>——确保能及时提供电子数据</li><li>注意对提供信息“三性”（真实性、完整性、准确性）的责任承担</li><li><strong>建议建立数据报送的内部审核机制，</strong>——确保数据质量</li><li><strong>非现场检查方式降低了监管成本，</strong>——金融机构应适应常态化非现场监管</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆新增两款的内容：非现场检查权和配合义务</li><li>注意金融机构对信息“真实性、完整性、准确性”的三性责任</li><li>理解非现场检查方式的意义：提高监管效率</li><li>条文序号变化：原第二十二条→第二十三条</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆新增两款的内容：非现场检查权和配合义务</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解非现场检查方式的意义：提高监管效率</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>条文序号变化：原第二十二条→第二十三条</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意金融机构对信息“真实性、完整性、准确性”的三性责任</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-22">
@@ -1607,26 +1899,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十一项，删除《金融机构反洗钱和反恐怖融资监督管理办法》第二十五条。删除后后续条文序号作相应调整。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文内容简明，仅规定“删除第二十五条”。删除原因与新修订《反洗钱法》的制度调整相关，原第二十五条的内容已被新制度覆盖或不再适用。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改方式为整条删除，删除对象为第二十五条</li><li>删除后后续条文序号作相应调整</li><li>删除原第二十五条是规章清理工作的一部分</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十一(删除第二十五条)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构需关注删除第二十五条后对自身业务的影响</li><li>原第二十五条涉及的内容如已被其他条文覆盖，应按新条文执行</li><li>实务中需更新内部制度文件，删除引用原第二十五条的条款</li></ul>
+<ul><li>金融机构需关注删除第二十五条后对自身业务的影响</li><li><strong>原第二十五条涉及的内容如已被其他条文覆盖，</strong>——应按新条文执行</li><li><strong>实务中需更新内部制度文件，</strong>——删除引用原第二十五条的条款</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆删除的对象是第二十五条</li><li>注意删除后条文序号会相应调整</li><li>考试可能考查被删除的条文序号</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆删除的对象是第二十五条</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>考试可能考查被删除的条文序号</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>—</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意删除后条文序号会相应调整</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-23">
@@ -1658,26 +1962,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十二项，修改《金融机构反洗钱和反恐怖融资监督管理办法》第二十七条第二款，完善了《反洗钱监管提示函》答复的时限和程序要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文规定了监管提示函答复的具体要求：答复时限为自收到之日起20个工作日内，须经分管反洗钱工作负责人签批，不能及时答复的须经央行或其分支机构同意后在延长时限内答复。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改对象为第二十七条第二款，涉及监管提示函答复</li><li>答复时限：自收到之日起20个工作日内</li><li>答复程序：经本机构分管反洗钱和反恐怖融资工作负责人签批后作出书面答复</li><li>延期答复：不能及时答复的，须经央行或其分支机构同意后在延长时限内答复</li><li>答复形式为“书面答复”</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十二(将第二十七条第二款修改为)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(监管体制)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应建立监管提示函的内部处理流程，确保20个工作日内答复</li><li>分管反洗钱工作负责人的签批为必经程序，不可省略</li><li>如需延期，应提前向央行申请同意，不可自行延期</li><li>建议建立提示函处理的时效监控机制</li></ul>
+<ul><li><strong>金融机构应建立监管提示函的内部处理流程，</strong>——确保20个工作日内答复</li><li><strong>分管反洗钱工作负责人的签批为必经程序，</strong>——不可省略</li><li><strong>如需延期，</strong>——应提前向央行申请同意，不可自行延期</li><li>建议建立提示函处理的时效监控机制</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆答复时限“20个工作日”和签批程序</li><li>注意延期答复须“经央行同意”，非自行决定</li><li>理解“书面答复”的形式要求</li><li>考试可能考查监管提示函答复的时限和程序</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆答复时限“20个工作日”和签批程序</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“书面答复”的形式要求</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查监管提示函答复的时限和程序</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意延期答复须“经央行同意”，非自行决定</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-24">
@@ -1709,26 +2025,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十三项，新增一条作为第三十五条，规定了中国人民银行对非银行支付机构等市场准入时开展反洗钱审查的职责和审查重点。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文明确了反洗钱市场准入审查的核心内容：通过审查机构控股股东、实际控制人、受益所有人以及董监高人员的违法犯罪背景，防止犯罪分子通过持有股权、作为受益所有人或成为高管等方式控制机构。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>新增条款，编为第三十五条</li><li>审查时机：非银行支付机构等市场准入时</li><li>审查主体：中国人民银行</li><li>审查对象：控股股东、实际控制人、受益所有人、董事、监事、高级管理人员</li><li>审查重点：违法犯罪背景，防止犯罪分子控制机构</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十三(增加一条，作为第三十五条)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(受益所有人识别)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>非银行支付机构在申请市场准入时应准备相关人员的背景调查材料</li><li>审查覆盖四类人员：控股股东、实际控制人、受益所有人、董监高</li><li>防止犯罪分子通过“持有重要或控制股权”“作为受益所有人”“成为高级管理人员”三种方式控制机构</li><li>建议在准入前开展内部审查，排查相关人员背景</li></ul>
+<ul><li>非银行支付机构在申请市场准入时应准备相关人员的背景调查材料</li><li><strong>审查覆盖四类人员：</strong>——控股股东、实际控制人、受益所有人、董监高</li><li>防止犯罪分子通过“持有重要或控制股权”“作为受益所有人”“成为高级管理人员”三种方式控制机构</li><li><strong>建议在准入前开展内部审查，</strong>——排查相关人员背景</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆审查的四类对象和三种控制方式</li><li>注意审查时机为“市场准入时”</li><li>理解反洗钱市场准入审查的防范目的：防止犯罪分子控制金融机构</li><li>考试可能考查新增第三十五条的审查对象和重点</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆审查的四类对象和三种控制方式</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解反洗钱市场准入审查的防范目的：防止犯罪分子控制金融机构</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查新增第三十五条的审查对象和重点</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意审查时机为“市场准入时”</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-25">
@@ -1760,26 +2088,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十四项，将原第三十五条改为第三十六条并修改，规定了中国人民银行及其分支机构从事反洗钱工作的人员违反本办法规定的处分依据。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文明确了监管人员违法的处分依据为《中华人民共和国反洗钱法》第五十一条的规定，体现了对监管人员同样追责的原则。条文序号因新增第三十五条而后移一位。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第三十五条改为第三十六条，涉及监管人员违法处分</li><li>处分对象：中国人民银行及其分支机构从事反洗钱和反恐怖融资工作的人员</li><li>处分依据：《中华人民共和国反洗钱法》第五十一条的规定</li><li>处分性质为“予以处分”，非行政处罚</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十四(将第三十五条改为第三十六条，修...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义（含恐怖融资）)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>监管人员应了解自身违法行为的处分依据和后果</li><li>注意本条规范的是“监管人员”而非“金融机构人员”的违法行为</li><li>金融机构可参考本条理解监管人员的职责边界和行为规范</li><li>处分依据为《反洗钱法》第五十一条，应结合该条理解具体处分情形</li></ul>
+<ul><li>监管人员应了解自身违法行为的处分依据和后果</li><li>注意本条规范的是“监管人员”而非“金融机构人员”的违法行为</li><li>金融机构可参考本条理解监管人员的职责边界和行为规范</li><li><strong>处分依据为《反洗钱法》第五十一条，</strong>——应结合该条理解具体处分情形</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆处分依据“《反洗钱法》第五十一条”</li><li>注意处分对象是“监管人员”，非金融机构人员</li><li>条文序号变化：原第三十五条→第三十六条</li><li>理解对监管人员同样追责的立法精神</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆处分依据“《反洗钱法》第五十一条”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>条文序号变化：原第三十五条→第三十六条</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解对监管人员同样追责的立法精神</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意处分对象是“监管人员”，非金融机构人员</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-26">
@@ -1811,26 +2151,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十五项，将原第三十六条改为第三十七条并修改，规定了金融机构违反本办法的处罚依据和后续处理措施。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文明确了处罚主体（中国人民银行或其地市分行以上分支机构）、处罚依据（《反洗钱法》第五十二条至第五十六条）和后续处理（区别不同情形建议有关金融管理部门予以处理）。条文序号因新增第三十五条而后移一位。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第三十六条改为第三十七条，涉及金融机构违法处罚</li><li>处罚主体：中国人民银行或者其地市分行以上分支机构</li><li>处罚依据：《反洗钱法》第五十二条至第五十六条规定</li><li>后续处理：区别不同情形，建议有关金融管理部门予以处理</li><li>与第一大项第九项（第二十四条修改）的处罚条款保持一致</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十五(将第三十六条改为第三十七条，修...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(法律责任)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应了解违法处罚的依据和主体，评估合规风险</li><li>注意“建议有关金融管理部门予以处理”的后续处理措施，可能涉及多部门联合处理</li><li>处罚主体为“地市分行以上分支机构”，与第一大项保持一致</li><li>建议将处罚条款纳入合规风险培训内容</li></ul>
+<ul><li><strong>金融机构应了解违法处罚的依据和主体，</strong>——评估合规风险</li><li><strong>注意“建议有关金融管理部门予以处理”的后续处理措施，</strong>——可能涉及多部门联合处理</li><li><strong>处罚主体为“地市分行以上分支机构”，</strong>——与第一大项保持一致</li><li>建议将处罚条款纳入合规风险培训内容</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆处罚依据“第五十二条至第五十六条”和处罚主体“地市分行以上”</li><li>注意“建议有关金融管理部门予以处理”的联动处理机制</li><li>条文序号变化：原第三十六条→第三十七条</li><li>考试可能比较两大项处罚条款的异同</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆处罚依据“第五十二条至第五十六条”和处罚主体“地市分行以上”</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>条文序号变化：原第三十六条→第三十七条</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能比较两大项处罚条款的异同</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意“建议有关金融管理部门予以处理”的联动处理机制</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-27">
@@ -1862,26 +2214,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十六项，将原第三十七条改为第三十八条并修改，规定了在境内外设有分支机构或控股其他金融机构的金融机构以及金融控股公司的集团层面反洗钱统筹安排要求。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文明确了集团化反洗钱管理的适用范围和参照条款：适用主体为境内外设有分支机构或控股其他金融机构的金融机构以及金融控股公司，适用条款为第九条第四款、第十二条至第十四条的规定。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>原第三十七条改为第三十八条，涉及集团化反洗钱管理</li><li>适用主体：境内外设有分支机构的金融机构、控股其他金融机构的金融机构、金融控股公司</li><li>统筹层面：在总部或者集团层面统筹安排反洗钱和反恐怖融资工作</li><li>适用条款：第九条第四款、第十二条至第十四条</li><li>核心要求是在总部或集团层面统一安排反洗钱工作</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十六(将第三十七条改为第三十八条，修...)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义（含恐怖融资）)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>集团化金融机构应在总部或集团层面建立统一的反洗钱管理制度</li><li>需关注适用的具体条款（第九条第四款、第十二至十四条），逐条落实</li><li>境内外分支机构均纳入统筹范围，注意境外分支机构的特殊合规要求</li><li>金融控股公司应建立集团层面的反洗钱协调机制</li></ul>
+<ul><li>集团化金融机构应在总部或集团层面建立统一的反洗钱管理制度</li><li>需关注适用的具体条款（第九条第四款、第十二至十四条），逐条落实</li><li><strong>境内外分支机构均纳入统筹范围，</strong>——注意境外分支机构的特殊合规要求</li><li>金融控股公司应建立集团层面的反洗钱协调机制</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆适用主体（三类机构）和适用条款（第九条第四款、第十二至十四条）</li><li>理解“总部或者集团层面统筹安排”的含义</li><li>条文序号变化：原第三十七条→第三十八条</li><li>考试可能考查集团化反洗钱管理的适用范围</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆适用主体（三类机构）和适用条款（第九条第四款、第十二至十四条）</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“总部或者集团层面统筹安排”的含义</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查集团化反洗钱管理的适用范围</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>条文序号变化：原第三十七条→第三十八条</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-28">
@@ -1920,26 +2284,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第二部分第十七项，对《金融机构反洗钱和反恐怖融资监督管理办法》进行其他修改，涉及六项措辞和内容调整，并对条文序号作了相应调整。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文以列举方式规定了六项其他修改：删除第七条第一款中的“或不定期”、将第十一条“独立审计”改为“社会审计”、将第十八条和第二十四条“风险为本”改为“基于风险”、删除第二十九条和第三十一条中的机构称谓、将第三十四条“监管人员”改为“工作人员”、删除附件中的“现场风险评估”。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>修改方式为六项措辞和内容调整</li><li>第一项：删除第七条第一款中的“或不定期”</li><li>第二项：将第十一条“独立审计”修改为“社会审计”</li><li>第三项：将第十八条、第二十四条“风险为本”修改为“基于风险”</li><li>第四项：删除第二十九条、第三十一条中的“（营业管理部）”“（主任）”“（副主任）”</li><li>第五项：将第三十四条“监管人员”修改为“工作人员”</li><li>第六项：删除附件1至附件3中的“现场风险评估”</li></ul>
+<div class="arrow-chain"><span class="chain-node">二-十七(其他修改)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应逐项对照六项修改，更新内部制度文件中的相关表述</li><li>“独立审计”改为“社会审计”扩大了审计主体范围</li><li>“风险为本”改为“基于风险”体现了方法论的调整</li><li>附件中删除“现场风险评估”后，风险评估方式相应调整</li></ul>
+<ul><li><strong>金融机构应逐项对照六项修改，</strong>——更新内部制度文件中的相关表述</li><li>“独立审计”改为“社会审计”扩大了审计主体范围</li><li>“风险为本”改为“基于风险”体现了方法论的调整</li><li><strong>附件中删除“现场风险评估”后，</strong>——风险评估方式相应调整</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆六项修改的具体内容，尤其注意措辞变化</li><li>“风险为本”→“基于风险”、“独立审计”→“社会审计”是重要考点</li><li>理解每项修改的制度含义和实务影响</li><li>考试可能考查某一项具体修改的前后对比</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>考试可能考查某一项具体修改的前后对比</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>“风险为本”→“基于风险”、“独立审计”→“社会审计”是重要考点</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>理解每项修改的制度含义和实务影响</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>重点记忆六项修改的具体内容，尤其注意措辞变化</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-29">
@@ -1972,26 +2348,38 @@ details.xref-details > summary.xref-summary:hover{
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
-<h5>条文定位</h5>
+<h5>完整理解</h5>
 <p>本条为决定第三部分，废止《金融机构反洗钱规定》，并明确本决定自2025年12月1日起施行。</p>
-</div>
-<div class="analysis-section">
-<h5>结构拆解</h5>
 <p>条文包含两项内容：一是废止《金融机构反洗钱规定》（整件废止），二是明确决定的施行日期为2025年12月1日。废止原规定是因为新修订《反洗钱法》已涵盖其内容，无需保留单独的反洗钱规定。</p>
-</div>
-<div class="analysis-section">
-<h5>核心要点</h5>
 <ul><li>废止对象：《金融机构反洗钱规定》（整件废止）</li><li>施行日期：2025年12月1日</li><li>废止原因：新修订《反洗钱法》已涵盖原规定内容</li><li>废止与修改的区别：废止是整件失效，修改是部分条款调整</li></ul>
+<div class="arrow-chain"><span class="chain-node">三(废止《金融机构反洗钱规定》)</span><span class="chain-arrow">→</span><span class="chain-node">《反洗钱法》对应条款(反洗钱定义，明确七类上游犯罪和反洗钱措施...)</span><span class="chain-arrow">→</span><span class="chain-node">《刑法》第191条(洗钱罪，反洗钱刑事制裁依据)</span></div>
 </div>
 <div class="analysis-section">
 <h5>实务要点</h5>
-<ul><li>金融机构应在施行日期前完成从原规定到新制度的过渡</li><li>原《金融机构反洗钱规定》废止后，相关要求以《反洗钱法》和修改后的两部规章为准</li><li>建议清理内部制度中引用原规定的条款，替换为新的法律依据</li><li>注意废止的效力自施行日期（2025年12月1日）起生效</li></ul>
+<ul><li>金融机构应在施行日期前完成从原规定到新制度的过渡</li><li><strong>原《金融机构反洗钱规定》废止后，</strong>——相关要求以《反洗钱法》和修改后的两部规章为准</li><li><strong>建议清理内部制度中引用原规定的条款，</strong>——替换为新的法律依据</li><li>注意废止的效力自施行日期（2025年12月1日）起生效</li></ul>
 </div>
 <div class="analysis-section">
 <h5>学习应试</h5>
-<ul><li>重点记忆被废止的规章名称和施行日期</li><li>理解“废止”的法律含义：整件失效，不再具有法律效力</li><li>注意施行日期与引言部分的施行日期一致（2025年12月1日）</li><li>考试可能考查被废止的规章名称和决定施行日期</li></ul>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul><li>重点记忆被废止的规章名称和施行日期</li></ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul><li>理解“废止”的法律含义：整件失效，不再具有法律效力</li></ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul><li>考试可能考查被废止的规章名称和决定施行日期</li></ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul><li>注意施行日期与引言部分的施行日期一致（2025年12月1日）</li></ul>
 </div>
 </div>
+</div>
+</div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="reg-nav">
