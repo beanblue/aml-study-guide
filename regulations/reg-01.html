@@ -412,52 +412,6 @@ details.xref-details > summary.xref-summary:hover{
 .study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
  padding:8px 12px;font-size:13px;color:#248a3d;margin-top:4px;line-height:1.6;}
 
-/* ===== 交互式逻辑关系图 ===== */
-.ix-diagram-card{background:linear-gradient(135deg,#f8f9fb 0%,#eef1f6 100%);
- border:1px solid var(--c-border);border-radius:12px;padding:18px 16px;margin-top:10px;}
-.ix-diagram-wrap{position:relative;width:100%;aspect-ratio:680/425;margin:0 auto;}
-.ix-diagram-wrap svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-.ix-arrow-path{fill:none;stroke:#6e6e73;stroke-width:2.5;opacity:0.8;}
-.ix-arrow-hit{fill:none;stroke:transparent;stroke-width:26;cursor:pointer;}
-.ix-arrow-hit:hover + .ix-arrow-path,.ix-arrow-path.active{stroke:var(--c-blue);opacity:1;stroke-width:3.5;}
-.ix-node{position:absolute;transform:translate(-50%,-50%);width:130px;min-height:52px;
- border-radius:10px;border:1.5px solid var(--c-border);background:var(--c-card);
- display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
- padding:8px 6px;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .2s;
- user-select:none;z-index:2;
- box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 10px rgba(0,0,0,0.06),0 0 0 4px rgba(255,255,255,0.95);}
-.ix-node:hover{transform:translate(-50%,-50%) translateY(-2px);
- box-shadow:0 2px 6px rgba(0,0,0,0.06),0 8px 18px rgba(0,0,0,0.1),0 0 0 4px rgba(255,255,255,0.95);}
-.ix-node.active{border-width:2px;
- box-shadow:0 2px 8px rgba(0,0,0,0.08),0 8px 22px rgba(0,0,0,0.12),0 0 0 4px rgba(255,255,255,0.95);}
-.ix-node[data-color="blue"].active,.ix-node[data-color="blue"]:hover{border-color:var(--c-blue);background:rgba(0,113,227,0.06);}
-.ix-node[data-color="green"].active,.ix-node[data-color="green"]:hover{border-color:var(--c-green);background:rgba(52,199,89,0.06);}
-.ix-node[data-color="amber"].active,.ix-node[data-color="amber"]:hover{border-color:var(--c-amber);background:rgba(255,149,0,0.06);}
-.ix-node[data-color="red"].active,.ix-node[data-color="red"]:hover{border-color:var(--c-red);background:rgba(255,59,48,0.06);}
-.ix-node[data-color="purple"].active,.ix-node[data-color="purple"]:hover{border-color:var(--c-purple);background:rgba(175,82,222,0.06);}
-.ix-node .ix-title{font-weight:700;font-size:12px;margin-top:2px;}
-.ix-arrow-label{position:absolute;transform:translate(-50%,-50%);font-size:11px;color:#86868b;
- background:rgba(255,255,255,0.9);padding:2px 7px;border-radius:6px;pointer-events:none;white-space:nowrap;z-index:3;}
-.ix-hint{text-align:center;color:var(--c-muted);font-size:12px;margin-top:12px;}
-.ix-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:12px;padding:8px 12px;background:rgba(255,255,255,0.6);border-radius:8px;}
-.ix-legend-item{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#636366;font-weight:500;}
-.ix-legend-line{display:inline-block;width:20px;height:2.5px;background:#a1a1a6;border-radius:1px;}
-.ix-legend-line.dash{background:repeating-linear-gradient(90deg,#a1a1a6,#a1a1a6 4px,transparent 4px,transparent 7px);height:2px;}
-.ix-legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;}
-.ix-detail-panel{margin-top:14px;background:var(--c-card);border:1px solid var(--c-border);
- border-radius:10px;padding:16px 18px;min-height:60px;transition:opacity .2s;
- box-shadow:0 1px 3px rgba(0,0,0,0.04);}
-.ix-detail-panel.empty{color:var(--c-muted);display:flex;align-items:center;justify-content:center;font-size:13px;}
-.ix-detail-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
-.ix-detail-head .ix-badge{font-size:18px;}
-.ix-detail-head h6{font-size:15px;margin:0;font-weight:600;}
-.ix-detail-tag{font-size:11px;color:var(--c-muted);background:var(--c-bg);border-radius:6px;padding:2px 7px;margin-left:auto;}
-.ix-detail-desc{color:var(--c-muted);font-size:13px;margin:3px 0 10px;line-height:1.6;}
-.ix-detail-body ul{margin:0;padding-left:18px;}
-.ix-detail-body li{margin-bottom:6px;font-size:13.5px;line-height:1.7;}
-.ix-detail-body li b{color:var(--c-text);}
-.ix-detail-body .ix-sec2{margin-top:12px;}
-.ix-detail-body h6{font-size:13px;margin:0 0 5px;color:var(--c-muted);font-weight:600;}
 </style>
 </head>
 <body>
@@ -558,9 +512,28 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="ann-analysis">
 <h4>知识解析</h4>
-<div class="ann-block"><span class="pending">知识解析内容待补充</span></div>
-<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+<div class="analysis-section">
+<h5>条文定位</h5>
+<p>本条位于刑法分则第二章“危害公共安全罪”，是打击恐怖活动组织的核心刑法条款。恐怖活动犯罪属于《反洗钱法》第2条规定的七类上游犯罪之一，本条与第191条洗钱罪、第120条之二帮助恐怖活动罪共同构成反恐融资刑事法网。</p><p>从体系定位看，本条衔接《反恐怖主义法》第3条对恐怖活动组织的定义，并为《反洗钱法》第40条涉恐名单冻结措施提供刑事追诉基础，形成“刑事打击＋行政预防”的双重防线。</p>
 </div>
+<div class="analysis-section">
+<h5>结构拆解</h5>
+<p>本条采用“分层量刑＋数罪并罚”的双段式结构。第一款依行为人在恐怖活动组织中的地位和作用设置三级刑罚阶梯：组织、领导者（10年以上或无期，并处没收财产）、积极参加者（3至10年，并处罚金）、其他参加者（3年以下有期徒刑、拘役、管制或剥夺政治权利，可以并处罚金）。</p><p>第二款规定数罪并罚规则：犯组织、领导、参加恐怖组织罪同时又实施杀人、爆炸、绑架等犯罪的，不择一重处，而是分别定罪、数罪并罚，体现对恐怖活动的从严惩处立场。</p>
+</div>
+<div class="analysis-section">
+<h5>核心要点</h5>
+<ul><li>恐怖活动组织的认定须满足三要件：三人以上组合、以实施恐怖活动为目的、具有犯罪组织性质，认定主体为国家反恐怖主义工作领导机构。</li><li>三级刑罚阶梯以行为人地位和作用为标准：组织领导者最重（10年以上或无期），积极参加者居中（3至10年），其他参加者最轻（3年以下）。</li><li>“积极参加”与“其他参加”的区分：前者在组织中起重要作用、积极参与活动，后者明知而参加但不起重要作用。</li><li>数罪并罚：组织、参加恐怖组织后实施杀人、爆炸、绑架等犯罪的，各罪独立评价、合并处罚。</li><li>恐怖活动犯罪是洗钱罪（第191条）七类上游犯罪之一，涉恐资金清洗行为另行构成洗钱罪。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>恐怖活动组织的认定具有行政前置性，司法机关对是否属于恐怖活动组织存在争议时应参考国家反恐怖主义工作领导机构的认定结论。</li><li>注意区分“积极参加”与“其他参加”：关键看行为人在组织中的实际作用，而非单纯参加时间长短或次数。</li><li>涉恐资产处置须与《反洗钱法》第40条特别预防措施衔接，金融机构发现涉恐名单应立即冻结并报告。</li><li>数罪并罚的适用前提是行为人既构成组织、参加恐怖组织罪，又实施了杀人、爆炸、绑架等独立犯罪行为。</li><li>本罪为行为犯，组织、领导或参加恐怖活动组织即构成犯罪既遂，不以实施具体恐怖活动为要件。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<ul><li>高频考点：三级刑罚阶梯的具体刑期及对应主体（组织领导者10年以上或无期、积极参加3至10年、其他参加3年以下）。</li><li>易错点：数罪并罚而非择一重处——犯本罪又实施杀人、爆炸、绑架等犯罪的，应分别定罪、数罪并罚。</li><li>关联考点：恐怖活动犯罪作为洗钱罪七类上游犯罪之一，与第191条、反洗钱法第2条和第40条形成体系关联。</li><li>注意“其他参加”的附加刑为“可以并处罚金”（裁量并处），而“积极参加”为“并处罚金”（必须并处）。</li></ul>
+</div>
+</div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-121">
 <div class="article-header">
@@ -614,9 +587,28 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="ann-analysis">
 <h4>知识解析</h4>
-<div class="ann-block"><span class="pending">知识解析内容待补充</span></div>
-<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+<div class="analysis-section">
+<h5>条文定位</h5>
+<p>本条位于刑法分则第二章“危害公共安全罪”，是惩治劫持航空器行为的专门条款。劫持航空器罪侵害的客体是公共安全和航空运输安全，属于严重的暴力性犯罪，法定刑设置较高。</p><p>本条与《东京公约》《海牙公约》《蒙特利尔公约》等国际反劫机公约相衔接，是我国履行国际公约义务、打击危害国际航空安全犯罪的重要国内法依据。</p>
 </div>
+<div class="analysis-section">
+<h5>结构拆解</h5>
+<p>本条采用“基本犯＋加重犯”的两档刑罚结构。基本档：以暴力、胁迫或其他方法劫持航空器的，处10年以上有期徒刑或者无期徒刑。加重档：致人重伤、死亡或者使航空器遭受严重破坏的，处死刑。</p><p>加重结果包括三类：致人重伤、致人死亡、使航空器遭受严重破坏，只要具备其一即可适用死刑条款，体现了对严重劫机行为的严厉惩处。</p>
+</div>
+<div class="analysis-section">
+<h5>核心要点</h5>
+<ul><li>行为方式：暴力、胁迫或者其他方法，“其他方法”包括以麻醉、欺骗等手段控制航空器。</li><li>犯罪对象：航空器（包括正在使用中的民用航空器），劫持的本质是非法夺取或控制航空器的航行控制权。</li><li>两档刑罚：基本档10年以上有期徒刑或无期徒刑；加重档（致人重伤、死亡或航空器严重破坏）处死刑。</li><li>加重结果三选一：致人重伤、致人死亡、使航空器遭受严重破坏，具备其一即适用死刑。</li><li>本罪为行为犯，劫持行为完成即构成既遂，不以造成实际损害为要件。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>“劫持”的核心是夺取或控制航空器的航行控制权，与单纯破坏航空器（破坏交通工具罪）不同。</li><li>加重结果的认定：致人重伤、死亡包括劫持过程中因暴力行为造成的伤亡；航空器严重破坏包括机体结构性损毁。</li><li>既遂标准：行为人实际控制或试图控制航空器即构成既遂，不以实现劫持目的为要件。</li><li>注意本罪与暴力危及飞行安全罪（第123条）的区别：前者以劫持控制为目的，后者以危及飞行安全为目的。</li><li>本条死刑为绝对确定的法定刑（处死刑），不具有裁量空间，是刑法中少见的绝对死刑条款。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<ul><li>高频考点：加重档死刑的三种情形（致人重伤、致人死亡、使航空器遭受严重破坏），三选一即适用死刑。</li><li>易错点：本条加重档为“处死刑”（绝对死刑），非“可以判处死刑”，注意与选择性死刑条款的区别。</li><li>区分考点：劫持航空器罪（第121条）与破坏交通工具罪（第116条）、暴力危及飞行安全罪（第123条）的界限。</li><li>行为方式考点：“暴力、胁迫或者其他方法”中“其他方法”的范围，包括麻醉、欺骗等足以控制航空器的手段。</li></ul>
+</div>
+</div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-191">
 <div class="article-header">
@@ -709,9 +701,28 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="ann-analysis">
 <h4>知识解析</h4>
-<div class="ann-block"><span class="pending">知识解析内容待补充</span></div>
-<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+<div class="analysis-section">
+<h5>条文定位</h5>
+<p>本条位于刑法分则第三章“破坏社会主义市场经济秩序罪”之“破坏金融管理秩序罪”一节，是反洗钱刑事法律体系的核心条款。本条直接对应《反洗钱法》第2条的规定，将七类上游犯罪的洗钱行为入罪，是反洗钱法律体系中位阶最高的刑事制裁手段。</p><p>从条文体系看，本条与第312条（掩饰、隐瞒犯罪所得罪）构成特别法与一般法的关系：第191条针对七类特定上游犯罪设置加重刑罚，第312条则针对其余犯罪的所得清洗行为进行兜底规制。2021年《刑法修正案（十一）》将自洗钱行为入罪，进一步强化了本条的打击力度。</p>
 </div>
+<div class="analysis-section">
+<h5>结构拆解</h5>
+<p>本条由两款构成。第一款规定洗钱罪的构成要件和刑罚：前置要件是为掩饰、隐瞒七类上游犯罪所得及其收益的来源和性质，行为方式列举五种（提供资金账户、转换财产形式、转移资金、跨境转移资产、其他方法），刑罚分两档（5年以下并处或单处罚金；情节严重的5至10年并处罚金），同时规定没收制度。</p><p>第二款规定单位犯罪：单位犯洗钱罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员依照第一款规定处罚，体现双罚制原则。</p>
+</div>
+<div class="analysis-section">
+<h5>核心要点</h5>
+<ul><li>七类上游犯罪：毒品犯罪、黑社会性质的组织犯罪、恐怖活动犯罪、走私犯罪、贪污贿赂犯罪、破坏金融管理秩序犯罪、金融诈骗犯罪。</li><li>五种行为方式：提供资金账户；将财产转换为现金、金融票据、有价证券；通过转账或其他支付结算方式转移资金；跨境转移资产；以其他方法掩饰、隐瞒。</li><li>两档刑罚：基本档5年以下有期徒刑或拘役并处或单处罚金；情节严重的5至10年有期徒刑并处罚金。</li><li>没收制度：没收实施上游犯罪的所得及其产生的收益，属于强制性财产处置措施。</li><li>自洗钱入罪：《刑法修正案（十一）》删除“明知”要件后，上游犯罪本犯实施洗钱行为的，亦构成洗钱罪。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>上游犯罪的范围以罪名认定为准，不以上游犯罪已被判决为前提，但须有证据证明上游犯罪事实成立。</li><li>“明知”的认定可结合行为人的认知能力、接触上游犯罪所得的情形、异常交易特征等综合判断，允许推定。</li><li>自洗钱与上游犯罪的关系：上游犯罪本犯清洗自己犯罪所得的，上游犯罪与洗钱罪数罪并罚，不属事后不可罚行为。</li><li>与第312条的区分：上游犯罪属于七类之内的适用第191条（特别法），属于七类之外的适用第312条（一般法）。</li><li>单位犯罪适用双罚制：对单位判处罚金的同时，对直接责任人员依照自然人犯罪标准处罚。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<ul><li>高频考点：七类上游犯罪的准确记忆（毒品、黑社会性质组织、恐怖活动、走私、贪污贿赂、破坏金融管理秩序、金融诈骗）。</li><li>易错点：自洗钱已入罪——上游犯罪本犯清洗自己犯罪所得的，不再视为事后不可罚行为，应数罪并罚。</li><li>区分考点：第191条（洗钱罪）与第312条（掩饰、隐瞒犯罪所得罪）的关系——特别法与一般法，以上游犯罪是否属于七类为标准。</li><li>刑罚考点：基本档“并处或者单处罚金”，注意“单处”罚金的适用条件；情节严重档为5至10年并处罚金。</li><li>关联考点：与《反洗钱法》第2条、第40条的衔接，反洗钱特别预防措施与刑事制裁的关系。</li></ul>
+</div>
+</div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-312">
 <div class="article-header">
@@ -783,9 +794,28 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="ann-analysis">
 <h4>知识解析</h4>
-<div class="ann-block"><span class="pending">知识解析内容待补充</span></div>
-<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+<div class="analysis-section">
+<h5>条文定位</h5>
+<p>本条位于刑法分则第六章“妨害社会管理秩序罪”之“扰乱公共秩序罪”一节，是规制掩饰、隐瞒犯罪所得及其收益行为的一般性条款。本条与第191条洗钱罪构成一般法与特别法的关系：第191条针对七类特定上游犯罪，本条则涵盖所有犯罪的所得清洗行为。</p><p>从反洗钱体系看，本条是洗钱犯罪刑事规制的兜底条款，对于上游犯罪不属于第191条七类之列的犯罪所得清洗行为，适用本条追究刑事责任，确保法网严密、不留死角。</p>
 </div>
+<div class="analysis-section">
+<h5>结构拆解</h5>
+<p>本条由两款构成。第一款规定掩饰、隐瞒犯罪所得罪的构成要件和刑罚：主观上要求“明知”是犯罪所得及其收益，客观上实施窝藏、转移、收购、代为销售或其他掩饰、隐瞒行为，刑罚分两档（3年以下并处或单处罚金；情节严重的3至7年并处罚金）。</p><p>第二款规定单位犯罪，适用双罚制：对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员依照第一款规定处罚。本条的上游犯罪不限于七类，范围远大于第191条。</p>
+</div>
+<div class="analysis-section">
+<h5>核心要点</h5>
+<ul><li>行为对象：犯罪所得及其产生的收益，上游犯罪范围不限于七类，涵盖所有犯罪。</li><li>行为方式：窝藏、转移、收购、代为销售或者其他方法掩饰、隐瞒，“其他方法”为兜底表述。</li><li>主观要件：要求“明知”是犯罪所得及其收益，包括知道或应当知道。</li><li>两档刑罚：基本档3年以下有期徒刑、拘役或管制并处或单处罚金；情节严重的3至7年并处罚金。</li><li>与第191条的关系：本条为一般法（兜底），第191条为特别法（七类上游犯罪），形成双层规制体系。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>“明知”的认定可结合交易价格明显低于市场价、交易方式异常、行为人职业背景等因素综合推定。</li><li>犯罪所得的范围：包括犯罪直接所得及其产生的收益（如孳息、投资收益等），但不包括犯罪工具。</li><li>上游犯罪事实成立的认定：不以上游犯罪已被刑事判决为前提，但须有证据证明上游犯罪事实客观存在。</li><li>与第191条的竞合处理：行为涉及七类上游犯罪所得的适用第191条，涉及七类之外犯罪所得的适用本条。</li><li>注意本罪不包含自洗钱情形：上游犯罪本犯掩饰、隐瞒自己犯罪所得的，属于事后不可罚行为，不单独构成本罪。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<ul><li>高频考点：本条与第191条洗钱罪的关系——一般法与特别法，以上游犯罪是否属于七类为区分标准。</li><li>易错点：本条上游犯罪范围大于第191条（不限七类），但本罪不适用自洗钱入罪（仅第191条适用）。</li><li>行为方式考点：“窝藏、转移、收购、代为销售”及“其他方法”的认定，注意“收购”与“代为销售”的区别。</li><li>刑罚考点：基本档“并处或者单处罚金”，情节严重档3至7年并处罚金，注意与第191条刑期档次的对比。</li><li>关联考点：本条在反洗钱刑事法网中的兜底定位，与第191条共同构成完整的洗钱犯罪打击体系。</li></ul>
+</div>
+</div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="article-card" id="art-349">
 <div class="article-header">
@@ -868,9 +898,28 @@ details.xref-details > summary.xref-summary:hover{
 
 <div class="ann-analysis">
 <h4>知识解析</h4>
-<div class="ann-block"><span class="pending">知识解析内容待补充</span></div>
-<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+<div class="analysis-section">
+<h5>条文定位</h5>
+<p>本条位于刑法分则第六章“妨害社会管理秩序罪”之“毒品犯罪”一节，是惩治包庇毒品犯罪分子及窝藏、转移、隐瞒毒品、毒赃行为的专门条款。本条规定的两个罪名（包庇毒品犯罪分子罪、窝藏转移隐瞒毒品毒赃罪）是毒品犯罪后续环节的重要规制条款。</p><p>从反洗钱体系看，毒品犯罪是洗钱罪（第191条）七类上游犯罪之首，本条与第191条、第312条存在交叉竞合关系：为毒品犯罪分子窝藏、转移犯罪所得财物的行为，可能同时触犯本条与第191条，需依具体情形择一适用或数罪并罚。</p>
 </div>
+<div class="analysis-section">
+<h5>结构拆解</h5>
+<p>本条由三款构成。第一款规定两个罪名及基本刑罚：包庇走私、贩卖、运输、制造毒品的犯罪分子，或为犯罪分子窝藏、转移、隐瞒毒品或犯罪所得财物的，处3年以下有期徒刑、拘役或管制；情节严重的处3至10年有期徒刑。</p><p>第二款规定特殊主体加重处罚：缉毒人员或其他国家机关工作人员掩护、包庇毒品犯罪分子的，依照前款规定从重处罚。第三款规定共犯转化：事先通谋的，以走私、贩卖、运输、制造毒品罪的共犯论处，不再适用本条。</p>
+</div>
+<div class="analysis-section">
+<h5>核心要点</h5>
+<ul><li>两个罪名：包庇毒品犯罪分子罪（包庇特定毒品犯罪分子）和窝藏、转移、隐瞒毒品、毒赃罪（窝藏转移隐瞒毒品或犯罪所得财物）。</li><li>包庇对象限于走私、贩卖、运输、制造毒品罪的犯罪分子，不包括其他毒品犯罪的犯罪分子。</li><li>特殊主体加重：缉毒人员或其他国家机关工作人员包庇的，从重处罚，体现对执法者犯法的从严惩处。</li><li>共犯转化：事先与毒品犯罪分子通谋而实施包庇、窝藏行为的，以毒品犯罪共犯论处，不适用本条。</li><li>两档刑罚：基本档3年以下有期徒刑、拘役或管制；情节严重的3至10年有期徒刑。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>包庇对象的范围限于走私、贩卖、运输、制造毒品罪（第347条）的犯罪分子，包庇其他毒品犯罪分子的不适用本条。</li><li>“事先通谋”的认定：行为人在毒品犯罪实施前或实施中即与犯罪分子有意思联络，承诺事后包庇或窝藏的，以共犯论处。</li><li>与第310条（窝藏罪）的关系：本条为特别法，针对毒品犯罪分子设置专门罪名，优先于第310条适用。</li><li>与第191条洗钱罪的竞合：为毒品犯罪分子转移、隐瞒犯罪所得财物的，可能同时构成洗钱罪，需根据行为性质择一重处。</li><li>注意本条第一款未规定罚金刑，与第191条、第312条（均规定罚金）存在差异。</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<ul><li>高频考点：共犯转化条件——事先通谋的以走私、贩卖、运输、制造毒品罪共犯论处，不再适用本条。</li><li>易错点：包庇对象仅限于走私、贩卖、运输、制造毒品罪（第347条）的犯罪分子，包庇其他毒品犯罪分子的不构成本罪。</li><li>区分考点：本条与第310条窝藏罪、第312条掩饰隐瞒犯罪所得罪、第191条洗钱罪之间的界限与竞合关系。</li><li>加重考点：缉毒人员或其他国家机关工作人员包庇的，“从重处罚”（在法定刑幅度内从重），非加重档。</li><li>关联考点：毒品犯罪作为洗钱罪七类上游犯罪之首，本条窝藏毒赃行为与反洗钱体系的衔接。</li></ul>
+</div>
+</div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
 </div>
 <div class="reg-nav">
 <a href="reg-00.html">← 反洗钱法</a>
