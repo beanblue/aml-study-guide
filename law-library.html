@@ -621,25 +621,30 @@ try { __envInfo.topAccessible = (window.top.location.href !== undefined); } catc
 // 在 TRAE 预览的 iframe sandbox 中，原生页面跳转可能被阻止。
 // 此方案先用 fetch 加载目标页面 HTML，再用 document.write 替换当前页面内容，
 // 无需真正的页面跳转，绕过 sandbox 限制。
-document.addEventListener('click', function(e) {
-  var link = e.target.closest && e.target.closest('a[href]');
-  if (!link) return;
-  var rawHref = link.getAttribute('href');
-  if (!rawHref) return;
-  if (/^(https?:|\/\/|#|mailto:|tel:|\/)/.test(rawHref)) return;
+if (!window.__navEnhanced) {
+  window.__navEnhanced = true;
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest && e.target.closest('a[href]');
+    if (!link) return;
+    var rawHref = link.getAttribute('href');
+    if (!rawHref) return;
+    if (/^(https?:|\/\/|#|mailto:|tel:|\/)/.test(rawHref)) return;
 
-  var beforeUrl = window.location.href;
-  // 200ms 后检查原生导航是否成功
-  setTimeout(function() {
-    if (window.location.href === beforeUrl) {
-      // 原生导航失败 → 使用 fetch 动态加载
-      fetchPage(rawHref);
-    }
-  }, 200);
-}, true);
+    var beforeUrl = window.location.href;
+    // 200ms 后检查原生导航是否成功
+    setTimeout(function() {
+      if (window.location.href === beforeUrl) {
+        // 原生导航失败 → 使用 fetch 动态加载
+        fetchPage(rawHref);
+      }
+    }, 200);
+  }, true);
+}
 
 // === fetch 动态加载页面（核心方案）===
-function fetchPage(href) {
+window.fetchPage = function(href) {
+  if (window.__fetchInProgress) return;
+  window.__fetchInProgress = true;
   showLoading();
   // 用 <a> 元素解析 href 为完整 URL（自动处理相对路径和 <base> 标签）
   var a = document.createElement('a');
@@ -658,6 +663,12 @@ function fetchPage(href) {
       html = html.replace(/<head[^>]*>/i, function(match) {
         return match + '\n<base href="' + baseHref + '">';
       });
+      // 清理固定定位元素，防止重影
+      var fixedElems = document.querySelectorAll('#nav-loading, #nav-error-toast, #back-btn, [style*="position:fixed"]');
+      fixedElems.forEach(function(el) { el.remove(); });
+      // 重置标志，让新页面能注册导航监听器
+      window.__navEnhanced = false;
+      window.__fetchInProgress = false;
       // 替换整个页面内容（新页面的 <script> 会自动执行）
       document.open();
       document.write(html);
@@ -666,6 +677,7 @@ function fetchPage(href) {
       try { history.pushState({}, '', fullUrl); } catch(e) {}
     })
     .catch(function(err) {
+      window.__fetchInProgress = false;
       hideLoading();
       // fetch 失败 → 尝试 window.open
       var navigated = false;
@@ -709,22 +721,7 @@ function showNavError(href, errMsg) {
   setTimeout(function() { toast.remove(); }, 10000);
 }
 
-// === 调试信息（右下角，15秒后消失）===
-(function() {
-  var d = document.createElement('div');
-  d.style.cssText = 'position:fixed;bottom:4px;right:4px;background:rgba(0,0,0,0.85);color:#0f0;font:11px monospace;padding:6px 10px;border-radius:6px;z-index:99999;max-width:420px;word-break:break-all;pointer-events:none;line-height:1.6;';
-  d.innerHTML = '<div style="color:#ff0;font-weight:bold;margin-bottom:4px;">[导航诊断]</div>' +
-    '<div>URL: ' + __envInfo.url + '</div>' +
-    '<div>iframe: ' + __envInfo.inIframe + '</div>' +
-    '<div>protocol: ' + __envInfo.protocol + '</div>' +
-    '<div>topOK: ' + __envInfo.topAccessible + '</div>';
-  document.body.appendChild(d);
-  setTimeout(function() {
-    d.style.transition = 'opacity 1s';
-    d.style.opacity = '0';
-    setTimeout(function() { d.remove(); }, 1000);
-  }, 15000);
-})();
+
 
 function filterCards(){
   var input=document.getElementById('reg-search');

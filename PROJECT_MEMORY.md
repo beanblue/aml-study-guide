@@ -9,7 +9,7 @@
 **项目名称**: 反洗钱制度学习与实践 (AML Study Guide)
 **GitHub仓库**: https://github.com/beanblue/aml-study-guide
 **创建日期**: 2026年7月
-**最后更新**: 2026年8月4日（对话轮次11，reg-03知识解析重构试点完成）
+**最后更新**: 2026年8月5日（对话轮次12，修复页面重影问题 + 确立条款展示结构规则）
 
 ### 项目目标
 构建一个完整的反洗钱法律法规学习平台，包含：
@@ -97,7 +97,7 @@ aml-study-guide/
 3. 深化重要法规的释义内容
 4. 交互式图表的移动端兼容性测试
 
-### 知识解析重构方案（2026-08-04确定）
+### 知识解析重构方案（2026-08-04确定，2026-08-05更新）
 **背景**：批量生成的四分支辐射图（适用主体/核心要求/法律责任/监管机制）均为模板内容，65条用同一模式，效果差且浪费资源。
 
 **新方案（分层处理）**：
@@ -105,6 +105,46 @@ aml-study-guide/
 - **其他法规**：用结构化文本解析替代模板图示，结构包括：条文定位、结构拆解、核心要点、实务要点、学习应试
 - **自定义图示**：仅对复杂条文保留（如reg-03第1条、第98条）
 - **章节级图示**：视具体内容情况，可对章节做流程图/对照表，实事求是
+
+### 条款展示结构规则（2026-08-05确定 ★★★）
+每条条文的展示结构遵循以下规则：
+
+**标准结构（四项）**：
+1. **关联条款** — 始终保留，交叉引用反洗钱法等相关条款
+2. **知识解析**（五段式） — 始终保留，使用以下五个部分：
+   - 条文定位：说明条文在法律框架中的位置和作用
+   - 结构拆解：分析条文内部逻辑结构和层次
+   - 核心要点：列出关键概念、构成要件等要点
+   - 实务要点：列出实务操作中的注意事项
+   - 学习应试：列出考试高频考点和易错点
+3. **典型案例** — 始终保留（可暂为"待补充"）
+4. **权威释义**（条件性） — **仅当能找到有依据的权威释义时添加**
+   - 有依据的权威释义来源示例：全国人大常委会法工委编写的释义书籍、最高人民法院司法解释解读、最高人民检察院司法解释理解与适用等
+   - 如刑法（reg-01）引用《中华人民共和国刑法释义》（全国人大常委会法工委刑法室编）即为有依据的权威释义
+   - 如果找不到有依据的权威释义，则省略此项，仅保留上述三项
+
+**结构示例（有权威释义时）**：
+```html
+<div class="article-annotation">
+  <div class="ann-book">权威释义（有依据时）</div>
+  <div class="ann-block">关联条款</div>
+  <div class="ann-analysis">
+    知识解析（条文定位/结构拆解/核心要点/实务要点/学习应试）
+  </div>
+  <div class="ann-block">典型案例</div>
+</div>
+```
+
+**结构示例（无权威释义时）**：
+```html
+<div class="article-annotation">
+  <div class="ann-block">关联条款</div>
+  <div class="ann-analysis">
+    知识解析（条文定位/结构拆解/核心要点/实务要点/学习应试）
+  </div>
+  <div class="ann-block">典型案例</div>
+</div>
+```
 
 **reg-03试点成果**：
 - 96条模板图示替换为结构化文本解析（第2-97条）
@@ -130,20 +170,16 @@ aml-study-guide/
     <div class="article-header">条文编号 + 摘要 + 章节标签</div>
     <div class="article-text">条文原文</div>
     <div class="article-annotation">
+      <!-- 权威释义：仅当有依据的权威释义时才添加 -->
       <div class="ann-book">权威释义（书籍来源）</div>
       <div class="ann-block">关联条款（交叉引用）</div>
       <div class="ann-analysis">
-        知识解析
-        <div class="analysis-section">
-          <h5>逻辑关系</h5>
-          <div class="ix-diagram-card">交互式SVG图表</div>
-          <div class="ix-detail-panel">详情面板</div>
-        </div>
-        <!-- 注意: <script>必须在analysis-section的</div>之后，不能在内部 -->
-        <script>交互逻辑</script>
-        <div class="analysis-section">完整规则</div>
-        <div class="analysis-section">实践要点</div>
-        <div class="analysis-section">学习应试</div>
+        <h4>知识解析</h4>
+        <div class="analysis-section"><h5>条文定位</h5>...</div>
+        <div class="analysis-section"><h5>结构拆解</h5>...</div>
+        <div class="analysis-section"><h5>核心要点</h5>...</div>
+        <div class="analysis-section"><h5>实务要点</h5>...</div>
+        <div class="analysis-section"><h5>学习应试</h5>...</div>
       </div>
       <div class="ann-block">典型案例</div>
     </div>
@@ -248,6 +284,21 @@ aml-study-guide/
 - **修复**: 从 `/data/user/mcp/mcp-servers.json` 中读取新token，更新 `git remote set-url`
 - **注意**: MCP GitHub API（如`list_commits`）使用独立认证，与git remote URL是两套独立配置
 - **防复发**: push前检查MCP配置文件中的最新token，同步到git remote URL
+
+### 问题14: 页面底部重影（多层页面叠加）（★★★）
+- **现象**: 每个法规详情页底部出现重影，感觉多个页面摞在一起，在"返回索引"附近尤其明显
+- **根因**:
+  1. 调试信息div（固定定位在右下角）在TRAE预览的iframe中形成视觉"层"
+  2. `fetchPage`函数缺乏并发保护，多次调用导致`document.write()`叠加内容
+  3. `document.write()`前未清理固定定位元素（nav-loading、back-btn等），这些元素在新页面加载后仍然残留
+  4. `__navEnhanced`标志在`document.write()`后仍然为`true`，导致新页面无法注册导航监听器
+- **修复**:
+  1. 移除所有文件中的调试信息div（31个法规文件 + law-library.html + aml-study-guide.html）
+  2. 添加`__fetchInProgress`标志防止并发`fetchPage`调用
+  3. 在`document.write()`前清理所有固定定位元素
+  4. 在`document.write()`前重置`__navEnhanced`和`__fetchInProgress`标志
+- **影响文件**: 全部31个法规文件 + law-library.html + aml-study-guide.html
+- **防复发**: 不再在页面中添加固定定位的调试元素；`fetchPage`必须检查并发标志
 
 ---
 
