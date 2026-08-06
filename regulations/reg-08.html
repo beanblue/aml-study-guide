@@ -376,12 +376,36 @@ details.xref-details > summary.xref-summary:hover{
  padding-left:16px;position:relative;margin-bottom:3px;}
 .analysis-section ul li::before{content:'·';position:absolute;left:4px;
  color:var(--c-amber);font-weight:700;font-size:16px;line-height:1.4;}
-.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.study-card{background:var(--c-card);border-radius:10px;padding:14px 16px;
+/* 学习应试板块 */
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+.study-block{background:var(--c-card);border-radius:10px;padding:14px 16px;
  border:1px solid var(--c-border);}
-.study-card h6{font-size:12px;color:var(--c-muted);font-weight:600;
- margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
-.study-card p{font-size:13px;line-height:1.6;color:var(--c-text);}
+.study-block.full{grid-column:1/-1;}
+.study-block > h6{font-size:13px;font-weight:600;margin-bottom:8px;
+ display:flex;align-items:center;gap:6px;}
+.study-block.memorize > h6{color:#c93400;}
+.study-block.memorize > h6::before{content:'记';display:inline-flex;
+ width:20px;height:20px;border-radius:6px;background:#ff3b30;color:#fff;
+ font-size:11px;align-items:center;justify-content:center;font-weight:700;}
+.study-block.understand > h6{color:var(--c-blue);}
+.study-block.understand > h6::before{content:'解';display:inline-flex;
+ width:20px;height:20px;border-radius:6px;background:var(--c-blue);color:#fff;
+ font-size:11px;align-items:center;justify-content:center;font-weight:700;}
+.study-block.apply > h6{color:#248a3d;}
+.study-block.apply > h6::before{content:'用';display:inline-flex;
+ width:20px;height:20px;border-radius:6px;background:var(--c-green);color:#fff;
+ font-size:11px;align-items:center;justify-content:center;font-weight:700;}
+.study-block.exam > h6{color:#af52de;}
+.study-block.exam > h6::before{content:'考';display:inline-flex;
+ width:20px;height:20px;border-radius:6px;background:var(--c-purple);color:#fff;
+ font-size:11px;align-items:center;justify-content:center;font-weight:700;}
+.study-block ul{padding-left:18px;margin:0;}
+.study-block li{font-size:13px;line-height:1.65;margin-bottom:4px;color:var(--c-text);}
+.study-block .metaphor{background:rgba(0,113,227,0.05);border-radius:6px;
+ padding:8px 12px;font-size:13px;color:var(--c-blue);font-style:italic;
+ margin-top:4px;line-height:1.6;}
+.study-block .scenario{background:rgba(52,199,89,0.06);border-radius:6px;
+ padding:8px 12px;font-size:13px;color:#248a3d;margin-top:4px;line-height:1.6;}
 
 /* ===== SmartArt 逻辑关系图 ===== */
 .sd-container{background:linear-gradient(135deg,#f8f9fb 0%,#eef1f6 100%);
