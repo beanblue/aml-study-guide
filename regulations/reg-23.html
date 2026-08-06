@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -486,11 +490,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一、加强客户身份识别管理</a></li>
-<li><a href="#art-2" class="toc-chapter">二、加强洗钱或恐怖融资高风险领域的管理</a></li>
-<li><a href="#art-3" class="toc-chapter">三、加强跨境汇款业务的风险防控和管理</a></li>
-<li><a href="#art-4" class="toc-chapter">四、加强预付卡代理销售机构的风险管理</a></li>
-<li><a href="#art-5" class="toc-chapter">五、加强交易记录保存，及时报送可疑交易报告</a></li>
+<li><a href="#art-1">一、加强客户身份识别管理</a></li>
+<li><a href="#art-2">二、加强洗钱或恐怖融资高风险领域的管理</a></li>
+<li><a href="#art-3">三、加强跨境汇款业务的风险防控和管理</a></li>
+<li><a href="#art-4">四、加强预付卡代理销售机构的风险管理</a></li>
+<li><a href="#art-5">五、加强交易记录保存，及时报送可疑交易报告</a></li>
 </ul>
 </div>
 
@@ -499,7 +503,10 @@ details.xref-details > summary.xref-summary:hover{
 <span class="article-num">一、加强客户身份识别管理</span>
 </div>
 <div class="article-text">
-<p class="art-para">[本节原文详见原始文件]</p>
+<p class="art-para">（一）客户身份核实要求。义务机构在识别客户身份时，应通过可靠和来源独立的证明文件、数据信息和资料核实客户身份，了解客户建立、维持业务关系的目的及性质，并在适当情况下获取相关信息。原则上，义务机构应当在建立业务关系或办理规定金额以上的一次性业务之前，完成客户及其受益所有人的身份核实工作。但在有效管理洗钱和恐怖融资风险的情况下，为不打断正常交易，可以在建立业务关系后尽快完成身份核实。在未完成客户身份核实工作前，义务机构应当建立相应的风险管理机制和程序，对客户要求办理的业务实施有效的风险管理措施，如限制交易数量、类型或金额，加强交易监测等。</p>
+<p class="art-para">对于寿险和具有投资功能的财产险业务，义务机构应当充分考虑保单受益人的风险状况，决定是否对保单受益人开展强化的客户身份识别。当保单受益人为非自然人且具有较高风险时，义务机构应当采取强化的客户身份识别措施，至少在给付保险金时，通过合理手段识别和核实其受益所有人。</p>
+<p class="art-para">义务机构应当采取持续的客户身份识别措施，详细审查保存的客户资料和业务关系存续期间发生的交易，及时更新客户身份证明文件、数据信息和资料，确保当前进行的交易符合义务机构对客户及其业务、风险状况、资金来源等方面的认识。对于高风险客户，义务机构应当提高审查的频率和强度。如果义务机构无法进行客户身份识别工作，或经评估超过本机构风险管理能力的，不得与客户建立或维持业务关系，并应当考虑提交可疑交易报告。</p>
+<p class="art-para">（二）依托第三方机构开展客户身份识别的要求。义务机构依托第三方机构开展客户身份识别的，应当采取以下措施：一是确认第三方机构接受反洗钱和反恐怖融资监管，并按照反洗钱法律、行政法规和本通知要求，采取了客户身份识别及交易记录保存措施；二是立即从第三方机构获取客户身份识别的必要信息；三是在需要时立即从第三方机构获取客户身份证明文件和其他相关资料的复印件或影印件。义务机构应当承担第三方机构未履行客户身份识别义务的责任。义务机构依托境外第三方机构开展客户身份识别，应当充分评估该机构所在国家或地区的风险状况，不得依托来自高风险国家或地区的第三方机构开展客户身份识别。</p>
 </div>
 <div class="article-annotation">
 
@@ -508,8 +515,8 @@ details.xref-details > summary.xref-summary:hover{
 <ol class="xref-list">
 <li class="xref-item">
 <span class="xref-num">1.</span>
-<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">对应条款</a>
-<span class="xref-desc">— 反洗钱定义，明确七类上游犯罪和反洗钱措施范围</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度，本条是客户身份识别管理的具体要求</span>
 </li>
 <li class="xref-item">
 <span class="xref-num">2.</span>
@@ -561,7 +568,9 @@ details.xref-details > summary.xref-summary:hover{
 <span class="article-num">二、加强洗钱或恐怖融资高风险领域的管理</span>
 </div>
 <div class="article-text">
-<p class="art-para">[本节原文详见原始文件]</p>
+<p class="art-para">（一）高风险领域的客户身份识别和交易监测要求。在洗钱和恐怖融资风险较高的领域，义务机构应当采取与风险相称的客户身份识别和交易监测措施，包括但不限于：1.进一步获取客户及其受益所有人身份信息，适度提高客户及其受益所有人信息的收集或更新频率。2.进一步获取业务关系目的和性质的相关信息，深入了解客户经营活动状况、财产或资金来源。3.进一步调查客户交易及其背景情况，询问交易目的，核实交易动机。4.适度提高交易监测的频率及强度。5.按照法律规定或与客户的事先约定，对客户的交易方式、交易规模、交易频率等实施合理限制。6.合理限制客户通过非面对面方式办理业务的金额、次数和业务类型。7.与客户建立、维持业务关系，或为客户办理业务，需经高级管理层批准或授权。</p>
+<p class="art-para">（二）高风险国家或地区的管控要求。义务机构应当建立工作机制，及时获取金融行动特别工作组（FATF）发布和更新的高风险国家或地区名单。在与来自FATF名单所列的高风险国家或地区的客户建立业务关系或进行交易时，义务机构应采取与高风险相匹配的强化身份识别、交易监测等控制措施，发现可疑情形时应当及时提交可疑交易报告，必要时拒绝提供金融服务乃至终止业务关系。已经与高风险国家或地区的机构建立代理行关系的，义务机构应当进行重新审查，必要时终止代理行关系。</p>
+<p class="art-para">（三）不得简化客户身份识别措施的情形。义务机构怀疑客户涉嫌洗钱、恐怖融资等违法犯罪活动的，无论其交易金额大小，不得采取简化的客户身份识别措施，并应采取与其风险状况相称的管理措施。</p>
 </div>
 <div class="article-annotation">
 
@@ -570,8 +579,8 @@ details.xref-details > summary.xref-summary:hover{
 <ol class="xref-list">
 <li class="xref-item">
 <span class="xref-num">1.</span>
-<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">对应条款</a>
-<span class="xref-desc">— 反洗钱定义，明确七类上游犯罪和反洗钱措施范围</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则，本条是高风险领域强化措施的依据</span>
 </li>
 <li class="xref-item">
 <span class="xref-num">2.</span>
@@ -623,7 +632,10 @@ details.xref-details > summary.xref-summary:hover{
 <span class="article-num">三、加强跨境汇款业务的风险防控和管理</span>
 </div>
 <div class="article-text">
-<p class="art-para">[本节原文详见原始文件]</p>
+<p class="art-para">（一）办理跨境汇出汇款的风险防控和管理要求。办理跨境汇出汇款时，义务机构应当获取和登记汇款人姓名或名称、账号、住所，以及收款人的姓名或名称、账号。汇款人没有在本机构开户的或本机构无法登记收款人账号的，义务机构应当将唯一交易识别码作为汇款人或收款人账号进行登记，确保该笔交易可跟踪稽核。对于单笔人民币1万元或外币等值1000美元以上的跨境汇出汇款，义务机构还应当登记汇款人的有效身份证件或其他身份证明文件的号码，并通过核对或查看已留存的客户有效身份证件、其他身份证明文件等措施核实汇款人信息，确保信息的准确性。义务机构应当将汇款人和收款人的姓名或名称、账号或唯一交易识别码完整传递给接收汇款的机构。</p>
+<p class="art-para">（二）义务机构作为跨境汇款业务中间机构的风险防控和管理要求。义务机构作为跨境汇款业务的中间机构时，应当完整传递汇款人和收款人的所有信息，采取合理措施识别是否缺少汇款人和收款人必要信息，并依据风险为本的政策和程序，明确执行、拒绝或暂停上述汇款业务的适用情形及相应的后续处理措施。</p>
+<p class="art-para">（三）办理跨境汇入汇款的风险防控和管理要求。办理跨境汇入汇款时，义务机构应当获取收款人姓名或名称、账号或唯一交易识别码等信息，采取实时监测或事后监测等合理措施，识别是否缺少汇款人或收款人必要信息，并依据风险为本的政策和程序，明确执行、拒绝或暂停上述跨境汇款业务的适用情形及相应的后续处理措施。对于单笔人民币1万元或外币等值1000美元以上的跨境汇入汇款，义务机构应当通过核对或查看已留存的客户有效身份证件或其他身份证明文件等措施核实收款人身份。</p>
+<p class="art-para">（四）其他要求。1.对于办理上述跨境汇款业务中获取的汇款人、收款人等相关信息，义务机构应当至少保存5年。2.义务机构在处理跨境汇款业务过程中，应当严格执行联合国安理会有关防范和打击恐怖主义和恐怖融资的相关决议，禁止与决议所列的个人或实体进行交易，并按照规定采取限制交易、冻结等控制措施。3.办理跨境汇出汇款的义务机构，如不能遵从上述要求的，则不得为客户办理汇款业务。</p>
 </div>
 <div class="article-annotation">
 
@@ -632,8 +644,8 @@ details.xref-details > summary.xref-summary:hover{
 <ol class="xref-list">
 <li class="xref-item">
 <span class="xref-num">1.</span>
-<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">对应条款</a>
-<span class="xref-desc">— 反洗钱定义，明确七类上游犯罪和反洗钱措施范围</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存，跨境汇款信息保存5年要求的上位法依据</span>
 </li>
 <li class="xref-item">
 <span class="xref-num">2.</span>
@@ -685,7 +697,7 @@ details.xref-details > summary.xref-summary:hover{
 <span class="article-num">四、加强预付卡代理销售机构的风险管理</span>
 </div>
 <div class="article-text">
-<p class="art-para">[本节原文详见原始文件]</p>
+<p class="art-para">非银行支付机构委托销售合作机构代理销售预付卡时，应当在委托代理协议中明确双方的反洗钱和反恐怖融资职责，将销售合作机构纳入自身的反洗钱和反恐怖融资体系，对销售合作机构遵守反洗钱和反恐怖融资义务的情况进行监督。非银行支付机构应当按照安全、准确、完整的原则，保存销售合作机构的名录，登记其姓名或名称、有效身份证件或其他身份证明文件的种类和号码、地址，并按照规定及时向监管机构、执法机构等部门报送。</p>
 </div>
 <div class="article-annotation">
 
@@ -694,8 +706,8 @@ details.xref-details > summary.xref-summary:hover{
 <ol class="xref-list">
 <li class="xref-item">
 <span class="xref-num">1.</span>
-<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">对应条款</a>
-<span class="xref-desc">— 反洗钱定义，明确七类上游犯罪和反洗钱措施范围</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度，预付卡代理销售机构的反洗钱内控要求</span>
 </li>
 <li class="xref-item">
 <span class="xref-num">2.</span>
@@ -747,9 +759,8 @@ details.xref-details > summary.xref-summary:hover{
 <span class="article-num">五、加强交易记录保存，及时报送可疑交易报告</span>
 </div>
 <div class="article-text">
-<p class="art-para">3/4中国人民银行办公厅关于进一步加强反洗钱和反恐怖融资工作的通知对于符合《金融机构大额交易和可疑交易报告管理办法》（中国人民银行令〔2016〕第 3 号发布）第十七条规定情形的可疑交易报告，义务机构应当立即向中国反洗钱监测分析中心和中国人民银行或当地分支机构报送。</p>
+<p class="art-para">对于符合《金融机构大额交易和可疑交易报告管理办法》（中国人民银行令〔2016〕第3号发布）第十七条规定情形的可疑交易报告，义务机构应当立即向中国反洗钱监测分析中心和中国人民银行或当地分支机构报送。</p>
 <p class="art-para">请中国人民银行上海总部，各分行、营业管理部；省会（首府）城市中心支行；副省级城市中心支行将本通知转发至辖区内义务机构。</p>
-<p class="art-para">扫一扫，手机阅读更方便4/4</p>
 </div>
 <div class="article-annotation">
 

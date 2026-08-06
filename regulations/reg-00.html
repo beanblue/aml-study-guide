@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -588,79 +592,93 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">第一章 总 则</a></li>
-<li><a href="#art-13" class="toc-chapter">第二章 反洗钱监督管理</a></li>
-<li><a href="#art-27" class="toc-chapter">第三章 反洗钱义务</a></li>
-<li><a href="#art-43" class="toc-chapter">第四章 反洗钱调查</a></li>
-<li><a href="#art-46" class="toc-chapter">第五章 反洗钱国际合作</a></li>
-<li><a href="#art-51" class="toc-chapter">第六章 法律责任</a></li>
-<li><a href="#art-63" class="toc-chapter">第七章 附 则</a></li>
-
-<li><a href="#art-1">第1条 · 立法目的</a></li>
-<li><a href="#art-2">第2条 · 反洗钱定义</a></li>
-<li><a href="#art-3">第3条 · 工作原则</a></li>
-<li><a href="#art-4">第4条 · 风险为本原则</a></li>
-<li><a href="#art-5">第5条 · 监管体制</a></li>
-<li><a href="#art-6">第6条 · 义务主体</a></li>
-<li><a href="#art-7">第7条 · 信息保密</a></li>
-<li><a href="#art-8">第8条 · 履职保护</a></li>
-<li><a href="#art-9">第9条 · 宣传教育</a></li>
-<li><a href="#art-10">第10条 · 配合义务</a></li>
-<li><a href="#art-11">第11条 · 举报制度</a></li>
-<li><a href="#art-12">第12条 · 域外适用</a></li>
-<li><a href="#art-13">第13条 · 央行职责</a></li>
-<li><a href="#art-14">第14条 · 金融管理部门职责</a></li>
-<li><a href="#art-15">第15条 · 特定非金融机构主管部门职责</a></li>
-<li><a href="#art-16">第16条 · 监测分析机构</a></li>
-<li><a href="#art-17">第17条 · 部门间信息交换</a></li>
-<li><a href="#art-18">第18条 · 海关现金通报</a></li>
-<li><a href="#art-19">第19条 · 受益所有人信息管理</a></li>
-<li><a href="#art-20">第20条 · 线索移送</a></li>
-<li><a href="#art-21">第21条 · 风险评估与约谈</a></li>
-<li><a href="#art-22">第22条 · 监督检查措施</a></li>
-<li><a href="#art-23">第23条 · 风险评估制度</a></li>
-<li><a href="#art-24">第24条 · 高风险国家地区名单</a></li>
-<li><a href="#art-25">第25条 · 行业自律</a></li>
-<li><a href="#art-26">第26条 · 行业服务机构管理</a></li>
-<li><a href="#art-27">第27条 · 内控制度</a></li>
-<li><a href="#art-28">第28条 · 客户尽职调查制度</a></li>
-<li><a href="#art-29">第29条 · 尽职调查情形</a></li>
-<li><a href="#art-30">第30条 · 持续尽职调查</a></li>
-<li><a href="#art-31">第31条 · 代理人及受益人识别</a></li>
-<li><a href="#art-32">第32条 · 第三方尽调</a></li>
-<li><a href="#art-33">第33条 · 跨部门身份核实</a></li>
-<li><a href="#art-34">第34条 · 资料保存</a></li>
-<li><a href="#art-35">第35条 · 大额和可疑交易报告</a></li>
-<li><a href="#art-36">第36条 · 新技术风险评估</a></li>
-<li><a href="#art-37">第37条 · 集团统筹与信息共享</a></li>
-<li><a href="#art-38">第38条 · 风险分级管理</a></li>
-<li><a href="#art-39">第39条 · 高风险客户措施</a></li>
-<li><a href="#art-40">第40条 · 特别预防措施</a></li>
-<li><a href="#art-41">第41条 · 名单管理</a></li>
-<li><a href="#art-42">第42条 · 特定非金融机构参照</a></li>
-<li><a href="#art-43">第43条 · 内控检查</a></li>
-<li><a href="#art-44">第44条 · 法律责任一般规定</a></li>
-<li><a href="#art-45">第45条 · 处罚标准</a></li>
-<li><a href="#art-46">第46条 · 处罚措施</a></li>
-<li><a href="#art-47">第47条 · 双罚制</a></li>
-<li><a href="#art-48">第48条 · 处罚豁免</a></li>
-<li><a href="#art-49">第49条 · 整改要求</a></li>
-<li><a href="#art-50">第50条 · 行政强制措施</a></li>
-<li><a href="#art-51">第51条 · 复议诉讼</a></li>
-<li><a href="#art-52">第52条 · 信用记录</a></li>
-<li><a href="#art-53">第53条 · 规章制定授权</a></li>
-<li><a href="#art-54">第54条 · 与反恐怖主义法衔接</a></li>
-<li><a href="#art-55">第55条 · 与刑法衔接</a></li>
-<li><a href="#art-56">第56条 · 三反体制机制</a></li>
-<li><a href="#art-57">第57条 · 央行授权</a></li>
-<li><a href="#art-58">第58条 · 与反有组织犯罪法衔接</a></li>
-<li><a href="#art-59">第59条 · 反恐怖融资衔接</a></li>
-<li><a href="#art-60">第60条 · 与反外国制裁法衔接</a></li>
-<li><a href="#art-61">第61条 · 刑事衔接</a></li>
-<li><a href="#art-62">第62条 · 与禁毒法衔接</a></li>
-<li><a href="#art-63">第63条 · 与市场主体登记管理条例衔接</a></li>
-<li><a href="#art-64">第64条 · 过渡安排</a></li>
-<li><a href="#art-65">第65条 · 施行日期</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">第一章 总 则</a>
+<ul class="toc-sub">
+<li><a href="#art-1">第一条 · 立法目的</a></li>
+<li><a href="#art-2">第二条 · 反洗钱定义</a></li>
+<li><a href="#art-3">第三条 · 工作原则</a></li>
+<li><a href="#art-4">第四条 · 风险为本原则</a></li>
+<li><a href="#art-5">第五条 · 监管体制</a></li>
+<li><a href="#art-6">第六条 · 义务主体</a></li>
+<li><a href="#art-7">第七条 · 信息保密</a></li>
+<li><a href="#art-8">第八条 · 履职保护</a></li>
+<li><a href="#art-9">第九条 · 能力</a></li>
+<li><a href="#art-10">第十条 · 配合义务</a></li>
+<li><a href="#art-11">第十一条 · 举报制度</a></li>
+<li><a href="#art-12">第十二条 · 域外适用</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-13" class="toc-chapter">第二章 反洗钱监督管理</a>
+<ul class="toc-sub">
+<li><a href="#art-13">第十三条 · 央行职责</a></li>
+<li><a href="#art-14">第十四条 · 金融管理部门职责</a></li>
+<li><a href="#art-15">第十五条 · 立法目的</a></li>
+<li><a href="#art-16">第十六条 · 义务规范</a></li>
+<li><a href="#art-17">第十七条 · 部门间信息交换</a></li>
+<li><a href="#art-18">第十八条 · 海关现金通报</a></li>
+<li><a href="#art-19">第十九条 · 义务规范</a></li>
+<li><a href="#art-20">第二十条 · 线索移送</a></li>
+<li><a href="#art-21">第二十一条 · 风险评估与约谈</a></li>
+<li><a href="#art-22">第二十二条 · 监督检查措施</a></li>
+<li><a href="#art-23">第二十三条 · 风险评估制度</a></li>
+<li><a href="#art-24">第二十四条 · 高风险国家地区名单</a></li>
+<li><a href="#art-25">第二十五条 · 职责分工</a></li>
+<li><a href="#art-26">第二十六条 · 行业服务机构管理</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-27" class="toc-chapter">第三章 反洗钱义务</a>
+<ul class="toc-sub">
+<li><a href="#art-27">第二十七条 · 内控制度</a></li>
+<li><a href="#art-28">第二十八条 · 开立账户</a></li>
+<li><a href="#art-29">第二十九条 · 尽职调查情形</a></li>
+<li><a href="#art-30">第三十条 · 持续尽职调查</a></li>
+<li><a href="#art-31">第三十一条 · 代理人及受益人识别</a></li>
+<li><a href="#art-32">第三十二条 · 第三方尽调</a></li>
+<li><a href="#art-33">第三十三条 · 跨部门身份核实</a></li>
+<li><a href="#art-34">第三十四条 · 资料保存</a></li>
+<li><a href="#art-35">第三十五条 · 大额和可疑交易报告</a></li>
+<li><a href="#art-36">第三十六条 · 新技术风险评估</a></li>
+<li><a href="#art-37">第三十七条 · 集团统筹与信息共享</a></li>
+<li><a href="#art-38">第三十八条 · 风险分级管理</a></li>
+<li><a href="#art-39">第三十九条 · 高风险客户措施</a></li>
+<li><a href="#art-40">第四十条 · 名单管理</a></li>
+<li><a href="#art-41">第四十一条 · 名单管理</a></li>
+<li><a href="#art-42">第四十二条 · 特定非金融机构参照</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-43" class="toc-chapter">第四章 反洗钱调查</a>
+<ul class="toc-sub">
+<li><a href="#art-43">第四十三条 · 内控检查</a></li>
+<li><a href="#art-44">第四十四条 · 法律责任一般规定</a></li>
+<li><a href="#art-45">第四十五条 · 处罚标准</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-46" class="toc-chapter">第五章 反洗钱国际合作</a>
+<ul class="toc-sub">
+<li><a href="#art-46">第四十六条 · 处罚措施</a></li>
+<li><a href="#art-47">第四十七条 · 双罚制</a></li>
+<li><a href="#art-48">第四十八条 · 处罚豁免</a></li>
+<li><a href="#art-49">第四十九条 · 整改要求</a></li>
+<li><a href="#art-50">第五十条 · 行政强制措施</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-51" class="toc-chapter">第六章 法律责任</a>
+<ul class="toc-sub">
+<li><a href="#art-51">第五十一条 · 复议诉讼</a></li>
+<li><a href="#art-52">第五十二条 · 信用记录</a></li>
+<li><a href="#art-53">第五十三条 · 规章制定授权</a></li>
+<li><a href="#art-54">第五十四条 · 与反恐怖主义法衔接</a></li>
+<li><a href="#art-55">第五十五条 · 与刑法衔接</a></li>
+<li><a href="#art-56">第五十六条 · 三反体制机制</a></li>
+<li><a href="#art-57">第五十七条 · 央行授权</a></li>
+<li><a href="#art-58">第五十八条 · 与反有组织犯罪法衔接</a></li>
+<li><a href="#art-59">第五十九条 · 反恐怖融资衔接</a></li>
+<li><a href="#art-60">第六十条 · 与反外国制裁法衔接</a></li>
+<li><a href="#art-61">第六十一条 · 刑事衔接</a></li>
+<li><a href="#art-62">第六十二条 · 与禁毒法衔接</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-63" class="toc-chapter">第七章 附 则</a>
+<ul class="toc-sub">
+<li><a href="#art-63">第六十三条 · 与市场主体登记管理条例衔接</a></li>
+<li><a href="#art-64">第六十四条 · 过渡安排</a></li>
+<li><a href="#art-65">第六十五条 · 施行日期</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn collapsed" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 

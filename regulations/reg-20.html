@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -487,27 +491,17 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一 决议名单录入与回溯性调查</a></li>
-<li><a href="#art-2" class="toc-chapter">二 名单范围内客户的措施与报告</a></li>
-<li><a href="#art-3" class="toc-chapter">三 措施告知客户</a></li>
-<li><a href="#art-4" class="toc-chapter">四 执行保证与非名单范围终止</a></li>
-<li><a href="#art-5" class="toc-chapter">五 豁免申请与解除制裁申请</a></li>
-<li><a href="#art-6" class="toc-chapter">六 涉嫌犯罪报案</a></li>
-<li><a href="#art-7" class="toc-chapter">七 境外要求处理</a></li>
-<li><a href="#art-8" class="toc-chapter">八 监督检查</a></li>
-<li><a href="#art-9" class="toc-chapter">九 金融账户与金融交易定义</a></li>
-<li><a href="#art-10" class="toc-chapter">十 施行日期与废止</a></li>
-
-<li><a href="#art-1">第1条 · 决议名单录入与回溯性调查</a></li>
-<li><a href="#art-2">第2条 · 名单范围内客户的措施与报告</a></li>
-<li><a href="#art-3">第3条 · 措施告知客户</a></li>
-<li><a href="#art-4">第4条 · 执行保证与非名单范围终止</a></li>
-<li><a href="#art-5">第5条 · 豁免申请与解除制裁申请</a></li>
-<li><a href="#art-6">第6条 · 涉嫌犯罪报案</a></li>
-<li><a href="#art-7">第7条 · 境外要求处理</a></li>
-<li><a href="#art-8">第8条 · 监督检查</a></li>
-<li><a href="#art-9">第9条 · 金融账户与金融交易定义</a></li>
-<li><a href="#art-10">第10条 · 施行日期与废止</a></li></ul>
+<li><a href="#art-1">一 · 决议名单录入与回溯性调查</a></li>
+<li><a href="#art-2">二 · 名单范围内客户的措施与报告</a></li>
+<li><a href="#art-3">三 · 措施告知客户</a></li>
+<li><a href="#art-4">四 · 执行保证与非名单范围终止</a></li>
+<li><a href="#art-5">五 · 豁免申请与解除制裁申请</a></li>
+<li><a href="#art-6">六 · 涉嫌犯罪报案</a></li>
+<li><a href="#art-7">七 · 境外要求处理</a></li>
+<li><a href="#art-8">八 · 监督检查</a></li>
+<li><a href="#art-9">九 · 金融账户与金融交易定义</a></li>
+<li><a href="#art-10">十 · 施行日期与废止</a></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -520,7 +514,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构和特定非金融机构收到转发外交部关于执行联合国安理会相关决议的通知后，应当立即将决议名单（以下简称名单）所列个人、实体信息要素输入相关业务系统，开展回溯性调查。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -568,7 +585,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">客户属于名单范围的，金融机构和特定非金融机构应当立即按照通知要求采取相应措施并于当日将有关情况报告中国人民银行和其他相关部门。应当采取的措施包括但不限于：停止金融账户的开立、变更、撤销和使用，暂停金融交易，拒绝转移、转换金融资产，停止提供出口信贷、担保、保险等金融服务，依法冻结账户资产。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -616,7 +656,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构和特定非金融机构采取措施的，应当采取适当方式告知客户，法律、法规或者相关部门另有保密要求的除外。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-7" class="xref-art-link">第7条</a>
+<span class="xref-desc">— 信息保密</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -664,7 +727,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构和特定非金融机构应当采取必要和合理的措施保证及时准确地执行联合国安理会决议，防止出现差错。经核实客户不属于名单范围的，或者由于已被解除制裁不再属于名单范围的，金融机构和特定非金融机构应当立即终止所采取措施并向中国人民银行和其他相关部门报告。金融机构和特定非金融机构对客户是否属于名单范围存在疑问的，应当向中国人民银行或者其他相关部门申请协助核实。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -714,7 +800,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">上述申请经批准之前，金融机构和特定非金融机构不得擅自解除所采取措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -762,7 +871,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构和特定非金融机构采取措施后，认为相关主体可能涉嫌犯罪的，应当向当地公安机关等有权机关报案，依法配合立案侦查，协助公安机关、人民检察院和人民法院等有权机关依法采取查询、扣押、冻结等措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -810,7 +942,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构和特定非金融机构收到境外有关部门与执行联合国安理会决议有关的冻结资产或者提供客户信息等要求时，应当告知对方通过外交途径、司法协助途径或者金融监管合作途径等提出请求，不得擅自采取行动。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -858,7 +1013,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国人民银行依据《中华人民共和国中国人民银行法》《中华人民共和国反洗钱法》《中华人民共和国反恐怖主义法》等有关规定会同金融监管部门对金融机构和特定非金融机构执行本通知的情况进行监督检查。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -908,7 +1086,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本通知所称金融资产，指名单所列个人和实体以任何形式所所有或者控制的任何形式的与金融机构有关的资产，不论是有形资产或者无形资产，动产或者不动产，包括但不限于：银行存款、旅行支票、银行支票、邮政汇票、保单、提单、仓单、股票、证券、债券、汇票和信用证，设定担保物权的动产和不动产，以及以电子或者数字形式证明资产产权或者权益的法律文件或者证书。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -956,7 +1157,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本通知自发布之日起生效。《中国人民银行执行外交部关于执行安理会有关决议通知的通知》（银发〔2010〕165号）同时废止。有关法律、法规、规章另有规定的，从其规定。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

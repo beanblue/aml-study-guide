@@ -178,6 +178,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -492,39 +496,52 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a class="toc-chapter" href="#art-1">第一章 总 则</a></li>
-<li><a class="toc-chapter" href="#art-5">第二章 大额交易报告</a></li>
-<li><a class="toc-chapter" href="#art-11">第三章 可疑交易报告</a></li>
-<li><a class="toc-chapter" href="#art-19">第四章 内部管理措施</a></li>
-<li><a class="toc-chapter" href="#art-24">第五章 法律责任</a></li>
-<li><a class="toc-chapter" href="#art-25">第六章 附 则</a></li>
-<li><a href="#art-1">第1条 · 立法目的</a></li>
-<li><a href="#art-3">第3条 · 金融机构义务</a></li>
-<li><a href="#art-5">第5条 · 金融机构义务</a></li>
-<li><a href="#art-6">第6条 · 标准竞合分别报告</a></li>
-<li><a href="#art-7">第7条 · 对符合下列条件之一的…</a></li>
-<li><a href="#art-8">第8条 · 金融机构义务</a></li>
-<li><a href="#art-9">第9条 · 下列金融机构与客户进…</a></li>
-<li><a href="#art-10">第10条 · 客户通过在境内金融机…</a></li>
-<li><a href="#art-11">第11条 · 金融机构发现或者有合…</a></li>
-<li><a href="#art-13">第13条 · 金融机构义务</a></li>
-<li><a href="#art-14">第14条 · 金融机构义务</a></li>
-<li><a href="#art-15">第15条 · 金融机构义务</a></li>
-<li><a href="#art-16">第16条 · 既属于大额交易又属于…</a></li>
-<li><a href="#art-17">第17条 · 可疑交易符合下列情形…</a></li>
-<li><a href="#art-18">第18条 · 金融机构义务</a></li>
-<li><a href="#art-19">第19条 · 金融机构义务</a></li>
-<li><a href="#art-20">第20条 · 金融机构义务</a></li>
-<li><a href="#art-21">第21条 · 金融机构义务</a></li>
-<li><a href="#art-22">第22条 · 金融机构义务</a></li>
-<li><a href="#art-23">第23条 · 金融机构及其工作人员…</a></li>
-<li><a href="#art-24">第24条 · 金融机构违反本办法的</a></li>
-<li><a href="#art-25">第25条 · 非银行支付机构、从事…</a></li>
-<li><a href="#art-26">第26条 · 定义</a></li>
-<li><a href="#art-27">第27条 · 金融机构义务</a></li>
-<li><a href="#art-28">第28条 · 中国反洗钱监测分析中…</a></li>
-<li><a href="#art-29">第29条 · 解释权</a></li>
-<li><a href="#art-30">第30条 · 施行日期</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">第一章 总 则</a>
+<ul class="toc-sub">
+<li><a href="#art-1">第一条 · 立法目的</a></li>
+<li><a href="#art-3">第三条 · 金融机构义务</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-5" class="toc-chapter">第二章 大额交易报告</a>
+<ul class="toc-sub">
+<li><a href="#art-5">第五条 · 金融机构义务</a></li>
+<li><a href="#art-6">第六条 · 标准竞合分别报告</a></li>
+<li><a href="#art-7">第七条 · 报告义务</a></li>
+<li><a href="#art-8">第八条 · 金融机构义务</a></li>
+<li><a href="#art-9">第九条 · 报告义务</a></li>
+<li><a href="#art-10">第十条 · 报告义务</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-11" class="toc-chapter">第三章 可疑交易报告</a>
+<ul class="toc-sub">
+<li><a href="#art-11">第十一条 · 报告义务</a></li>
+<li><a href="#art-13">第十三条 · 金融机构义务</a></li>
+<li><a href="#art-14">第十四条 · 金融机构义务</a></li>
+<li><a href="#art-15">第十五条 · 金融机构义务</a></li>
+<li><a href="#art-16">第十六条 · 报告义务</a></li>
+<li><a href="#art-17">第十七条 · 报告义务</a></li>
+<li><a href="#art-18">第十八条 · 金融机构义务</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-19" class="toc-chapter">第四章 内部管理措施</a>
+<ul class="toc-sub">
+<li><a href="#art-19">第十九条 · 金融机构义务</a></li>
+<li><a href="#art-20">第二十条 · 金融机构义务</a></li>
+<li><a href="#art-21">第二十一条 · 金融机构义务</a></li>
+<li><a href="#art-22">第二十二条 · 金融机构义务</a></li>
+<li><a href="#art-23">第二十三条 · 金融机构及其工作人员…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-24" class="toc-chapter">第五章 法律责任</a>
+<ul class="toc-sub">
+<li><a href="#art-24">第二十四条 · 法律责任</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-25" class="toc-chapter">第六章 附 则</a>
+<ul class="toc-sub">
+<li><a href="#art-25">第二十五条 · 报告义务</a></li>
+<li><a href="#art-26">第二十六条 · 定义</a></li>
+<li><a href="#art-27">第二十七条 · 金融机构义务</a></li>
+<li><a href="#art-28">第二十八条 · 报告义务</a></li>
+<li><a href="#art-29">第二十九条 · 解释权</a></li>
+<li><a href="#art-30">第三十条 · 施行日期</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn collapsed" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -537,23 +554,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">为了规范金融机构大额交易和可疑交易报告行为，根据《中华人民共和国反洗钱法》、《中华人民共和国中国人民银行法》、《中华人民共和国反恐怖主义法》等有关法律法规，制定本办法。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4>
-<ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-1" class="xref-art-link">第1条</a>
+<span class="xref-desc">— 立法目的</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -600,22 +624,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当履行大额交易和可疑交易报告义务，向中国反洗钱监测分析中心报送大额交易和可疑交易报告，接受中国人民银行及其分支机构的监督、检查。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -662,22 +694,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当报告下列大额交易：</p><p class="art-para">（一）当日单笔或者累计交易人民币 5 万元以上（含 5 万元）、外币等值 1 万美元以上（含 1 万美元）的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。</p><p class="art-para">（二）非自然人客户银行账户与其他的银行账户发生当日单笔或者累计交易人民币 200 万元以上（含200 万元）、外币等值 20 万美元以上（含 20 万美元）的款项划转。</p><p class="art-para">（三）自然人客户银行账户与其他的银行账户发生当日单笔或者累计交易人民币 50 万元以上（含 50万元）、外币等值 10 万美元以上（含 10 万美元）的境内款项划转。</p><p class="art-para">（四）自然人客户银行账户与其他的银行账户发生当日单笔或者累计交易人民币 20 万元以上（含 20万元）、外币等值 1 万美元以上（含 1 万美元）的跨境款项划转。</p><p class="art-para">累计交易金额以客户为单位，按资金收入或者支出单边累计计算并报告。中国人民银行另有规定的除外。</p><p class="art-para">中国人民银行根据需要可以调整本条第一款规定的大额交易报告标准。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -724,22 +764,25 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对同时符合两项以上大额交易标准的交易，金融机构应当分别提交大额交易报告。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">3条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -773,7 +816,7 @@ details.xref-details > summary.xref-summary:hover{
 <ul><li>高频考点：本条与第五条的联动关系——第五条是"什么时候要报告"，第六条是"触发多项标准时怎么报告"</li><li>易错点：容易混淆"分别报告"与"合并报告"——分别报告是本条核心义务，任何形式的合并或择一均违反本条</li><li>对比记忆：第六条（竞合分别报告）vs 第七条（免报情形），一正一反，构成完整的大额交易报告触发规则体系</li></ul>
 </div>
 </div>
-</div></div>&gt;<div class="article-card" id="art-7">
+</div></div>><div class="article-card" id="art-7">
 <div class="article-header">
 <span class="article-num">第七条</span>
 <span class="art-summary">报告义务</span>
@@ -783,22 +826,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对符合下列条件之一的大额交易，如未发现交易或行为可疑的，金融机构可以不报告：</p><p class="art-para">（一）定期存款到期后，不直接提取或者划转，而是本金或者本金加全部或者部分利息续存入在同一金融机构开立的同一户名下的另一账户。</p><p class="art-para">活期存款的本金或者本金加全部或者部分利息转为在同一金融机构开立的同一户名下的另一账户内的定期存款。</p><p class="art-para">定期存款的本金或者本金加全部或者部分利息转为在同一金融机构开立的同一户名下的另一账户内的活期存款。</p><p class="art-para">（二）自然人实盘外汇买卖交易过程中不同外币币种间的转换。</p><p class="art-para">（三）交易一方为各级党的机关、国家权力机关、行政机关、司法机关、军事机关、人民政协机关和人民解放军、武警部队，但不包含其下属的各类企事业单位。</p><p class="art-para">（四）金融机构同业拆借、在银行间债券市场进行的债券交易。</p><p class="art-para">（五）金融机构在黄金交易所进行的黄金交易。</p><p class="art-para">（六）金融机构内部调拨资金。</p><p class="art-para">（七）国际金融组织和外国政府贷款转贷业务项下的交易。</p><p class="art-para">（八）国际金融组织和外国政府贷款项下的债务掉期交易。</p><p class="art-para">（九）政策性银行、商业银行、农村合作银行、农村信用社、村镇银行办理的税收、错账冲正、利息支付。</p><p class="art-para">（十）中国人民银行确定的其他情形。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-63" class="xref-art-link">第63条</a>
+<span class="xref-desc">— 金融机构范围</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -845,22 +896,25 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当在大额交易发生之日起 5 个工作日内以电子方式提交大额交易报告。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">3条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -907,22 +961,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">下列金融机构与客户进行金融交易并通过银行账户划转款项的，由银行机构按照本办法规定提交大额交易报告：</p><p class="art-para">（一）证券公司、期货公司、基金管理公司。</p><p class="art-para">（二）保险公司、保险资产管理公司、保险专业代理公司、保险经纪公司。</p><p class="art-para">（三）信托公司、金融资产管理公司、企业集团财务公司、金融租赁公司、汽车金融公司、消费金融公司、货币经纪公司、贷款公司。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-63" class="xref-art-link">第63条</a>
+<span class="xref-desc">— 金融机构范围</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -969,22 +1031,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">客户通过在境内金融机构开立的账户或者境内银行卡所发生的大额交易，由开立账户的金融机构或者发卡银行报告；客户通过境外银行卡所发生的大额交易，由收单机构报告；客户不通过账户或者银行卡发生的大额交易，由办理业务的金融机构报告。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-12" class="xref-art-link">第12条</a>
+<span class="xref-desc">— 域外适用</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-49" class="xref-art-link">第49条</a>
+<span class="xref-desc">— 境外金融机构配合调查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-50" class="xref-art-link">第50条</a>
+<span class="xref-desc">— 境外执法阻断</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1031,22 +1101,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构发现或者有合理理由怀疑客户、客户的资金或者其他资产、客户的交易或者试图进行的交易与洗钱、恐怖融资等犯罪活动相关的，不论所涉资金金额或者资产价值大小，应当提交可疑交易报告。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 反洗钱特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1093,22 +1171,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当定期对交易监测标准进行评估，并根据评估结果完善交易监测标准。如发生突发情况或者应当关注的情况的，金融机构应当及时评估和完善交易监测标准。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1155,22 +1241,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当对通过交易监测标准筛选出的交易进行人工分析、识别，并记录分析过程；不作为可疑交易报告的，应当记录分析排除的合理理由；确认为可疑交易的，应当在可疑交易报告理由中完整记录对客户身份特征、交易特征或行为特征的分析过程。金融机构应当对以上人工分析、识别、排除或确认工作设置合理时限。</p><p class="art-para">金融机构在人工分析、识别可疑交易过程中，必要时通过客户尽职调查进一步了解相关客户及交易的风险状况，确保可疑交易判断与客户尽职调查内容相互验证。发现客户洗钱或恐怖融资风险状况发生变化的，应当合理划分、动态调整客户洗钱风险等级。对存在洗钱或恐怖融资高风险情形的，必要时可以依法采取相应的洗钱风险管理措施，以降低洗钱或恐怖融资风险。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1217,22 +1311,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当在按本机构可疑交易报告内部操作规程确认为可疑交易后，及时以电子方式提交可疑交易报告，最迟不超过 5 个工作日。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1279,22 +1381,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">既属于大额交易又属于可疑交易的交易，金融机构应当分别提交大额交易报告和可疑交易报告。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1341,22 +1451,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">可疑交易符合下列情形之一的，金融机构应当在向中国反洗钱监测分析中心提交可疑交易报告的同时，抄报所在地中国人民银行或者其分支机构，并配合反洗钱调查：</p><p class="art-para">（一）明显涉嫌洗钱、恐怖融资等犯罪活动的。</p><p class="art-para">（二）严重危害国家安全或者影响社会稳定的。</p><p class="art-para">（三）其他情节严重或者情况紧急的情形。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1403,22 +1521,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当对下列恐怖活动组织及恐怖活动人员名单开展实时监测，有合理理由怀疑客户或者其交易对手、资金或者其他资产与名单相关的，应当在立即向中国反洗钱监测分析中心提交可疑交易报告的同时，以电子形式或书面形式向所在地中国人民银行或者其分支机构报告，并按照相关主管部门的要求依法采取措施。</p><p class="art-para">（一）中国政府发布的或者要求执行的恐怖活动组织及恐怖活动人员名单。</p><p class="art-para">（二）联合国安理会决议中所列的恐怖活动组织及恐怖活动人员名单。</p><p class="art-para">（三）中国人民银行要求关注的其他涉嫌恐怖活动的组织及人员名单。</p><p class="art-para">恐怖活动组织及恐怖活动人员名单调整的，金融机构应当立即开展回溯性调查，并按前款规定提交可疑交易报告。</p><p class="art-para">法律、行政法规、规章对上述名单的监控另有规定的，从其规定。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1465,22 +1591,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当根据本办法制定大额交易和可疑交易报告内部管理制度和操作规程，对本机构的大额交易和可疑交易报告工作做出统一要求，并对分支机构、附属机构大额交易和可疑交易报告制度的执行情况进行监督管理。</p><p class="art-para">金融机构应当将大额交易和可疑交易报告制度向中国人民银行或其总部所在地的中国人民银行分支机构报备。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-5" class="xref-art-link">第5条</a>
+<span class="xref-desc">— 监管体制</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1527,22 +1661,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当设立专职的反洗钱岗位，配备专职人员负责大额交易和可疑交易报告工作，并提供必要的资源保障和信息支持。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1589,22 +1731,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当建立健全大额交易和可疑交易监测系统，以客户为基本单位开展资金交易的监测分析，全面、完整、准确地采集各业务系统的客户身份信息和交易信息，保障大额交易和可疑交易监测分析的数据需求。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1651,22 +1801,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当按照完整准确、安全保密的原则，将大额交易和可疑交易报告、反映交易分析和内部处理情况的工作记录等资料自生成之日起至少保存 5 年。</p><p class="art-para">保存的信息资料涉及正在被反洗钱调查的可疑交易活动，且反洗钱调查工作在前款规定的最低保存期届满时仍未结束的，金融机构应将其保存至反洗钱调查工作结束。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-7" class="xref-art-link">第7条</a>
+<span class="xref-desc">— 信息保密</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1713,22 +1871,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国反洗钱监测分析中心根据依法履行职责的需要，可以要求金融机构提供与大额交易和可疑交易相关的补充信息，金融机构应当及时提交补充信息。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1775,22 +1941,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构违反本办法的，由中国人民银行或者其地市分行以上分支机构按照《中华人民共和国反洗钱法》第五十二条至第五十六条规定进行处罚。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-52" class="xref-art-link">第52条</a>
+<span class="xref-desc">— 金融机构违法处罚</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-53" class="xref-art-link">第53条</a>
+<span class="xref-desc">— 金融机构违法处罚</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-54" class="xref-art-link">第54条</a>
+<span class="xref-desc">— 金融机构违法处罚</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-56" class="xref-art-link">第56条</a>
+<span class="xref-desc">— 双罚制</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1837,22 +2011,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">非银行支付机构、从事汇兑业务和基金销售业务的机构报告大额交易和可疑交易适用本办法。银行卡清算机构、资金清算中心等从事清算业务的机构应当按照中国人民银行有关规定开展交易监测分析、报告工作。</p><p class="art-para">本办法所称非银行支付机构，是指根据《非金融机构支付服务管理办法》（中国人民银行令〔2010〕第 2 号发布）规定取得《支付业务许可证》的支付机构。</p><p class="art-para">本办法所称资金清算中心，包括城市商业银行资金清算中心、农信银资金清算中心有限责任公司及中国人民银行确定的其他资金清算中心。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-63" class="xref-art-link">第63条</a>
+<span class="xref-desc">— 金融机构范围</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">第2条</a>
+<span class="xref-desc">— 反洗钱定义</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1899,22 +2081,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本办法所称非自然人，包括法人、其他组织和个体工商户。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-2" class="xref-art-link">第2条</a>
+<span class="xref-desc">— 反洗钱定义</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1961,22 +2151,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当按照本办法所附的大额交易和可疑交易报告要素要求（要素内容见附件），制作大额交易报告和可疑交易报告的电子文件。具体的报告格式和填报要求由中国人民银行另行规定。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -2023,22 +2221,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国反洗钱监测分析中心发现金融机构报送的大额交易报告或者可疑交易报告内容要素不全或者存在错误的，可以向提交报告的金融机构发出补正通知，金融机构应当在接到补正通知之日起 5个工作日内补正。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 反洗钱调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -2085,22 +2291,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本办法由中国人民银行负责解释。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 反洗钱监测分析机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -2147,22 +2361,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本办法自 2017 年 7 月 1 日起施行。中国人民银行 2006 年 11 月 14 日发布的《金融机构大额交易和可疑交易报告管理办法》（中国人民银行令〔2006〕第 2 号）和 2007 年 6 月 11 日发布的《金融机构报告涉嫌恐怖融资的可疑交易管理办法》（中国人民银行令〔2007〕第 1 号）同时废止。中国人民银行此前发布的大额交易和可疑交易报告的其他规定，与本办法不一致的，以本办法为准。</p><p class="art-para">附件：金融机构大额交易和可疑交易报告要素内容附件[file]</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><ol class="xref-list"><li class="xref-item">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
 <span class="xref-num">1.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-35">第35条</a>
-<span class="xref-desc">— 大额和可疑交易报告制度</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当按照规定执行大额交易报告制度，客户单笔交易或者在一定期限内的累计交易超过规定金额的，应当及时向反洗钱监测分析机构报告。</p><p class="xref-art-para">金融机构应当按照规定执行可疑交易报告制度，制定并不断优化监测标准，有效识别、分析可疑交易活动，及时向反洗钱监测分析机构提交可疑交易报告；提交可疑交易报告的情况应当保密。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-65" class="xref-art-link">第65条</a>
+<span class="xref-desc">— 施行日期</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">2.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-36">第36条</a>
-<span class="xref-desc">— 大额交易标准</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">金融机构应当在反洗钱行政主管部门的指导下，关注、评估运用新技术、新产品、新业务等带来的洗钱风险，根据情形采取相应措施，降低洗钱风险。</p></div></details>
-</li><li class="xref-item">
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
 <span class="xref-num">3.</span>
-<a class="xref-link" href="reg-00.html">《反洗钱法》</a> <a class="xref-art-link" href="reg-00.html#art-37">第37条</a>
-<span class="xref-desc">— 可疑交易报告</span>
-<details class="xref-details"><summary class="xref-summary">原文</summary><div class="xref-content"><p class="xref-art-para">在境内外设有分支机构或者控股其他金融机构的金融机构，以及金融控股公司，应当在总部或者集团层面统筹安排反洗钱工作。为履行反洗钱义务在公司内部、集团成员之间共享必要的反洗钱信息的，应当明确信息共享机制和程序。共享反洗钱信息，应当符合有关信息保护的法律规定，并确保相关信息不被用于反洗钱和反恐怖主义融资以外的用途。</p></div></details>
-</li></ol></div>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-20" class="xref-art-link">第20条</a>
+<span class="xref-desc">— 线索移送</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 反洗钱特别预防措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

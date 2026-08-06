@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -446,34 +450,33 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-detail-header cat-norm">
 <div class="reg-cat-badge">规范性文件</div>
 <h1 class="reg-detail-title">中国人民银行关于落实《金融机构反洗钱和反恐怖融资监督管理办法》有关事项的通知</h1>
-<div class="reg-meta-row"><div class="meta-item"><span class="meta-k">文号</span><span class="meta-v">银发〔2025〕205号</span></div><div class="meta-item"><span class="meta-k">发布</span><span class="meta-v">2025.10.20</span></div><div class="meta-item"><span class="meta-k">施行</span><span class="meta-v">2025.12.01</span></div><div class="meta-item"><span class="meta-k">时效</span><span class="status-pill status-on">现行有效</span></div><div class="meta-item"><span class="meta-k">条文</span><span class="meta-v">110条</span></div></div>
+<div class="reg-meta-row"><div class="meta-item"><span class="meta-k">文号</span><span class="meta-v">银发〔2025〕205号</span></div><div class="meta-item"><span class="meta-k">发布</span><span class="meta-v">2025.10.20</span></div><div class="meta-item"><span class="meta-k">施行</span><span class="meta-v">2025.12.01</span></div><div class="meta-item"><span class="meta-k">时效</span><span class="status-pill status-on">现行有效</span></div><div class="meta-item"><span class="meta-k">条文</span><span class="meta-v">10项</span></div></div>
 <div class="reg-summary-box">银发〔2025〕205号，中国人民银行发布的关于落实《金融机构反洗钱和反恐怖融资监督管理办法》有关事项的通知。本通知为配套实施新修订的《金融机构反洗钱和反恐怖融资监督管理办法》而发布的操作指引，进一步明确金融机构在反洗钱和反恐怖融资监督管理方面的具体要求和操作细则，包括反洗钱监管分工、基于风险的反洗钱监管、金融机构工作要求等三个方面。</div>
 </div>
 
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一（一） 反洗钱监管分工：央行及分支机构监管职责</a></li>
-<li><a href="#art-2" class="toc-chapter">一（二） 反洗钱监管分工：法人金融机构监管行确定</a></li>
-<li><a href="#art-3" class="toc-chapter">一（三） 反洗钱监管分工：非法人金融机构监管</a></li>
-<li><a href="#art-4" class="toc-chapter">一（四） 反洗钱监管分工：跨区域监管与信息反馈</a></li>
-<li><a href="#art-5" class="toc-chapter">二（一） 基于风险的反洗钱监管：监管策略制定</a></li>
-<li><a href="#art-6" class="toc-chapter">二（二） 基于风险的反洗钱监管：风险评估与监管计划</a></li>
-<li><a href="#art-7" class="toc-chapter">二（三） 基于风险的反洗钱监管：风险评估内容与更新</a></li>
-<li><a href="#art-8" class="toc-chapter">二（四） 基于风险的反洗钱监管：信息收集与审查</a></li>
-<li><a href="#art-9" class="toc-chapter">三（一） 金融机构工作要求：重大事件报告</a></li>
-<li><a href="#art-10" class="toc-chapter">三（二） 金融机构工作要求：年度工作报告</a></li>
-
-<li><a href="#art-1">第1条 · 反洗钱监管分工：央行及分支机构监管职责</a></li>
-<li><a href="#art-2">第2条 · 反洗钱监管分工：法人金融机构监管行确定</a></li>
-<li><a href="#art-3">第3条 · 反洗钱监管分工：非法人金融机构监管</a></li>
-<li><a href="#art-4">第4条 · 反洗钱监管分工：跨区域监管与信息反馈</a></li>
-<li><a href="#art-5">第5条 · 基于风险的反洗钱监管：监管策略制定</a></li>
-<li><a href="#art-6">第6条 · 基于风险的反洗钱监管：风险评估与监管计划</a></li>
-<li><a href="#art-7">第7条 · 基于风险的反洗钱监管：风险评估内容与更新</a></li>
-<li><a href="#art-8">第8条 · 基于风险的反洗钱监管：信息收集与审查</a></li>
-<li><a href="#art-9">第9条 · 金融机构工作要求：重大事件报告</a></li>
-<li><a href="#art-10">第10条 · 金融机构工作要求：年度工作报告</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">一、反洗钱监管分工</a>
+<ul class="toc-sub">
+<li><a href="#art-1">一（一） · 反洗钱监管分工：央行及分支机构监管职责</a></li>
+<li><a href="#art-2">一（二） · 反洗钱监管分工：法人金融机构监管行确定</a></li>
+<li><a href="#art-3">一（三） · 反洗钱监管分工：非法人金融机构监管</a></li>
+<li><a href="#art-4">一（四） · 反洗钱监管分工：跨区域监管与信息反馈</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-5" class="toc-chapter">二、基于风险的反洗钱监管</a>
+<ul class="toc-sub">
+<li><a href="#art-5">二（一） · 基于风险的反洗钱监管：监管策略制定</a></li>
+<li><a href="#art-6">二（二） · 基于风险的反洗钱监管：风险评估与监管计划</a></li>
+<li><a href="#art-7">二（三） · 基于风险的反洗钱监管：风险评估内容与更新</a></li>
+<li><a href="#art-8">二（四） · 基于风险的反洗钱监管：信息收集与审查</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-9" class="toc-chapter">三、金融机构工作要求</a>
+<ul class="toc-sub">
+<li><a href="#art-9">三（一） · 金融机构工作要求：重大事件报告</a></li>
+<li><a href="#art-10">三（二） · 金融机构工作要求：年度工作报告</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -486,7 +489,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国人民银行及其分支机构负责对《办法》规定的履行金融机构反洗钱义务的机构（以下统称金融机构）进行反洗钱监管。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -535,7 +561,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">法人金融机构总部注册地与实际经营地不一致的，原则上以注册地为准。经金融管理部门行政许可设立的法人金融机构，注册地以许可证载明机构住所为准。存在特殊情形的，由注册地中国人民银行分支机构和实际经营地中国人民银行分支机构协商后，报共同上级行确定反洗钱监管行。中国人民银行反洗钱部门根据实际情况可以对附件1和附件2的名单进行调整。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -583,7 +632,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国人民银行分支机构开展非法人金融机构反洗钱监管时，应当重点关注机构反洗钱义务履行情况和反洗钱内部控制制度执行情况。中国人民银行分支机构可以根据洗钱和恐怖融资风险状况以及监管工作需要，对当地非法人金融机构反洗钱履职情况进行评价，并依法采取后续反洗钱监管措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-59" class="xref-art-link">第59条</a>
+<span class="xref-desc">— 反恐怖融资衔接</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -631,7 +703,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国人民银行和省级分行在全国或全省范围内统筹反洗钱监管资源，可以根据工作需要组织开展跨区域监管活动，确保对各法人金融机构实施有效反洗钱监管。中国人民银行分支机构在监管过程中发现涉及法人金融机构总部反洗钱履职的问题，以及对法人金融机构当地分支机构的评价结论和监管情况，应当及时向该法人金融机构总部反洗钱监管行反馈。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -679,7 +774,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国人民银行统筹制定和调整全国反洗钱监管策略，明确一段时期内的反洗钱监管目标和重点。中国人民银行省级分行及计划单列市分行可以结合本地区风险特征制定并及时调整本级反洗钱监管策略，并报上级行。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -727,7 +845,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">反洗钱监管行对法人金融机构开展洗钱和恐怖融资风险评估，根据法人金融机构的风险状况，统筹调配监管资源，合理制定并调整监管计划，确保对机构采取监管措施的范围、强度、频率和重点与其洗钱和恐怖融资风险相适应。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -775,7 +916,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">反洗钱监管行可以根据法人金融机构报告的相关信息以及各类监管措施了解到的信息，实施并持续更新对法人金融机构的洗钱和恐怖融资风险评估，并在现场监管过程中根据需要对非现场方式获取的信息进行核实。风险评估主要包括固有风险评估和控制措施有效性评估，并结合反洗钱调查等涉及洗钱风险的突出案件情况，综合得出法人金融机构剩余风险状况。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -823,7 +987,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">反洗钱监管行可以根据反洗钱日常监管工作需要，向金融机构收集相关信息、数据和资料，包括但不限于反洗钱相关的内部控制制度、统计数据、工作报告、培训材料、操作手册、监测模型等履职资料及相应情况说明等，并予以审查。审查发现可能影响机构反洗钱履职有效性的问题，应当及时反馈和指导金融机构予以改进，必要时可采取进一步监管措施。反洗钱监管行在监管过程中发现金融机构反洗钱履职存在违规问题的，依法采取相关措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -871,7 +1058,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当及时向反洗钱监管行报告与反洗钱履职或洗钱风险有关的如下事件：1.本机构及从业人员（含董事、监事、高级管理人员）和本机构受益所有人涉及重大违法犯罪行为的情况；2.本机构已获知的客户涉及跨国（境）或具有重大社会影响的洗钱、恐怖融资和相关犯罪活动的情况；3.本机构公司治理、内部控制、信息系统建设与信息安全等对反洗钱履职具有重要影响的风险事件或处罚情况；4.其他可能对本机构反洗钱履职或洗钱风险管理造成重大影响，或者可能造成反洗钱相关重大舆情的事件。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -919,7 +1129,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构应当在次年3月底前向反洗钱监管行提交经本机构负责人审签的反洗钱年度工作报告，包括但不限于机构概况、反洗钱工作整体情况、洗钱和恐怖融资风险评估情况、洗钱风险管理情况、反洗钱工作配合情况、重大风险事件汇总、监管项目后续整改进展，以及中国人民银行反洗钱部门要求报送的其他情况。本通知自2025年12月1日起施行。《中国人民银行办公厅关于落实〈金融机构反洗钱监督管理办法（试行）〉有关事项的通知》（银办发〔2014〕263号）同时废止。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

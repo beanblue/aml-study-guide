@@ -178,6 +178,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -488,66 +492,36 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a class="toc-chapter" href="#art-1">引言</a></li>
-<li class="toc-chapter" style="padding-top:8px;">一、修改《金融机构大额交易和可疑交易报告管理办法》</li>
-<li style="padding-left:20px;"><a href="#art-2">（一）将第二条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-3">（二）将第九条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-4">（三）将第十四条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-5">（四）将第十七条中</a></li>
-<li style="padding-left:20px;"><a href="#art-6">（五）删除第十八条</a></li>
-<li style="padding-left:20px;"><a href="#art-7">（六）将第二十一条改为第二十条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-8">（七）将第二十二条改为第二十一条，将第一款改为</a></li>
-<li style="padding-left:20px;"><a href="#art-9">（八）增加一条，作为第二十三条</a></li>
-<li style="padding-left:20px;"><a href="#art-10">（九）将第二十四条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-11">（十）将第二十五条修改为</a></li>
-<li class="toc-chapter" style="padding-top:8px;">二、修改《金融机构反洗钱和反恐怖融资监督管理办法》</li>
-<li style="padding-left:20px;"><a href="#art-12">（一）将第二条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-13">（二）将第三条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-14">（三）将第四条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-15">（四）将第八条修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-16">（五）将第九条第四款修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-17">（六）增加一条，作为第十条</a></li>
-<li style="padding-left:20px;"><a href="#art-18">（七）将第十条改为第十一条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-19">（八）将第十二条改为第十三条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-20">（九）将第十四条改为第十五条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-21">（十）将第二十二条改为第二十三条，增加一款，作为第二款</a></li>
-<li style="padding-left:20px;"><a href="#art-22">（十一）删除第二十五条</a></li>
-<li style="padding-left:20px;"><a href="#art-23">（十二）将第二十七条第二款修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-24">（十三）增加一条，作为第三十五条</a></li>
-<li style="padding-left:20px;"><a href="#art-25">（十四）将第三十五条改为第三十六条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-26">（十五）将第三十六条改为第三十七条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-27">（十六）将第三十七条改为第三十八条，修改为</a></li>
-<li style="padding-left:20px;"><a href="#art-28">（十七）其他修改</a></li>
-<li><a class="toc-chapter" href="#art-29">三、废止《金融机构反洗钱规定》</a></li>
-<li><a href="#art-1">第1条 · 修改和废止部分规章的决定</a></li>
-<li><a href="#art-2">第2条 · 将第二条修改为</a></li>
-<li><a href="#art-3">第3条 · 将第九条修改为</a></li>
-<li><a href="#art-4">第4条 · 将第十四条修改为</a></li>
-<li><a href="#art-5">第5条 · 将第十七条中</a></li>
-<li><a href="#art-6">第6条 · 删除第十八条</a></li>
-<li><a href="#art-7">第7条 · 将第二十一条改为第二十条，修改为</a></li>
-<li><a href="#art-8">第8条 · 将第二十二条改为第二十一条，将第一款改为</a></li>
-<li><a href="#art-9">第9条 · 增加一条，作为第二十三条</a></li>
-<li><a href="#art-10">第10条 · 将第二十四条修改为</a></li>
-<li><a href="#art-11">第11条 · 将第二十五条修改为</a></li>
-<li><a href="#art-12">第12条 · 将第二条修改为</a></li>
-<li><a href="#art-13">第13条 · 将第三条修改为</a></li>
-<li><a href="#art-14">第14条 · 将第四条修改为</a></li>
-<li><a href="#art-15">第15条 · 将第八条修改为</a></li>
-<li><a href="#art-16">第16条 · 将第九条第四款修改为</a></li>
-<li><a href="#art-17">第17条 · 增加一条，作为第十条</a></li>
-<li><a href="#art-18">第18条 · 将第十条改为第十一条，修改为</a></li>
-<li><a href="#art-19">第19条 · 将第十二条改为第十三条，修改为</a></li>
-<li><a href="#art-20">第20条 · 将第十四条改为第十五条，修改为</a></li>
-<li><a href="#art-21">第21条 · 将第二十二条改为第二十三条，增加一款，作为第二款</a></li>
-<li><a href="#art-22">第22条 · 删除第二十五条</a></li>
-<li><a href="#art-23">第23条 · 将第二十七条第二款修改为</a></li>
-<li><a href="#art-24">第24条 · 增加一条，作为第三十五条</a></li>
-<li><a href="#art-25">第25条 · 将第三十五条改为第三十六条，修改为</a></li>
-<li><a href="#art-26">第26条 · 将第三十六条改为第三十七条，修改为</a></li>
-<li><a href="#art-27">第27条 · 将第三十七条改为第三十八条，修改为</a></li>
-<li><a href="#art-28">第28条 · 其他修改</a></li>
-<li><a href="#art-29">第29条 · 废止《金融机构反洗钱规定》</a></li></ul>
+<li><a href="#art-1">引言 · 法》</a></li>
+<li><a href="#art-2">一-一 · 将第二条修改为</a></li>
+<li><a href="#art-3">一-二 · 公司</a></li>
+<li><a href="#art-4">一-三 · 识别义务</a></li>
+<li><a href="#art-5">一-四 · 条文修订</a></li>
+<li><a href="#art-6">一-五 · 条文删除</a></li>
+<li><a href="#art-7">一-六 · 评估监测</a></li>
+<li><a href="#art-8">一-七 · 10 年</a></li>
+<li><a href="#art-9">一-八 · 义务规范</a></li>
+<li><a href="#art-10">一-九 · 法律责任</a></li>
+<li><a href="#art-11">一-十 · 工作</a></li>
+<li><a href="#art-12">二-一 · 修改决定</a></li>
+<li><a href="#art-13">二-二 · 。”</a></li>
+<li><a href="#art-14">二-三 · 。”</a></li>
+<li><a href="#art-15">二-四 · 采取强化措施</a></li>
+<li><a href="#art-16">二-五 · 措施</a></li>
+<li><a href="#art-17">二-六 · 的直接责任</a></li>
+<li><a href="#art-18">二-七 · 义务</a></li>
+<li><a href="#art-19">二-八 · 义务规范</a></li>
+<li><a href="#art-20">二-九 · 报告义务</a></li>
+<li><a href="#art-21">二-十 · 。”</a></li>
+<li><a href="#art-22">二-十一 · 条文删除</a></li>
+<li><a href="#art-23">二-十二 · 职责分工</a></li>
+<li><a href="#art-24">二-十三 · 风险管理</a></li>
+<li><a href="#art-25">二-十四 · 违规处罚</a></li>
+<li><a href="#art-26">二-十五 · 违规处罚</a></li>
+<li><a href="#art-27">二-十六 · 风险管理</a></li>
+<li><a href="#art-28">二-十七 · 条文修改</a></li>
+<li><a href="#art-29">三 · 废止《金融机构反洗钱规定》</a></li>
+</ul>
 </div>
 <div class="article-card" id="art-1">
 <div class="article-header">

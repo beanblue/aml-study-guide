@@ -178,6 +178,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -492,50 +496,65 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a class="toc-chapter" href="#art-1">第一章 总体要求</a></li>
-<li><a class="toc-chapter" href="#art-6">第二章 自评估准备</a></li>
-<li><a class="toc-chapter" href="#art-10">第三章 自评估方法</a></li>
-<li><a class="toc-chapter" href="#art-26">第四章 自评估要求</a></li>
-<li><a class="toc-chapter" href="#art-31">第五章 结果运用和管理</a></li>
-<li><a class="toc-chapter" href="#art-36">第六章 附则</a></li>
-<li><a href="#art-1">第1条 · 为深入贯彻基于风险的…</a></li>
-<li><a href="#art-3">第3条 · 金融机构义务</a></li>
-<li><a href="#art-4">第4条 · 金融机构开展洗钱风险…</a></li>
-<li><a href="#art-5">第5条 · 在充分考虑各项风险因…</a></li>
-<li><a href="#art-6">第6条 · 金融机构义务</a></li>
-<li><a href="#art-7">第7条 · 金融机构义务</a></li>
-<li><a href="#art-8">第8条 · 金融机构可聘请第三方…</a></li>
-<li><a href="#art-9">第9条 · 金融机构应持续关注并…</a></li>
-<li><a href="#art-10">第10条 · 自评估指金融机构对全…</a></li>
-<li><a href="#art-11">第11条 · 金融机构义务</a></li>
-<li><a href="#art-12">第12条 · 金融机构义务</a></li>
-<li><a href="#art-13">第13条 · 金融机构在识别和分析…</a></li>
-<li><a href="#art-14">第14条 · 金融机构应在识别和分…</a></li>
-<li><a href="#art-15">第15条 · 金融机构开展固有风险…</a></li>
-<li><a href="#art-16">第16条 · 金融机构义务</a></li>
-<li><a href="#art-17">第17条 · 对归纳出的每个细分类…</a></li>
-<li><a href="#art-18">第18条 · 金融机构应依次对各细…</a></li>
-<li><a href="#art-19">第19条 · 金融机构在评估控制措…</a></li>
-<li><a href="#art-20">第20条 · 对金融机构反洗钱内部…</a></li>
-<li><a href="#art-21">第21条 · 对金融机构整体洗钱风…</a></li>
-<li><a href="#art-22">第22条 · 对被评估为中风险及以…</a></li>
-<li><a href="#art-23">第23条 · 金融机构应在综合考虑…</a></li>
-<li><a href="#art-24">第24条 · 金融机构义务</a></li>
-<li><a href="#art-25">第25条 · 金融机构可以通过固有…</a></li>
-<li><a href="#art-26">第26条 · 金融机构义务</a></li>
-<li><a href="#art-27">第27条 · 金融机构义务</a></li>
-<li><a href="#art-28">第28条 · 在两次自评估期间</a></li>
-<li><a href="#art-29">第29条 · 对于产品业务类型较为…</a></li>
-<li><a href="#art-30">第30条 · 金融机构义务</a></li>
-<li><a href="#art-31">第31条 · 金融机构义务</a></li>
-<li><a href="#art-32">第32条 · 金融机构义务</a></li>
-<li><a href="#art-33">第33条 · 在金融机构洗钱风险自…</a></li>
-<li><a href="#art-34">第34条 · 金融机构义务</a></li>
-<li><a href="#art-35">第35条 · 金融集团应当在集团层…</a></li>
-<li><a href="#art-36">第36条 · 境外金融机构在中国境…</a></li>
-<li><a href="#art-37">第37条 · 具有关联关系的农村信…</a></li>
-<li><a href="#art-38">第38条 · 解释权</a></li>
-<li><a href="#art-39">第39条 · 施行日期</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">第一章 总体要求</a>
+<ul class="toc-sub">
+<li><a href="#art-1">第一条 · 为深入贯彻基于风险的…</a></li>
+
+<li><a href="#art-2">第二条 · 适用范围</a></li>
+<li><a href="#art-3">第三条 · 金融机构义务</a></li>
+<li><a href="#art-4">第四条 · 金融机构开展洗钱风险…</a></li>
+<li><a href="#art-5">第五条 · 在充分考虑各项风险因…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-6" class="toc-chapter">第二章 自评估准备</a>
+<ul class="toc-sub">
+<li><a href="#art-6">第六条 · 金融机构义务</a></li>
+<li><a href="#art-7">第七条 · 金融机构义务</a></li>
+<li><a href="#art-8">第八条 · 金融机构可聘请第三方…</a></li>
+<li><a href="#art-9">第九条 · 金融机构应持续关注并…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-10" class="toc-chapter">第三章 自评估方法</a>
+<ul class="toc-sub">
+<li><a href="#art-10">第十条 · 自评估指金融机构对全…</a></li>
+<li><a href="#art-11">第十一条 · 金融机构义务</a></li>
+<li><a href="#art-12">第十二条 · 金融机构义务</a></li>
+<li><a href="#art-13">第十三条 · 金融机构在识别和分析…</a></li>
+<li><a href="#art-14">第十四条 · 金融机构应在识别和分…</a></li>
+<li><a href="#art-15">第十五条 · 金融机构开展固有风险…</a></li>
+<li><a href="#art-16">第十六条 · 金融机构义务</a></li>
+<li><a href="#art-17">第十七条 · 对归纳出的每个细分类…</a></li>
+<li><a href="#art-18">第十八条 · 金融机构应依次对各细…</a></li>
+<li><a href="#art-19">第十九条 · 金融机构在评估控制措…</a></li>
+<li><a href="#art-20">第二十条 · 对金融机构反洗钱内部…</a></li>
+<li><a href="#art-21">第二十一条 · 对金融机构整体洗钱风…</a></li>
+<li><a href="#art-22">第二十二条 · 对被评估为中风险及以…</a></li>
+<li><a href="#art-23">第二十三条 · 金融机构应在综合考虑…</a></li>
+<li><a href="#art-24">第二十四条 · 金融机构义务</a></li>
+<li><a href="#art-25">第二十五条 · 金融机构可以通过固有…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-26" class="toc-chapter">第四章 自评估要求</a>
+<ul class="toc-sub">
+<li><a href="#art-26">第二十六条 · 金融机构义务</a></li>
+<li><a href="#art-27">第二十七条 · 金融机构义务</a></li>
+<li><a href="#art-28">第二十八条 · 结果</a></li>
+<li><a href="#art-29">第二十九条 · 对于产品业务类型较为…</a></li>
+<li><a href="#art-30">第三十条 · 金融机构义务</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-31" class="toc-chapter">第五章 结果运用和管理</a>
+<ul class="toc-sub">
+<li><a href="#art-31">第三十一条 · 金融机构义务</a></li>
+<li><a href="#art-32">第三十二条 · 金融机构义务</a></li>
+<li><a href="#art-33">第三十三条 · 在金融机构洗钱风险自…</a></li>
+<li><a href="#art-34">第三十四条 · 金融机构义务</a></li>
+<li><a href="#art-35">第三十五条 · 金融集团应当在集团层…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-36" class="toc-chapter">第六章 附则</a>
+<ul class="toc-sub">
+<li><a href="#art-36">第三十六条 · 境外金融机构在中国境…</a></li>
+<li><a href="#art-37">第三十七条 · 具有关联关系的农村信…</a></li>
+<li><a href="#art-38">第三十八条 · 解释权</a></li>
+<li><a href="#art-39">第三十九条 · 施行日期</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn collapsed" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -591,7 +610,88 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 </div></div>
 <div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
-</div><div class="article-card" id="art-3">
+</div><div class="article-card" id="art-2">
+<div class="article-header">
+<span class="article-num">第二条</span>
+<span class="art-summary">适用范围</span>
+<span class="art-chapter">第一章 总体要求</span>
+</div>
+<div class="article-text">
+<p class="art-para">本指引适用于在中国境内依法设立的法人金融机构和非银行支付机构（以下统称法人金融机构）。</p>
+</div>
+<div class="article-annotation">
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-24.html" class="xref-link">《风险管理指引》</a> <a href="reg-24.html#art-2" class="xref-art-link">第2条</a>
+<span class="xref-desc">— 适用范围，风险管理指引的适用范围为法人金融机构，本指引在此基础上增加非银行支付机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度，本指引是风险评估制度在自评估领域的细化</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-12.html" class="xref-link">《监督管理办法》</a> <a href="reg-12.html#art-7" class="xref-art-link">第7条</a>
+<span class="xref-desc">— 风险自评估制度，监督管理办法要求金融机构建立风险自评估制度，本指引为操作指引</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体，本指引适用范围以反洗钱法义务主体为基础</span>
+</li>
+</ol></div>
+<div class="ann-analysis">
+<h4>知识解析</h4>
+<div class="analysis-section">
+<h5>完整理解</h5>
+<p>本条规定了本指引的适用范围，包括在中国境内依法设立的法人金融机构和非银行支付机构。与《风险管理指引》第二条相比，本指引明确将非银行支付机构纳入适用范围，体现了对非银行支付机构洗钱风险自评估的重视。条文将两者统称为"法人金融机构"，简化后续表述。</p>
+<ul><li>适用对象：在境内依法设立的法人金融机构</li><li>适用对象：非银行支付机构</li><li>两者统称为"法人金融机构"，简化后续条文表述</li><li>与《风险管理指引》第二条相比，增加了非银行支付机构</li></ul>
+</div>
+<div class="analysis-section">
+<h5>实务要点</h5>
+<ul><li>非银行支付机构虽非传统金融机构，但被明确纳入自评估指引适用范围</li><li>机构应按本指引要求开展洗钱风险自评估，覆盖客户、地域、业务、交易渠道等维度</li><li>自评估结果应与风险管理资源配置相匹配</li><li>注意本指引与《监督管理办法》第七条的衔接：监督管理办法要求建立自评估制度，本指引提供操作方法</li></ul>
+</div>
+<div class="analysis-section">
+<h5>学习应试</h5>
+<div class="study-grid">
+<div class="study-block memorize">
+<h6>需要记忆</h6>
+<ul>
+<li>适用对象：法人金融机构 + 非银行支付机构</li>
+<li>两者统称为"法人金融机构"</li>
+</ul>
+</div>
+<div class="study-block understand">
+<h6>需要理解</h6>
+<ul>
+<li>理解本指引与《风险管理指引》适用范围的区别：本指引增加非银行支付机构</li>
+<li>理解将非银行支付机构纳入洗钱风险自评估的监管考量</li>
+</ul>
+</div>
+<div class="study-block apply">
+<h6>需要运用</h6>
+<ul>
+<li>实务中非银行支付机构应按本指引开展自评估工作，不能以非传统金融机构为由豁免</li>
+</ul>
+</div>
+<div class="study-block exam">
+<h6>应试要点</h6>
+<ul>
+<li>高频考点：适用范围包括非银行支付机构（易考判断题）</li>
+<li>注意"法人金融机构"在本指引中的统称含义</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
+<div class="ann-block"><h4>典型案例</h4><span class="pending">待补充</span></div>
+</div>
+
+<div class="article-card" id="art-3">
 <div class="article-header">
 <span class="article-num">第三条</span>
 <span class="art-summary">金融机构义务</span>

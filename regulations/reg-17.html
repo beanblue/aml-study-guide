@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -487,22 +491,23 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一 报送时间安排</a></li>
-<li><a href="#art-2" class="toc-chapter">二 全国性法人金融机构报送流程</a></li>
-<li><a href="#art-3" class="toc-chapter">三 其他法人机构报送流程</a></li>
-<li><a href="#art-4" class="toc-chapter">四 对照表上传要求</a></li>
-<li><a href="#art-5" class="toc-chapter">五 数据报送业务要求与接口规范</a></li>
-<li><a href="#art-att1" class="toc-chapter">附件1 大额交易报告要素及释义（2017版）</a></li>
-<li><a href="#art-att2" class="toc-chapter">附件2 银行业可疑交易报告要素及释义（2017版）</a></li>
-<li><a href="#art-att3" class="toc-chapter">附件3 证券期货业可疑交易报告要素及释义（2017版）</a></li>
-<li><a href="#art-att4" class="toc-chapter">附件4 保险业可疑交易报告要素及释义（2017版）</a></li>
-<li><a href="#art-att5" class="toc-chapter">附件5 通用可疑交易报告要素及释义（2017版）</a></li>
-
-<li><a href="#art-1">第1条 · 报送时间安排</a></li>
-<li><a href="#art-2">第2条 · 全国性法人金融机构报送流程</a></li>
-<li><a href="#art-3">第3条 · 其他法人机构报送流程</a></li>
-<li><a href="#art-4">第4条 · 对照表上传要求</a></li>
-<li><a href="#art-5">第5条 · 数据报送业务要求与接口规范</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">（未分类）</a>
+<ul class="toc-sub">
+<li><a href="#art-1">一 · 报送时间安排</a></li>
+<li><a href="#art-2">二 · 全国性法人金融机构报送流程</a></li>
+<li><a href="#art-3">三 · 其他法人机构报送流程</a></li>
+<li><a href="#art-4">四 · 对照表上传要求</a></li>
+<li><a href="#art-5">五 · 数据报送业务要求与接口规范</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-att1" class="toc-chapter">附件</a>
+<ul class="toc-sub">
+<li><a href="#art-att1">附件1 · 大额交易报告要素及释义（2017版）</a></li>
+<li><a href="#art-att2">附件2 · 银行业可疑交易报告要素及释义（201…</a></li>
+<li><a href="#art-att3">附件3 · 证券期货业可疑交易报告要素及释义（2…</a></li>
+<li><a href="#art-att4">附件4 · 保险业可疑交易报告要素及释义（201…</a></li>
+<li><a href="#art-att5">附件5 · 通用可疑交易报告要素及释义（2017版）</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -515,7 +520,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">各金融机构应从2017年7月1日起按照《管理办法》关于大额交易和可疑交易报告的规定，向中国反洗钱监测分析中心报送数据。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -563,7 +591,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">24家全国性法人金融机构（见附件6）根据《管理办法》相关规定，完成系统开发升级等数据报送准备后，自2017年6月1日起向中国反洗钱监测分析中心提出数据报送申请，通过报送测试检查后才可报送数据。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-43" class="xref-art-link">第43条</a>
+<span class="xref-desc">— 内控检查</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-22" class="xref-art-link">第22条</a>
+<span class="xref-desc">— 监督检查措施</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -611,7 +662,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">其他法人金融机构根据《管理办法》相关规定，完成系统开发升级等数据报送准备后，自2017年6月1日起向所在地人民银行分支机构提出申请，在申请获准后开始报送数据。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -659,7 +733,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">法人金融机构在报送可疑交易报告前，应通过系统上传“可疑交易特征代码”与交易监测标准描述内容的对照表。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -707,7 +804,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">中国反洗钱监测分析中心将于2017年5月底前通过中国反洗钱监测分析系统数据接收平台发布《金融机构大额交易和可疑交易报告数据报送业务要求和接口规范（2017版）》，报告机构应根据该文件要求和相关工作安排，全面、完整、准确地采集各业务系统的客户身份信息和交易信息，保障大额交易和可疑交易监测分析的数据需求，不断提高报送数据质量。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -755,7 +875,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本附件规定了银行业金融机构大额交易报告的数据要素内容、格式标准和报送要求，包括交易信息要素、客户身份信息要素、账户信息要素等，为金融机构向中国反洗钱监测分析中心报送大额交易数据提供统一规范。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -803,7 +946,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本附件规定了银行业金融机构可疑交易报告的数据要素内容、格式标准和报送要求，包括可疑交易特征代码、交易信息要素、客户身份信息要素等。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -851,7 +1017,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本附件规定了证券期货业金融机构可疑交易报告的数据要素内容、格式标准和报送要求。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -899,7 +1088,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本附件规定了保险业金融机构可疑交易报告的数据要素内容、格式标准和报送要求。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -947,7 +1159,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本附件规定了通用可疑交易报告的数据要素内容、格式标准和报送要求，适用于各类金融机构。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-13" class="xref-art-link">第13条</a>
+<span class="xref-desc">— 央行职责</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

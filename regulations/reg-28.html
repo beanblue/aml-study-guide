@@ -178,6 +178,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -453,34 +457,36 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a class="toc-chapter" href="#art-1">前言 指引制定背景与目的</a></li>
-<li><a class="toc-chapter" href="#art-2">一（一） 简化措施的法律规定：总体要求</a></li>
-<li><a class="toc-chapter" href="#art-3">一（二） 简化措施的法律规定：金融行业相关规定</a></li>
-<li><a class="toc-chapter" href="#art-4">一（三） 简化措施的法律规定：特定非金融行业相关规定</a></li>
-<li><a class="toc-chapter" href="#art-5">二 国家层面识别、评估低风险情形的机制</a></li>
-<li><a class="toc-chapter" href="#art-6">三（一）1 金融行业低风险情形：银行业</a></li>
-<li><a class="toc-chapter" href="#art-7">三（一）2 金融行业低风险情形：证券业</a></li>
-<li><a class="toc-chapter" href="#art-8">三（一）3 金融行业低风险情形：保险业</a></li>
-<li><a class="toc-chapter" href="#art-9">三（一）4 金融行业低风险情形：非银行支付业与信托业</a></li>
-<li><a class="toc-chapter" href="#art-10">三（一）5 金融行业低风险情形：七类非银行金融机构与网络小贷行业</a></li>
-<li><a class="toc-chapter" href="#art-11">三（二） 特定非金融行业低风险情形</a></li>
-<li><a class="toc-chapter" href="#art-12">四（一） 简化措施的适用：确定适用简化措施的低风险情形</a></li>
-<li><a class="toc-chapter" href="#art-13">四（二） 简化措施的适用：采取与风险状况相适应的简化措施</a></li>
-<li><a class="toc-chapter" href="#art-14">四（三） 简化措施的适用：持续关注风险变化，适时调整简化措施</a></li>
-<li><a href="#art-1">第1条 · 指引制定背景与目的</a></li>
-<li><a href="#art-2">第2条 · 简化措施的法律规定：总体要求</a></li>
-<li><a href="#art-3">第3条 · 简化措施的法律规定：金融行业相关规定</a></li>
-<li><a href="#art-4">第4条 · 简化措施的法律规定：特定非金融行业相关规定</a></li>
-<li><a href="#art-5">第5条 · 国家层面识别、评估低风险情形的机制</a></li>
-<li><a href="#art-6">第6条 · 金融行业低风险情形：银行业</a></li>
-<li><a href="#art-7">第7条 · 金融行业低风险情形：证券业</a></li>
-<li><a href="#art-8">第8条 · 金融行业低风险情形：保险业</a></li>
-<li><a href="#art-9">第9条 · 金融行业低风险情形：非银行支付业与信托业</a></li>
-<li><a href="#art-10">第10条 · 金融行业低风险情形：七类非银行金融机构与网络小贷行业</a></li>
-<li><a href="#art-11">第11条 · 特定非金融行业低风险情形</a></li>
-<li><a href="#art-12">第12条 · 简化措施的适用：确定适用简化措施的低风险情形</a></li>
-<li><a href="#art-13">第13条 · 简化措施的适用：采取与风险状况相适应的简化措施</a></li>
-<li><a href="#art-14">第14条 · 简化措施的适用：持续关注风险变化，适时调整简化措施</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">前言</a>
+<ul class="toc-sub">
+<li><a href="#art-1">前言 · 指引制定背景与目的</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-2" class="toc-chapter">一、关于简化措施的法律规定</a>
+<ul class="toc-sub">
+<li><a href="#art-2">一（一） · 简化措施的法律规定：总体要求</a></li>
+<li><a href="#art-3">一（二） · 简化措施的法律规定：金融行业相关规定</a></li>
+<li><a href="#art-4">一（三） · 简化措施的法律规定：特定非金融行业相…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-5" class="toc-chapter">二、国家层面识别、评估低风险情形的机制</a>
+<ul class="toc-sub">
+<li><a href="#art-5">二 · 国家层面识别、评估低风险情形的机制</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-6" class="toc-chapter">三、国家层面识别的各行业低风险情形</a>
+<ul class="toc-sub">
+<li><a href="#art-6">三（一）1 · 金融行业低风险情形：银行业</a></li>
+<li><a href="#art-7">三（一）2 · 金融行业低风险情形：证券业</a></li>
+<li><a href="#art-8">三（一）3 · 金融行业低风险情形：保险业</a></li>
+<li><a href="#art-9">三（一）4 · 金融行业低风险情形：非银行支付业与信托业</a></li>
+<li><a href="#art-10">三（一）5 · 金融行业低风险情形：七类非银行金融机…</a></li>
+<li><a href="#art-11">三（二） · 特定非金融行业低风险情形</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-12" class="toc-chapter">四、简化措施的适用</a>
+<ul class="toc-sub">
+<li><a href="#art-12">四（一） · 简化措施的适用：确定适用简化措施的低…</a></li>
+<li><a href="#art-13">四（二） · 简化措施的适用：采取与风险状况相适应…</a></li>
+<li><a href="#art-14">四（三） · 简化措施的适用：持续关注风险变化，适…</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -494,7 +500,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">我国反洗钱法律制度已经确立基于风险的反洗钱工作原则，要求反洗钱义务机构根据面临的洗钱恐怖融资风险状况，采取与之相适应的反洗钱措施，针对识别的较低风险情形，根据情况采取简化措施。本指引系统梳理了我国反洗钱领域关于简化措施适用的法律依据，结合国家层面的洗钱和恐怖融资风险评估报告，细化行业低风险情形并明确简化措施适用要求，引导金融机构进一步落实基于风险原则，合理配置反洗钱资源。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -543,7 +572,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">《中华人民共和国反洗钱法》第四十二条明确，特定非金融机构在从事规定的特定业务时，参照关于金融机构履行反洗钱义务的相关规定，根据行业特点、经营规模、洗钱风险状况履行反洗钱义务。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-42" class="xref-art-link">第42条</a>
+<span class="xref-desc">— 特定非金融机构参照</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-15" class="xref-art-link">第15条</a>
+<span class="xref-desc">— 特定非金融机构主管部门</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -598,7 +650,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">《金融机构客户受益所有人识别管理办法》规定，对于特定的法人、非法人组织，金融机构在充分评估其洗钱和恐怖融资风险的基础上，可以采取与风险状况相匹配的简化识别措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-29" class="xref-art-link">第29条</a>
+<span class="xref-desc">— 尽职调查情形</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-30" class="xref-art-link">第30条</a>
+<span class="xref-desc">— 持续尽职调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -655,7 +730,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">登记代理行业：《经营主体登记申请及代理行为管理办法》规定，登记代理人从事代理公司、合伙企业、个人独资企业等经营主体的登记业务，且洗钱风险较低的，可以简化反洗钱义务。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-33" class="xref-art-link">第33条</a>
+<span class="xref-desc">— 跨部门身份核实</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -711,7 +809,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">四是地域维度：涉及跨境资金流动或者高风险国家、地区的，不宜评估为低风险情形。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-39" class="xref-art-link">第39条</a>
+<span class="xref-desc">— 高风险客户措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -759,7 +880,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">银行业低风险情形主要集中于资金封闭运行、用途明确的业务场景。一是金融市场业务，包括债券市场交易、同业拆借交易等，交易对手均为持牌金融机构、政府等公共部门，资金路径透明。二是养老金及企业年金业务，包括仅具社保功能的社保账户、养老金/企业年金托管业务等，账户实行专户闭环管理，支取条件严格限定。三是针对因服务国家重大战略部署实施疏解的企业、高校、医院等疏解主体，在风险较低情形下适当采取简化措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-29" class="xref-art-link">第29条</a>
+<span class="xref-desc">— 尽职调查情形</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-30" class="xref-art-link">第30条</a>
+<span class="xref-desc">— 持续尽职调查</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -807,7 +951,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">证券业低风险情形包括：一是自营业务，资金来源为机构经营业务所得的自有资金，依法与客户交易结算资金实行分户管理。二是投资顾问业务，仅向客户提供投资策略、分析报告等建议，不直接参与客户的资金管理或交易执行。三是个人养老金、社保及年金类投资基金，资金来源明确、合法合规，在专门账户内封闭运行。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -855,7 +1022,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">保险业低风险情形包括：一是意外险及健康险，多为纯保障型消费型险种，无储蓄投资功能和现金价值，保费普遍金额很低。二是养老保险，资金来源明确且需通过个人养老金资金账户规范缴存，领取需达到退休等特定情形。三是普惠金融类保险，如政策性农业保险、大病补充医疗保险等，通常由政府主导。四是相互保险，由成员缴纳保费形成互助基金，成员彼此了解、透明度高。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -904,7 +1094,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">信托业：一是公益慈善信托，不能指定特定的受益人，信托财产流向难以被操控。二是行政管理服务信托，主要为特定资产提供隔离、保管和保护服务，信托财产用途固定。三是风险处置服务信托，服务于企业破产、重整和债务重组，法律程序严格。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -953,7 +1166,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">网络小贷行业：受托支付类小额贷款，贷款资金由小额贷款公司直接支付给借款人指定的真实交易对手，资金从发放到支付全程不经过借款人自由支配。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1006,7 +1242,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">登记代理行业：地方政府设立的产业园区、产业孵化园等集中登记地入驻业务洗钱风险较低。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1055,7 +1314,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对于客户洗钱风险较高，但办理政策性、民生性等特定类型的低风险业务时，经判断认为交易背景较为合理时，可以适用简化措施。当怀疑客户或者交易涉嫌洗钱、恐怖融资等高风险情形时，不得采取简化措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1104,7 +1386,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">简化尽职调查不等于豁免对客户的尽职调查。对于可以适用简化措施的低风险情形，应当按照有关规定并参考指引要求，采取必要的、与风险相称的客户尽职调查措施。适用简化措施的，不得免除反洗钱特别预防措施名单筛查要求。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1153,7 +1458,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对于确定为采取简化措施的低风险业务场景，需定期回溯相关客户、业务关系或者交易是否持续为低风险并可适用简化措施。当客户、业务关系或者交易风险状况发生变化时，应当及时调整简化措施的适用范围和相关要求。对于不再符合低风险情形的，应及时停止适用简化措施，根据风险程度采取一般措施或强化措施。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-37" class="xref-art-link">第37条</a>
+<span class="xref-desc">— 集团统筹与信息共享</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

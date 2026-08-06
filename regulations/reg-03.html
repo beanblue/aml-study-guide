@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -499,17 +503,32 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录（共11条）</h3>
 <ul class="reg-toc-list">
+<li class="toc-group"><a href="#art-3" class="toc-chapter">第一章 总 则</a>
+<ul class="toc-sub">
 <li><a href="#art-3">第三条 · 定义</a></li>
-<li><a href="#art-14">第十四条 · 金融机构和特定非金融机构的涉恐资产冻结义务</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-14" class="toc-chapter">第二章 恐怖活动组织和人员的认定</a>
+<ul class="toc-sub">
+<li><a href="#art-14">第十四条 · 立即予以冻结</a></li>
 <li><a href="#art-15">第十五条 · 被认定组织和人员的复审程序</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-21" class="toc-chapter">第三章 安 全 防 范</a>
+<ul class="toc-sub">
 <li><a href="#art-21">第二十一条 · 安置教育的评估与解除</a></li>
-<li><a href="#art-24">第二十四条 · 反洗钱行政主管部门的反恐融资监管职责</a></li>
+<li><a href="#art-24">第二十四条 · 名单管理</a></li>
 <li><a href="#art-26">第二十六条 · 海关进出境涉恐物品查验职责</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-69" class="toc-chapter">第七章 国 际 合 作</a>
+<ul class="toc-sub">
 <li><a href="#art-69">第六十九条 · 国务院部门反恐国际合作职责</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-83" class="toc-chapter">第九章 法 律 责 任</a>
+<ul class="toc-sub">
 <li><a href="#art-83">第八十三条 · 金融机构未冻结涉恐资产的法律责任</a></li>
 <li><a href="#art-86">第八十六条 · 未履行客户身份查验的法律责任</a></li>
 <li><a href="#art-91">第九十一条 · 拒不配合反恐工作的处罚</a></li>
-<li><a href="#art-93">第九十三条 · 单位违反本法规定</a></li>
+<li><a href="#art-93">第九十三条 · 客户管理</a></li>
+</ul></li>
 </ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn collapsed" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>

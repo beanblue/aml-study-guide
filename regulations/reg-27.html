@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -491,17 +495,12 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一 客户尽职调查触发情形与受益所有人范围</a></li>
-<li><a href="#art-2" class="toc-chapter">二 信托受托人境外注册时的识别要求</a></li>
-<li><a href="#art-3" class="toc-chapter">三 保险公司对信托作为保险受益人的识别</a></li>
-<li><a href="#art-4" class="toc-chapter">四 存量客户尽职调查时限要求</a></li>
-<li><a href="#art-5" class="toc-chapter">五 信托公司受托人身份披露义务</a></li>
-
-<li><a href="#art-1">第1条 · 客户尽职调查触发情形与受益所有人范围</a></li>
-<li><a href="#art-2">第2条 · 信托受托人境外注册时的识别要求</a></li>
-<li><a href="#art-3">第3条 · 保险公司对信托作为保险受益人的识别</a></li>
-<li><a href="#art-4">第4条 · 存量客户尽职调查时限要求</a></li>
-<li><a href="#art-5">第5条 · 信托公司受托人身份披露义务</a></li></ul>
+<li><a href="#art-1">一 · 客户尽职调查触发情形与受益所有人范围</a></li>
+<li><a href="#art-2">二 · 信托受托人境外注册时的识别要求</a></li>
+<li><a href="#art-3">三 · 保险公司对信托作为保险受益人的识别</a></li>
+<li><a href="#art-4">四 · 存量客户尽职调查时限要求</a></li>
+<li><a href="#art-5">五 · 信托公司受托人身份披露义务</a></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -515,7 +514,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构按照《管理办法》第七条第二款第（五）项“对于客户为法人或者非法人组织的，识别并采取合理措施核实客户的受益所有人”要求开展客户尽职调查时，该项所称客户的受益所有人，除最终拥有或者实际控制法人、非法人组织或者享有法人、非法人组织最终收益的自然人外，也包括由客户代表其进行交易的自然人。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -563,7 +585,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构按照《管理办法》第二十条第一款要求开展客户尽职调查时，对于信托的受托人或者管理人在境外注册或者经营的，应当按照勤勉尽责要求完整识别和登记信托受托人或者管理人的住所或者主要经营场所信息。金融机构按照《管理办法》第二十条第二款要求对非法人组织开展客户尽职调查时，还应当通过获取其依法设立或者可依法开展经营、社会活动的执照、证件、文件等识别和核实客户身份。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -611,7 +656,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对于信托公司以信托受托人身份作为人寿保险合同和其他具有投资性质的保险合同受益人的，保险公司应当登记该信托的名称，并在赔偿、给付保险金时按照《管理办法》第二十条第一款规定识别、核实信托的身份。当该信托具有较高风险情形时，保险公司应当在赔偿或者给付保险金时采取强化尽职调查措施，按照有关规定识别并采取合理措施核实信托的受益所有人。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-39" class="xref-art-link">第39条</a>
+<span class="xref-desc">— 高风险客户措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -659,7 +727,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">金融机构落实《管理办法》第五十一条要求开展存量客户尽职调查时，应当基于客户的重要性和风险状况，并考虑前期是否开展过客户尽职调查以及客户尽职调查的时间和数据信息收集的充分程度，按照该条规定的时限适时完成存量客户的尽职调查。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -707,7 +798,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">信托公司作为信托受托人，按照《金融机构客户受益所有人识别管理办法》第十五条要求配合其他金融机构和应当履行反洗钱义务的特定非金融机构开展客户尽职调查时，应当主动披露其受托人身份。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

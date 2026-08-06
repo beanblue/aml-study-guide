@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -481,17 +485,12 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一 关于新增义务机构的履职要求</a></li>
-<li><a href="#art-2" class="toc-chapter">二 关于大额交易报告的履职要求</a></li>
-<li><a href="#art-3" class="toc-chapter">三 关于可疑交易报告的履职要求</a></li>
-<li><a href="#art-4" class="toc-chapter">四 关于涉恐名单监控的履职要求</a></li>
-<li><a href="#art-5" class="toc-chapter">五 关于完善内部管理措施的履职要求</a></li>
-
-<li><a href="#art-1">第1条 · 关于新增义务机构的履职要求</a></li>
-<li><a href="#art-2">第2条 · 关于大额交易报告的履职要求</a></li>
-<li><a href="#art-3">第3条 · 关于可疑交易报告的履职要求</a></li>
-<li><a href="#art-4">第4条 · 关于涉恐名单监控的履职要求</a></li>
-<li><a href="#art-5">第5条 · 关于完善内部管理措施的履职要求</a></li></ul>
+<li><a href="#art-1">一 · 关于新增义务机构的履职要求</a></li>
+<li><a href="#art-2">二 · 关于大额交易报告的履职要求</a></li>
+<li><a href="#art-3">三 · 关于可疑交易报告的履职要求</a></li>
+<li><a href="#art-4">四 · 关于涉恐名单监控的履职要求</a></li>
+<li><a href="#art-5">五 · 关于完善内部管理措施的履职要求</a></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">

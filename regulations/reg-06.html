@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -500,24 +504,34 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录（共13条）</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-2" class="toc-chapter">第一章 总则</a></li>
-<li><a href="#art-13" class="toc-chapter">第二章 预防和治理</a></li>
-<li><a href="#art-26" class="toc-chapter">第三章 案件办理</a></li>
-<li><a href="#art-39" class="toc-chapter">第四章 涉案财产认定和处置</a></li>
-<li><a href="#art-71" class="toc-chapter">第八章 法律责任</a></li>
+<li class="toc-group"><a href="#art-2" class="toc-chapter">第一章 总则</a>
+<ul class="toc-sub">
 <li><a href="#art-2">第二条 · 定义</a></li>
 <li><a href="#art-7">第七条 · 一般性禁止</a></li>
-<li><a href="#art-13">第十三条 · 市场监管、金融监管、…</a></li>
-<li><a href="#art-15">第十五条 · 公安机关可以会同有关…</a></li>
-<li><a href="#art-17">第十七条 · 国务院反洗钱行政主管…</a></li>
-<li><a href="#art-26">第二十六条 · 公安机关核查有组织犯…</a></li>
-<li><a href="#art-27">第二十七条 · 公安机关核查有组织犯…</a></li>
-<li><a href="#art-39">第三十九条 · 办理有组织犯罪案件中…</a></li>
-<li><a href="#art-40">第四十条 · 公安机关、人民检察院…</a></li>
-<li><a href="#art-41">第四十一条 · 查封、扣押、冻结、处…</a></li>
-<li><a href="#art-42">第四十二条 · 公安机关可以向反洗钱…</a></li>
-<li><a href="#art-43">第四十三条 · 对下列财产</a></li>
-<li><a href="#art-71">第七十一条 · 金融机构等相关单位未…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-13" class="toc-chapter">第二章 预防和治理</a>
+<ul class="toc-sub">
+<li><a href="#art-13">第十三条 · 评估监测</a></li>
+<li><a href="#art-15">第十五条 · 内部控制</a></li>
+<li><a href="#art-17">第十七条 · 职责分工</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-26" class="toc-chapter">第三章 案件办理</a>
+<ul class="toc-sub">
+<li><a href="#art-26">第二十六条 · 信息管理</a></li>
+<li><a href="#art-27">第二十七条 · 名单管理</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-39" class="toc-chapter">第四章 涉案财产认定和处置</a>
+<ul class="toc-sub">
+<li><a href="#art-39">第三十九条 · 名单管理</a></li>
+<li><a href="#art-40">第四十条 · 犯罪构成</a></li>
+<li><a href="#art-41">第四十一条 · 名单管理</a></li>
+<li><a href="#art-42">第四十二条 · 职责分工</a></li>
+<li><a href="#art-43">第四十三条 · 保存要求</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-71" class="toc-chapter">第八章 法律责任</a>
+<ul class="toc-sub">
+<li><a href="#art-71">第七十一条 · 法律责任</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -577,11 +591,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：黑社会性质的组织犯罪是反洗钱法第2条七类上游犯罪之一，涉黑资金清洗构成洗钱罪。</li></ul>
+<ul><li>记忆要点：三款三层——有组织犯罪定义（一）、恶势力组织定义（二）、域外适用（三）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：三款三层——有组织犯罪定义（一）、恶势力组织定义（二）、域外适用（三）。</li></ul>
+<ul><li>关联考点：黑社会性质的组织犯罪是反洗钱法第2条七类上游犯罪之一，涉黑资金清洗构成洗钱罪。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -649,11 +663,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条与反洗钱法第10条配合义务形成体系，金融机构一身兼两职。</li></ul>
+<ul><li>记忆要点：第一款义务（协助配合），第二款保障（国家保护），义务保障对等。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：第一款义务（协助配合），第二款保障（国家保护），义务保障对等。</li></ul>
+<ul><li>关联考点：本条与反洗钱法第10条配合义务形成体系，金融机构一身兼两职。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -721,11 +735,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条金融监管职责与反洗钱法第17条（反洗钱主管部门督促义务）、第3条（风险防控体系）衔接。</li></ul>
+<ul><li>记忆要点：主体（行业主管部门）＋协作（会同公安）＋内容（机制监测监管）＋重点（易发领域）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：主体（行业主管部门）＋协作（会同公安）＋内容（机制监测监管）＋重点（易发领域）。</li></ul>
+<ul><li>关联考点：本条金融监管职责与反洗钱法第17条（反洗钱主管部门督促义务）、第3条（风险防控体系）衔接。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -793,11 +807,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条与第13条行业治理机制衔接，从行业治理细化到区域场所治理。</li></ul>
+<ul><li>记忆要点：确定（公安会同部门）＋依据（本地情况）＋义务（措施管理反馈）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：确定（公安会同部门）＋依据（本地情况）＋义务（措施管理反馈）。</li></ul>
+<ul><li>关联考点：本条与第13条行业治理机制衔接，从行业治理细化到区域场所治理。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -866,11 +880,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条与反洗钱法第36条（可疑交易报告）、第17条（反洗钱主管部门职责）、刑法第191条（洗钱罪）形成衔接。</li></ul>
+<ul><li>记忆要点：督促（一）—调查（二）—报案（三），层层递进的协同链条。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：督促（一）—调查（二）—报案（三），层层递进的协同链条。</li></ul>
+<ul><li>关联考点：本条与反洗钱法第36条（可疑交易报告）、第17条（反洗钱主管部门职责）、刑法第191条（洗钱罪）形成衔接。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -938,11 +952,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条配合义务与反洗钱法第10条配合义务衔接，金融机构双重配合。</li></ul>
+<ul><li>记忆要点：调查授权（一）＋配合义务（如实提供），授权配合双向保障。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：调查授权（一）＋配合义务（如实提供），授权配合双向保障。</li></ul>
+<ul><li>关联考点：本条配合义务与反洗钱法第10条配合义务衔接，金融机构双重配合。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1012,11 +1026,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条紧急止付临时冻结与反洗钱法第40条立即冻结、第71条未协助紧急止付罚则形成体系。</li></ul>
+<ul><li>记忆要点：查询（县级批准）—紧急（市级批准＋四十八小时＋三种措施），门槛递增期限递减。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：查询（县级批准）—紧急（市级批准＋四十八小时＋三种措施），门槛递增期限递减。</li></ul>
+<ul><li>关联考点：本条紧急止付临时冻结与反洗钱法第40条立即冻结、第71条未协助紧急止付罚则形成体系。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1085,11 +1099,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条配合义务与反洗钱法第10条配合义务衔接，与第41条合法财产保护形成平衡。</li></ul>
+<ul><li>记忆要点：查封扣押（物证）＋查询冻结（金融财产）＋配合义务，三位一体。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：查封扣押（物证）＋查询冻结（金融财产）＋配合义务，三位一体。</li></ul>
+<ul><li>关联考点：本条配合义务与反洗钱法第10条配合义务衔接，与第41条合法财产保护形成平衡。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1158,11 +1172,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条全面调查与反洗钱法第17条可疑交易调查、第42条反洗钱协查形成财产调查体系。</li></ul>
+<ul><li>记忆要点：主体（公检法）＋对象（组织及成员）＋内容（财产状况）＋特征（全面）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：主体（公检法）＋对象（组织及成员）＋内容（财产状况）＋特征（全面）。</li></ul>
+<ul><li>关联考点：本条全面调查与反洗钱法第17条可疑交易调查、第42条反洗钱协查形成财产调查体系。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1232,11 +1246,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条权益保护与反洗钱法第40条特别预防措施的权益平衡理念相通。</li></ul>
+<ul><li>记忆要点：程序规范（依法保护区分减少影响）＋无关解除（三日退还）＋被害人返还＋生活保障。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：程序规范（依法保护区分减少影响）＋无关解除（三日退还）＋被害人返还＋生活保障。</li></ul>
+<ul><li>关联考点：本条权益保护与反洗钱法第40条特别预防措施的权益平衡理念相通。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1305,11 +1319,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条与反洗钱法第17条形成“反洗钱报案—公安协查”的双向衔接机制。</li></ul>
+<ul><li>记忆要点：主体（公安机关）＋内容（信息数据＋可疑交易）＋义务（配合＋及时回复）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：主体（公安机关）＋内容（信息数据＋可疑交易）＋义务（配合＋及时回复）。</li></ul>
+<ul><li>关联考点：本条与反洗钱法第17条形成“反洗钱报案—公安协查”的双向衔接机制。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
@@ -1385,11 +1399,11 @@ details.xref-details > summary.xref-summary:hover{
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>易错点：第三类金融资产处置须“经权利人申请”且“不损害利益不影响诉讼”，条件最严格。</li></ul>
+<ul><li>关联考点：本条金融资产变现与反洗钱法第40条特别预防措施冻结互补，冻结保全新处置变现。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>
-<ul><li>关联考点：本条金融资产变现与反洗钱法第40条特别预防措施冻结互补，冻结保全新处置变现。</li></ul>
+<ul><li>易错点：第三类金融资产处置须“经权利人申请”且“不损害利益不影响诉讼”，条件最严格。</li></ul>
 </div>
 <div class="study-block exam">
 <h6>应试要点</h6>
@@ -1454,11 +1468,11 @@ details.xref-details > summary.xref-summary:hover{
 <div class="study-grid">
 <div class="study-block memorize">
 <h6>需要记忆</h6>
-<ul><li>关联考点：本条与第27条紧急措施配合义务对应，与反洗钱法第58条形成“公安处罚＋反洗钱处罚”的双重责任。</li></ul>
+<ul><li>记忆要点：情形（未协助第27条措施）＋主体（公安机关）＋三档（改正—罚款—处分建议）。</li></ul>
 </div>
 <div class="study-block understand">
 <h6>需要理解</h6>
-<ul><li>记忆要点：情形（未协助第27条措施）＋主体（公安机关）＋三档（改正—罚款—处分建议）。</li></ul>
+<ul><li>关联考点：本条与第27条紧急措施配合义务对应，与反洗钱法第58条形成“公安处罚＋反洗钱处罚”的双重责任。</li></ul>
 </div>
 <div class="study-block apply">
 <h6>需要运用</h6>

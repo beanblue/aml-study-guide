@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{cursor:pointer;background:var(--c-card);border-radius:var(--radius);
@@ -487,47 +491,48 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-1" class="toc-chapter">一 基本原则：风险为本原则</a></li>
-<li><a href="#art-2" class="toc-chapter">二 基本原则：全面性原则</a></li>
-<li><a href="#art-3" class="toc-chapter">三 基本原则：适用性与动态管理原则</a></li>
-<li><a href="#art-4" class="toc-chapter">四 功能与适用范围</a></li>
-<li><a href="#art-5" class="toc-chapter">五 标准设计：设计流程概述</a></li>
-<li><a href="#art-6" class="toc-chapter">六 标准设计：案例特征化</a></li>
-<li><a href="#art-7" class="toc-chapter">七 标准设计：特征指标化</a></li>
-<li><a href="#art-8" class="toc-chapter">八 标准设计：指标模型化</a></li>
-<li><a href="#art-9" class="toc-chapter">九 系统开发：开发方式与需求</a></li>
-<li><a href="#art-10" class="toc-chapter">十 系统开发：数据支持</a></li>
-<li><a href="#art-11" class="toc-chapter">十一 系统开发：结果反馈</a></li>
-<li><a href="#art-12" class="toc-chapter">十二 系统开发：功能建设与用户权限</a></li>
-<li><a href="#art-13" class="toc-chapter">十三 测试评估：测试要求</a></li>
-<li><a href="#art-14" class="toc-chapter">十四 测试评估：评估要求</a></li>
-<li><a href="#art-15" class="toc-chapter">十五 动态优化：优化要求</a></li>
-<li><a href="#art-16" class="toc-chapter">十六 动态优化：评估指标</a></li>
-<li><a href="#art-17" class="toc-chapter">十七 管理与保障：管理政策</a></li>
-<li><a href="#art-18" class="toc-chapter">十八 管理与保障：组织实施与作业模式</a></li>
-<li><a href="#art-19" class="toc-chapter">十九 管理与保障：保障措施</a></li>
-<li><a href="#art-20" class="toc-chapter">二十 附则：名词解释</a></li>
-
-<li><a href="#art-1">第1条 · 基本原则：风险为本原则</a></li>
-<li><a href="#art-2">第2条 · 基本原则：全面性原则</a></li>
-<li><a href="#art-3">第3条 · 基本原则：适用性与动态管理原则</a></li>
-<li><a href="#art-4">第4条 · 功能与适用范围</a></li>
-<li><a href="#art-5">第5条 · 标准设计：设计流程概述</a></li>
-<li><a href="#art-6">第6条 · 标准设计：案例特征化</a></li>
-<li><a href="#art-7">第7条 · 标准设计：特征指标化</a></li>
-<li><a href="#art-8">第8条 · 标准设计：指标模型化</a></li>
-<li><a href="#art-9">第9条 · 系统开发：开发方式与需求</a></li>
-<li><a href="#art-10">第10条 · 系统开发：数据支持</a></li>
-<li><a href="#art-11">第11条 · 系统开发：结果反馈</a></li>
-<li><a href="#art-12">第12条 · 系统开发：功能建设与用户权限</a></li>
-<li><a href="#art-13">第13条 · 测试评估：测试要求</a></li>
-<li><a href="#art-14">第14条 · 测试评估：评估要求</a></li>
-<li><a href="#art-15">第15条 · 动态优化：优化要求</a></li>
-<li><a href="#art-16">第16条 · 动态优化：评估指标</a></li>
-<li><a href="#art-17">第17条 · 管理与保障：管理政策</a></li>
-<li><a href="#art-18">第18条 · 管理与保障：组织实施与作业模式</a></li>
-<li><a href="#art-19">第19条 · 管理与保障：保障措施</a></li>
-<li><a href="#art-20">第20条 · 附则：名词解释</a></li></ul>
+<li class="toc-group"><a href="#art-1" class="toc-chapter">第一章 总则</a>
+<ul class="toc-sub">
+<li><a href="#art-1">一 · 基本原则：风险为本原则</a></li>
+<li><a href="#art-2">二 · 基本原则：全面性原则</a></li>
+<li><a href="#art-3">三 · 基本原则：适用性与动态管理原则</a></li>
+<li><a href="#art-4">四 · 功能与适用范围</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-5" class="toc-chapter">第二章 标准设计</a>
+<ul class="toc-sub">
+<li><a href="#art-5">五 · 标准设计：设计流程概述</a></li>
+<li><a href="#art-6">六 · 标准设计：案例特征化</a></li>
+<li><a href="#art-7">七 · 标准设计：特征指标化</a></li>
+<li><a href="#art-8">八 · 标准设计：指标模型化</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-9" class="toc-chapter">第三章 系统开发</a>
+<ul class="toc-sub">
+<li><a href="#art-9">九 · 系统开发：开发方式与需求</a></li>
+<li><a href="#art-10">十 · 系统开发：数据支持</a></li>
+<li><a href="#art-11">十一 · 系统开发：结果反馈</a></li>
+<li><a href="#art-12">十二 · 系统开发：功能建设与用户权限</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-13" class="toc-chapter">第四章 测试评估</a>
+<ul class="toc-sub">
+<li><a href="#art-13">十三 · 测试评估：测试要求</a></li>
+<li><a href="#art-14">十四 · 测试评估：评估要求</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-15" class="toc-chapter">第五章 动态优化</a>
+<ul class="toc-sub">
+<li><a href="#art-15">十五 · 动态优化：优化要求</a></li>
+<li><a href="#art-16">十六 · 动态优化：评估指标</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-17" class="toc-chapter">第六章 管理与保障措施</a>
+<ul class="toc-sub">
+<li><a href="#art-17">十七 · 管理与保障：管理政策</a></li>
+<li><a href="#art-18">十八 · 管理与保障：组织实施与作业模式</a></li>
+<li><a href="#art-19">十九 · 管理与保障：保障措施</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-20" class="toc-chapter">第七章 附则</a>
+<ul class="toc-sub">
+<li><a href="#art-20">二十 · 附则：名词解释</a></li>
+</ul></li>
+</ul>
 </div>
 <div class="ann-toggle-wrap"><button class="ann-toggle-btn" id="ann-toggle" onclick="toggleAllAnnotations()"><span class="icon">▾</span>全部展开</button></div>
 <div class="article-card" id="art-1">
@@ -540,7 +545,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">风险为本原则。义务机构建立的监测标准应当与其面临的洗钱和恐怖融资（以下统称洗钱）风险相匹配。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-54" class="xref-art-link">第54条</a>
+<span class="xref-desc">— 与反恐怖主义法衔接</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -588,7 +616,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">全面性原则。义务机构开展交易监测应当覆盖全部客户和业务领域，贯穿业务办理的各个环节。义务机构开展交易分析应当全面结合客户的身份特征、交易特征或行为特征。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -638,7 +689,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">保密原则。义务机构应当对本机构的监测标准及监测措施严格保密，建立相应制度或要求规范监测标准的知悉和使用范围。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-42" class="xref-art-link">第42条</a>
+<span class="xref-desc">— 特定非金融机构参照</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -687,7 +761,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">本指引适用于义务机构依据《管理办法》等法律规章，自主设计、开发、测试、评估和完善本机构的监测标准。非银行支付机构、从事汇兑业务和基金销售业务的机构、银行卡清算机构、资金清算中心及其他应当履行反洗钱义务的特定非金融机构及有关行业自律组织，可参照本指引开展相关工作。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-42" class="xref-art-link">第42条</a>
+<span class="xref-desc">— 特定非金融机构参照</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -735,7 +832,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">监测标准设计，是指义务机构依据法律法规、行业指引和风险提示等，对本行业案例特征化、特征指标化和指标模型化的建设过程。对于大额交易及其他依据法律法规和行业惯例可直接制定的监测标准，义务机构可采取相对简化的流程。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -785,7 +905,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">特征分析：义务机构对所收集的案例，应当以客户为监测单位，从客户的身份、行为、及其交易的资金来源、金额、频率、流向、性质等方面，抽象出案例中具有典型代表性、规律性或普遍适用性的可识别异常特征。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-42" class="xref-art-link">第42条</a>
+<span class="xref-desc">— 特定非金融机构参照</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-6" class="xref-art-link">第6条</a>
+<span class="xref-desc">— 义务主体</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -835,7 +978,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">指标设计：义务机构应当将基础性、单元性的指标要素组合设计成为识别、衡量或反映相关案例异常特征的指标，通过指标规则设置、指标阈值调整和指标组合使用，可指向某些异常的客户或交易特征。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-28" class="xref-art-link">第28条</a>
+<span class="xref-desc">— 客户尽职调查制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-29" class="xref-art-link">第29条</a>
+<span class="xref-desc">— 尽职调查情形</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-31" class="xref-art-link">第31条</a>
+<span class="xref-desc">— 代理人及受益人识别</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -884,7 +1050,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">设计原则包括：体现组合指标的位阶（对能反映犯罪类型主要特征的指标赋予更高位阶和较大权重）、具有一定的灵活度（给予一定的容错区间以避免监测漏洞）、具备一定的时效性（适时调整跟进洗钱类型的特征变化）。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -932,7 +1121,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">义务机构可选择自主开发、共享开发或市场采购等方式建设大额交易和可疑交易监测系统（以下简称监测系统），但无论采取何种开发方式，开发前应当在监测标准设计等方面提出适合本机构的监测系统建设需求，开发完成后监测系统能有效满足监测标准运行的数据需求。如存在部分业务或产品无法通过系统进行监测，或部分监测标准无法通过系统运行，义务机构应当进行充分论证，采取必要的人工监测等辅助手段开展可疑交易报告工作，并保留相关工作记录。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-16" class="xref-art-link">第16条</a>
+<span class="xref-desc">— 监测分析机构</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-35" class="xref-art-link">第35条</a>
+<span class="xref-desc">— 大额和可疑交易报告</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1028,7 +1240,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">对于系统中客户身份及其交易信息等数据的监测，义务机构可采取实时和定期的方式进行结果反馈。其中，涉恐名单监控应当实现实时反馈，以自动化干预为基础。其他监测标准原则上应当实现系统运行后T+1日内反馈，以自动化干预为主，人工干预为辅。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-41" class="xref-art-link">第41条</a>
+<span class="xref-desc">— 名单管理</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-24" class="xref-art-link">第24条</a>
+<span class="xref-desc">— 高风险国家地区名单</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1078,7 +1313,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">监测系统的用户层级应当覆盖义务机构内部相关部门或分支机构，能支持不同作业模式下用户权限的配置，能支持对业务端的信息查询，并具备必要的保密和稽核（审计）功能。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-34" class="xref-art-link">第34条</a>
+<span class="xref-desc">— 资料保存</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-7" class="xref-art-link">第7条</a>
+<span class="xref-desc">— 信息保密</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-40" class="xref-art-link">第40条</a>
+<span class="xref-desc">— 特别预防措施</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1126,7 +1384,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">义务机构应当建立监测系统与各业务系统运行的模拟环境，通过数据输入、输出等方式对系统运行及各项监测标准运行情况进行测试。测试工作中应当重点关注的问题和环节包括但不限于：数据准备（尽量以本机构的真实客户和交易数据为基础进行测试）、功能测试（以监测标准运行、流程配套和用户体验为核心内容）、性能测试（对系统进行必要的负载测试和压力测试等）。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1174,7 +1455,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">义务机构应当依据测试结果，对监测标准设计和系统功能实际运行效果进行统计分析，实施效能评价和效益评估。评估内容包括：全面性评估（监测范围的全面性和监测结果的全面性）、准确性评估（系统反馈的准确性和标准指向的准确性）、灵活性评估（动态调整的灵活性和及时回溯的灵活性）。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1223,7 +1527,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">义务机构在推出新产品或新业务之前，应当完成相关监测标准的评估、完善和上线运行工作。在上述其他情况发生之日起3个月内，义务机构应当完成相关监测标准的评估、完善和上线运行工作。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1274,7 +1601,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">成案率：被移交或立案的可疑交易报告数/可疑交易报告数。该指标主要反映义务机构监测标准的有效性以及可疑交易报告质量。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1323,7 +1673,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">义务机构基于监测标准预警结果，对于经分析有合理理由怀疑客户交易与洗钱行为相关的，在履行可疑交易报告义务的同时，可在机构内部进行风险预警，并采取有效措施控制或化解风险。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1372,7 +1745,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">作业模式分为集中作业和分散作业两种。集中作业模式：义务机构在总部（集团）或一定层级以上分支机构设置反洗钱集中作业中心，对监测系统的预警案例进行集中分析、识别和报送。分散作业模式：义务机构将监测系统的预警案例，以客户为基本单位由相关分支机构和业务条线进行分析识别，然后按照逐级审核、审批等流程排除或上报可疑交易。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1421,7 +1817,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">资源保障：义务机构应当设立专职的反洗钱岗位，配备专职人员负责大额交易和可疑交易报告工作，并提供必要的资源保障和信息支持。监测标准建设作为大额交易和可疑交易报告的基础性、专业性和技术性工作环节，义务机构要在资源保障和信息支持方面重点保障，确保组织、制度、人员和系统配备到位。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">
@@ -1472,7 +1891,30 @@ details.xref-details > summary.xref-summary:hover{
 <p class="art-para">指标的位阶：模型构成指标重要性的等级排序，即通过分值配比和预警阈值设置等方式，对其中反映犯罪类型主要特征的指标赋予较高等级，并在监测预警中处于较高层级。</p>
 </div>
 <div class="article-annotation">
-<div class="ann-block"><h4>关联条款</h4><span class="pending">待补充</span></div>
+<div class="ann-block"><h4>关联条款<span class="xref-count-badge">4条</span></h4>
+<p style="font-size:12px;color:var(--c-muted);margin-bottom:14px;">以下为与本条存在实质关联的条文。</p>
+<ol class="xref-list">
+<li class="xref-item">
+<span class="xref-num">1.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-4" class="xref-art-link">第4条</a>
+<span class="xref-desc">— 风险为本原则</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">2.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-23" class="xref-art-link">第23条</a>
+<span class="xref-desc">— 风险评估制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">3.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-27" class="xref-art-link">第27条</a>
+<span class="xref-desc">— 内控制度</span>
+</li>
+<li class="xref-item">
+<span class="xref-num">4.</span>
+<a href="reg-00.html" class="xref-link">《反洗钱法》</a> <a href="reg-00.html#art-38" class="xref-art-link">第38条</a>
+<span class="xref-desc">— 风险分级管理</span>
+</li>
+</ol></div>
 <div class="ann-analysis">
 <h4>知识解析</h4>
 <div class="analysis-section">

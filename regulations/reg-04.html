@@ -177,6 +177,10 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
  transition:color .15s;display:block;padding:4px 0;}
 .reg-toc-list a:hover{color:var(--c-blue);}
 .reg-toc-list .toc-chapter{font-weight:500;color:var(--c-primary);}
+.reg-toc-list .toc-group{margin-bottom:2px;}
+.reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
+.reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
+.reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -500,10 +504,14 @@ details.xref-details > summary.xref-summary:hover{
 <div class="reg-toc-box">
 <h3>目录（共2条）</h3>
 <ul class="reg-toc-list">
-<li><a href="#art-4" class="toc-chapter">第一章 总则</a></li>
-<li><a href="#art-32" class="toc-chapter">第五章 金融监督管理</a></li>
+<li class="toc-group"><a href="#art-4" class="toc-chapter">第一章 总则</a>
+<ul class="toc-sub">
 <li><a href="#art-4">第四条 · 中国人民银行履行下列…</a></li>
+</ul></li>
+<li class="toc-group"><a href="#art-32" class="toc-chapter">第五章 金融监督管理</a>
+<ul class="toc-sub">
 <li><a href="#art-32">第三十二条 · 中国人民银行有权对金…</a></li>
+</ul></li>
 </ul>
 </div>
 
