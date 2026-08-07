@@ -181,7 +181,7 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
 .reg-toc-list .toc-sub{list-style:none;padding-left:20px;margin-top:2px;display:flex;flex-direction:column;gap:2px;}
 .reg-toc-list .toc-sub a{font-size:14px;color:var(--c-text);opacity:0.82;padding:2px 0;}
 .reg-toc-list .toc-sub a:hover{opacity:1;color:var(--c-blue);}
-.toc-section{padding-left:24px;font-size:14px;color:var(--c-muted);font-weight:400;}
+.reg-toc-list .toc-sub a.toc-section{font-weight:500;color:var(--c-primary);opacity:1;padding:4px 0 1px;font-size:14px;}
 
 /* 条文卡片 */
 .article-card{background:var(--c-card);border-radius:var(--radius);
@@ -197,7 +197,7 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--c-primary);line-height:1.21;
 .art-chapter{font-size:12px;color:var(--c-muted);margin-left:auto;
  background:var(--c-bg);padding:3px 10px;border-radius:980px;}
 .chapter-sep{font-size:18px;font-weight:700;color:var(--c-primary);
- text-align:center;padding:18px 24px;margin:8px 0;
+ text-align:center;padding:18px 24px;margin:8px 0;scroll-margin-top:64px;
  background:linear-gradient(135deg,#eef4ff,#f0f7ff);
  border-radius:var(--radius);border:1px solid rgba(0,113,227,0.12);
  letter-spacing:-0.02em;}
@@ -511,7 +511,9 @@ details.xref-details > summary.xref-summary:hover{
 <li><a href="#art-5">第五条 · 内控制度建设</a></li>
 <li><a href="#art-6">第六条 · 总部统一部署</a></li>
 </ul></li>
-<li class="toc-group"><a href="#art-7" class="toc-chapter">第一节 一般规定</a>
+<li class="toc-group"><a href="#ch-2" class="toc-chapter">第二章 客户尽职调查</a>
+<ul class="toc-sub">
+<li class="toc-group"><a href="#art-7" class="toc-section">第一节 一般规定</a>
 <ul class="toc-sub">
 <li><a href="#art-7">第七条 · 客户身份</a></li>
 <li><a href="#art-8">第八条 · 客户准入禁止</a></li>
@@ -539,7 +541,7 @@ details.xref-details > summary.xref-summary:hover{
 <li><a href="#art-30">第三十条 · 无法尽调的处置</a></li>
 <li><a href="#art-31">第三十一条 · 泄密风险特殊处理</a></li>
 </ul></li>
-<li class="toc-group"><a href="#art-32" class="toc-chapter">第二节 其他规定</a>
+<li class="toc-group"><a href="#art-32" class="toc-section">第二节 其他规定</a>
 <ul class="toc-sub">
 <li><a href="#art-32">第三十二条 · 境外代理行尽调</a></li>
 <li><a href="#art-33">第三十三条 · 外国政要尽调</a></li>
@@ -551,6 +553,7 @@ details.xref-details > summary.xref-summary:hover{
 <li><a href="#art-39">第三十九条 · 特别预防措施核查</a></li>
 <li><a href="#art-40">第四十条 · 高风险国家地区</a></li>
 <li><a href="#art-41">第四十一条 · 可疑行为报告</a></li>
+</ul></li>
 </ul></li>
 <li class="toc-group"><a href="#art-42" class="toc-chapter">第三章 客户身份资料及交易记录保存</a>
 <ul class="toc-sub">
@@ -5230,14 +5233,14 @@ document.addEventListener('click', function(e) {
  return;
  }
  }
- var tocLink = e.target.closest('a.toc-chapter, a[href^="#art-"]');
+ var tocLink = e.target.closest('a.toc-chapter, a[href^="#art-"], a[href^="#ch-"]');
  if (tocLink) {
  e.preventDefault();
  var href = tocLink.getAttribute('href');
- if (href && href.startsWith('#art-')) {
+ if (href && (href.startsWith('#art-') || href.startsWith('#ch-'))) {
  var target = document.getElementById(href.substring(1));
  if (target) {
- target.classList.add('expanded');
+ if (href.startsWith('#art-')) target.classList.add('expanded');
  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
  try { history.replaceState(null, '', href); } catch(ex) {}
  }
@@ -5259,20 +5262,20 @@ function toggleAllAnnotations() {
 }
 window.addEventListener('hashchange', function() {
  var hash = window.location.hash;
- if (hash && hash.startsWith('#art-')) {
+ if (hash && (hash.startsWith('#art-') || hash.startsWith('#ch-'))) {
  var target = document.getElementById(hash.substring(1));
  if (target) {
- target.classList.add('expanded');
+ if (hash.startsWith('#art-')) target.classList.add('expanded');
  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }
  }
 });
 (function() {
  var hash = window.location.hash;
- if (hash && hash.startsWith('#art-')) {
+ if (hash && (hash.startsWith('#art-') || hash.startsWith('#ch-'))) {
  var target = document.getElementById(hash.substring(1));
  if (target) {
- target.classList.add('expanded');
+ if (hash.startsWith('#art-')) target.classList.add('expanded');
  setTimeout(function() {
  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }, 100);
